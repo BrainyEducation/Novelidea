@@ -12,26 +12,24 @@ using Xamarin.Forms.Xaml;
 
 namespace BrainyStories
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
+    [XamlCompilation(XamlCompilationOptions.Compile)]
 
     // Class for the ThinkAndDo list page
-	public partial class ThinkAndDoList : ContentPage
-	{
-        private Settings settingsPage;
+    public partial class ThinkAndDoList : ContentPage
+    {
         private ThinkAndDoFactory factory = new ThinkAndDoFactory();
 
         public ObservableCollection<ThinkAndDo> ListOfThinkAndDos;
-        public ThinkAndDoList ()
-		{ 
+
+        public ThinkAndDoList()
+        {
             ListOfThinkAndDos = factory.generateThinkAndDos();
             InitializeComponent();
             BindList.ItemsSource = ListOfThinkAndDos;
-            settingsPage = new Settings();
-           
         }
 
         // Lauches a ThinkAndDo popup for the selected ThinkAndDo
-        async void OnItemTapped(object sender, ItemTappedEventArgs e)
+        private async void OnItemTapped(object sender, ItemTappedEventArgs e)
         {
             ListView view = (ListView)sender;
             if (view.SelectedItem == null)
@@ -41,26 +39,20 @@ namespace BrainyStories
             var think = (ThinkAndDo)view.SelectedItem;
             view.SelectedItem = null;
             ThinkAndDoPopup pop = new ThinkAndDoPopup(think);
-            await PopupNavigation.Instance.PushAsync(pop);     
+            await PopupNavigation.Instance.PushAsync(pop);
         }
 
         // Navbar methods
         // Returns to the previous page
-        async void BackClicked(object sender, EventArgs e)
+        private async void BackClicked(object sender, EventArgs e)
         {
             await App.Current.MainPage.Navigation.PopAsync();
         }
 
         // Returns to the Home page
-        async void HomeClicked(object sender, EventArgs e)
+        private async void HomeClicked(object sender, EventArgs e)
         {
             await App.Current.MainPage.Navigation.PopToRootAsync();
-        }
-
-        // Launches a settings popup
-        async void SettingsClicked(object sender, EventArgs e)
-        {
-            await PopupNavigation.Instance.PushAsync(settingsPage);
         }
     }
 }

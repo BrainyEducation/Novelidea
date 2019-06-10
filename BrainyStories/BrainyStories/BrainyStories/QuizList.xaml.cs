@@ -17,7 +17,6 @@ namespace BrainyStories
     // Class for the list of quizzes page
     public partial class QuizList : ContentPage
     {
-        private Settings settingsPage;
         private QuizFactory factory = new QuizFactory();
         private StoryFactory factoryStories = new StoryFactory();
 
@@ -30,18 +29,17 @@ namespace BrainyStories
             for (int i = 0; i < ListOfStories.Count; i++)
             {
                 ObservableCollection<Quiz> returnQuizzes = factory.GenerateQuizzes(ListOfStories.ElementAt(i).Name);
-                foreach (Quiz quiz in returnQuizzes) 
+                foreach (Quiz quiz in returnQuizzes)
                 {
                     ListOfQuizzes.Add(quiz);
                 }
             }
             InitializeComponent();
             BindList.ItemsSource = ListOfQuizzes;
-            settingsPage = new Settings();
         }
 
         // Launches a quiz page for selected quiz
-        async void OnItemTapped(object sender, ItemTappedEventArgs e)
+        private async void OnItemTapped(object sender, ItemTappedEventArgs e)
         {
             ListView view = (ListView)sender;
             if (view.SelectedItem == null)
@@ -55,22 +53,15 @@ namespace BrainyStories
 
         // Navbar methods
         // Returns to the previous page
-        async void BackClicked(object sender, EventArgs e)
+        private async void BackClicked(object sender, EventArgs e)
         {
             await App.Current.MainPage.Navigation.PopAsync();
         }
 
         // Returns to the Home page
-        async void HomeClicked(object sender, EventArgs e)
+        private async void HomeClicked(object sender, EventArgs e)
         {
             await App.Current.MainPage.Navigation.PopToRootAsync();
-        }
-
-        // Launches a settings popup
-        async void SettingsClicked(object sender, EventArgs e)
-        {
-
-            await PopupNavigation.Instance.PushAsync(settingsPage);
         }
     }
 }

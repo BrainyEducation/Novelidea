@@ -15,8 +15,10 @@ using Xamarin.Forms.Xaml;
 
 namespace BrainyStories
 {
-    public class BindableStackLayout : StackLayout {
-        readonly Label header;
+    public class BindableStackLayout : StackLayout
+    {
+        private readonly Label header;
+
         public BindableStackLayout()
         {
             header = new Label();
@@ -28,6 +30,7 @@ namespace BrainyStories
             get { return (IEnumerable)GetValue(ItemsSourceProperty); }
             set { SetValue(ItemsSourceProperty, value); }
         }
+
         public static readonly BindableProperty ItemsSourceProperty =
             BindableProperty.Create(nameof(ItemsSource), typeof(IEnumerable), typeof(BindableStackLayout),
                                     propertyChanged: (bindable, oldValue, newValue) => ((BindableStackLayout)bindable).PopulateItems());
@@ -37,6 +40,7 @@ namespace BrainyStories
             get { return (DataTemplate)GetValue(ItemDataTemplateProperty); }
             set { SetValue(ItemDataTemplateProperty, value); }
         }
+
         public static readonly BindableProperty ItemDataTemplateProperty =
             BindableProperty.Create(nameof(ItemDataTemplate), typeof(DataTemplate), typeof(BindableStackLayout));
 
@@ -45,11 +49,12 @@ namespace BrainyStories
             get { return (string)GetValue(TitleProperty); }
             set { SetValue(TitleProperty, value); }
         }
+
         public static readonly BindableProperty TitleProperty =
             BindableProperty.Create(nameof(Title), typeof(string), typeof(BindableStackLayout),
                                     propertyChanged: (bindable, oldValue, newValue) => ((BindableStackLayout)bindable).PopulateHeader());
 
-        void PopulateItems()
+        private void PopulateItems()
         {
             if (ItemsSource == null) return;
             foreach (var item in ItemsSource)
@@ -60,15 +65,14 @@ namespace BrainyStories
             }
         }
 
-        void PopulateHeader() => header.Text = Title;
+        private void PopulateHeader() => header.Text = Title;
     }
-    [XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class TableOfContents : ContentPage
-	{
-        private Settings settingsPage;
 
-        public TableOfContents (bool imagines)
-		{
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class TableOfContents : ContentPage
+    {
+        public TableOfContents(bool imagines)
+        {
             NavigationPage.SetHasNavigationBar(this, false);
             if (imagines)
             {
@@ -80,10 +84,9 @@ namespace BrainyStories
             }
             InitializeComponent();
             listView.SelectedItem = null;
-            settingsPage = new Settings();
         }
 
-        async void OnItemTapped(object sender, ItemTappedEventArgs e)
+        private async void OnItemTapped(object sender, ItemTappedEventArgs e)
         {
             ListView view = (ListView)sender;
             if (view.SelectedItem == null)
@@ -93,24 +96,18 @@ namespace BrainyStories
             User user = User.Instance;
             var story = (Story)view.SelectedItem;
             view.SelectedItem = null;
-            await Navigation.PushAsync(new StoryPage(story));  
+            await Navigation.PushAsync(new StoryPage(story));
         }
 
         // Navbar methods
-        async void BackClicked(object sender, EventArgs e)
+        private async void BackClicked(object sender, EventArgs e)
         {
             await App.Current.MainPage.Navigation.PopAsync();
         }
 
-        async void HomeClicked(object sender, EventArgs e)
+        private async void HomeClicked(object sender, EventArgs e)
         {
             await App.Current.MainPage.Navigation.PopToRootAsync();
-        }
-
-        async void SettingsClicked(object sender, EventArgs e)
-        {
-
-            await PopupNavigation.Instance.PushAsync(settingsPage);
         }
     }
 }

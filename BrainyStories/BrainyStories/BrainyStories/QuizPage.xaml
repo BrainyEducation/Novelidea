@@ -4,150 +4,145 @@
              x:Class="BrainyStories.QuizPage"
              NavigationPage.HasNavigationBar="false"
              BackgroundColor="#A9FFF7">
-    <ContentPage.Content>
-        <StackLayout Orientation="Vertical"
-                 VerticalOptions="StartAndExpand"
-                 CompressedLayout.IsHeadless="True"
-                 x:Name="TopStack">
-            <!--<Start of Navigation Bar/>-->
-            <StackLayout VerticalOptions="Start"
-                  HorizontalOptions="FillAndExpand"
-                  Orientation="Horizontal"
-                  BackgroundColor ="#A9FFF7">
-                <ImageButton HorizontalOptions="Start"
-                        Source="BackButton.png"
-                        Clicked ="BackClicked"
-                        BorderColor ="Transparent"
-                        BackgroundColor="Transparent"/>
-                <ImageButton HorizontalOptions="Start"
-                        Source="Home.png"
-                        Clicked ="HomeClicked"
-                        BorderColor ="Transparent"
-                        BackgroundColor="Transparent"/>
-                <ImageButton HorizontalOptions="LayoutOptions.EndAndExpand"
-                        Source="SettingsButton.png"
-                        Clicked ="SettingsClicked"
-                        BorderColor ="Transparent"
-                        BackgroundColor="Transparent"/>
-            </StackLayout>
-            <!--<End of Navigation Bar/>-->
-            <StackLayout Orientation="Horizontal">
-                <Label x:Name="QuizTitle"
-                       FontFamily="{StaticResource Comic}"
-                       FontAttributes="Bold"
-                       FontSize="16"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-                <Label x:Name="NumCorrect"
-                       FontFamily="{StaticResource Comic}"
-                       FontAttributes="Bold"
-                       FontSize="16"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand"/>
-            </StackLayout>
-            <Label x:Name="QuestionTitle"
-                   FontFamily="{StaticResource Comic}"
-                   FontAttributes="Bold"
-                   FontSize="16"
-                   VerticalOptions="CenterAndExpand" 
-                   HorizontalOptions="CenterAndExpand" />
-            <!--<Four Answer Buttons as well as the next, previous, and check answer buttons/>-->
-            <Grid x:Name="pageGrid" Padding="10,0,10,0" Margin="0,0,0,0" >
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <Button x:Name="One"
-                    FontFamily="{StaticResource Comic}"
-                    FontSize="12"
-                    TextColor="White"
-                    BackgroundColor="#6526DA"
-                    VerticalOptions="FillAndExpand" 
-                    HorizontalOptions="FillAndExpand"
-                    Grid.Row="1"
-                    Grid.Column="0"
-                    Grid.ColumnSpan="2"
-                    Clicked="ClickOrPlay">
-                </Button>
-                <Button x:Name="Two"
-                    FontFamily="{StaticResource Comic}"
-                    FontSize="12"
-                    TextColor="White"
-                    BackgroundColor="#6526DA"
-                    Grid.Row="1"
-                    Grid.Column="2"
-                    Grid.ColumnSpan="2"
-                    VerticalOptions="FillAndExpand" 
-                    HorizontalOptions="FillAndExpand"
-                    Clicked="ClickOrPlay"/>
-                <Button x:Name="Three"
-                    FontFamily="{StaticResource Comic}"
-                    FontSize="12"
-                    TextColor="White"
-                    BackgroundColor="#6526DA"
-                    Grid.Row="2"
-                    Grid.Column="0"
-                    Grid.ColumnSpan="2"
-                    VerticalOptions="FillAndExpand" 
-                    HorizontalOptions="FillAndExpand"
-                    Clicked="ClickOrPlay"/>
-                <Button x:Name="Four"
-                    FontFamily="{StaticResource Comic}"
-                    FontSize="12"
-                    TextColor="White"
-                    BackgroundColor="#6526DA"
-                    Grid.Row="2"
-                    Grid.Column="2"
-                    Grid.ColumnSpan="2"
-                    VerticalOptions="FillAndExpand" 
-                    HorizontalOptions="FillAndExpand"
-                    Clicked= "ClickOrPlay"/>
-                <ImageButton x:Name ="PreviousButton"
-                    Source="Previous.png"
-                    BackgroundColor="Transparent"
-                    Grid.Row="3"
-                    Grid.Column="0"
-                    Grid.ColumnSpan="1"
-                    VerticalOptions="FillAndExpand" 
-                    HorizontalOptions="FillAndExpand"
-                    Clicked="PreviousQuestion"/>
-                <ImageButton x:Name ="NextButton"
-                   Source="Next.png"
-                    BackgroundColor="Transparent"
-                    Grid.Row="3"
-                    Grid.Column="3"
-                    Grid.ColumnSpan="1"
-                    VerticalOptions="FillAndExpand" 
-                    HorizontalOptions="FillAndExpand"
-                    Clicked="NextQuestion"/>
-                <ImageButton x:Name ="BackToStory"
-                    Source="ClassicStories.png"
-                    BackgroundColor="#6526DA"
-                    Grid.Row="3"
-                    Grid.Column="3"
-                    Grid.ColumnSpan="1"
-                    IsVisible="false"
-                    VerticalOptions="FillAndExpand" 
-                    HorizontalOptions="FillAndExpand"
-                    Clicked="BackClicked"/>
-                <ImageButton x:Name="Submit"
-                    Source="Submit.png"
-                    BackgroundColor="Transparent"
-                    Grid.Row="3"
-                    Grid.Column="1"
-                    Grid.ColumnSpan="2"
-                    IsVisible="false"
-                    VerticalOptions="FillAndExpand" 
-                    HorizontalOptions="FillAndExpand"
-                    Clicked="CheckAnswer"/>
-            </Grid>
-        </StackLayout>
-    </ContentPage.Content>
+  <ContentPage.Content>
+    <StackLayout Orientation="Vertical"
+             VerticalOptions="StartAndExpand"
+             CompressedLayout.IsHeadless="True"
+             x:Name="TopStack">
+      <!--<Start of Navigation Bar />-->
+      <StackLayout VerticalOptions="Start"
+            HorizontalOptions="FillAndExpand"
+            Orientation="Horizontal"
+            BackgroundColor ="#A9FFF7">
+        <ImageButton HorizontalOptions="Start"
+                Source="BackButton.png"
+                Clicked ="BackClicked"
+                BorderColor ="Transparent"
+                BackgroundColor="Transparent" />
+        <ImageButton HorizontalOptions="Start"
+                Source="Home.png"
+                Clicked ="HomeClicked"
+                BorderColor ="Transparent"
+                BackgroundColor="Transparent" />
+      </StackLayout>
+      <!--<End of Navigation Bar />-->
+      <StackLayout Orientation="Horizontal">
+        <Label x:Name="QuizTitle"
+               FontFamily="{StaticResource Comic}"
+               FontAttributes="Bold"
+               FontSize="16"
+        VerticalOptions="CenterAndExpand"
+        HorizontalOptions="CenterAndExpand" />
+        <Label x:Name="NumCorrect"
+               FontFamily="{StaticResource Comic}"
+               FontAttributes="Bold"
+               FontSize="16"
+        VerticalOptions="CenterAndExpand"
+        HorizontalOptions="CenterAndExpand" />
+      </StackLayout>
+      <Label x:Name="QuestionTitle"
+             FontFamily="{StaticResource Comic}"
+             FontAttributes="Bold"
+             FontSize="16"
+             VerticalOptions="CenterAndExpand"
+             HorizontalOptions="CenterAndExpand" />
+      <!--<Four Answer Buttons as well as the next, previous, and check answer buttons />-->
+      <Grid x:Name="pageGrid" Padding="10,0,10,0" Margin="0,0,0,0">
+        <Grid.RowDefinitions>
+          <RowDefinition Height="*" />
+          <RowDefinition Height="*" />
+          <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="*" />
+          <ColumnDefinition Width="*" />
+          <ColumnDefinition Width="*" />
+          <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Button x:Name="One"
+            FontFamily="{StaticResource Comic}"
+            FontSize="12"
+            TextColor="White"
+            BackgroundColor="#6526DA"
+            VerticalOptions="FillAndExpand"
+            HorizontalOptions="FillAndExpand"
+            Grid.Row="1"
+            Grid.Column="0"
+            Grid.ColumnSpan="2"
+            Clicked="ClickOrPlay">
+        </Button>
+        <Button x:Name="Two"
+            FontFamily="{StaticResource Comic}"
+            FontSize="12"
+            TextColor="White"
+            BackgroundColor="#6526DA"
+            Grid.Row="1"
+            Grid.Column="2"
+            Grid.ColumnSpan="2"
+            VerticalOptions="FillAndExpand"
+            HorizontalOptions="FillAndExpand"
+            Clicked="ClickOrPlay" />
+        <Button x:Name="Three"
+            FontFamily="{StaticResource Comic}"
+            FontSize="12"
+            TextColor="White"
+            BackgroundColor="#6526DA"
+            Grid.Row="2"
+            Grid.Column="0"
+            Grid.ColumnSpan="2"
+            VerticalOptions="FillAndExpand"
+            HorizontalOptions="FillAndExpand"
+            Clicked="ClickOrPlay" />
+        <Button x:Name="Four"
+            FontFamily="{StaticResource Comic}"
+            FontSize="12"
+            TextColor="White"
+            BackgroundColor="#6526DA"
+            Grid.Row="2"
+            Grid.Column="2"
+            Grid.ColumnSpan="2"
+            VerticalOptions="FillAndExpand"
+            HorizontalOptions="FillAndExpand"
+            Clicked= "ClickOrPlay" />
+        <ImageButton x:Name ="PreviousButton"
+            Source="Previous.png"
+            BackgroundColor="Transparent"
+            Grid.Row="3"
+            Grid.Column="0"
+            Grid.ColumnSpan="1"
+            VerticalOptions="FillAndExpand"
+            HorizontalOptions="FillAndExpand"
+            Clicked="PreviousQuestion" />
+        <ImageButton x:Name ="NextButton"
+           Source="Next.png"
+            BackgroundColor="Transparent"
+            Grid.Row="3"
+            Grid.Column="3"
+            Grid.ColumnSpan="1"
+            VerticalOptions="FillAndExpand"
+            HorizontalOptions="FillAndExpand"
+            Clicked="NextQuestion" />
+        <ImageButton x:Name ="BackToStory"
+            Source="ClassicStories.png"
+            BackgroundColor="#6526DA"
+            Grid.Row="3"
+            Grid.Column="3"
+            Grid.ColumnSpan="1"
+            IsVisible="false"
+            VerticalOptions="FillAndExpand"
+            HorizontalOptions="FillAndExpand"
+            Clicked="BackClicked" />
+        <ImageButton x:Name="Submit"
+            Source="Submit.png"
+            BackgroundColor="Transparent"
+            Grid.Row="3"
+            Grid.Column="1"
+            Grid.ColumnSpan="2"
+            IsVisible="false"
+            VerticalOptions="FillAndExpand"
+            HorizontalOptions="FillAndExpand"
+            Clicked="CheckAnswer" />
+      </Grid>
+    </StackLayout>
+  </ContentPage.Content>
 </ContentPage>

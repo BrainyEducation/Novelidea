@@ -9,16 +9,17 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace BrainyStories {
+namespace BrainyStories
+{
     [XamlCompilation(XamlCompilationOptions.Compile)]
 
     // Class for the rewards page
-    public partial class RewardsPage : ContentPage {
-        Settings settingsPage;
+    public partial class RewardsPage : ContentPage
+    {
         public RewardsPage()
         {
             InitializeComponent();
-            settingsPage = new Settings();
+
             User user = User.Instance;
             int numOfSilverCoins = user.RewardsRecieved["Silver"];
             int numOfGoldCoins = user.RewardsRecieved["Gold"] + (numOfSilverCoins / 2);
@@ -62,26 +63,19 @@ namespace BrainyStories {
                 Image silverCoin = new Image() { Source = "SilverCoin.png" };
                 SilverList.Children.Add(silverCoin);
             }
-           
         }
 
         // Navbar methods
         // Returns to the previous page
-        async void BackClicked(object sender, EventArgs e)
+        private async void BackClicked(object sender, EventArgs e)
         {
             await App.Current.MainPage.Navigation.PopAsync();
         }
 
         // Returns to the Home page
-        async void HomeClicked(object sender, EventArgs e)
+        private async void HomeClicked(object sender, EventArgs e)
         {
             await App.Current.MainPage.Navigation.PopToRootAsync();
-        }
-
-        // Launches a settings popup
-        async void SettingsClicked(object sender, EventArgs e)
-        {
-            await PopupNavigation.Instance.PushAsync(settingsPage);
         }
     }
 }

@@ -4,31 +4,26 @@
              x:Class="BrainyStories.StoryPage"
              NavigationPage.HasNavigationBar="false"
              BackgroundColor="#A9FFF7">
-    <StackLayout Orientation="Vertical"
-                 VerticalOptions="StartAndExpand"
-                 CompressedLayout.IsHeadless="True"
-                 x:Name="TopStack">
-        <!--<Start of Navigation Bar/>-->
-        <StackLayout VerticalOptions="Start"
-                  HorizontalOptions="FillAndExpand"
-                  Orientation="Horizontal"
-                  BackgroundColor ="#B8E1FF">
-            <ImageButton HorizontalOptions="Start"
-                        Source="BackButton.png"
-                        Clicked ="BackClicked"
-                        BorderColor ="Transparent"
-                        BackgroundColor="Transparent"/>
-            <ImageButton HorizontalOptions="Start"
-                        Source="Home.png"
-                        Clicked ="HomeClicked"
-                        BorderColor ="Transparent"
-                        BackgroundColor="Transparent"/>
-            <ImageButton HorizontalOptions="LayoutOptions.EndAndExpand"
-                        Source="SettingsButton.png"
-                        Clicked ="SettingsClicked"
-                        BorderColor ="Transparent"
-                        BackgroundColor="Transparent"/>
-            <!--<End of Navigation Bar/>-->
-        </StackLayout>
+  <StackLayout Orientation="Vertical"
+               VerticalOptions="StartAndExpand"
+               CompressedLayout.IsHeadless="True"
+               x:Name="TopStack">
+    <!--<Start of Navigation Bar />-->
+    <StackLayout VerticalOptions="Start"
+              HorizontalOptions="FillAndExpand"
+              Orientation="Horizontal"
+              BackgroundColor ="#B8E1FF">
+      <ImageButton HorizontalOptions="Start"
+                  Source="BackButton.png"
+                  Clicked ="BackClicked"
+                  BorderColor ="Transparent"
+                  BackgroundColor="Transparent" />
+      <ImageButton HorizontalOptions="Start"
+                  Source="Home.png"
+                  Clicked ="HomeClicked"
+                  BorderColor ="Transparent"
+                  BackgroundColor="Transparent" />
+      <!--<End of Navigation Bar />-->
     </StackLayout>
+  </StackLayout>
 </ContentPage>

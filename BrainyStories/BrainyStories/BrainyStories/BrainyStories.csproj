@@ -7,7 +7,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DebugType>pdbonly</DebugType>
     <DebugSymbols>true</DebugSymbols>
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
 
   <ItemGroup>
@@ -48,9 +48,6 @@
     <EmbeddedResource Update="RewardsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Settings.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
     <EmbeddedResource Update="StoryPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
@@ -72,7 +69,43 @@
     <None Update="App.xaml">
       <Generator>MSBuild:Compile</Generator>
     </None>
+    <None Update="EndOfStory.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
     <None Update="MainPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="ProgressIndividualPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="ProgressOverallPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="ProgressPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="ProgressSummaryPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="QuizList.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="QuizPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="RewardsPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="StoryPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="TableOfContents.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="ThinkAndDoList.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="ThinkAndDoPopup.xaml">
       <Generator>MSBuild:Compile</Generator>
     </None>
   </ItemGroup>

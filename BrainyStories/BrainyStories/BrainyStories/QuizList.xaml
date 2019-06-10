@@ -4,57 +4,52 @@
              x:Class="BrainyStories.QuizList"
              NavigationPage.HasNavigationBar="false"
              BackgroundColor="#A9FFF7">
-    <ContentPage.Content>
-        <StackLayout Orientation="Vertical"
-                   VerticalOptions="FillAndExpand"
-                   CompressedLayout.IsHeadless="True">
-            <!--<Start of Navigation Bar/>-->
-            <StackLayout VerticalOptions="Start"
-                  HorizontalOptions="FillAndExpand"
-                  Orientation="Horizontal"
-                  BackgroundColor ="#A9FFF7">
-                <ImageButton HorizontalOptions="Start"
-                        Source="BackButton.png"
-                        Clicked ="BackClicked"
-                        BorderColor ="Transparent"
-                        BackgroundColor="Transparent"/>
-                <ImageButton HorizontalOptions="Start"
-                        Source="Home.png"
-                        Clicked ="HomeClicked"
-                        BorderColor ="Transparent"
-                        BackgroundColor="Transparent"/>
-                <ImageButton HorizontalOptions="LayoutOptions.EndAndExpand"
-                        Source="SettingsButton.png"
-                        Clicked ="SettingsClicked"
-                        BorderColor ="Transparent"
-                        BackgroundColor="Transparent"/>
-            </StackLayout>
-            <!--<End of Navigation Bar/>-->
-            <ListView SeparatorVisibility="None"
-                      HasUnevenRows="True"
-                      VerticalOptions ="FillAndExpand"
-                      HorizontalOptions="FillAndExpand"
-                      ItemTapped="OnItemTapped"
-                      x:Name="BindList">
-                <!--<List of all Quizzes/>-->
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <ViewCell.View>
-                                <StackLayout Orientation="Horizontal"
-                                             HeightRequest="150">
-                                    <Image Source="{Binding AssociatedImage}"
-                                           HeightRequest="150"/>
-                                    <StackLayout Padding="2">
-                                        <Label Text ="{Binding QuizName}" FontFamily="{StaticResource Comic}"/>
-                                        <Label Text ="{Binding NumQuestions}" FontFamily="{StaticResource Comic}"/>
-                                    </StackLayout>
-                                </StackLayout>
-                            </ViewCell.View>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-        </StackLayout>
-    </ContentPage.Content>
+  <ContentPage.Content>
+    <StackLayout Orientation="Vertical"
+               VerticalOptions="FillAndExpand"
+               CompressedLayout.IsHeadless="True">
+      <!--<Start of Navigation Bar />-->
+      <StackLayout VerticalOptions="Start"
+            HorizontalOptions="FillAndExpand"
+            Orientation="Horizontal"
+            BackgroundColor ="#A9FFF7">
+        <ImageButton HorizontalOptions="Start"
+                Source="BackButton.png"
+                Clicked ="BackClicked"
+                BorderColor ="Transparent"
+                BackgroundColor="Transparent" />
+        <ImageButton HorizontalOptions="Start"
+                Source="Home.png"
+                Clicked ="HomeClicked"
+                BorderColor ="Transparent"
+                BackgroundColor="Transparent" />
+      </StackLayout>
+      <!--<End of Navigation Bar />-->
+      <ListView SeparatorVisibility="None"
+                HasUnevenRows="True"
+                VerticalOptions ="FillAndExpand"
+                HorizontalOptions="FillAndExpand"
+                ItemTapped="OnItemTapped"
+                x:Name="BindList">
+        <!--<List of all Quizzes />-->
+        <ListView.ItemTemplate>
+          <DataTemplate>
+            <ViewCell>
+              <ViewCell.View>
+                <StackLayout Orientation="Horizontal"
+                             HeightRequest="150">
+                  <Image Source="{Binding AssociatedImage}"
+                         HeightRequest="150" />
+                  <StackLayout Padding="2">
+                    <Label Text ="{Binding QuizName}" FontFamily="{StaticResource Comic}" />
+                    <Label Text ="{Binding NumQuestions}" FontFamily="{StaticResource Comic}" />
+                  </StackLayout>
+                </StackLayout>
+              </ViewCell.View>
+            </ViewCell>
+          </DataTemplate>
+        </ListView.ItemTemplate>
+      </ListView>
+    </StackLayout>
+  </ContentPage.Content>
 </ContentPage>

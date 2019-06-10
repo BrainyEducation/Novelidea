@@ -5,82 +5,77 @@
              Title="Rewards Page"
              NavigationPage.HasNavigationBar="false"
              BackgroundColor="#A9FFF7">
-    <ContentPage.Content>
-        <StackLayout Orientation="Vertical"
-                   VerticalOptions="FillAndExpand"
-                   CompressedLayout.IsHeadless="True">
-            <!--<Start of Navigation Bar/>-->
-            <StackLayout VerticalOptions="Start"
-                  HorizontalOptions="FillAndExpand"
-                  Orientation="Horizontal"
-                  BackgroundColor ="#A9FFF7">
-                <ImageButton HorizontalOptions="Start"
-                        Source="BackButton.png"
-                        Clicked ="BackClicked"
-                        BorderColor ="Transparent"
-                        BackgroundColor="Transparent"/>
-                <ImageButton HorizontalOptions="Start"
-                        Source="Home.png"
-                        Clicked ="HomeClicked"
-                        BorderColor ="Transparent"
-                        BackgroundColor="Transparent"/>
-                <ImageButton HorizontalOptions="LayoutOptions.EndAndExpand"
-                        Source="SettingsButton.png"
-                        Clicked ="SettingsClicked"
-                        BorderColor ="Transparent"
-                        BackgroundColor="Transparent"/>
-            </StackLayout>
-            <!--<End of Navigation Bar/>-->
-            <ScrollView>
-                <StackLayout>
-                    <!--<Shows earned Rewards/>-->
-                    <StackLayout x:Name="BankList"
-                                 Orientation="Horizontal"/>
-                    <StackLayout x:Name="CarList"
-                                 Orientation="Horizontal"/>
-                    <StackLayout x:Name="BagList"
-                                 Orientation="Horizontal"/>
-                    <StackLayout x:Name="StackList"
-                                 Orientation="Horizontal"/>
-                    <StackLayout x:Name="GoldList"
-                                 Orientation="Horizontal"/>
-                    <StackLayout x:Name="SilverList"
-                                 Orientation="Horizontal"/>
-                    <StackLayout Orientation="Horizontal">
-                        <!-- 2 Silver Coins gets 1 Gold Coin -->
-                        <Label Text="          2" VerticalTextAlignment="Center" FontFamily="{StaticResource Comic}"/>
-                        <Image Source="SilverCoin.png"/>
-                        <Label Text="= 1" VerticalTextAlignment="Center" FontFamily="{StaticResource Comic}"/>
-                        <Image Source="GoldCoin.png"/>
+  <ContentPage.Content>
+    <StackLayout Orientation="Vertical"
+               VerticalOptions="FillAndExpand"
+               CompressedLayout.IsHeadless="True">
+      <!--<Start of Navigation Bar />-->
+      <StackLayout VerticalOptions="Start"
+            HorizontalOptions="FillAndExpand"
+            Orientation="Horizontal"
+            BackgroundColor ="#A9FFF7">
+        <ImageButton HorizontalOptions="Start"
+                Source="BackButton.png"
+                Clicked ="BackClicked"
+                BorderColor ="Transparent"
+                BackgroundColor="Transparent" />
+        <ImageButton HorizontalOptions="Start"
+                Source="Home.png"
+                Clicked ="HomeClicked"
+                BorderColor ="Transparent"
+                BackgroundColor="Transparent" />
+      </StackLayout>
+      <!--<End of Navigation Bar />-->
+      <ScrollView>
+        <StackLayout>
+          <!--<Shows earned Rewards />-->
+          <StackLayout x:Name="BankList"
+                       Orientation="Horizontal" />
+          <StackLayout x:Name="CarList"
+                       Orientation="Horizontal" />
+          <StackLayout x:Name="BagList"
+                       Orientation="Horizontal" />
+          <StackLayout x:Name="StackList"
+                       Orientation="Horizontal" />
+          <StackLayout x:Name="GoldList"
+                       Orientation="Horizontal" />
+          <StackLayout x:Name="SilverList"
+                       Orientation="Horizontal" />
+          <StackLayout Orientation="Horizontal">
+            <!-- 2 Silver Coins gets 1 Gold Coin -->
+            <Label Text="          2" VerticalTextAlignment="Center" FontFamily="{StaticResource Comic}" />
+            <Image Source="SilverCoin.png" />
+            <Label Text="= 1" VerticalTextAlignment="Center" FontFamily="{StaticResource Comic}" />
+            <Image Source="GoldCoin.png" />
 
-                        <!-- 5 Gold Coins gets 1 Gold Stack -->
-                        <Label Text="          5" VerticalTextAlignment="Center" FontFamily="{StaticResource Comic}"/>
-                        <Image Source="GoldCoin.png"/>
-                        <Label Text="= 1" VerticalTextAlignment="Center" FontFamily="{StaticResource Comic}"/>
-                        <Image Source="GoldStack.png"/>
+            <!-- 5 Gold Coins gets 1 Gold Stack -->
+            <Label Text="          5" VerticalTextAlignment="Center" FontFamily="{StaticResource Comic}" />
+            <Image Source="GoldCoin.png" />
+            <Label Text="= 1" VerticalTextAlignment="Center" FontFamily="{StaticResource Comic}" />
+            <Image Source="GoldStack.png" />
 
-                        <!-- 5 Gold Stacks gets 1 Money Bag -->
-                        <Label Text="          5" VerticalTextAlignment="Center" FontFamily="{StaticResource Comic}"/>
-                        <Image Source="GoldStack.png"/>
-                        <Label Text="= 1" VerticalTextAlignment="Center" FontFamily="{StaticResource Comic}"/>
-                        <Image Source="MoneyBag.png"/>
-                    </StackLayout>
-                    
-                    <StackLayout Orientation="Horizontal">
-                        <!-- 5 Money Bags gets 1 Armored Car -->
-                        <Label Text="          5" VerticalTextAlignment="Center" FontFamily="{StaticResource Comic}"/>
-                        <Image Source="MoneyBag.png"/>
-                        <Label Text="= 1" VerticalTextAlignment="Center" FontFamily="{StaticResource Comic}"/>
-                        <Image Source="ArmoredCar.png"/>
+            <!-- 5 Gold Stacks gets 1 Money Bag -->
+            <Label Text="          5" VerticalTextAlignment="Center" FontFamily="{StaticResource Comic}" />
+            <Image Source="GoldStack.png" />
+            <Label Text="= 1" VerticalTextAlignment="Center" FontFamily="{StaticResource Comic}" />
+            <Image Source="MoneyBag.png" />
+          </StackLayout>
 
-                        <!-- 5 Armored Cars gets 1 Bank -->
-                        <Label Text="          5" VerticalTextAlignment="Center" FontFamily="{StaticResource Comic}"/>
-                        <Image Source="ArmoredCar.png"/>
-                        <Label Text="= 1" VerticalTextAlignment="Center" FontFamily="{StaticResource Comic}"/>
-                        <Image Source="Bank.png"/>
-                    </StackLayout>
-                </StackLayout>
-            </ScrollView>
+          <StackLayout Orientation="Horizontal">
+            <!-- 5 Money Bags gets 1 Armored Car -->
+            <Label Text="          5" VerticalTextAlignment="Center" FontFamily="{StaticResource Comic}" />
+            <Image Source="MoneyBag.png" />
+            <Label Text="= 1" VerticalTextAlignment="Center" FontFamily="{StaticResource Comic}" />
+            <Image Source="ArmoredCar.png" />
+
+            <!-- 5 Armored Cars gets 1 Bank -->
+            <Label Text="          5" VerticalTextAlignment="Center" FontFamily="{StaticResource Comic}" />
+            <Image Source="ArmoredCar.png" />
+            <Label Text="= 1" VerticalTextAlignment="Center" FontFamily="{StaticResource Comic}" />
+            <Image Source="Bank.png" />
+          </StackLayout>
         </StackLayout>
-    </ContentPage.Content>
+      </ScrollView>
+    </StackLayout>
+  </ContentPage.Content>
 </ContentPage>
