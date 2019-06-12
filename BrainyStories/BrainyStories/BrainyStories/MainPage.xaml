@@ -3,121 +3,125 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BrainyStories.MainPage"
              NavigationPage.HasNavigationBar="false">
-  <StackLayout Orientation="Vertical"
+    <StackLayout Orientation="Vertical"
                Spacing="5"
                VerticalOptions="FillAndExpand"
                BackgroundColor="#A9FFF7">
-    <!--<Start of Navigation Bar />-->
-    <StackLayout VerticalOptions="Start"
+        <!--<Start of Navigation Bar />-->
+        <StackLayout VerticalOptions="Start"
                  HorizontalOptions="FillAndExpand"
                  Orientation="Horizontal"
                  BackgroundColor ="#A9FFF7">
-      <ImageButton HorizontalOptions="Start"
+            <ImageButton HorizontalOptions="Start"
                    Source="BackButton.png"
                    Clicked ="BackClicked"
                    BorderColor ="Transparent"
                    BackgroundColor="Transparent"
                    IsVisible="False" />
-      <ImageButton HorizontalOptions="Start"
+            <ImageButton HorizontalOptions="Start"
                    Source="Home.png"
                    Clicked ="HomeClicked"
                    BorderColor ="Transparent"
                    BackgroundColor="Transparent"
                    IsVisible="False" />
-    </StackLayout>
-    <!--<End of Navigation Bar />-->
-    <Grid x:Name="pageGrid" BackgroundColor="#A9FFF7" Padding="5,5,5,5">
-      <Grid.RowDefinitions>
-        <RowDefinition Height="*" />
-        <RowDefinition Height="*" />
-        <RowDefinition Height="*" />
-      </Grid.RowDefinitions>
-      <Grid.ColumnDefinitions>
-        <ColumnDefinition Width="*" />
-        <ColumnDefinition Width="*" />
-        <ColumnDefinition Width="*" />
-      </Grid.ColumnDefinitions>
-      <!--<Brainy Stories Logo />-->
-      <Image Source="logo.png"
+        </StackLayout>
+        <!--<End of Navigation Bar />-->
+        <Grid x:Name="pageGrid" BackgroundColor="#A9FFF7" Padding="5,5,5,5">
+            <Grid.RowDefinitions>
+                <RowDefinition  Height="*" />
+                <RowDefinition  Height="*" />
+                <RowDefinition  Height="*" />
+                <RowDefinition  Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <!--<Brainy Stories Logo />-->
+            <Image Source="logo.png"
          VerticalOptions="Center"
          HorizontalOptions="Center"
          Grid.Row="0"
-         Grid.Column="0"
+         Grid.Column="1"
          Grid.RowSpan="1"
-         Grid.ColumnSpan="3" />
-      <!--<Six home page buttons />-->
-      <Button Text="Imagines"
+         Grid.ColumnSpan="8" />
+            <!--<Six home page buttons />-->
+            <Button Text="Imagines"
               FontFamily="{StaticResource Comic}"
               FontSize="12"
               TextColor="White"
-              BackgroundColor="#6526DA"
-              VerticalOptions="Center"
+              BackgroundColor="#031d44"
               Clicked="ImaginesClicked"
               Grid.Row="1"
-              Grid.Column="0"
-              Grid.ColumnSpan="1"
-              Image = "Imagines.png"
-              ContentLayout="Left" />
-      <Button Text="Classic Stories"
+              Grid.RowSpan="2"
+              Grid.Column="1"
+              Grid.ColumnSpan="4"
+              ContentLayout="Left"
+              Image = "Imagines.png" />
+            <Button Text="Classic Stories"
               FontFamily="{StaticResource Comic}"
               FontSize="12"
               TextColor="White"
-              BackgroundColor="#6526DA"
-              VerticalOptions="Center"
+              BackgroundColor="#031d44"
               Clicked="StoriesClicked"
               Grid.Row="1"
-              Grid.Column="1"
-              Grid.ColumnSpan="1"
+              Grid.Column="5"
+              Grid.RowSpan="2"
+              Grid.ColumnSpan="4"
               Image="ClassicStories.png"
               ContentLayout="Left" />
-      <Button Text="Rewards"
+            <Button Text="Rewards"
               FontFamily="{StaticResource Comic}"
               FontSize="12"
               TextColor="White"
-              BackgroundColor="#6526DA"
-              VerticalOptions="Center"
-              Grid.Row="2"
-              Grid.Column="0"
-              Grid.ColumnSpan="1"
-              Image="Rewards.png"
-              ContentLayout="Left"
-              Clicked="RewardsClicked" />
-      <Button Text="Progress"
-              FontFamily="{StaticResource Comic}"
-              FontSize="12"
-              TextColor="White"
-              BackgroundColor="#6526DA"
-              VerticalOptions="Center"
-              Clicked="ProgressClicked"
-              Grid.Row="2"
-              Grid.Column="2"
-              Grid.ColumnSpan="1"
-              Image="Progress.png"
-              ContentLayout="Left" />
-      <Button Text="Quizzes"
-              FontFamily="{StaticResource Comic}"
-              FontSize="12"
-              TextColor="White"
-              BackgroundColor="#6526DA"
-              VerticalOptions="Center"
-              Clicked="QuizzesClicked"
-              Grid.Row="2"
+              BackgroundColor="#f85a3e"
+              Grid.Row="3"
               Grid.Column="1"
-              Grid.ColumnSpan="1"
-              Image="Quizzes.png"
+              VerticalOptions="Center"
+              Clicked="RewardsClicked" />
+              Grid.ColumnSpan="2"
               ContentLayout="Left" />
-      <Button Text="Think and Do"
+            <Button Text="Progress"
+              FontFamily="{StaticResource Comic}"
+              FontSize="12"
+              TextColor="White"
+              BackgroundColor="#fc6dab"
+              Clicked="ProgressClicked"
+              Grid.Row="3"
+              Grid.Column="3"
+              Grid.ColumnSpan="2"
+              VerticalOptions="Center"
+              ContentLayout="Left" />
+            <Button Text="Quizzes"
               FontFamily="{StaticResource Comic}"
               FontSize="12"
               TextColor="White"
               BackgroundColor="#6526DA"
+              Clicked="QuizzesClicked"
               VerticalOptions="Center"
-              Clicked="ThinkAndDoClicked"
-              Grid.Row="1"
-              Grid.Column="2"
-              Grid.ColumnSpan="1"
-              Image="ThinkAndDo.png"
+              Grid.Row="3"
+              Grid.Column="5"
+              Grid.ColumnSpan="2"
               ContentLayout="Left" />
-    </Grid>
-  </StackLayout>
+            <Button Text="Think and Do"
+              FontFamily="{StaticResource Comic}"
+              FontSize="12"
+              TextColor="White"
+              BackgroundColor="#226f54"
+              Clicked="ThinkAndDoClicked"
+              VerticalOptions="Center"
+              Grid.Row="3"
+              Grid.Column="7"
+              Grid.ColumnSpan="2"
+              ContentLayout="Left" />
+        </Grid>
+    </StackLayout>
 </ContentPage>
