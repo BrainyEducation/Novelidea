@@ -4052,4 +4052,10 @@
   <ItemGroup>
     <BundleResource Include="Resources\SilverCoin.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ImaginesButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ClassicStoriesButton.png" />
+  </ItemGroup>
 </Project>
