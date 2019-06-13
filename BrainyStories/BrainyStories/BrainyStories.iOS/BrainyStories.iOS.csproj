@@ -116,6 +116,7 @@
       <SubType>Designer</SubType>
     </None>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <BundleResource Include="Resources\BackButton.png" />
     <BundleResource Include="Resources\Curly.otf" />
     <BundleResource Include="Resources\COMIC.TTF" />
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
@@ -3328,9 +3329,6 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\Animal.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\BackButton.png" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\Bank.png" />

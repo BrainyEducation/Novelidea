@@ -13,12 +13,12 @@
             HorizontalOptions="FillAndExpand"
             Orientation="Horizontal"
             BackgroundColor ="#A9FFF7">
-        <ImageButton HorizontalOptions="Start"
+        <ImageButton
                 Source="BackButton.png"
                 Clicked ="BackClicked"
                 BorderColor ="Transparent"
                 BackgroundColor="Transparent" />
-        <ImageButton HorizontalOptions="Start"
+        <ImageButton
                 Source="Home.png"
                 Clicked ="HomeClicked"
                 BorderColor ="Transparent"
