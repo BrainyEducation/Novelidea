@@ -4,53 +4,61 @@
              x:Class="BrainyStories.ThinkAndDoList"
              NavigationPage.HasNavigationBar="false"
              BackgroundColor="#A9FFF7">
-  <ContentPage.Content>
-    <StackLayout Orientation="Vertical"
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical"
                VerticalOptions="FillAndExpand"
                CompressedLayout.IsHeadless="True">
-      <!--<Start of Navigation Bar />-->
-      <StackLayout VerticalOptions="Start"
+            <!--<Start of Navigation Bar />-->
+            <StackLayout VerticalOptions="Start"
             HorizontalOptions="FillAndExpand"
             Orientation="Horizontal"
             BackgroundColor ="#A9FFF7">
-        <ImageButton
+                <ImageButton
                 Source="BackButton.png"
                 Clicked ="BackClicked"
                 BorderColor ="Transparent"
                 BackgroundColor="Transparent" />
-        <ImageButton
+                <ImageButton
                 Source="Home.png"
                 Clicked ="HomeClicked"
                 BorderColor ="Transparent"
                 BackgroundColor="Transparent" />
-      </StackLayout>
-      <!--<End of Navigation Bar />-->
-      <ListView SeparatorVisibility="None"
+
+                <Label
+                    Text ="  ⭐ Think and Do ⭐ "
+                    FontFamily = "{StaticResource Comic}"
+                    FontSize ="35"
+                    TextColor="Black"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center" />
+            </StackLayout>
+            <!--<End of Navigation Bar />-->
+            <ListView SeparatorVisibility="None"
                 HasUnevenRows="True"
                 VerticalOptions ="FillAndExpand"
                 HorizontalOptions="FillAndExpand"
                 ItemTapped="OnItemTapped"
                 x:Name="BindList">
-        <!--<List of all ThinkAndDos />-->
-        <ListView.ItemTemplate>
-          <DataTemplate>
-            <ViewCell>
-              <ViewCell.View>
-                <StackLayout Orientation="Horizontal"
+                <!--<List of all ThinkAndDos />-->
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.View>
+                                <StackLayout Orientation="Horizontal"
                              HeightRequest="150">
-                  <Image Source="{Binding AssociatedImage}"
+                                    <Image Source="{Binding AssociatedImage}"
                          HeightRequest="150" />
-                  <StackLayout Padding="2">
-                    <!--<Label Text ="{Binding AssociatedStory}" />-->
-                    <Label Text ="{Binding ThinkAndDoName}" FontFamily="{StaticResource Comic}" />
-                    <Label Text="{Binding Length, Mode=OneWay, StringFormat='{}{0:mm}:{0:ss}'}" FontFamily="{StaticResource Comic}" />
-                  </StackLayout>
-                </StackLayout>
-              </ViewCell.View>
-            </ViewCell>
-          </DataTemplate>
-        </ListView.ItemTemplate>
-      </ListView>
-    </StackLayout>
-  </ContentPage.Content>
+                                    <StackLayout Padding="2">
+                                        <!--<Label Text ="{Binding AssociatedStory}" />-->
+                                        <Label Text ="{Binding ThinkAndDoName}" FontFamily="{StaticResource Comic}" />
+                                        <Label Text="{Binding Length, Mode=OneWay, StringFormat='{}{0:mm}:{0:ss}'}" FontFamily="{StaticResource Comic}" />
+                                    </StackLayout>
+                                </StackLayout>
+                            </ViewCell.View>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
 </ContentPage>
