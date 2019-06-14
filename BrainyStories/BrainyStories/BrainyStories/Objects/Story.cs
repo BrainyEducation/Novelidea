@@ -9,7 +9,6 @@ using System.Linq;
 
 namespace BrainyStories
 {
-
     // AppealType class associated with each classic story
     public class AppealType
     {
@@ -21,14 +20,15 @@ namespace BrainyStories
 
         // Male, Female, General, and Animal appeal types
         public static AppealType Male { get { return new AppealType("Male.png"); } }
+
         public static AppealType Female { get { return new AppealType("Female.png"); } }
         public static AppealType General { get { return new AppealType("General.png"); } }
         public static AppealType Animal { get { return new AppealType("Animal.png"); } }
     }
 
     // Story class used for each story
-    public class Story {
-
+    public class Story
+    {
         // String of the name of story
         public String Name { get; set; }
 
@@ -63,7 +63,7 @@ namespace BrainyStories
         public ObservableCollection<ThinkAndDo> ThinkAndDos { get; set; } = new ObservableCollection<ThinkAndDo>();
 
         // Int for the number of think and do's that have been completed
-        public int NumCompletedThinkAndDos { get { return ThinkAndDos.Count(t => t.Completed); } }
+        public int NumCompletedThinkAndDos { get { return ThinkAndDos.Count(t => t.CompletedPrompt1) + ThinkAndDos.Count(x => x.CompletedPrompt2); } }
 
         // Observable Collection of associated Quizzes
         public ObservableCollection<Quiz> Quizzes { get; set; } = new ObservableCollection<Quiz>();

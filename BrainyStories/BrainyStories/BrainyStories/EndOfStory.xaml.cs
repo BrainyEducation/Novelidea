@@ -43,7 +43,8 @@ namespace BrainyStories
         {
             ListView view = (ListView)sender;
             var think = (ThinkAndDo)view.SelectedItem;
-            ThinkAndDoPopup pop = new ThinkAndDoPopup(think);
+            //todo: fix starNumber
+            ThinkAndDoPopup pop = new ThinkAndDoPopup(think, 1);
             await PopupNavigation.Instance.PushAsync(pop);
         }
 

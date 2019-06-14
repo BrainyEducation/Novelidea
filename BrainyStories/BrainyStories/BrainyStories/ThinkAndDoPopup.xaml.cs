@@ -16,11 +16,21 @@ namespace BrainyStories
     {
         private ISimpleAudioPlayer player;
 
-        public ThinkAndDoPopup (ThinkAndDo thinkAndDo)
+        //force them to use the parameterized constructor
+        private ThinkAndDoPopup()
+        {
+        }
+
+        /// <summary>
+        /// This constructor creates a think and do popup for either the first or second star number
+        /// </summary>
+        /// <param name="thinkAndDo">Desired think and do</param>
+        /// <param name="starNumber">Enter 1 for Star Number 1 or 2 for Star Number 2</param>
+        public ThinkAndDoPopup(ThinkAndDo thinkAndDo, int starNumber)
         {
             InitializeComponent();
             ThinkAndDoTitle.Text = thinkAndDo.ThinkAndDoName;
-            ThinkAndDoText.Text = thinkAndDo.Text;
+            ThinkAndDoTitle.Text = starNumber == 1 ? thinkAndDo.Text1 : thinkAndDo.Text2;
             ImageButton button = new ImageButton()
             {
                 Source = "pause.png",
@@ -37,9 +47,10 @@ namespace BrainyStories
                 Text = "0:00",
                 TextColor = Color.White
             };
+
             Slider slider = new Slider
             {
-                Maximum = thinkAndDo.Length.Seconds + (thinkAndDo.Length.Minutes * 60),
+                Maximum = starNumber == 1 ? thinkAndDo.GetAudioLength1().TotalSeconds : thinkAndDo.GetAudioLenth2().TotalSeconds,
                 Minimum = 0,
                 Value = 0,
                 HorizontalOptions = LayoutOptions.FillAndExpand,
@@ -55,9 +66,11 @@ namespace BrainyStories
                 player.Stop();
                 CloseAllPopup();
             };
-           
+
             player = Plugin.SimpleAudioPlayer.CrossSimpleAudioPlayer.Current;
-            player.Load(thinkAndDo.ThinkAndDoAudioClip);
+            player.Load(starNumber == 1 ? thinkAndDo.ThinkAndDoAudioClip1 : thinkAndDo.ThinkAndDoAudioClip2);
+            //here is where we should add logic for what happens when playback ends
+            player.PlaybackEnded += MarkAsPlayed;
             bool audioFromTimer = false;
             bool playAudio = true;
             player.Play();
@@ -103,10 +116,6 @@ namespace BrainyStories
                 displayLabel.Text = String.Format("{0}:{1}", minutes, second);
                 var timeStamp = new TimeSpan(0, minutes, seconds);
                 audioFromTimer = false;
-                if (timeStamp.Equals(thinkAndDo.Length))
-                {
-                    thinkAndDo.Completed = true;
-                }
             };
             StackLayout audio = new StackLayout
             {
@@ -122,6 +131,12 @@ namespace BrainyStories
 
             TopStack.Children.Add(slider);
             TopStack.Children.Add(audio);
+        }
+
+        //marks a think and do as completed
+        private void MarkAsPlayed(object sender, EventArgs e)
+        {
+            //todo: write to the database that the think and do is completed
         }
 
         // Returns to previous page when back button is selected
@@ -151,6 +166,5 @@ namespace BrainyStories
         {
             await PopupNavigation.Instance.PopAsync();
         }
-  
     }
 }

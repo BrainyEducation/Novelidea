@@ -37,7 +37,6 @@
                 HasUnevenRows="True"
                 VerticalOptions ="FillAndExpand"
                 HorizontalOptions="FillAndExpand"
-                ItemTapped="OnItemTapped"
                 x:Name="BindList">
                 <!--<List of all ThinkAndDos />-->
                 <ListView.ItemTemplate>
@@ -50,7 +49,9 @@
                          HeightRequest="150" />
                                     <StackLayout Padding="2">
                                         <!--<Label Text ="{Binding AssociatedStory}" />-->
+                                        <ImageButton Source="BackButton.png" Clicked="Star1Clicked" BindingContext="{Binding}" />
                                         <Label Text ="{Binding ThinkAndDoName}" FontFamily="{StaticResource Comic}" />
+                                        <ImageButton Source="BackButton.png" Clicked="Star2Clicked" BindingContext="{Binding}" />
                                         <Label Text="{Binding Length, Mode=OneWay, StringFormat='{}{0:mm}:{0:ss}'}" FontFamily="{StaticResource Comic}" />
                                     </StackLayout>
                                 </StackLayout>

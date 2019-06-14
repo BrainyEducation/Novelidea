@@ -29,16 +29,11 @@ namespace BrainyStories
         }
 
         // Lauches a ThinkAndDo popup for the selected ThinkAndDo
-        private async void OnItemTapped(object sender, ItemTappedEventArgs e)
+        private async void StarTapped(object sender, int starNumber)
         {
-            ListView view = (ListView)sender;
-            if (view.SelectedItem == null)
-            {
-                return;
-            }
-            var think = (ThinkAndDo)view.SelectedItem;
-            view.SelectedItem = null;
-            ThinkAndDoPopup pop = new ThinkAndDoPopup(think);
+            ThinkAndDo think = ((ImageButton)sender).BindingContext as ThinkAndDo;
+
+            ThinkAndDoPopup pop = new ThinkAndDoPopup(think, starNumber);
             await PopupNavigation.Instance.PushAsync(pop);
         }
 
@@ -53,6 +48,16 @@ namespace BrainyStories
         private async void HomeClicked(object sender, EventArgs e)
         {
             await App.Current.MainPage.Navigation.PopToRootAsync();
+        }
+
+        private void Star1Clicked(object sender, EventArgs e)
+        {
+            StarTapped(sender, 1);
+        }
+
+        private void Star2Clicked(object sender, EventArgs e)
+        {
+            StarTapped(sender, 2);
         }
     }
 }
