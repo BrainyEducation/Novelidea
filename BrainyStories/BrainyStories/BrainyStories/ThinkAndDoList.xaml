@@ -47,11 +47,11 @@
                              HeightRequest="150">
                                     <Image Source="{Binding AssociatedImage}"
                          HeightRequest="150" />
-                                    <StackLayout Padding="2">
+                                    <StackLayout Padding="2" Orientation="Horizontal">
                                         <!--<Label Text ="{Binding AssociatedStory}" />-->
-                                        <ImageButton Source="BackButton.png" Clicked="Star1Clicked" BindingContext="{Binding}" />
-                                        <Label Text ="{Binding ThinkAndDoName}" FontFamily="{StaticResource Comic}" />
-                                        <ImageButton Source="BackButton.png" Clicked="Star2Clicked" BindingContext="{Binding}" />
+                                        <ImageButton Source="SilverStar1.png" WidthRequest="50" Clicked="Star1Clicked" BindingContext="{Binding}" />
+                                        <Label Text ="{Binding ThinkAndDoName}" WidthRequest="150" LineBreakMode="WordWrap" VerticalOptions="Center"  FontSize="Small" FontFamily="{StaticResource Comic}" />
+                                        <ImageButton Source="GoldStar1.png" WidthRequest="50" Clicked="Star2Clicked" BindingContext="{Binding}" />
                                         <Label Text="{Binding Length, Mode=OneWay, StringFormat='{}{0:mm}:{0:ss}'}" FontFamily="{StaticResource Comic}" />
                                     </StackLayout>
                                 </StackLayout>

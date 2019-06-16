@@ -4056,4 +4056,10 @@
   <ItemGroup>
     <BundleResource Include="Resources\ClassicStoriesButton.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\GoldStar1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SilverStar1.png" />
+  </ItemGroup>
 </Project>
