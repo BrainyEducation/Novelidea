@@ -17,6 +17,22 @@ namespace BrainyStories.Objects
         // String for Associated Story
         public String AssociatedImage { get; set; }
 
+        public String Star1Image
+        {
+            get
+            {
+                return CompletedPrompt2 ? "GoldStar1.png" : "SilverStar1.png";
+            }
+        }
+
+        public String Star2Image
+        {
+            get
+            {
+                return CompletedPrompt1 ? "GoldStar2.png" : "SilverStar2.png";
+            }
+        }
+
         // String for audio file
         public String ThinkAndDoAudioClip1 { get; set; }
 

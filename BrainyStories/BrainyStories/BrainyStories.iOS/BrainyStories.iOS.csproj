@@ -4062,4 +4062,10 @@
   <ItemGroup>
     <BundleResource Include="Resources\SilverStar1.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\GoldStar2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SilverStar2.png" />
+  </ItemGroup>
 </Project>
