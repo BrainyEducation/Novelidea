@@ -52,11 +52,12 @@
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
     <MtouchArch>ARMv7, ARMv7s, ARM64</MtouchArch>
-    <CodesignKey>iPhone Developer: JJ OBrien (GSEHWTPUTQ)</CodesignKey>
+    <CodesignKey>iPhone Developer</CodesignKey>
     <MtouchDebug>true</MtouchDebug>
     <CodesignEntitlements>
     </CodesignEntitlements>
-    <CodesignProvision>WalterEvans</CodesignProvision>
+    <CodesignProvision>
+    </CodesignProvision>
     <CodesignExtraArgs />
     <CodesignResourceRules />
     <BuildIpa>true</BuildIpa>
@@ -2354,8 +2355,6 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\S1_TLATM_TAD1.mp3" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\S1_TLATM_TAD2.mp3" />
   </ItemGroup>
   <ItemGroup>

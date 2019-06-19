@@ -21,7 +21,7 @@ namespace BrainyStories.Objects
         {
             get
             {
-                return CompletedPrompt2 ? "GoldStar1.png" : "SilverStar1.png";
+                return CompletedPrompt1 ? "GoldStar1.png" : "SilverStar1.png";
             }
         }
 
@@ -29,7 +29,12 @@ namespace BrainyStories.Objects
         {
             get
             {
-                return CompletedPrompt1 ? "GoldStar2.png" : "SilverStar2.png";
+                //an exception here for the red hen story
+                if (ThinkAndDoName.Equals(ThinkAndDoFactory.RED_HEN_NAME))
+                {
+                    return String.Empty;
+                }
+                return CompletedPrompt2 ? "GoldStar2.png" : "SilverStar2.png";
             }
         }
 
@@ -45,36 +50,5 @@ namespace BrainyStories.Objects
 
         public String Text1 { get; set; }
         public String Text2 { get; set; }
-
-        public TimeSpan GetAudioLength1()
-        {
-            return GetAudioLength(1);
-        }
-
-        public TimeSpan GetAudioLenth2()
-        {
-            return GetAudioLength(2);
-        }
-
-        private TimeSpan GetAudioLength(int audioClipNumber)
-        {
-            string clipName = ThinkAndDoAudioClip2;
-            if (audioClipNumber == 1)
-            {
-                clipName = ThinkAndDoAudioClip1;
-            }
-
-            TimeSpan totalTime = new TimeSpan(0);
-            try
-            {
-                Mp3FileReader mp3FileReader = new Mp3FileReader(clipName);
-                totalTime = mp3FileReader.TotalTime;
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.ToString());
-            }
-            return totalTime;
-        }
     }
 }

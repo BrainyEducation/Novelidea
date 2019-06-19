@@ -11,6 +11,9 @@ namespace BrainyStories
     {
         private ObservableCollection<ThinkAndDo> ThinkAndDoListTemp;
 
+        //this story gets its own constant because it is an exception since it has only one TAD
+        public const String RED_HEN_NAME = "The Little Red Hen Think And Do";
+
         public ObservableCollection<ThinkAndDo> generateThinkAndDos()
         {
             ThinkAndDoListTemp = new ObservableCollection<ThinkAndDo>();
@@ -29,7 +32,7 @@ namespace BrainyStories
             // The Little Red Hen Think and Dos
             ThinkAndDoListTemp.Add(new ThinkAndDo
             {
-                ThinkAndDoName = "The Little Red Hen Think And Do 1",
+                ThinkAndDoName = RED_HEN_NAME,
                 AssociatedImage = "S2_LRH_0.jpg",
                 ThinkAndDoAudioClip1 = "S2_LRH_TAD1.mp3",
                 Text1 = "When the Little Red Hen found a grain of wheat what did she want to do with it? Put the story in order by what she did. Did she really want to do all the work alone all by herself? Who did she ask for help? Did the animals help the Little Red Hen in any way? After the Little Red Hen finished with the bread, what did she do?"

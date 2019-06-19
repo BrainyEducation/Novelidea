@@ -31,6 +31,13 @@ namespace BrainyStories
             InitializeComponent();
             ThinkAndDoTitle.Text = thinkAndDo.ThinkAndDoName;
             ThinkAndDoTitle.Text = starNumber == 1 ? thinkAndDo.Text1 : thinkAndDo.Text2;
+
+            //June 2019: moved the player init to the top of the file to be able to calculate duration later on
+            ObjCRuntime.Class.ThrowOnInitFailure = false;
+            player = Plugin.SimpleAudioPlayer.CrossSimpleAudioPlayer.Current;
+            string audioFile = starNumber == 1 ? thinkAndDo.ThinkAndDoAudioClip1 : thinkAndDo.ThinkAndDoAudioClip2;
+            player.Load(audioFile);
+
             ImageButton button = new ImageButton()
             {
                 Source = "pause.png",
@@ -50,7 +57,7 @@ namespace BrainyStories
 
             Slider slider = new Slider
             {
-                Maximum = starNumber == 1 ? thinkAndDo.GetAudioLength1().TotalSeconds : thinkAndDo.GetAudioLenth2().TotalSeconds,
+                Maximum = player.Duration,
                 Minimum = 0,
                 Value = 0,
                 HorizontalOptions = LayoutOptions.FillAndExpand,
@@ -67,8 +74,6 @@ namespace BrainyStories
                 CloseAllPopup();
             };
 
-            player = Plugin.SimpleAudioPlayer.CrossSimpleAudioPlayer.Current;
-            player.Load(starNumber == 1 ? thinkAndDo.ThinkAndDoAudioClip1 : thinkAndDo.ThinkAndDoAudioClip2);
             //here is where we should add logic for what happens when playback ends
             player.PlaybackEnded += MarkAsPlayed;
             bool audioFromTimer = false;
