@@ -2,11 +2,12 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Realms;
 
 namespace BrainyStories.Objects
 {
     // Class for the ThinkAndDo activities
-    public class ThinkAndDo
+    public class ThinkAndDo : RealmObject
     {
         // String of the icon used for ThinkAndDos in the table of contents
         public static String Icon { get; } = "ThinkAndDoIcon.png";
@@ -14,9 +15,11 @@ namespace BrainyStories.Objects
         // String for Name
         public String ThinkAndDoName { get; set; }
 
-        // String for Associated Story
+        // String for Associated Image
         public String AssociatedImage { get; set; }
 
+        //the image references should be ignored in the database
+        [Ignored]
         public String Star1Image
         {
             get
@@ -25,6 +28,7 @@ namespace BrainyStories.Objects
             }
         }
 
+        [Ignored]
         public String Star2Image
         {
             get
@@ -48,7 +52,9 @@ namespace BrainyStories.Objects
 
         public bool CompletedPrompt2 { get; set; } = false;
 
+        //this is the text that contains the think and do narrative
         public String Text1 { get; set; }
+
         public String Text2 { get; set; }
     }
 }
