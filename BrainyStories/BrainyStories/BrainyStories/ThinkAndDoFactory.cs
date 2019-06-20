@@ -28,7 +28,7 @@ namespace BrainyStories
             //separate logic based on whether or not the data has been created yet or not
             if (thinkAndDoQuery.Count() > 0)
             {
-                ThinkAndDoListTemp = new ObservableCollection<ThinkAndDo>(thinkAndDoQuery);
+                ThinkAndDoListTemp = new ObservableCollection<ThinkAndDo>(thinkAndDoQuery.ToList());
             }
             else
             {
@@ -158,15 +158,10 @@ namespace BrainyStories
 
         public ObservableCollection<ThinkAndDo> StoryThinkAndDos(String story)
         {
-            ObservableCollection<ThinkAndDo> temp = new ObservableCollection<ThinkAndDo>();
-            foreach (ThinkAndDo think in ThinkAndDoListTemp)
-            {
-                if (think.ThinkAndDoName.ToLower().Contains(story.ToLower()))
-                {
-                    temp.Add(think);
-                }
-            }
-            return temp;
+            var realmInstance = Realm.GetInstance(RealmConfiguration.DefaultConfiguration);
+
+            return new ObservableCollection<ThinkAndDo>(realmInstance.All<ThinkAndDo>()
+                .Where(x => x.ThinkAndDoName.Equals(story)));
         }
     }
 }

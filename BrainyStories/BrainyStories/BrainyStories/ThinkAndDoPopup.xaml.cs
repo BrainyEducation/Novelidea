@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 using BrainyStories.Objects;
 using Plugin.SimpleAudioPlayer;
+using Realms;
 using Rg.Plugins.Popup.Pages;
 using Rg.Plugins.Popup.Services;
 using Xamarin.Forms;
@@ -16,6 +18,11 @@ namespace BrainyStories
     {
         private ISimpleAudioPlayer player;
 
+        //track which star was clicked last
+        private static int lastClickedStarNumber;
+
+        private static string lastClickedThinkAndDoName;
+
         //force them to use the parameterized constructor
         private ThinkAndDoPopup()
         {
@@ -29,8 +36,9 @@ namespace BrainyStories
         public ThinkAndDoPopup(ThinkAndDo thinkAndDo, int starNumber)
         {
             InitializeComponent();
-            ThinkAndDoTitle.Text = thinkAndDo.ThinkAndDoName;
             ThinkAndDoTitle.Text = starNumber == 1 ? thinkAndDo.Text1 : thinkAndDo.Text2;
+            lastClickedStarNumber = starNumber;
+            lastClickedThinkAndDoName = thinkAndDo.ThinkAndDoName;
 
             //June 2019: moved the player init to the top of the file to be able to calculate duration later on
             ObjCRuntime.Class.ThrowOnInitFailure = false;
@@ -141,7 +149,24 @@ namespace BrainyStories
         //marks a think and do as completed
         private void MarkAsPlayed(object sender, EventArgs e)
         {
-            //todo: write to the database that the think and do is completed
+            //write to the database that the think and do is completed
+            using (var realmConnection = Realm.GetInstance(RealmConfiguration.DefaultConfiguration))
+            {
+                using (var writer = realmConnection.BeginWrite())
+                {
+                    ////update the prompt completion status
+                    var playedTAD = realmConnection.All<ThinkAndDo>().Where(x => x.ThinkAndDoName.Equals(lastClickedThinkAndDoName)).FirstOrDefault();
+                    if (lastClickedStarNumber == 1)
+                    {
+                        playedTAD.CompletedPrompt1 = true;
+                    }
+                    else
+                    {
+                        playedTAD.CompletedPrompt2 = true;
+                    }
+                    writer.Commit();
+                }
+            }
         }
 
         // Returns to previous page when back button is selected

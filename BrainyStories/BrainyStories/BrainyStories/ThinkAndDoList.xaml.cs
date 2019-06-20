@@ -3,6 +3,9 @@ using Rg.Plugins.Popup.Services;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Collections.Specialized;
+using System.ComponentModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -34,7 +37,15 @@ namespace BrainyStories
             ThinkAndDo think = ((ImageButton)sender).BindingContext as ThinkAndDo;
 
             ThinkAndDoPopup pop = new ThinkAndDoPopup(think, starNumber);
+            pop.Disappearing += PopUpClosed;
             await PopupNavigation.Instance.PushAsync(pop);
+        }
+
+        //refreshes the stars after the popup is closed
+        private void PopUpClosed(object sender, EventArgs e)
+        {
+            ListOfThinkAndDos = factory.generateThinkAndDos();
+            BindList.ItemsSource = ListOfThinkAndDos;
         }
 
         // Navbar methods
