@@ -44,6 +44,7 @@ namespace BrainyStories
             ObjCRuntime.Class.ThrowOnInitFailure = false;
             player = Plugin.SimpleAudioPlayer.CrossSimpleAudioPlayer.Current;
             string audioFile = starNumber == 1 ? thinkAndDo.ThinkAndDoAudioClip1 : thinkAndDo.ThinkAndDoAudioClip2;
+
             player.Load(audioFile);
 
             ImageButton button = new ImageButton()
@@ -167,6 +168,7 @@ namespace BrainyStories
                     writer.Commit();
                 }
             }
+            CloseAllPopup();
         }
 
         // Returns to previous page when back button is selected
