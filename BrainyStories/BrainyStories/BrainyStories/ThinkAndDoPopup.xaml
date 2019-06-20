@@ -4,14 +4,16 @@
              xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
              xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
              x:Class="BrainyStories.ThinkAndDoPopup">
-    <StackLayout VerticalOptions="Center" 
-                 HorizontalOptions="FillAndExpand" 
+    <StackLayout VerticalOptions="Center"
+                 HorizontalOptions="FillAndExpand"
                  Padding="20, 20, 20, 20"
                  x:Name ="TopStack">
-        <!--<ThinkAndDo Title/>-->
-        <StackLayout BackgroundColor="White" Padding="0, 10, 0, 0">
-            <Label x:Name="ThinkAndDoTitle" TextColor="Gray" FontSize="20" HorizontalOptions="Center" FontFamily="{StaticResource Comic}"></Label>
-            <Label x:Name="ThinkAndDoText" TextColor="Gray" FontSize="16" HorizontalOptions="Start" FontFamily="{StaticResource Comic}"></Label>
-        </StackLayout>
+        <!--<ThinkAndDo Title />-->
+        <ScrollView>
+            <StackLayout BackgroundColor="White" Padding="0, 10, 0, 0">
+                <Label x:Name="ThinkAndDoTitle" TextColor="Gray" FontSize="20" HorizontalOptions="Center" FontFamily="{StaticResource Comic}"></Label>
+                <Label x:Name="ThinkAndDoText" TextColor="Gray" FontSize="16" HorizontalOptions="Start" FontFamily="{StaticResource Comic}"></Label>
+            </StackLayout>
+        </ScrollView>
     </StackLayout>
 </pages:PopupPage>
