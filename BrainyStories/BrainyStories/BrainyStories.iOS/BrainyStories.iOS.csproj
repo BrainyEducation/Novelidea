@@ -3159,16 +3159,10 @@
     <None Include="FodyWeavers.xml" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\Home%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\BackButton%402x-old.png" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\BackButton%402x.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\Home%403x.png" />
+    <BundleResource Include="Resources\Home%402x.png" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\logo.png" />

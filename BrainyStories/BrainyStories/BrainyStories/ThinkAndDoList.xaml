@@ -30,7 +30,7 @@
                     FontSize ="35"
                     TextColor="Black"
                     VerticalOptions="Center"
-                    HorizontalOptions="Center" />
+                    HorizontalOptions="CenterAndExpand" />
             </StackLayout>
             <!--<End of Navigation Bar />-->
             <ListView SeparatorVisibility="None"
@@ -44,14 +44,14 @@
                         <ViewCell>
                             <ViewCell.View>
                                 <StackLayout Orientation="Horizontal"
-                             HeightRequest="150">
+                             HeightRequest="150" HorizontalOptions="FillAndExpand">
                                     <Image Source="{Binding AssociatedImage}"
                          HeightRequest="150" />
-                                    <StackLayout Padding="2" Orientation="Horizontal">
+                                    <StackLayout HorizontalOptions="FillAndExpand" Padding="2" Orientation="Horizontal">
                                         <!--<Label Text ="{Binding AssociatedStory}" />-->
-                                        <ImageButton Source="{Binding Star1Image}" WidthRequest="50" Clicked="Star1Clicked" BindingContext="{Binding}" />
-                                        <Label Text ="{Binding ThinkAndDoName}" WidthRequest="150" LineBreakMode="WordWrap" VerticalOptions="Center"  FontSize="Small" FontFamily="{StaticResource Comic}" />
-                                        <ImageButton Source="{Binding Star2Image}" WidthRequest="50" Clicked="Star2Clicked" BindingContext="{Binding}" />
+                                        <ImageButton HorizontalOptions="EndAndExpand" Source="{Binding Star1Image}" WidthRequest="50" Clicked="Star1Clicked" BindingContext="{Binding}" />
+                                        <Label HorizontalOptions="CenterAndExpand" Text ="{Binding ThinkAndDoName}"  LineBreakMode="WordWrap" VerticalOptions="Center"  FontSize="Small" FontFamily="{StaticResource Comic}" />
+                                        <ImageButton HorizontalOptions="StartAndExpand" Source="{Binding Star2Image}" WidthRequest="50" Clicked="Star2Clicked" BindingContext="{Binding}" />
                                         <!--<Label Text="{Binding LengthOfAudio1, Mode=OneWay, StringFormat='{}{0:mm}:{0:ss}'}" FontFamily="{StaticResource Comic}" />-->
                                     </StackLayout>
                                 </StackLayout>
