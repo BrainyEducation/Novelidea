@@ -88,60 +88,61 @@ namespace BrainyStories
                         Text2 = "Have you heard a different version of the story about the three pigs or seen a picture book version or watched a cartoon version of the story? If so, which version did you like best and why? Did a different version tell about the pig’s mother? Did the pigs have money in another version? Did the pigs buy candy in another version? Did the wolf say: “Little pig, little pig, let me come in.” Did the pig answer: “Not by the hair of my chinny, chin, chin.” In the other version, what happened to the wolf at the very end? Did he become the pigs’ dinner or did he run away?"
                     });
 
-                    // The Three Billy Goats Gruff Think and Dos
-                    CreateNewThinkAndDo(new ThinkAndDo
-                    {
-                        ThinkAndDoName = "The Three Billy Goats Gruff Think And Do",
-                        AssociatedImage = "S6_BGG_1.jpg",
-                        ThinkAndDoAudioClip1 = "S6_BGG_TAD1.mp3",
-                        ThinkAndDoAudioClip2 = "S6_BGG_TAD2.mp3",
-                        Text1 = "Fold a piece of paper in half once, and then fold it in half again to mark four parts on the paper. In one part draw the smallest goat. In another part draw the middle size goat. In another part draw the biggest goat. In the last part draw the troll. Cut out the pictures of the goats and the troll so you can use the pictures to tell the story. For the grass hillsides you might use two pillows or two handkerchiefs or something else. For the bridge you might use a book or box or something else. Listen to the story being read again and use your pictures to show and tell the story. Show and tell the story to a friend or a grownup or at school.",
-                        Text2 = "Which character in the story is the meanest and cruelest, like a big bad bully? What does the troll want to do with the goats? Draw a different way the goats can get across the watery stream without using the bridge."
-                    });
+                    //commenting out the last 5 stories to cut down on resource usage
+                    //// The Three Billy Goats Gruff Think and Dos
+                    //CreateNewThinkAndDo(new ThinkAndDo
+                    //{
+                    //    ThinkAndDoName = "The Three Billy Goats Gruff Think And Do",
+                    //    AssociatedImage = "S6_BGG_1.jpg",
+                    //    ThinkAndDoAudioClip1 = "S6_BGG_TAD1.mp3",
+                    //    ThinkAndDoAudioClip2 = "S6_BGG_TAD2.mp3",
+                    //    Text1 = "Fold a piece of paper in half once, and then fold it in half again to mark four parts on the paper. In one part draw the smallest goat. In another part draw the middle size goat. In another part draw the biggest goat. In the last part draw the troll. Cut out the pictures of the goats and the troll so you can use the pictures to tell the story. For the grass hillsides you might use two pillows or two handkerchiefs or something else. For the bridge you might use a book or box or something else. Listen to the story being read again and use your pictures to show and tell the story. Show and tell the story to a friend or a grownup or at school.",
+                    //    Text2 = "Which character in the story is the meanest and cruelest, like a big bad bully? What does the troll want to do with the goats? Draw a different way the goats can get across the watery stream without using the bridge."
+                    //});
 
-                    // The Tale of Peter Rabbit Think and Dos
-                    CreateNewThinkAndDo(new ThinkAndDo
-                    {
-                        ThinkAndDoName = "The Tales of Peter Rabbit Think And Do",
-                        AssociatedImage = "S7_PR_0.jpg",
-                        ThinkAndDoAudioClip1 = "S7_PR_TAD1.mp3",
-                        ThinkAndDoAudioClip2 = "S7_PR_TAD2.mp3",
-                        Text1 = "Have you ever planted a garden? What would be nice to plant in a garden? What kinds of things would a rabbit like in a garden? What did Mr. MacGregor do with Peter’s coat and shoes? Why did Mr. MacGregor do that?",
-                        Text2 = "Name all of Mother Rabbit’s children. Which rabbit child was the naughtiest and got into the most mischief? Peter Rabbit disobeyed his mother and went where? When Peter ran into the tool shed, where did he land? Why did Peter cry? What clothes did Peter lose? What happened to Peter when he got home? What lesson should Peter have learned from his adventure?"
-                    });
+                    //// The Tale of Peter Rabbit Think and Dos
+                    //CreateNewThinkAndDo(new ThinkAndDo
+                    //{
+                    //    ThinkAndDoName = "The Tales of Peter Rabbit Think And Do",
+                    //    AssociatedImage = "S7_PR_0.jpg",
+                    //    ThinkAndDoAudioClip1 = "S7_PR_TAD1.mp3",
+                    //    ThinkAndDoAudioClip2 = "S7_PR_TAD2.mp3",
+                    //    Text1 = "Have you ever planted a garden? What would be nice to plant in a garden? What kinds of things would a rabbit like in a garden? What did Mr. MacGregor do with Peter’s coat and shoes? Why did Mr. MacGregor do that?",
+                    //    Text2 = "Name all of Mother Rabbit’s children. Which rabbit child was the naughtiest and got into the most mischief? Peter Rabbit disobeyed his mother and went where? When Peter ran into the tool shed, where did he land? Why did Peter cry? What clothes did Peter lose? What happened to Peter when he got home? What lesson should Peter have learned from his adventure?"
+                    //});
 
-                    // The Gingerbread Man Think and Dos
-                    CreateNewThinkAndDo(new ThinkAndDo
-                    {
-                        ThinkAndDoName = "The Gingerbread Man Think And Do",
-                        AssociatedImage = "S8_TGM_1.jpg",
-                        ThinkAndDoAudioClip1 = "S8_TGM_TAD1.mp3",
-                        ThinkAndDoAudioClip2 = "S8_TGM_TAD2.mp3",
-                        Text2 = "That Gingerbread Man was really fast! Why do you think the Gingerbread Man ran and ran? Who did he run away from first? Who was the last character to chase him?  What would you do to catch the Gingerbread man? Imagine a Gingerbread Man trap and, if you can, draw a picture of the trap.",
-                        Text1 = "Draw a picture of the Gingerbread Man and use glue or tape to put the picture on a stick or pencil. Listen to the story again, and when you hear the words—“Run, Run fast as you can, you can’t catch me I’m the Gingerbread Man!” — say them at the same time and make your Gingerbread Man hop and bounce and move along quickly."
-                    });
+                    //// The Gingerbread Man Think and Dos
+                    //CreateNewThinkAndDo(new ThinkAndDo
+                    //{
+                    //    ThinkAndDoName = "The Gingerbread Man Think And Do",
+                    //    AssociatedImage = "S8_TGM_1.jpg",
+                    //    ThinkAndDoAudioClip1 = "S8_TGM_TAD1.mp3",
+                    //    ThinkAndDoAudioClip2 = "S8_TGM_TAD2.mp3",
+                    //    Text2 = "That Gingerbread Man was really fast! Why do you think the Gingerbread Man ran and ran? Who did he run away from first? Who was the last character to chase him?  What would you do to catch the Gingerbread man? Imagine a Gingerbread Man trap and, if you can, draw a picture of the trap.",
+                    //    Text1 = "Draw a picture of the Gingerbread Man and use glue or tape to put the picture on a stick or pencil. Listen to the story again, and when you hear the words—“Run, Run fast as you can, you can’t catch me I’m the Gingerbread Man!” — say them at the same time and make your Gingerbread Man hop and bounce and move along quickly."
+                    //});
 
-                    // Rumplestiltskin Think and Dos
-                    CreateNewThinkAndDo(new ThinkAndDo
-                    {
-                        ThinkAndDoName = "Rumplestiltskin Think And Do",
-                        AssociatedImage = "S9_R_1.jpg",
-                        ThinkAndDoAudioClip1 = "S9_R_TAD1.mp3",
-                        ThinkAndDoAudioClip2 = "S9_R_TAD2.mp3",
-                        Text1 = "The miller’s daughter had a big problem and Rumplestiltskin helped her by using magic to spin straw into gold. If you could do magic what would you do? Would you be greedy like the king or would you do magic to help others? Draw a picture of you using magic to solve a problem.",
-                        Text2 = "How many characters in the story were bossy and told the miller’s daughter what to do? Which character was the bossiest? Which character was the meanest? Why do you think that character was meanest? Which character did most to help the miller’s daughter? Which character in the story do you think was the smartest? Why?"
-                    });
+                    //// Rumplestiltskin Think and Dos
+                    //CreateNewThinkAndDo(new ThinkAndDo
+                    //{
+                    //    ThinkAndDoName = "Rumplestiltskin Think And Do",
+                    //    AssociatedImage = "S9_R_1.jpg",
+                    //    ThinkAndDoAudioClip1 = "S9_R_TAD1.mp3",
+                    //    ThinkAndDoAudioClip2 = "S9_R_TAD2.mp3",
+                    //    Text1 = "The miller’s daughter had a big problem and Rumplestiltskin helped her by using magic to spin straw into gold. If you could do magic what would you do? Would you be greedy like the king or would you do magic to help others? Draw a picture of you using magic to solve a problem.",
+                    //    Text2 = "How many characters in the story were bossy and told the miller’s daughter what to do? Which character was the bossiest? Which character was the meanest? Why do you think that character was meanest? Which character did most to help the miller’s daughter? Which character in the story do you think was the smartest? Why?"
+                    //});
 
-                    // Little Red Riding Hood Think and Dos
-                    CreateNewThinkAndDo(new ThinkAndDo
-                    {
-                        ThinkAndDoName = "Little Red Riding Hood Think And Do",
-                        AssociatedImage = "S10_LRRH_1.jpg",
-                        ThinkAndDoAudioClip1 = "S10_LRRH_TAD1.mp3",
-                        ThinkAndDoAudioClip2 = "S10_LRRH_TAD2.mp3",
-                        Text1 = "Why did the little girl cut through the forest? Was it a good choice? Who did she meet along the way? Where did the wolf go? Was the little girl frightened? When Little Red Riding Hood realized who he was, what did the wolf do? How was the little girl saved at the end?",
-                        Text2 = "Why was the little girl called Little Red Riding Hood? Who made the hood for her? Why was she going to visit her grandmother? Did the little girl disobey her mother? How? What did the wolf do? What did the girl notice that helped her know the wolf was only pretending to be her grandmother? Who happened to hear the snoring and come into grandmother’s house? Would the girl have been in trouble if she had not disobeyed her mother?"
-                    });
+                    //// Little Red Riding Hood Think and Dos
+                    //CreateNewThinkAndDo(new ThinkAndDo
+                    //{
+                    //    ThinkAndDoName = "Little Red Riding Hood Think And Do",
+                    //    AssociatedImage = "S10_LRRH_1.jpg",
+                    //    ThinkAndDoAudioClip1 = "S10_LRRH_TAD1.mp3",
+                    //    ThinkAndDoAudioClip2 = "S10_LRRH_TAD2.mp3",
+                    //    Text1 = "Why did the little girl cut through the forest? Was it a good choice? Who did she meet along the way? Where did the wolf go? Was the little girl frightened? When Little Red Riding Hood realized who he was, what did the wolf do? How was the little girl saved at the end?",
+                    //    Text2 = "Why was the little girl called Little Red Riding Hood? Who made the hood for her? Why was she going to visit her grandmother? Did the little girl disobey her mother? How? What did the wolf do? What did the girl notice that helped her know the wolf was only pretending to be her grandmother? Who happened to hear the snoring and come into grandmother’s house? Would the girl have been in trouble if she had not disobeyed her mother?"
+                    //});
                     realmTransaction.Commit();
                 }
             }

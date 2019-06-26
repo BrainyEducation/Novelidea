@@ -69,7 +69,7 @@
 
                 <StackLayout Orientation="Horizontal"
                                   Grid.Row="1" Grid.ColumnSpan="10" Grid.RowSpan="1">
-                    <Label HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"   Grid.Column="0" Grid.ColumnSpan="1" Text="⭐" />
+                    <Label HorizontalOptions="FillAndExpand" VerticalTextAlignment="Center"   Grid.Column="0" Grid.ColumnSpan="1" Text="⭐" />
                     <Label HorizontalOptions="FillAndExpand"  VerticalTextAlignment="Center"   Grid.Column="1" Grid.ColumnSpan="1" Text="⭐" />
                     <Label HorizontalOptions="FillAndExpand"  VerticalTextAlignment="Center"   Grid.Column="2" Grid.ColumnSpan="1" Text="⭐" />
                     <Label HorizontalOptions="FillAndExpand"  VerticalTextAlignment="Center"   Grid.Column="3" Grid.ColumnSpan="1" Text="⭐" />
