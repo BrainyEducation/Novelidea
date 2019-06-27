@@ -3,14 +3,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BrainyStories.MainPage"
              NavigationPage.HasNavigationBar="false">
-    <Grid x:Name="pageGrid" BackgroundColor="#A9FFF7" Padding="5,5,5,5">
+    <Grid x:Name="pageGrid" BackgroundColor="#99d9ea" Padding="5,5,5,5">
         <Grid.RowDefinitions>
             <RowDefinition  Height="*" />
             <RowDefinition  Height="*" />
             <RowDefinition  Height="3*" />
             <RowDefinition  Height="2*" />
-            <RowDefinition  Height="2*" />
-            <RowDefinition  Height="*" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
@@ -28,7 +26,7 @@
         <StackLayout VerticalOptions="Start"
                  HorizontalOptions="FillAndExpand"
                  Orientation="Horizontal"
-                 BackgroundColor ="#A9FFF7">
+                 BackgroundColor ="#99d9ea">
             <ImageButton HorizontalOptions="Start"
                    Source="BackButton.png"
                    Clicked ="BackClicked"
@@ -57,72 +55,51 @@
          Grid.ColumnSpan="8" />
         <!--<Six home page buttons />-->
         <ImageButton
-              BackgroundColor="White"
+              VerticalOptions="FillAndExpand"
+              HorizontalOptions="FillAndExpand"
               Clicked="ImaginesClicked"
               Grid.Row="2"
-              Grid.RowSpan="2"
               Grid.Column="1"
               Grid.ColumnSpan="4"
+              BorderColor="Black"
+              BorderWidth="10"
               CornerRadius="50"
               Source="ImaginesButton.png" />
         <ImageButton
-              BackgroundColor="White"
               Clicked="StoriesClicked"
+              BorderColor="Black"
+              BorderWidth="10"
               Grid.Row="2"
               Grid.Column="5"
-              Grid.RowSpan="2"
               Grid.ColumnSpan="4"
               CornerRadius="50"
-              Source="ClassicStoriesButton.png" />
-        <Button Text="Rewards"
-              FontFamily="{StaticResource Comic}"
-              TextColor="White"
-              FontAttributes="Bold"
-              BackgroundColor="#f85a3e"
-              Grid.Row="4"
-              Grid.RowSpan="2"
-              Grid.Column="1"
-              CornerRadius="50"
-              Clicked="RewardsClicked"
-              Grid.ColumnSpan="2"
-              FontSize="Large" />
-        <Button Text="Progress"
-              FontFamily="{StaticResource Comic}"
-              FontSize="Large"
-              FontAttributes="Bold"
-              CornerRadius="50"
               VerticalOptions="FillAndExpand"
-              TextColor="White"
-              BackgroundColor="#fc6dab"
-              Clicked="ProgressClicked"
-              Grid.Row="4"
-              Grid.Column="3"
-              Grid.ColumnSpan="2"
-              Grid.RowSpan="2" />
-        <Button Text="Quizzes"
-              FontFamily="{StaticResource Comic}"
-              FontSize="Large"
-              FontAttributes="Bold"
-              TextColor="White"
-              BackgroundColor="#6526DA"
-              Clicked="QuizzesClicked"
-              CornerRadius="50"
-              Grid.Row="4"
-              Grid.Column="5"
-              Grid.RowSpan="2"
+              Source="ClassicStoriesButton.png" />
+        <ImageButton
+              Source="RewardsButton.png"
+              VerticalOptions="Fill"
+              Grid.Row="3"
+              Grid.Column="1"
+              Clicked="RewardsClicked"
               Grid.ColumnSpan="2" />
-        <Button Text="Think &#x0a; and &#x0a; Do"
-              FontFamily="{StaticResource Comic}"
-              FontSize="Large"
-              FontAttributes="Bold"
-              TextColor="White"
-              BackgroundColor="#226f54"
+        <ImageButton
+              VerticalOptions="FillAndExpand"
+              Source="ProgressButton.png"
+              Clicked="ProgressClicked"
+              Grid.Row="3"
+              Grid.Column="3"
+              Grid.ColumnSpan="2" />
+        <ImageButton
+              Source="QuizzesButton.png"
+              Clicked="QuizzesClicked"
+              Grid.Row="3"
+              Grid.Column="5"
+              Grid.ColumnSpan="2" />
+        <ImageButton
+              Source="ThinkAndDoButton.png"
               Clicked="ThinkAndDoClicked"
-              CornerRadius="50"
-              Grid.Row="4"
+              Grid.Row="3"
               Grid.Column="7"
-              Grid.ColumnSpan="2"
-
-              Grid.RowSpan="2" />
+              Grid.ColumnSpan="2" />
     </Grid>
 </ContentPage>

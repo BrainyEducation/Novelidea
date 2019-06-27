@@ -3167,4 +3167,19 @@
   <ItemGroup>
     <BundleResource Include="Resources\logo.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\RewardsButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ProgressButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\QuizzesButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ThinkAndDoButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\EmptyStar.png" />
+  </ItemGroup>
 </Project>

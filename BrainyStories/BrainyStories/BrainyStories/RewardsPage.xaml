@@ -5,9 +5,8 @@
              NavigationPage.HasNavigationBar="false"
              BackgroundColor="#A9FFF7">
     <ContentPage.Content>
-        <StackLayout Orientation="Vertical"
-               VerticalOptions="FillAndExpand"
-               CompressedLayout.IsHeadless="True">
+        <StackLayout>
+
             <!--<Start of Navigation Bar />-->
             <StackLayout VerticalOptions="Start"
             HorizontalOptions="FillAndExpand"
@@ -30,60 +29,73 @@
                     FontSize ="35"
                     TextColor="Black"
                     VerticalOptions="Center"
-                    HorizontalOptions="Center" />
+                    HorizontalOptions="CenterAndExpand" />
             </StackLayout>
 
-            <!--Display 2 rows of 20 stars, the last star should show a count-->
-            <Grid>
+            <!--<FlexLayout x:Name="BindList"
+                        Wrap="Wrap"
+                        Direction="Row"
+                        JustifyContent="SpaceAround">
+            </FlexLayout>-->
+
+            <Grid  x:Name="StarBlock" HorizontalOptions="Center"
+                  VerticalOptions="Center">
                 <Grid.RowDefinitions>
-                    <RowDefinition  Height="1*" />
-                    <RowDefinition  Height="1*" />
-                    <RowDefinition  Height="4*" />
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="3*" />
                 </Grid.RowDefinitions>
+
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="1*" />
-                    <ColumnDefinition Width="1*" />
-                    <ColumnDefinition Width="1*" />
-                    <ColumnDefinition Width="1*" />
-                    <ColumnDefinition Width="1*" />
-                    <ColumnDefinition Width="1*" />
-                    <ColumnDefinition Width="1*" />
-                    <ColumnDefinition Width="1*" />
-                    <ColumnDefinition Width="1*" />
-                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
+            </Grid>
+        </StackLayout>
 
-                <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal"
-                                 Grid.Row="0" Grid.ColumnSpan="10" Grid.RowSpan="1">
-                    <Label HorizontalOptions="FillAndExpand"  Grid.Column="0" Grid.ColumnSpan="1" Text="⭐" />
-                    <Label HorizontalOptions="FillAndExpand" Grid.Column="1" Grid.ColumnSpan="1" Text="⭐" />
-                    <Label HorizontalOptions="FillAndExpand" Grid.Column="2" Grid.ColumnSpan="1" Text="⭐" />
-                    <Label HorizontalOptions="FillAndExpand" Grid.Column="3" Grid.ColumnSpan="1" Text="⭐" />
-                    <Label HorizontalOptions="FillAndExpand" Grid.Column="4" Grid.ColumnSpan="1" Text="⭐" />
-                    <Label HorizontalOptions="FillAndExpand" Grid.Column="5" Grid.ColumnSpan="1" Text="⭐" />
-                    <Label HorizontalOptions="FillAndExpand" Grid.Column="6" Grid.ColumnSpan="1" Text="⭐" />
-                    <Label HorizontalOptions="FillAndExpand" Grid.Column="7" Grid.ColumnSpan="1" Text="⭐" />
-                    <Label HorizontalOptions="FillAndExpand" Grid.Column="8" Grid.ColumnSpan="1" Text="⭐" />
-                    <Label HorizontalOptions="FillAndExpand" Grid.Column="9" Grid.ColumnSpan="1" Text="⭐" />
-                </StackLayout>
+        <!--<ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            -->
+        <!--Display 2 rows of 20 stars, the last star should show a count-->
+        <!--<Grid BackgroundColor="Black">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition  Height="1*" />
+                                    <RowDefinition  Height="1*" />
+                                    <RowDefinition  Height="4*" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1*" />
+                                    <ColumnDefinition Width="1*" />
+                                    <ColumnDefinition Width="1*" />
+                                    <ColumnDefinition Width="1*" />
+                                    <ColumnDefinition Width="1*" />
+                                    <ColumnDefinition Width="1*" />
+                                    <ColumnDefinition Width="1*" />
+                                    <ColumnDefinition Width="1*" />
+                                    <ColumnDefinition Width="1*" />
+                                    <ColumnDefinition Width="1*" />
+                                </Grid.ColumnDefinitions>-->
 
-                <StackLayout Orientation="Horizontal"
-                                  Grid.Row="1" Grid.ColumnSpan="10" Grid.RowSpan="1">
-                    <Label HorizontalOptions="FillAndExpand" VerticalTextAlignment="Center"   Grid.Column="0" Grid.ColumnSpan="1" Text="⭐" />
-                    <Label HorizontalOptions="FillAndExpand"  VerticalTextAlignment="Center"   Grid.Column="1" Grid.ColumnSpan="1" Text="⭐" />
-                    <Label HorizontalOptions="FillAndExpand"  VerticalTextAlignment="Center"   Grid.Column="2" Grid.ColumnSpan="1" Text="⭐" />
-                    <Label HorizontalOptions="FillAndExpand"  VerticalTextAlignment="Center"   Grid.Column="3" Grid.ColumnSpan="1" Text="⭐" />
-                    <Label HorizontalOptions="FillAndExpand"  VerticalTextAlignment="Center"   Grid.Column="4" Grid.ColumnSpan="1" Text="⭐" />
-                    <Label HorizontalOptions="FillAndExpand"  VerticalTextAlignment="Center"  Grid.Column="5" Grid.ColumnSpan="1" Text="⭐" />
-                    <Label HorizontalOptions="FillAndExpand"   VerticalTextAlignment="Center"  Grid.Column="6" Grid.ColumnSpan="1" Text="⭐" />
-                    <Label HorizontalOptions="FillAndExpand"  VerticalTextAlignment="Center"   Grid.Column="7" Grid.ColumnSpan="1" Text="⭐" />
-                    <Label HorizontalOptions="FillAndExpand"  VerticalTextAlignment="Center" Grid.Column="8" Grid.ColumnSpan="1" Text="⭐" />
-                    <Label HorizontalOptions="FillAndExpand"  VerticalTextAlignment="Center" WidthRequest="25" Grid.Column="9" Grid.ColumnSpan="1" Text="" />
-                </StackLayout>
+        <!--<Label BackgroundColor="Brown" IsVisible="{Binding IsVisible}" Grid.Column="{Binding Column}" Grid.Row="{Binding Row}"
+                                           HorizontalOptions="FillAndExpand" FontSize="Large" HorizontalTextAlignment="Center"
+                                            VerticalTextAlignment="Center" Grid.ColumnSpan="1"
+                                            VerticalOptions="CenterAndExpand"
+                                           Text="{Binding Text}" />-->
+        <!--</Grid>-->
+        <!--
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </CollectionView>-->
 
-                <ScrollView Grid.Row="2">
+        <!--<ScrollView Grid.Row="2">
                     <StackLayout>
-                        <!--<Shows earned Rewards />-->
+                        -->
+        <!--<Shows earned Rewards />-->
+        <!--
                         <StackLayout x:Name="BankList"
                        Orientation="Horizontal" />
                         <StackLayout x:Name="CarList"
@@ -99,28 +111,27 @@
                         <StackLayout Orientation="Horizontal">
                         </StackLayout>
                     </StackLayout>
-                </ScrollView>
-            </Grid>
-            <!--<End of Navigation Bar />-->
+                </ScrollView>-->
+        <!--<End of Navigation Bar />-->
 
-            <!-- 2 Silver Coins gets 1 Gold Coin -->
-            <!--
+        <!-- 2 Silver Coins gets 1 Gold Coin -->
+        <!--
                         <Label Text="          2" VerticalTextAlignment="Center" FontFamily="{StaticResource Comic}" />
                         <Image Source="SilverCoin.png" />
                         <Label Text="= 1" VerticalTextAlignment="Center" FontFamily="{StaticResource Comic}" />
                         <Image Source="GoldCoin.png" />
 
                         -->
-            <!-- 5 Gold Coins gets 1 Gold Stack -->
-            <!--
+        <!-- 5 Gold Coins gets 1 Gold Stack -->
+        <!--
                         <Label Text="          5" VerticalTextAlignment="Center" FontFamily="{StaticResource Comic}" />
                         <Image Source="GoldCoin.png" />
                         <Label Text="= 1" VerticalTextAlignment="Center" FontFamily="{StaticResource Comic}" />
                         <Image Source="GoldStack.png" />
 
                         -->
-            <!-- 5 Gold Stacks gets 1 Money Bag -->
-            <!--
+        <!-- 5 Gold Stacks gets 1 Money Bag -->
+        <!--
                         <Label Text="          5" VerticalTextAlignment="Center" FontFamily="{StaticResource Comic}" />
                         <Image Source="GoldStack.png" />
                         <Label Text="= 1" VerticalTextAlignment="Center" FontFamily="{StaticResource Comic}" />
@@ -129,20 +140,19 @@
 
                     <StackLayout Orientation="Horizontal">
                         -->
-            <!-- 5 Money Bags gets 1 Armored Car -->
-            <!--
+        <!-- 5 Money Bags gets 1 Armored Car -->
+        <!--
                         <Label Text="          5" VerticalTextAlignment="Center" FontFamily="{StaticResource Comic}" />
                         <Image Source="MoneyBag.png" />
                         <Label Text="= 1" VerticalTextAlignment="Center" FontFamily="{StaticResource Comic}" />
                         <Image Source="ArmoredCar.png" />
 
                         -->
-            <!-- 5 Armored Cars gets 1 Bank -->
+        <!-- 5 Armored Cars gets 1 Bank -->
 
-            <!--<Label Text="          5" VerticalTextAlignment="Center" FontFamily="{StaticResource Comic}" />
+        <!--<Label Text="          5" VerticalTextAlignment="Center" FontFamily="{StaticResource Comic}" />
                         <Image Source="ArmoredCar.png" />
                         <Label Text="= 1" VerticalTextAlignment="Center" FontFamily="{StaticResource Comic}" />
                         <Image Source="Bank.png" />-->
-        </StackLayout>
     </ContentPage.Content>
 </ContentPage>

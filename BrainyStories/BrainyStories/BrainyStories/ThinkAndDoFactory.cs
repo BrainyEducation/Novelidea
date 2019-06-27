@@ -17,7 +17,7 @@ namespace BrainyStories
         private Realm RealmFile;
 
         //this story gets its own constant because it is an exception since it has only one TAD
-        public const String RED_HEN_NAME = "The Little Red Hen Think And Do";
+        public const String RED_HEN_NAME = "The Little Red Hen";
 
         public ObservableCollection<ThinkAndDo> generateThinkAndDos()
         {
@@ -39,7 +39,7 @@ namespace BrainyStories
                     // The Lion and the Mouse Think and Dos
                     CreateNewThinkAndDo(new ThinkAndDo
                     {
-                        ThinkAndDoName = "The Lion and the Mouse Think And Do",
+                        ThinkAndDoName = "The Lion and the Mouse",
                         AssociatedImage = "S1_LATM_1.jpg",
                         ThinkAndDoAudioClip1 = "S1_TLATM_TAD1.mp3",
                         ThinkAndDoAudioClip2 = "S1_TLATM_TAD2.mp3",
@@ -59,7 +59,7 @@ namespace BrainyStories
                     // The Boy Who Cried Wolf Think and Dos
                     CreateNewThinkAndDo(new ThinkAndDo
                     {
-                        ThinkAndDoName = "The Boy Who Cried Wolf Think And Do",
+                        ThinkAndDoName = "The Boy Who Cried Wolf",
                         AssociatedImage = "S3_TBWCW_1.jpg",
                         ThinkAndDoAudioClip1 = "S3_BWCW_TAD1.mp3",
                         ThinkAndDoAudioClip2 = "S3_BWCW_TAD2.mp3",
@@ -69,7 +69,7 @@ namespace BrainyStories
                     // The Elves and the Shoemaker Think and Dos
                     CreateNewThinkAndDo(new ThinkAndDo
                     {
-                        ThinkAndDoName = "The Elves and the Shoemaker Think And Do",
+                        ThinkAndDoName = "The Elves and the Shoemaker",
                         AssociatedImage = "S4_TEATS_1.jpg",
                         ThinkAndDoAudioClip1 = "S4_TEATS_TAD1.mp3",
                         ThinkAndDoAudioClip2 = "S4_TEATS_TAD2.mp3",
@@ -80,7 +80,7 @@ namespace BrainyStories
                     // The Three Little Pigs Think and Dos
                     CreateNewThinkAndDo(new ThinkAndDo
                     {
-                        ThinkAndDoName = "The Three Little Pigs Think And Do",
+                        ThinkAndDoName = "The Three Little Pigs",
                         AssociatedImage = "S5_TLP_0.jpg",
                         ThinkAndDoAudioClip1 = "S5_TLP_TAD1.mp3",
                         ThinkAndDoAudioClip2 = "S5_TLP_TAD2.mp3",
