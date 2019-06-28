@@ -33,18 +33,18 @@ namespace BrainyStories
 
             //BindList.ItemsSource = StarsToDisplay;
 
-            User user = User.Instance;
-            int numOfSilverCoins = user.RewardsRecieved["Silver"];
-            int numOfGoldCoins = user.RewardsRecieved["Gold"] + (numOfSilverCoins / 2);
-            int numOfStacks = numOfGoldCoins / 5;
-            int numOfBags = numOfStacks / 5;
-            int numOfArmoredCars = numOfBags / 5;
-            int numOfBanks = numOfArmoredCars / 5;
-            numOfSilverCoins = numOfSilverCoins % 2;
-            numOfGoldCoins = numOfGoldCoins % 5;
-            numOfStacks = numOfStacks % 5;
-            numOfBags = numOfBags % 5;
-            numOfArmoredCars = numOfArmoredCars % 5;
+            //User user = User.Instance;
+            //int numOfSilverCoins = user.RewardsRecieved["Silver"];
+            //int numOfGoldCoins = user.RewardsRecieved["Gold"] + (numOfSilverCoins / 2);
+            //int numOfStacks = numOfGoldCoins / 5;
+            //int numOfBags = numOfStacks / 5;
+            //int numOfArmoredCars = numOfBags / 5;
+            //int numOfBanks = numOfArmoredCars / 5;
+            //numOfSilverCoins = numOfSilverCoins % 2;
+            //numOfGoldCoins = numOfGoldCoins % 5;
+            //numOfStacks = numOfStacks % 5;
+            //numOfBags = numOfBags % 5;
+            //numOfArmoredCars = numOfArmoredCars % 5;
             //for (int i = 0; i < numOfBanks; i++)
             //{
             //    Image bank = new Image() { Source = "Bank.png" };
@@ -86,9 +86,10 @@ namespace BrainyStories
             var starCount = RealmFile.All<ThinkAndDo>().Count(x => x.CompletedPrompt1);
             starCount += RealmFile.All<ThinkAndDo>().Count(x => x.CompletedPrompt2);
             //this loop places a star for every star but the last one
-            for (int i = 0; i < STARS_ON_REWARDS_PAGE - 1; i++)
+            for (int i = 1; i < STARS_ON_REWARDS_PAGE - 1; i++)
             {
                 var column = i <= (STARS_ON_REWARDS_PAGE / 2) ? i : i - (STARS_ON_REWARDS_PAGE / 2);
+                column -= 1; //subtract 1 because we start i at 1
                 var row = i <= (STARS_ON_REWARDS_PAGE / 2) ? 0 : 1;
                 StarBlock.Children.Add(new Stars(column: column, row: row)
                 {
@@ -100,23 +101,27 @@ namespace BrainyStories
 
             //put the last star in
             //this is the star icon
-            StarBlock.Children.Add(new Stars(column: STARS_ON_REWARDS_PAGE, row: 1)
+            var lastStar = new Stars(column: (STARS_ON_REWARDS_PAGE / 2) - 1, row: 1)
             {
                 //last star is always visible
                 IsVisible = true,
                 Text = "⭐",
                 Vibrates = true
-            });
+            };
+            lastStar.SetFontSize(Stars.MEDIUM_STAR_SIZE);
+
+            StarBlock.Children.Add(lastStar);
             //this is the number inside the star icon
-            StarBlock.Children.Add(new Stars(column: STARS_ON_REWARDS_PAGE, row: 1, textSizeMultiplier: 0.5)
+            StarBlock.Children.Add(new Stars(column: (STARS_ON_REWARDS_PAGE / 2) - 1, row: 1, textSizeMultiplier: 0.5)
             {
                 IsVisible = true,
                 Text = starCount.ToString(),
-                Vibrates = true
+                Vibrates = true,
+                FontAttributes = FontAttributes.Bold,
             }); ;
 
             //start a timer to make the last star "vibrate"
-            if (true)//(starCount == STARS_ON_REWARDS_PAGE)
+            if (starCount == STARS_ON_REWARDS_PAGE - 1)
             {
                 StartStarMovement(StarBlock);
             }

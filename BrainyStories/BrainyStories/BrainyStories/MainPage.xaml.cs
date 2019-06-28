@@ -21,14 +21,14 @@ namespace BrainyStories
         // Argument: True = Imagines, False = Stories
         private async void ImaginesClicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new TableOfContents(true));
+            // await Navigation.PushAsync(new TableOfContents(true));
         }
 
         // Stories Table of Contents Page Button
         // Argument: True = Imagines, False = Stories
         private async void StoriesClicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new TableOfContents(false));
+            // await Navigation.PushAsync(new TableOfContents(false));
         }
 
         // Think and Do List Page Button
@@ -40,7 +40,7 @@ namespace BrainyStories
         // Quiz List Page Button
         private async void QuizzesClicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new QuizList());
+            //await Navigation.PushAsync(new QuizList());
         }
 
         // Progress Page Button

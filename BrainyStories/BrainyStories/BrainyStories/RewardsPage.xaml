@@ -38,7 +38,7 @@
                         JustifyContent="SpaceAround">
             </FlexLayout>-->
 
-            <Grid  x:Name="StarBlock" HorizontalOptions="Center"
+            <Grid  x:Name="StarBlock" HorizontalOptions="CenterAndExpand"
                   VerticalOptions="Center">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="1*" />
