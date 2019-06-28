@@ -3179,4 +3179,7 @@
   <ItemGroup>
     <BundleResource Include="Resources\ThinkAndDoButton.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\RewardsCoin.png" />
+  </ItemGroup>
 </Project>

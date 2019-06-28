@@ -11,11 +11,13 @@ namespace BrainyStories.RealmObjects
         [PrimaryKey]
         public String QuestionId { get; private set; } = Guid.NewGuid().ToString();
 
+        [Indexed]
+        public String QuizId { get; set; }
+
+        public int QuestionOrder { get; set; }
+
         // String text of the question
         public string QuestionText { get; set; }
-
-        //foreign key to the Answers for the Question
-        public RealmList<Answer> AnswerArray { get; set; }
 
         //number of times the user attempted to answer question
         public int NumberOfAttempts { get; set; }

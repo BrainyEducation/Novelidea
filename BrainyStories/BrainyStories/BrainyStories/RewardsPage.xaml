@@ -38,20 +38,63 @@
                         JustifyContent="SpaceAround">
             </FlexLayout>-->
 
-            <Grid  x:Name="StarBlock" HorizontalOptions="CenterAndExpand"
-                  VerticalOptions="Center">
+            <Grid   HorizontalOptions="FillAndExpand">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="1*" />
                     <RowDefinition Height="3*" />
                 </Grid.RowDefinitions>
-
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
+
+                <Grid  x:Name="StarBlock" BackgroundColor="Blue" HorizontalOptions="FillAndExpand"
+                  VerticalOptions="Center" Grid.Row="0" Grid.Column="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*" />
+                        <RowDefinition Height="3*" />
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                </Grid>
+                <Grid x:Name="PayoutGrid" HorizontalOptions="FillAndExpand" BackgroundColor="Green" Grid.Column="0" Grid.Row="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*" />
+                        <RowDefinition Height="1*" />
+                        <RowDefinition Height="1*" />
+                        <RowDefinition Height="1*" />
+                        <RowDefinition Height="1*" />
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="2*" />
+                    </Grid.ColumnDefinitions>
+
+                    <!--Score Coin-->
+                    <Image
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="Center"
+                        Source="RewardsCoin.png"
+                        Grid.Column="4"
+                        Grid.Row="4" />
+                    <Label x:Name="ScoreCoinLabel"
+                        VerticalOptions="Center"
+                        HorizontalOptions="CenterAndExpand"
+                        FontSize="Large"
+                        BackgroundColor="White"
+                        FontAttributes="Bold"
+                        Grid.Column="4"
+                        Grid.Row="4" />
+                </Grid>
             </Grid>
         </StackLayout>
 
