@@ -4,9 +4,9 @@ namespace BrainyStories
 {
     public class Stars : Label
     {
-        public const int SMALL_STAR_SIZE = 40;
-        public const int MEDIUM_STAR_SIZE = 60;
-        public const int LARGE_STAR_SIZE = 90;
+        public const int SMALL_STAR_SIZE = 30;
+        public const int MEDIUM_STAR_SIZE = 50;
+        public const int LARGE_STAR_SIZE = 80;
 
         //force the usage of the FontSize setter
         public new double FontSize { get; private set; }

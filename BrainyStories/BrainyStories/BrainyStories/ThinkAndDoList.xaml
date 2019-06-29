@@ -47,11 +47,11 @@
                              HeightRequest="150" HorizontalOptions="FillAndExpand">
                                     <Image Source="{Binding AssociatedImage}"
                          HeightRequest="150" />
-                                    <StackLayout HorizontalOptions="FillAndExpand" Padding="2" Orientation="Horizontal">
+                                    <StackLayout  Padding="2" Orientation="Horizontal">
                                         <!--<Label Text ="{Binding AssociatedStory}" />-->
-                                        <ImageButton HorizontalOptions="StartAndExpand" Source="{Binding Star1Image}"  Clicked="Star1Clicked" BindingContext="{Binding}" />
+                                        <ImageButton HorizontalOptions="Start" Source="{Binding Star1Image}"  Clicked="Star1Clicked" BindingContext="{Binding}" />
                                         <Label HorizontalOptions="CenterAndExpand" Text ="{Binding ThinkAndDoName}"  LineBreakMode="WordWrap" VerticalOptions="Center"  FontSize="Large" FontFamily="{StaticResource Comic}" />
-                                        <ImageButton HorizontalOptions="StartAndExpand" Source="{Binding Star2Image}"  Clicked="Star2Clicked" BindingContext="{Binding}" />
+                                        <ImageButton HorizontalOptions="Start" Source="{Binding Star2Image}"  Clicked="Star2Clicked" BindingContext="{Binding}" />
                                         <!--<Label Text="{Binding LengthOfAudio1, Mode=OneWay, StringFormat='{}{0:mm}:{0:ss}'}" FontFamily="{StaticResource Comic}" />-->
                                     </StackLayout>
                                 </StackLayout>

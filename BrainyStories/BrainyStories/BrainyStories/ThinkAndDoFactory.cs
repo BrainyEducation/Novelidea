@@ -63,7 +63,8 @@ namespace BrainyStories
                         AssociatedImage = "S3_TBWCW_1.jpg",
                         ThinkAndDoAudioClip1 = "S3_BWCW_TAD1.mp3",
                         ThinkAndDoAudioClip2 = "S3_BWCW_TAD2.mp3",
-                        Text1 = "Who is the main character in the story? At the beginning of the story what did he think was a problem? How did he try to solve the problem? By the end of the story what did the people in the village think was the problem? How did the people solve the problem?"
+                        Text1 = "Who is the main character in the story? At the beginning of the story what did he think was a problem? How did he try to solve the problem? By the end of the story what did the people in the village think was the problem? How did the people solve the problem?",
+                        Text2 = "Why is it important to tell the truth ? How do you think the people of the town felt when the boy lied to them? At the end of the story, the boy seemed very sorry that he had lied.Write, say, or draw an apology letter from the boy to the people in the town. What would he say to make them believe him ?"
                     });
 
                     // The Elves and the Shoemaker Think and Dos

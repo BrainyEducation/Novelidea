@@ -117,9 +117,6 @@
       <SubType>Designer</SubType>
     </None>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <BundleResource Include="Resources\BackButton.png" />
-    <BundleResource Include="Resources\Curly.otf" />
-    <BundleResource Include="Resources\Comic.ttf" />
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
@@ -1683,6 +1680,9 @@
     <ImageAsset Include="Assets.xcassets\Animal.imageset\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
+    <BundleResource Include="Resources\Comic.ttf" />
+    <BundleResource Include="Resources\Curly.otf" />
+    <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -1712,10 +1712,16 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\CountryMouseandCityMouse.mp4" />
+    <None Include="FodyWeavers.xml" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\1.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\10.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\12.mp3" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\2.mp3" />
@@ -1739,12 +1745,6 @@
     <BundleResource Include="Resources\8.mp3" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\10.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\12.mp3" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\AboutAssets.txt" />
   </ItemGroup>
   <ItemGroup>
@@ -1766,13 +1766,25 @@
     <BundleResource Include="Resources\angry.mp3" />
   </ItemGroup>
   <ItemGroup>
+    <BundleResource Include="Resources\Animal.png" />
+  </ItemGroup>
+  <ItemGroup>
     <BundleResource Include="Resources\apricots.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ArmoredCar.png" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\ashamed.mp3" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\baby.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\BackButton%401x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\BackButton%402x.png" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\backpack.mp3" />
@@ -1785,6 +1797,9 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\balloons.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Bank.png" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\barn.mp3" />
@@ -1907,13 +1922,13 @@
     <BundleResource Include="Resources\cartwheel.mp3" />
   </ItemGroup>
   <ItemGroup>
+    <BundleResource Include="Resources\cat-tails.mp3" />
+  </ItemGroup>
+  <ItemGroup>
     <BundleResource Include="Resources\cat.mp3" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\catch.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\cat-tails.mp3" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\cheese.mp3" />
@@ -1934,10 +1949,19 @@
     <BundleResource Include="Resources\circus.mp3" />
   </ItemGroup>
   <ItemGroup>
+    <BundleResource Include="Resources\ClassicStories.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ClassicStoriesButton.png" />
+  </ItemGroup>
+  <ItemGroup>
     <BundleResource Include="Resources\clippers.mp3" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\clock.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\CloseButton.png" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\clover.mp3" />
@@ -1961,10 +1985,19 @@
     <BundleResource Include="Resources\coffee.mp3" />
   </ItemGroup>
   <ItemGroup>
+    <BundleResource Include="Resources\Coin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Coins.png" />
+  </ItemGroup>
+  <ItemGroup>
     <BundleResource Include="Resources\cold.mp3" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\cookies.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\CountryMouseandCityMouse.mp4" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\cow.mp3" />
@@ -2096,6 +2129,9 @@
     <BundleResource Include="Resources\everyone.mp3" />
   </ItemGroup>
   <ItemGroup>
+    <BundleResource Include="Resources\expand.png" />
+  </ItemGroup>
+  <ItemGroup>
     <BundleResource Include="Resources\eyebrows.mp3" />
   </ItemGroup>
   <ItemGroup>
@@ -2115,6 +2151,9 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\feet.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Female.png" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\fight.mp3" />
@@ -2156,16 +2195,40 @@
     <BundleResource Include="Resources\garden.mp3" />
   </ItemGroup>
   <ItemGroup>
+    <BundleResource Include="Resources\Gem.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\General.png" />
+  </ItemGroup>
+  <ItemGroup>
     <BundleResource Include="Resources\gingerbread man.mp3" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\giraffe.mp3" />
   </ItemGroup>
   <ItemGroup>
+    <BundleResource Include="Resources\girl-reading.png" />
+  </ItemGroup>
+  <ItemGroup>
     <BundleResource Include="Resources\girl.mp3" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\gold.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\GoldCoin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\GoldStack.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\GoldStar1%401x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\GoldStar1%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\GoldStar2%401x.png" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\grandfather.mp3" />
@@ -2192,6 +2255,12 @@
     <BundleResource Include="Resources\hit.mp3" />
   </ItemGroup>
   <ItemGroup>
+    <BundleResource Include="Resources\Home%401x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Home%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
     <BundleResource Include="Resources\horn.mp3" />
   </ItemGroup>
   <ItemGroup>
@@ -2199,658 +2268,6 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\I1_IAS_IG.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\I2_DYPYL_IG.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\I3_UW_IG.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\I4_SOEB_IG.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\I5_IANA_IG.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\ice.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\jellyfish.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\judge.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\jump.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\kayak.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Kertyshoo.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\king.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\kitten.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\laundress.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\legs.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\lion.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\little.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\lizard.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\mittens.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\mole.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\moon.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\mother.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\mountain.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\mouse.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\mouth.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\name.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\net.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\nightgown.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\nose.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\oven.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\paint.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\panda.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\path.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\pie.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\pig.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\playground.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\popcorn.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\pot.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\pretty.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\proud.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\puppy.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\purple.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\queen.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\quiet.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\read.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\robot.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\rocket.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\S1_TLATM_Story.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\S1_TLATM_TAD1.mp3" />
-    <BundleResource Include="Resources\S1_TLATM_TAD2.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\S2_LRH_Story.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\S2_LRH_TAD1.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\S3_BWCW_Story.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\S3_BWCW_TAD1.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\S3_BWCW_TAD2.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\S4_TEATS_Story.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\S4_TEATS_TAD1.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\S4_TEATS_TAD2.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\S5_TLP_Story.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\S5_TLP_TAD1.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\S5_TLP_TAD2.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\sandbox.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\saw.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\scratch.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\seagulls.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\see-saw.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\sheep.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\shoes.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\shoulder.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\silly.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\sillycat.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\sing.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\skate.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\skateboard.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\skip.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\sleepy.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\small.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\smart.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\snack.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\snore.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\spider.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\SQ_1_1.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\SQ_1_2.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\SQ_1_3.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\SQ_1_4.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\SQ_1_5.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\SQ_1_7.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\SQ_1_8.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\SQ_1_9 .mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\SQ_1_10.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\SQ_1_12.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\SQ_1_13.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\SQ_1_14.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\SQ_1_15.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\SQ_2_1.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\SQ_2_2.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\SQ_2_3.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\SQ_2_4.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\SQ_2_5.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\SQ_2_6 .mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\SQ_2_7.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\SQ_2_8.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\SQ_2_9.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\SQ_2_10.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\SQ_2_11.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\SQ_2_12.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\SQ_2_13.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\SQ_2_14.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\SQ_2_15.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\SQ_3_1.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\SQ_3_2.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\SQ_3_3.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\SQ_3_4.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\SQ_3_5.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\SQ_3_6.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\SQ_3_7.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\SQ_3_8.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\SQ_3_9.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\SQ_3_10.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\SQ_3_11.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\SQ_3_12.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\SQ_3_13.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\SQ_3_14.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\SQ_3_15.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\SQ_4_1.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\SQ_4_2.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\SQ_4_3.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\SQ_4_4.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\SQ_4_5.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\SQ_4_6.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\SQ_4_7.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\SQ_4_8.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\SQ_4_9.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\SQ_4_10.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\SQ_4_11.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\SQ_4_12.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\SQ_4_13.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\SQ_4_14.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\SQ_4_15.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\SQ_5_1.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\SQ_5_2.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\SQ_5_3.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\SQ_5_4.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\SQ_5_5.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\SQ_5_6.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\SQ_5_7.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\SQ_5_8.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\SQ_5_9.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\SQ_5_10.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\SQ_5_11.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\SQ_5_12.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\SQ_5_13.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\SQ_5_14.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\SQ_5_15.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\SQ_5_16.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\SQ_5_17.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\SQ_5_18.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\SQ_5_19.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\SQ_5_20.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\SQ_5_21.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\SQ_5_22.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\SQ_5_23.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\SQ_5_24.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\SQ_5_25.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\SQ_5_26.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\SQ_5_27.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\SQ_5_28.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\SQ_5_29.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\SQ_5_30.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\squirrel.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\steal.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\straw.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\sunglasses.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\sweet.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\swim.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\table.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\tail.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\tea.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\teeth.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\throne.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\throw.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\toe.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\toenails.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\toes.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\tongue.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\toys.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\tree.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\tricycle.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\troll.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\tumble.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\tummy.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\tummy-button.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\turtle.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\umbrellas.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\volcano.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\waterfall.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\watermelon.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\wheelbarrow.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\whistle.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\wild.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Wind.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\wolf.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\woman.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\wood.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\work.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Yawn.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\yellow.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\zebra.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Animal.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Bank.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\ClassicStories.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\CloseButton.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Coin.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Coins.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\expand.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Female.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Gem.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\General.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Home.png" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\I1_IASW_1.jpg" />
@@ -2889,6 +2306,9 @@
     <BundleResource Include="Resources\I2_DYPYL_7.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <BundleResource Include="Resources\I2_DYPYL_IG.mp3" />
+  </ItemGroup>
+  <ItemGroup>
     <BundleResource Include="Resources\I3_TUDW_1.jpg" />
   </ItemGroup>
   <ItemGroup>
@@ -2905,6 +2325,12 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\I3_TUDW_6.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\I3_UW_IG.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\I4_SOEB_IG.mp3" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\I4_TSOEB_1.jpg" />
@@ -2946,19 +2372,133 @@
     <BundleResource Include="Resources\I5_IANA_6.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <BundleResource Include="Resources\I5_IANA_IG.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ice.mp3" />
+  </ItemGroup>
+  <ItemGroup>
     <BundleResource Include="Resources\Imagines.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ImaginesButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\jellyfish.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\judge.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\jump.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\kayak.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Kertyshoo.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\king.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\kitten.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\laundress.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\legs.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\lion.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\little.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\lizard.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\logo.png" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\Male.png" />
   </ItemGroup>
   <ItemGroup>
+    <BundleResource Include="Resources\mittens.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\mole.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\MoneyBag.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\moon.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\mother.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\mountain.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\mouse.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\mouth.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\name.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\net.mp3" />
+  </ItemGroup>
+  <ItemGroup>
     <BundleResource Include="Resources\Next.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\nightgown.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\nose.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\oven.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\paint.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\panda.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\path.mp3" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\pause.png" />
   </ItemGroup>
   <ItemGroup>
+    <BundleResource Include="Resources\pie.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pig.mp3" />
+  </ItemGroup>
+  <ItemGroup>
     <BundleResource Include="Resources\play.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\playground.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\popcorn.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pot.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pretty.mp3" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\Previous.png" />
@@ -2967,10 +2507,46 @@
     <BundleResource Include="Resources\Progress.png" />
   </ItemGroup>
   <ItemGroup>
+    <BundleResource Include="Resources\ProgressButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\proud.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\puppy.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\purple.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\queen.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\quiet.mp3" />
+  </ItemGroup>
+  <ItemGroup>
     <BundleResource Include="Resources\Quizzes.png" />
   </ItemGroup>
   <ItemGroup>
+    <BundleResource Include="Resources\QuizzesButton.png" />
+  </ItemGroup>
+  <ItemGroup>
     <BundleResource Include="Resources\QuizzesIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\read.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\RewardsButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\RewardsCoin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\robot.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\rocket.mp3" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\S1_LATM_1.jpg" />
@@ -2997,6 +2573,15 @@
     <BundleResource Include="Resources\S1_LATM_8.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <BundleResource Include="Resources\S1_TLATM_Story.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\S1_TLATM_TAD1.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\S1_TLATM_TAD2.mp3" />
+  </ItemGroup>
+  <ItemGroup>
     <BundleResource Include="Resources\S2_LRH_0.JPG" />
   </ItemGroup>
   <ItemGroup>
@@ -3019,6 +2604,21 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\S2_LRH_7.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\S2_LRH_Story.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\S2_LRH_TAD1.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\S3_BWCW_Story.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\S3_BWCW_TAD1.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\S3_BWCW_TAD2.mp3" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\S3_TBWCW_1.jpg" />
@@ -3072,10 +2672,31 @@
     <BundleResource Include="Resources\S4_TEATS_8.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <BundleResource Include="Resources\S4_TEATS_Story.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\S4_TEATS_TAD1.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\S4_TEATS_TAD2.mp3" />
+  </ItemGroup>
+  <ItemGroup>
     <BundleResource Include="Resources\S5_TLP_0.JPG" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\S5_TLP_1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\S5_TLP_10.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\S5_TLP_11.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\S5_TLP_12.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\S5_TLP_13.jpg" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\S5_TLP_2.jpg" />
@@ -3102,84 +2723,495 @@
     <BundleResource Include="Resources\S5_TLP_9.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\S5_TLP_10.jpg" />
+    <BundleResource Include="Resources\S5_TLP_Story.mp3" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\S5_TLP_11.jpg" />
+    <BundleResource Include="Resources\S5_TLP_TAD1.mp3" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\S5_TLP_12.jpg" />
+    <BundleResource Include="Resources\S5_TLP_TAD2.mp3" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\S5_TLP_13.jpg" />
+    <BundleResource Include="Resources\sandbox.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\saw.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\scratch.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\seagulls.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\see-saw.mp3" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\SettingsButton.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\Submit.png" />
+    <BundleResource Include="Resources\sheep.mp3" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\ThinkAndDoIcon.png" />
+    <BundleResource Include="Resources\shoes.mp3" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\ArmoredCar.png" />
+    <BundleResource Include="Resources\shoulder.mp3" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\GoldCoin.png" />
+    <BundleResource Include="Resources\silly.mp3" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\GoldStack.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\MoneyBag.png" />
+    <BundleResource Include="Resources\sillycat.mp3" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\SilverCoin.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\ImaginesButton.png" />
+    <BundleResource Include="Resources\SilverStar1%401x.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\ClassicStoriesButton.png" />
+    <BundleResource Include="Resources\SilverStar1%402x.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\GoldStar1.png" />
+    <BundleResource Include="Resources\SilverStar2%401x.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\SilverStar1.png" />
+    <BundleResource Include="Resources\SilverStar2%402x.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\GoldStar2.png" />
+    <BundleResource Include="Resources\sing.mp3" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\SilverStar2.png" />
+    <BundleResource Include="Resources\skate.mp3" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="FodyWeavers.xml" />
+    <BundleResource Include="Resources\skateboard.mp3" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\BackButton%402x.png" />
+    <BundleResource Include="Resources\skip.mp3" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\Home%402x.png" />
+    <BundleResource Include="Resources\sleepy.mp3" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\logo.png" />
+    <BundleResource Include="Resources\small.mp3" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\RewardsButton.png" />
+    <BundleResource Include="Resources\smart.mp3" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\ProgressButton.png" />
+    <BundleResource Include="Resources\snack.mp3" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\QuizzesButton.png" />
+    <BundleResource Include="Resources\snore.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\spider.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SQ_1_1.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SQ_1_10.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SQ_1_12.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SQ_1_13.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SQ_1_14.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SQ_1_15.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SQ_1_2.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SQ_1_3.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SQ_1_4.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SQ_1_5.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SQ_1_7.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SQ_1_8.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SQ_1_9 .mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SQ_2_1.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SQ_2_10.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SQ_2_11.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SQ_2_12.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SQ_2_13.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SQ_2_14.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SQ_2_15.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SQ_2_2.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SQ_2_3.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SQ_2_4.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SQ_2_5.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SQ_2_6 .mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SQ_2_7.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SQ_2_8.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SQ_2_9.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SQ_3_1.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SQ_3_10.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SQ_3_11.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SQ_3_12.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SQ_3_13.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SQ_3_14.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SQ_3_15.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SQ_3_2.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SQ_3_3.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SQ_3_4.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SQ_3_5.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SQ_3_6.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SQ_3_7.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SQ_3_8.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SQ_3_9.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SQ_4_1.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SQ_4_10.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SQ_4_11.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SQ_4_12.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SQ_4_13.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SQ_4_14.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SQ_4_15.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SQ_4_2.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SQ_4_3.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SQ_4_4.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SQ_4_5.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SQ_4_6.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SQ_4_7.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SQ_4_8.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SQ_4_9.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SQ_5_1.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SQ_5_10.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SQ_5_11.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SQ_5_12.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SQ_5_13.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SQ_5_14.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SQ_5_15.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SQ_5_16.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SQ_5_17.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SQ_5_18.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SQ_5_19.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SQ_5_2.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SQ_5_20.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SQ_5_21.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SQ_5_22.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SQ_5_23.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SQ_5_24.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SQ_5_25.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SQ_5_26.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SQ_5_27.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SQ_5_28.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SQ_5_29.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SQ_5_3.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SQ_5_30.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SQ_5_4.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SQ_5_5.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SQ_5_6.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SQ_5_7.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SQ_5_8.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SQ_5_9.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\squirrel.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\steal.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\straw.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Submit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\sunglasses.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\sweet.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\swim.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\table.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\tail.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\tea.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\teeth.mp3" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\ThinkAndDoButton.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\RewardsCoin.png" />
+    <BundleResource Include="Resources\ThinkAndDoIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\throne.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\throw.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\toe.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\toenails.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\toes.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\tongue.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\toys.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\tree.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\tricycle.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\troll.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\tumble.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\tummy-button.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\tummy.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\turtle.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\umbrellas.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\volcano.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\waterfall.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\watermelon.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\wheelbarrow.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\whistle.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\wild.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Wind.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\wolf.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\woman.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\wood.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\work.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Yawn.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\yellow.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\zebra.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\GoldStar2%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\GoldStar2%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\GoldStar1%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SilverStar2%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SilverStar1%403x.png" />
   </ItemGroup>
 </Project>

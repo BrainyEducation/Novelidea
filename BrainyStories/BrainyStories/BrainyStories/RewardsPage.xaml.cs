@@ -396,9 +396,9 @@ namespace BrainyStories
             //this loop places a star for every star but the last one
             for (int i = 1; i < STARS_ON_REWARDS_PAGE - 1; i++)
             {
-                var column = i <= (STARS_ON_REWARDS_PAGE / 2) ? i : i - (STARS_ON_REWARDS_PAGE / 2);
+                var column = i <= ((STARS_ON_REWARDS_PAGE - 1) / 2) ? i : i - ((STARS_ON_REWARDS_PAGE - 1) / 2);
                 column -= 1; //subtract 1 because we start i at 1
-                var row = i <= (STARS_ON_REWARDS_PAGE / 2) ? 0 : 1;
+                var row = i <= ((STARS_ON_REWARDS_PAGE - 1) / 2) ? 0 : 1;
                 StarBlock.Children.Add(new Stars(column: column, row: row)
                 {
                     Text = "⭐",
@@ -420,13 +420,14 @@ namespace BrainyStories
 
             StarBlock.Children.Add(lastStar);
             //this is the number inside the star icon
-            StarBlock.Children.Add(new Stars(column: (STARS_ON_REWARDS_PAGE / 2) - 1, row: 1, textSizeMultiplier: 0.5)
+            var starLabel = new Stars(column: (STARS_ON_REWARDS_PAGE / 2) - 1, row: 1, textSizeMultiplier: 0.5)
             {
                 IsVisible = true,
                 Text = starCount.ToString(),
                 Vibrates = true,
                 FontAttributes = FontAttributes.Bold,
-            }); ;
+            };
+            StarBlock.Children.Add(starLabel);
 
             //start a timer to make the last star "vibrate"
             if (starCount == STARS_ON_REWARDS_PAGE - 1)
