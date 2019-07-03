@@ -40,6 +40,8 @@ namespace BrainyStories
 
             FindQuizScore();
 
+            InsertLabels();
+
             //BindList.ItemsSource = StarsToDisplay;
 
             //User user = User.Instance;
@@ -85,6 +87,24 @@ namespace BrainyStories
             //    Image silverCoin = new Image() { Source = "SilverCoin.png" };
             //    SilverList.Children.Add(silverCoin);
             //}
+        }
+
+        private void InsertLabels()
+        {
+            var quizzesLabel = new Label()
+            {
+                Text = "Quizzes",
+                FontSize = Device.GetNamedSize(NamedSize.Large, typeof(Label)),
+                FontAttributes = FontAttributes.Bold,
+                TextColor = Color.Black,
+                VerticalOptions = LayoutOptions.Center,
+                HorizontalOptions = LayoutOptions.Start,
+                HorizontalTextAlignment = TextAlignment.Start
+            };
+            quizzesLabel.SetValue(Grid.RowProperty, 2);
+            quizzesLabel.SetValue(Grid.ColumnProperty, 0);
+
+            SkeletonGrid.Children.Add(quizzesLabel);
         }
 
         //stage 1 silver coin (second attempt on a quiz question)
@@ -336,9 +356,10 @@ namespace BrainyStories
             {
                 var silverCoin = new Image();
                 silverCoin.Source = "SilverCoin.png";
-                Grid.SetRow(silverCoin, BOTTOM_ROW);
+                //Grid.SetRow(silverCoin, BOTTOM_ROW);
+                silverCoin.SetValue(Grid.RowProperty, BOTTOM_ROW);
                 //five columns total - silver and gold coins go on the first column
-                Grid.SetColumn(silverCoin, 0);
+                silverCoin.SetValue(Grid.RowProperty, 0);
                 PayoutGrid.Children.Add(silverCoin);
             }
 
@@ -346,16 +367,20 @@ namespace BrainyStories
             {
                 var goldCoin = new Image();
                 goldCoin.Source = "GoldCoin.png";
-                Grid.SetRow(goldCoin, i);
-                Grid.SetColumn(goldCoin, 0);
+                goldCoin.SetValue(Grid.RowProperty, i);
+                goldCoin.SetValue(Grid.RowProperty, 0);
+                //Grid.SetRow(goldCoin, i);
+                //Grid.SetColumn(goldCoin, 0);
                 PayoutGrid.Children.Add(goldCoin);
             }
             for (int i = 0; i < payout.StackCount; i++)
             {
                 var stacks = new Image();
                 stacks.Source = "GoldStack.png";
-                Grid.SetRow(stacks, i);
-                Grid.SetColumn(stacks, 1);
+                stacks.SetValue(Grid.RowProperty, i);
+                stacks.SetValue(Grid.ColumnProperty, 1);
+                //Grid.SetRow(stacks, i);
+                //Grid.SetColumn(stacks, 1);
                 PayoutGrid.Children.Add(stacks);
             }
 
@@ -363,8 +388,10 @@ namespace BrainyStories
             {
                 var bags = new Image();
                 bags.Source = "MoneyBag.png";
-                Grid.SetRow(bags, i);
-                Grid.SetColumn(bags, 2);
+                bags.SetValue(Grid.RowProperty, i);
+                //Grid.SetRow(bags, i);
+                //Grid.SetColumn(bags, 2);
+                bags.SetValue(Grid.ColumnProperty, 2);
                 PayoutGrid.Children.Add(bags);
             }
 
@@ -372,8 +399,10 @@ namespace BrainyStories
             {
                 var cars = new Image();
                 cars.Source = "ArmoredCar1.png";
-                Grid.SetRow(cars, i);
-                Grid.SetColumn(cars, 3);
+                //Grid.SetRow(cars, i);
+                //Grid.SetColumn(cars, 3);
+                cars.SetValue(Grid.RowProperty, i);
+                cars.SetValue(Grid.ColumnProperty, 3);
                 PayoutGrid.Children.Add(cars);
             }
 
@@ -381,8 +410,10 @@ namespace BrainyStories
             {
                 var bank = new Image();
                 bank.Source = "Bank.png";
-                Grid.SetRow(bank, i);
-                Grid.SetColumn(bank, 4);
+                bank.SetValue(Grid.RowProperty, i);
+                bank.SetValue(Grid.ColumnProperty, 4);
+                //Grid.SetRow(bank, i);
+                //Grid.SetColumn(bank, 4);
                 PayoutGrid.Children.Add(bank);
             }
         }

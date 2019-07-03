@@ -45,17 +45,27 @@
                         JustifyContent="SpaceAround">
             </FlexLayout>-->
 
-            <Grid   HorizontalOptions="FillAndExpand">
+            <Grid x:Name="SkeletonGrid" HorizontalOptions="FillAndExpand">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="1*" />
-                    <RowDefinition Height="3*" />
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="2*" />
+                    <RowDefinition Height="9*" />
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
-
+                <Label Text="Think and Do"
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    FontFamily = "{StaticResource Comic}"
+                    FontSize ="Large"
+                    TextColor="Black"
+                    FontAttributes="Bold"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Start" />
                 <Grid  RowSpacing="5" x:Name="StarBlock" HorizontalOptions="FillAndExpand"
-                  VerticalOptions="Center" Grid.Row="0" Grid.Column="0">
+                  VerticalOptions="Center" Grid.Row="1" Grid.Column="0">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="1*" />
                         <RowDefinition Height="3*" />
@@ -69,7 +79,17 @@
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
                 </Grid>
-                <Grid x:Name="PayoutGrid" HorizontalOptions="FillAndExpand"  Grid.Column="0" Grid.Row="1">
+                <!--<Label Text="Quizzes2" BackgroundColor="Peru"
+                    Grid.RowSpan="2"
+                    Grid.Row="2"
+                       Grid.Column="0"
+                    FontFamily = "{StaticResource Comic}"
+                    FontSize ="Large"
+                    FontAttributes="Bold"
+                    TextColor="Black"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Start" />-->
+                <Grid x:Name="PayoutGrid" HorizontalOptions="FillAndExpand" Grid.Column="0"  Grid.Row="3">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="1*" />
                         <RowDefinition Height="1*" />
