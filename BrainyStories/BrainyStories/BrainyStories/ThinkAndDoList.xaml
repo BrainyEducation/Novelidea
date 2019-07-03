@@ -16,10 +16,12 @@
                 <ImageButton
                 Source="BackButton.png"
                 Clicked ="BackClicked"
+                HeightRequest="50"
                 BorderColor ="Transparent"
                 BackgroundColor="Transparent" />
                 <ImageButton
                 Source="Home.png"
+                HeightRequest="50"
                 Clicked ="HomeClicked"
                 BorderColor ="Transparent"
                 BackgroundColor="Transparent" />
@@ -49,9 +51,9 @@
                          HeightRequest="150" />
                                     <StackLayout  Padding="2" Orientation="Horizontal">
                                         <!--<Label Text ="{Binding AssociatedStory}" />-->
-                                        <ImageButton HorizontalOptions="Start" Source="{Binding Star1Image}"  Clicked="Star1Clicked" BindingContext="{Binding}" />
+                                        <ImageButton HorizontalOptions="StartAndExpand" Source="{Binding Star1Image}"  Clicked="Star1Clicked" BindingContext="{Binding}" BackgroundColor="Transparent" />
                                         <Label HorizontalOptions="CenterAndExpand" Text ="{Binding ThinkAndDoName}"  LineBreakMode="WordWrap" VerticalOptions="Center"  FontSize="Large" FontFamily="{StaticResource Comic}" />
-                                        <ImageButton HorizontalOptions="Start" Source="{Binding Star2Image}"  Clicked="Star2Clicked" BindingContext="{Binding}" />
+                                        <ImageButton HorizontalOptions="StartAndExpand" Source="{Binding Star2Image}"  Clicked="Star2Clicked" BindingContext="{Binding}" BackgroundColor="Transparent" />
                                         <!--<Label Text="{Binding LengthOfAudio1, Mode=OneWay, StringFormat='{}{0:mm}:{0:ss}'}" FontFamily="{StaticResource Comic}" />-->
                                     </StackLayout>
                                 </StackLayout>

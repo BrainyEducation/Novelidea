@@ -1683,6 +1683,7 @@
     <BundleResource Include="Resources\Comic.ttf" />
     <BundleResource Include="Resources\Curly.otf" />
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
+    <BundleResource Include="Resources\Fonts\Comic.ttf" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -1770,9 +1771,6 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\apricots.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\ArmoredCar.png" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\ashamed.mp3" />
@@ -1995,9 +1993,6 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\cookies.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\CountryMouseandCityMouse.mp4" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\cow.mp3" />
@@ -2253,12 +2248,6 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\hit.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Home%401x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Home%402x.png" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\horn.mp3" />
@@ -3213,5 +3202,14 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\SilverStar1%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ArmoredCar1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ArmoredCar2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Home%401x.png" />
   </ItemGroup>
 </Project>

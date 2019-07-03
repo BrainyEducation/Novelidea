@@ -42,7 +42,9 @@ namespace BrainyStories
 
             //June 2019: moved the player init to the top of the file to be able to calculate duration later on
             ObjCRuntime.Class.ThrowOnInitFailure = false;
-            player = Plugin.SimpleAudioPlayer.CrossSimpleAudioPlayer.Current;
+
+            player = Plugin.SimpleAudioPlayer.CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
+
             string audioFile = starNumber == 1 ? thinkAndDo.ThinkAndDoAudioClip1 : thinkAndDo.ThinkAndDoAudioClip2;
 
             player.Load(audioFile);
@@ -79,7 +81,6 @@ namespace BrainyStories
             };
             close.Clicked += (sender, args) =>
             {
-                player.Stop();
                 CloseAllPopup();
             };
 
@@ -113,23 +114,26 @@ namespace BrainyStories
             });
             slider.ValueChanged += (sender, args) =>
             {
-                int minutes = (int)args.NewValue / 60;
-                int seconds = (int)args.NewValue - (minutes * 60);
-                Console.WriteLine(args.NewValue);
-                Console.WriteLine(player.CurrentPosition);
-                Console.WriteLine(args.NewValue);
-                if (!audioFromTimer)
+                if (player != null)
                 {
-                    player.Seek(args.NewValue);
+                    int minutes = (int)args.NewValue / 60;
+                    int seconds = (int)args.NewValue - (minutes * 60);
+                    Console.WriteLine(args.NewValue);
+                    Console.WriteLine(player.CurrentPosition);
+                    Console.WriteLine(args.NewValue);
+                    if (!audioFromTimer)
+                    {
+                        player.Seek(args.NewValue);
+                    }
+                    String second = seconds.ToString();
+                    if (seconds < 10)
+                    {
+                        second = '0' + seconds.ToString();
+                    }
+                    displayLabel.Text = String.Format("{0}:{1}", minutes, second);
+                    var timeStamp = new TimeSpan(0, minutes, seconds);
+                    audioFromTimer = false;
                 }
-                String second = seconds.ToString();
-                if (seconds < 10)
-                {
-                    second = '0' + seconds.ToString();
-                }
-                displayLabel.Text = String.Format("{0}:{1}", minutes, second);
-                var timeStamp = new TimeSpan(0, minutes, seconds);
-                audioFromTimer = false;
             };
             StackLayout audio = new StackLayout
             {
@@ -174,21 +178,19 @@ namespace BrainyStories
         // Returns to previous page when back button is selected
         protected override bool OnBackButtonPressed()
         {
-            player.Stop();
+            CloseAllPopup();
             return false;
         }
 
         // Returns to the previous page when an area outside the popup is clicked
         private void OnCloseButtonTapped(object sender, EventArgs e)
         {
-            player.Stop();
             CloseAllPopup();
         }
 
         // Returns to the previous page when an area outside the popup is clicked
         protected override bool OnBackgroundClicked()
         {
-            player.Stop();
             CloseAllPopup();
             return false;
         }
@@ -196,7 +198,10 @@ namespace BrainyStories
         // Returns to the previous page when an area outside the popup is clicked
         private async void CloseAllPopup()
         {
+            player.Stop();
             await PopupNavigation.Instance.PopAsync();
+            player.Dispose();
+            player = null;
         }
     }
 }

@@ -82,7 +82,7 @@ namespace BrainyStories
                     CreateNewThinkAndDo(new ThinkAndDo
                     {
                         ThinkAndDoName = "The Three Little Pigs",
-                        AssociatedImage = "S5_TLP_0.jpg",
+                        AssociatedImage = "S5_TLP_0.JPG",
                         ThinkAndDoAudioClip1 = "S5_TLP_TAD1.mp3",
                         ThinkAndDoAudioClip2 = "S5_TLP_TAD2.mp3",
                         Text1 = "Do you think the first pig made a good choice when he decided to spend all his money on candy? Which pig made the best and smartest choice about saving and then spending his money? Do you think the three pigs were good brothers? Tell why you think that. What if the wolf had one or two brothers? If the wolf had brothers in the story, how do you think the wolf brothers might help each other?",

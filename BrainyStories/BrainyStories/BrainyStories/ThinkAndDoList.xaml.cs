@@ -20,13 +20,9 @@ namespace BrainyStories
     // Class for the ThinkAndDo list page
     public partial class ThinkAndDoList : ContentPage
     {
-        private ThinkAndDoFactory factory = new ThinkAndDoFactory();
-
-        public ObservableCollection<ThinkAndDo> ListOfThinkAndDos;
-
         public ThinkAndDoList()
         {
-            ListOfThinkAndDos = factory.generateThinkAndDos();
+            var ListOfThinkAndDos = new ThinkAndDoFactory().generateThinkAndDos();
             InitializeComponent();
             BindList.ItemsSource = ListOfThinkAndDos;
         }
@@ -38,14 +34,14 @@ namespace BrainyStories
 
             ThinkAndDoPopup pop = new ThinkAndDoPopup(think, starNumber);
             pop.Disappearing += PopUpClosed;
+
             await PopupNavigation.Instance.PushAsync(pop);
         }
 
         //refreshes the stars after the popup is closed
         private void PopUpClosed(object sender, EventArgs e)
         {
-            ListOfThinkAndDos = factory.generateThinkAndDos();
-            BindList.ItemsSource = ListOfThinkAndDos;
+            BindList.ItemsSource = new ThinkAndDoFactory().generateThinkAndDos();
         }
 
         // Navbar methods
@@ -69,6 +65,13 @@ namespace BrainyStories
         private void Star2Clicked(object sender, EventArgs e)
         {
             StarTapped(sender, 2);
+        }
+
+        protected override void OnDisappearing()
+        {
+            base.OnDisappearing();
+
+            GC.Collect();
         }
     }
 }

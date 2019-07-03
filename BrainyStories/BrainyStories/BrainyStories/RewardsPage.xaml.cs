@@ -371,7 +371,7 @@ namespace BrainyStories
             for (int i = 0; i < payout.CarCount; i++)
             {
                 var cars = new Image();
-                cars.Source = "ArmoredCar.png";
+                cars.Source = "ArmoredCar1.png";
                 Grid.SetRow(cars, i);
                 Grid.SetColumn(cars, 3);
                 PayoutGrid.Children.Add(cars);
@@ -414,9 +414,10 @@ namespace BrainyStories
                 //last star is always visible
                 IsVisible = true,
                 Text = "⭐",
-                Vibrates = true
+                Vibrates = true,
             };
             lastStar.SetFontSize(Stars.MEDIUM_STAR_SIZE);
+            lastStar.VerticalTextAlignment = TextAlignment.Start;
 
             StarBlock.Children.Add(lastStar);
             //this is the number inside the star icon
@@ -427,6 +428,7 @@ namespace BrainyStories
                 Vibrates = true,
                 FontAttributes = FontAttributes.Bold,
             };
+            starLabel.VerticalTextAlignment = TextAlignment.End;
             StarBlock.Children.Add(starLabel);
 
             //start a timer to make the last star "vibrate"

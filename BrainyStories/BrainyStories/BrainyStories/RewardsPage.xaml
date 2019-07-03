@@ -15,10 +15,12 @@
                 <ImageButton HorizontalOptions="Start"
                 Source="BackButton.png"
                 Clicked ="BackClicked"
+                HeightRequest="50"
                 BorderColor ="Transparent"
                 BackgroundColor="Transparent" />
                 <ImageButton HorizontalOptions="Start"
                 Source="Home.png"
+                HeightRequest="50"
                 Clicked ="HomeClicked"
                 BorderColor ="Transparent"
                 BackgroundColor="Transparent" />

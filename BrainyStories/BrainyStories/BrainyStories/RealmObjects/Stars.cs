@@ -4,9 +4,50 @@ namespace BrainyStories
 {
     public class Stars : Label
     {
-        public const int SMALL_STAR_SIZE = 30;
-        public const int MEDIUM_STAR_SIZE = 50;
-        public const int LARGE_STAR_SIZE = 80;
+        public static int SMALL_STAR_SIZE
+        {
+            get
+            {
+                if (Device.Idiom.Equals(TargetIdiom.Phone))
+                {
+                    return 15;
+                }
+                else
+                {
+                    return 30;
+                }
+            }
+        }
+
+        public static int MEDIUM_STAR_SIZE
+        {
+            get
+            {
+                if (Device.Idiom.Equals(TargetIdiom.Phone))
+                {
+                    return 30;
+                }
+                else
+                {
+                    return 50;
+                }
+            }
+        }
+
+        public static int LARGE_STAR_SIZE
+        {
+            get
+            {
+                if (Device.Idiom.Equals(TargetIdiom.Phone))
+                {
+                    return 50;
+                }
+                else
+                {
+                    return 90;
+                }
+            }
+        }
 
         //force the usage of the FontSize setter
         public new double FontSize { get; private set; }
@@ -33,7 +74,7 @@ namespace BrainyStories
             Grid.SetColumnSpan(this, 1);
             Grid.SetRow(this, row);
             Grid.SetColumn(this, column);
-            VerticalOptions = LayoutOptions.CenterAndExpand;
+            VerticalOptions = LayoutOptions.Center;
         }
 
         /// <summary>
