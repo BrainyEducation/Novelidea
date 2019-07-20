@@ -14,7 +14,7 @@ namespace BrainyStories
                 }
                 else
                 {
-                    return 30;
+                    return 50;
                 }
             }
         }
@@ -25,11 +25,11 @@ namespace BrainyStories
             {
                 if (Device.Idiom.Equals(TargetIdiom.Phone))
                 {
-                    return 30;
+                    return 20;
                 }
                 else
                 {
-                    return 50;
+                    return 100;
                 }
             }
         }
@@ -40,11 +40,11 @@ namespace BrainyStories
             {
                 if (Device.Idiom.Equals(TargetIdiom.Phone))
                 {
-                    return 50;
+                    return 25;
                 }
                 else
                 {
-                    return 90;
+                    return 150;
                 }
             }
         }

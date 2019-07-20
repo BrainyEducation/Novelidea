@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Timers;
+using UIKit;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -37,10 +38,8 @@ namespace BrainyStories
 
             InitializeComponent();
             FindHowManyStarsToDisplay();
-
-            FindQuizScore();
-
             InsertLabels();
+            FindQuizScore();
 
             //BindList.ItemsSource = StarsToDisplay;
 
@@ -94,15 +93,24 @@ namespace BrainyStories
             var quizzesLabel = new Label()
             {
                 Text = "Quizzes",
-                FontSize = Device.GetNamedSize(NamedSize.Large, typeof(Label)),
                 FontAttributes = FontAttributes.Bold,
+                FontSize = 35,
                 TextColor = Color.Black,
                 VerticalOptions = LayoutOptions.Center,
                 HorizontalOptions = LayoutOptions.Start,
-                HorizontalTextAlignment = TextAlignment.Start
+                HorizontalTextAlignment = TextAlignment.Start,
+                FontFamily = "ComicSansMS"
             };
             quizzesLabel.SetValue(Grid.RowProperty, 2);
             quizzesLabel.SetValue(Grid.ColumnProperty, 0);
+
+            //make these smaller for the phone
+            if (Device.Idiom.Equals(TargetIdiom.Phone))
+            {
+                //RewardsLabel.FontSize = Device.GetNamedSize(NamedSize.Large, typeof(Label));
+                ThinkAndDoLabel.FontSize = Device.GetNamedSize(NamedSize.Small, typeof(Label));
+                quizzesLabel.FontSize = Device.GetNamedSize(NamedSize.Small, typeof(Label));
+            }
 
             SkeletonGrid.Children.Add(quizzesLabel);
         }
@@ -446,20 +454,33 @@ namespace BrainyStories
                 IsVisible = true,
                 Text = "⭐",
                 Vibrates = true,
+                VerticalOptions = LayoutOptions.StartAndExpand,
+                VerticalTextAlignment = TextAlignment.Start
             };
             lastStar.SetFontSize(Stars.MEDIUM_STAR_SIZE);
             lastStar.VerticalTextAlignment = TextAlignment.Start;
-
             StarBlock.Children.Add(lastStar);
+
+            String starLabelText = "\r\n" + starCount.ToString();
+            //star label text
+            if (Device.RuntimePlatform == Device.iOS)
+            {
+                starLabelText = starCount.ToString();
+            }
+
             //this is the number inside the star icon
-            var starLabel = new Stars(column: (STARS_ON_REWARDS_PAGE / 2) - 1, row: 1, textSizeMultiplier: 0.5)
+            var starLabel = new Stars(column: (STARS_ON_REWARDS_PAGE / 2) - 1, row: 1, textSizeMultiplier: 0.75)
             {
                 IsVisible = true,
-                Text = starCount.ToString(),
+                Text = starLabelText,
                 Vibrates = true,
                 FontAttributes = FontAttributes.Bold,
+                TextColor = Color.Black,
             };
+
             starLabel.VerticalTextAlignment = TextAlignment.End;
+            //starLabel.VerticalOptions = LayoutOptions.Center;
+
             StarBlock.Children.Add(starLabel);
 
             //start a timer to make the last star "vibrate"

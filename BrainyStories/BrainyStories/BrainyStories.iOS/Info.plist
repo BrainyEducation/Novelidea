@@ -30,6 +30,8 @@
     <key>CFBundleName</key>
     <string>BrainyStories</string>
     <key>UIAppFonts</key>
-    <string>Comic.ttf</string>
+    <array>
+      <string>Comic.ttf</string>
+    </array>
   </dict>
 </plist>

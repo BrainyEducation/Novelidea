@@ -1680,9 +1680,9 @@
     <ImageAsset Include="Assets.xcassets\Animal.imageset\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
-    <Content Include="Resources\Comic.ttf">
+    <BundleResource Include="Resources\Comic.ttf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    </BundleResource>
     <BundleResource Include="Resources\Curly.otf" />
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
   </ItemGroup>

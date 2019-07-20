@@ -9,8 +9,7 @@
             <!--<Start of Navigation Bar />-->
             <StackLayout VerticalOptions="Start"
             HorizontalOptions="FillAndExpand"
-            Orientation="Horizontal"
-            BackgroundColor ="#A9FFF7">
+            Orientation="Horizontal">
                 <ImageButton HorizontalOptions="Start"
                 Source="BackButton.png"
                 Clicked ="BackClicked"
@@ -20,8 +19,9 @@
                 VerticalOptions="CenterAndExpand"
                 BorderColor ="Transparent"
                 BackgroundColor="Transparent" />
-                <ImageButton HorizontalOptions="Start"
+                <ImageButton
                 VerticalOptions="CenterAndExpand"
+                HorizontalOptions="Start"
                 Source="Home.png"
                 Aspect="AspectFill"
                 WidthRequest="50"
@@ -29,46 +29,47 @@
                 Clicked ="HomeClicked"
                 BorderColor ="Transparent"
                 BackgroundColor="Transparent" />
-
-                <Label
-                    Text ="  ⭐ Rewards ⭐ "
+                <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                    <Label
+                    Text ="  ⭐ Rewards "
+                    x:Name="RewardsLabel"
                     FontFamily = "{StaticResource Comic}"
                     FontSize ="35"
                     TextColor="Black"
                     VerticalOptions="Center"
-                    HorizontalOptions="CenterAndExpand" />
+                    HorizontalOptions="Start" />
+                    <Image
+                       Source="Coin.png"
+                       WidthRequest="50"
+                       HeightRequest="50"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Start" />
+                </StackLayout>
             </StackLayout>
-
-            <!--<FlexLayout x:Name="BindList"
-                        Wrap="Wrap"
-                        Direction="Row"
-                        JustifyContent="SpaceAround">
-            </FlexLayout>-->
-
-            <Grid x:Name="SkeletonGrid" HorizontalOptions="FillAndExpand">
+            <Grid x:Name="SkeletonGrid"  VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="1*" />
-                    <RowDefinition Height="1*" />
                     <RowDefinition Height="2*" />
-                    <RowDefinition Height="9*" />
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="6*" />
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
-                <Label Text="Think and Do"
+                <Label x:Name="ThinkAndDoLabel" Text="Think and Do"
                     Grid.Row="0"
                     Grid.Column="0"
                     FontFamily = "{StaticResource Comic}"
-                    FontSize ="Large"
+                    FontSize ="35"
                     TextColor="Black"
                     FontAttributes="Bold"
                     VerticalOptions="Center"
                     HorizontalOptions="Start" />
                 <Grid  RowSpacing="5" x:Name="StarBlock" HorizontalOptions="FillAndExpand"
-                  VerticalOptions="Center" Grid.Row="1" Grid.Column="0">
+                  VerticalOptions="FillAndExpand" Grid.Row="1" Grid.Column="0">
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="1*" />
-                        <RowDefinition Height="3*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
 
                     <Grid.ColumnDefinitions>
@@ -79,16 +80,7 @@
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
                 </Grid>
-                <!--<Label Text="Quizzes2" BackgroundColor="Peru"
-                    Grid.RowSpan="2"
-                    Grid.Row="2"
-                       Grid.Column="0"
-                    FontFamily = "{StaticResource Comic}"
-                    FontSize ="Large"
-                    FontAttributes="Bold"
-                    TextColor="Black"
-                    VerticalOptions="Center"
-                    HorizontalOptions="Start" />-->
+
                 <Grid x:Name="PayoutGrid" HorizontalOptions="FillAndExpand" Grid.Column="0"  Grid.Row="3">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="1*" />
