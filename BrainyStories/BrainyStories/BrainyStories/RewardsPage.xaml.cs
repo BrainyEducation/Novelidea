@@ -375,6 +375,8 @@ namespace BrainyStories
             {
                 var goldCoin = new Image();
                 goldCoin.Source = "GoldCoin.png";
+                //this defaults to white for some weird reason
+                goldCoin.BackgroundColor = Color.FromHex("#A9FFF7");
                 goldCoin.SetValue(Grid.RowProperty, i);
                 goldCoin.SetValue(Grid.RowProperty, 0);
                 //Grid.SetRow(goldCoin, i);
