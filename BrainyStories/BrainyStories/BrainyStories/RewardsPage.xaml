@@ -56,15 +56,25 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
-                <Label x:Name="ThinkAndDoLabel" Text="Think and Do"
-                    Grid.Row="0"
-                    Grid.Column="0"
-                    FontFamily = "{StaticResource Comic}"
-                    FontSize ="35"
-                    TextColor="Black"
-                    FontAttributes="Bold"
-                    VerticalOptions="Center"
-                    HorizontalOptions="Start" />
+                <Grid Grid.Row="0" Grid.Column="0" x:Name="ThinkAndDoRow">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="2*" />
+                        <ColumnDefinition Width="2*" />
+                        <ColumnDefinition Width="1*" />
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Row="0" Grid.Column="0" x:Name="ThinkAndDoLabel" Text="Think and Do"
+                        FontFamily = "{StaticResource Comic}"
+                        FontSize ="35"
+                        TextColor="Black"
+                        FontAttributes="Bold"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Start" />
+                </Grid>
+
                 <Grid  RowSpacing="5" x:Name="StarBlock" HorizontalOptions="FillAndExpand"
                   VerticalOptions="FillAndExpand" Grid.Row="1" Grid.Column="0">
                     <Grid.RowDefinitions>
@@ -81,139 +91,57 @@
                     </Grid.ColumnDefinitions>
                 </Grid>
 
-                <Grid x:Name="PayoutGrid" HorizontalOptions="FillAndExpand" Grid.Column="0"  Grid.Row="3">
+                <Grid x:Name="QuizzesLabelRow" HorizontalOptions="FillAndExpand"
+                      VerticalOptions="FillAndExpand" Grid.Row="2" Grid.Column="0">
+
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="1*" />
-                        <RowDefinition Height="1*" />
-                        <RowDefinition Height="1*" />
-                        <RowDefinition Height="1*" />
-                        <RowDefinition Height="1*" />
+                        <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
 
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="1*" />
                         <ColumnDefinition Width="2*" />
+                        <ColumnDefinition Width="2*" />
+                        <ColumnDefinition Width="1*" />
                     </Grid.ColumnDefinitions>
 
                     <!--Score Coin-->
                     <Image
                         HorizontalOptions="FillAndExpand"
+                        Aspect="AspectFit"
                         VerticalOptions="Center"
                         Source="RewardsCoin.png"
-                        Grid.Column="4"
-                        Grid.Row="4" />
+                        Grid.Column="3"
+                        Grid.Row="0" />
                     <Label x:Name="ScoreCoinLabel"
                         VerticalOptions="Center"
                         HorizontalOptions="CenterAndExpand"
                         FontSize="Large"
                         FontAttributes="Bold"
-                        Grid.Column="4"
-                        Grid.Row="4" />
+                        Grid.Column="3"
+                        Grid.Row="0" />
                 </Grid>
+
+                <ScrollView Grid.Column="0"  Grid.Row="3">
+                    <Grid x:Name="PayoutGrid" HorizontalOptions="FillAndExpand">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="200" />
+                            <RowDefinition Height="200" />
+                            <RowDefinition Height="200" />
+                            <RowDefinition Height="200" />
+                            <RowDefinition Height="200" />
+                        </Grid.RowDefinitions>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*" />
+                            <ColumnDefinition Width="1*" />
+                            <ColumnDefinition Width="3*" />
+                            <ColumnDefinition Width="3*" />
+                            <ColumnDefinition Width="3*" />
+                        </Grid.ColumnDefinitions>
+                    </Grid>
+                </ScrollView>
             </Grid>
         </StackLayout>
-
-        <!--<ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            -->
-        <!--Display 2 rows of 20 stars, the last star should show a count-->
-        <!--<Grid BackgroundColor="Black">
-                                <Grid.RowDefinitions>
-                                    <RowDefinition  Height="1*" />
-                                    <RowDefinition  Height="1*" />
-                                    <RowDefinition  Height="4*" />
-                                </Grid.RowDefinitions>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="1*" />
-                                    <ColumnDefinition Width="1*" />
-                                    <ColumnDefinition Width="1*" />
-                                    <ColumnDefinition Width="1*" />
-                                    <ColumnDefinition Width="1*" />
-                                    <ColumnDefinition Width="1*" />
-                                    <ColumnDefinition Width="1*" />
-                                    <ColumnDefinition Width="1*" />
-                                    <ColumnDefinition Width="1*" />
-                                    <ColumnDefinition Width="1*" />
-                                </Grid.ColumnDefinitions>-->
-
-        <!--<Label BackgroundColor="Brown" IsVisible="{Binding IsVisible}" Grid.Column="{Binding Column}" Grid.Row="{Binding Row}"
-                                           HorizontalOptions="FillAndExpand" FontSize="Large" HorizontalTextAlignment="Center"
-                                            VerticalTextAlignment="Center" Grid.ColumnSpan="1"
-                                            VerticalOptions="CenterAndExpand"
-                                           Text="{Binding Text}" />-->
-        <!--</Grid>-->
-        <!--
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </CollectionView>-->
-
-        <!--<ScrollView Grid.Row="2">
-                    <StackLayout>
-                        -->
-        <!--<Shows earned Rewards />-->
-        <!--
-                        <StackLayout x:Name="BankList"
-                       Orientation="Horizontal" />
-                        <StackLayout x:Name="CarList"
-                       Orientation="Horizontal" />
-                        <StackLayout x:Name="BagList"
-                       Orientation="Horizontal" />
-                        <StackLayout x:Name="StackList"
-                       Orientation="Horizontal" />
-                        <StackLayout x:Name="GoldList"
-                       Orientation="Horizontal" />
-                        <StackLayout x:Name="SilverList"
-                       Orientation="Horizontal" />
-                        <StackLayout Orientation="Horizontal">
-                        </StackLayout>
-                    </StackLayout>
-                </ScrollView>-->
-        <!--<End of Navigation Bar />-->
-
-        <!-- 2 Silver Coins gets 1 Gold Coin -->
-        <!--
-                        <Label Text="          2" VerticalTextAlignment="Center" FontFamily="{StaticResource Comic}" />
-                        <Image Source="SilverCoin.png" />
-                        <Label Text="= 1" VerticalTextAlignment="Center" FontFamily="{StaticResource Comic}" />
-                        <Image Source="GoldCoin.png" />
-
-                        -->
-        <!-- 5 Gold Coins gets 1 Gold Stack -->
-        <!--
-                        <Label Text="          5" VerticalTextAlignment="Center" FontFamily="{StaticResource Comic}" />
-                        <Image Source="GoldCoin.png" />
-                        <Label Text="= 1" VerticalTextAlignment="Center" FontFamily="{StaticResource Comic}" />
-                        <Image Source="GoldStack.png" />
-
-                        -->
-        <!-- 5 Gold Stacks gets 1 Money Bag -->
-        <!--
-                        <Label Text="          5" VerticalTextAlignment="Center" FontFamily="{StaticResource Comic}" />
-                        <Image Source="GoldStack.png" />
-                        <Label Text="= 1" VerticalTextAlignment="Center" FontFamily="{StaticResource Comic}" />
-                        <Image Source="MoneyBag.png" />
-                    </StackLayout>
-
-                    <StackLayout Orientation="Horizontal">
-                        -->
-        <!-- 5 Money Bags gets 1 Armored Car -->
-        <!--
-                        <Label Text="          5" VerticalTextAlignment="Center" FontFamily="{StaticResource Comic}" />
-                        <Image Source="MoneyBag.png" />
-                        <Label Text="= 1" VerticalTextAlignment="Center" FontFamily="{StaticResource Comic}" />
-                        <Image Source="ArmoredCar.png" />
-
-                        -->
-        <!-- 5 Armored Cars gets 1 Bank -->
-
-        <!--<Label Text="          5" VerticalTextAlignment="Center" FontFamily="{StaticResource Comic}" />
-                        <Image Source="ArmoredCar.png" />
-                        <Label Text="= 1" VerticalTextAlignment="Center" FontFamily="{StaticResource Comic}" />
-                        <Image Source="Bank.png" />-->
     </ContentPage.Content>
 </ContentPage>

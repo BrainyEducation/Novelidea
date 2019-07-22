@@ -119,7 +119,7 @@ namespace BrainyStories
         private void StageTestData()
         {
             var user = new User();
-            user.AddSilver(313);
+            user.AddSilver(513);
             //user.AddGold(100);
 
             RealmFile.Write(() =>
@@ -359,6 +359,7 @@ namespace BrainyStories
             var payout = user.GetPayout();
             //count the total gold coins
             ScoreCoinLabel.Text = user.GetTotalGoldCoins().ToString();
+
             //only one option for silver coin - 1 or 0
             if (payout.SilverCount > 0)
             {
@@ -389,6 +390,8 @@ namespace BrainyStories
                 stacks.Source = "GoldStack.png";
                 stacks.SetValue(Grid.RowProperty, i);
                 stacks.SetValue(Grid.ColumnProperty, 1);
+                stacks.Aspect = Aspect.AspectFit;
+
                 //Grid.SetRow(stacks, i);
                 //Grid.SetColumn(stacks, 1);
                 PayoutGrid.Children.Add(stacks);
@@ -399,6 +402,9 @@ namespace BrainyStories
                 var bags = new Image();
                 bags.Source = "MoneyBag.png";
                 bags.SetValue(Grid.RowProperty, i);
+                bags.HorizontalOptions = LayoutOptions.FillAndExpand;
+                bags.VerticalOptions = LayoutOptions.FillAndExpand;
+                bags.Aspect = Aspect.Fill;
                 //Grid.SetRow(bags, i);
                 //Grid.SetColumn(bags, 2);
                 bags.SetValue(Grid.ColumnProperty, 2);
@@ -413,6 +419,7 @@ namespace BrainyStories
                 //Grid.SetColumn(cars, 3);
                 cars.SetValue(Grid.RowProperty, i);
                 cars.SetValue(Grid.ColumnProperty, 3);
+                cars.Aspect = Aspect.Fill;
                 PayoutGrid.Children.Add(cars);
             }
 
@@ -422,8 +429,8 @@ namespace BrainyStories
                 bank.Source = "Bank.png";
                 bank.SetValue(Grid.RowProperty, i);
                 bank.SetValue(Grid.ColumnProperty, 4);
-                //Grid.SetRow(bank, i);
-                //Grid.SetColumn(bank, 4);
+                bank.Aspect = Aspect.AspectFit;
+
                 PayoutGrid.Children.Add(bank);
             }
         }
@@ -459,16 +466,20 @@ namespace BrainyStories
                 VerticalOptions = LayoutOptions.StartAndExpand,
                 VerticalTextAlignment = TextAlignment.Start
             };
-            lastStar.SetFontSize(Stars.MEDIUM_STAR_SIZE);
-            lastStar.VerticalTextAlignment = TextAlignment.Start;
-            StarBlock.Children.Add(lastStar);
-
-            String starLabelText = "\r\n" + starCount.ToString();
-            //star label text
+            lastStar.SetFontSize(Stars.LARGE_STAR_SIZE);
             if (Device.RuntimePlatform == Device.iOS)
             {
-                starLabelText = starCount.ToString();
+                lastStar.SetFontSize(Stars.MEDIUM_STAR_SIZE);
             }
+            lastStar.VerticalTextAlignment = TextAlignment.End;
+            lastStar.SetValue(Grid.ColumnProperty, 3);
+            lastStar.SetValue(Grid.RowProperty, 0);
+            //add this to the top right corner
+            ThinkAndDoRow.Children.Add(lastStar);
+            //StarBlock.Children.Add(lastStar);
+
+            //this is separate because it used to be changed between platforms - may no longer be needed
+            String starLabelText = starCount.ToString();
 
             //this is the number inside the star icon
             var starLabel = new Stars(column: (STARS_ON_REWARDS_PAGE / 2) - 1, row: 1, textSizeMultiplier: 0.75)
@@ -482,8 +493,9 @@ namespace BrainyStories
 
             starLabel.VerticalTextAlignment = TextAlignment.End;
             //starLabel.VerticalOptions = LayoutOptions.Center;
-
-            StarBlock.Children.Add(starLabel);
+            starLabel.SetValue(Grid.ColumnProperty, 3);
+            starLabel.SetValue(Grid.RowProperty, 0);
+            ThinkAndDoRow.Children.Add(starLabel);
 
             //start a timer to make the last star "vibrate"
             if (starCount == STARS_ON_REWARDS_PAGE - 1)

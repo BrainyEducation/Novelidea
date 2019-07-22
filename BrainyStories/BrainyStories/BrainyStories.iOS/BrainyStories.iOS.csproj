@@ -2539,9 +2539,6 @@
     <BundleResource Include="Resources\rocket.mp3" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\S1_LATM_1.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\S1_LATM_2.jpg" />
   </ItemGroup>
   <ItemGroup>
@@ -2570,9 +2567,6 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\S1_TLATM_TAD2.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\S2_LRH_0.JPG" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\S2_LRH_1.jpg" />
@@ -2611,9 +2605,6 @@
     <BundleResource Include="Resources\S3_BWCW_TAD2.mp3" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\S3_TBWCW_1.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\S3_TBWCW_2.jpg" />
   </ItemGroup>
   <ItemGroup>
@@ -2636,9 +2627,6 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\S3_TBWCW_9.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\S4_TEATS_1.jpg" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\S4_TEATS_2.jpg" />
@@ -2669,9 +2657,6 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\S4_TEATS_TAD2.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\S5_TLP_0.JPG" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\S5_TLP_1.jpg" />
@@ -3212,5 +3197,20 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\Home%401x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\S1_LATM_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\S2_LRH_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\S3_TBWCW_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\S4_TEATS_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\S5_TLP_0.png" />
   </ItemGroup>
 </Project>

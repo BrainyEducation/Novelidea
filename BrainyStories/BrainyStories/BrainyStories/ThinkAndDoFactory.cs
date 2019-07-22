@@ -40,7 +40,7 @@ namespace BrainyStories
                     CreateNewThinkAndDo(new ThinkAndDo
                     {
                         ThinkAndDoName = "The Lion and the Mouse",
-                        AssociatedImage = "S1_LATM_1.jpg",
+                        AssociatedImage = "S1_LATM_1.png",
                         ThinkAndDoAudioClip1 = "S1_TLATM_TAD1.mp3",
                         ThinkAndDoAudioClip2 = "S1_TLATM_TAD2.mp3",
                         Text1 = "Draw a picture of the lion that’s different from a picture you’ve already seen. Draw a picture of the mouse that’s different from a picture you’re already seen. Write or say what the mouse was afraid might happen to him. Write or say what the lion was afraid might happen to him.",
@@ -51,7 +51,7 @@ namespace BrainyStories
                     CreateNewThinkAndDo(new ThinkAndDo
                     {
                         ThinkAndDoName = RED_HEN_NAME,
-                        AssociatedImage = "S2_LRH_0.jpg",
+                        AssociatedImage = "S2_LRH_0.png",
                         ThinkAndDoAudioClip1 = "S2_LRH_TAD1.mp3",
                         Text1 = "When the Little Red Hen found a grain of wheat what did she want to do with it? Put the story in order by what she did. Did she really want to do all the work alone all by herself? Who did she ask for help? Did the animals help the Little Red Hen in any way? After the Little Red Hen finished with the bread, what did she do?"
                     });
@@ -60,7 +60,7 @@ namespace BrainyStories
                     CreateNewThinkAndDo(new ThinkAndDo
                     {
                         ThinkAndDoName = "The Boy Who Cried Wolf",
-                        AssociatedImage = "S3_TBWCW_1.jpg",
+                        AssociatedImage = "S3_TBWCW_1.png",
                         ThinkAndDoAudioClip1 = "S3_BWCW_TAD1.mp3",
                         ThinkAndDoAudioClip2 = "S3_BWCW_TAD2.mp3",
                         Text1 = "Who is the main character in the story? At the beginning of the story what did he think was a problem? How did he try to solve the problem? By the end of the story what did the people in the village think was the problem? How did the people solve the problem?",
@@ -71,7 +71,7 @@ namespace BrainyStories
                     CreateNewThinkAndDo(new ThinkAndDo
                     {
                         ThinkAndDoName = "The Elves and the Shoemaker",
-                        AssociatedImage = "S4_TEATS_1.jpg",
+                        AssociatedImage = "S4_TEATS_1.png",
                         ThinkAndDoAudioClip1 = "S4_TEATS_TAD1.mp3",
                         ThinkAndDoAudioClip2 = "S4_TEATS_TAD2.mp3",
                         Text1 = "The elves in the story helped the shoemaker without being asked. What did the elves do to show they were nice? In what way did the shoemaker and his wife thank the elves? Has anyone ever helped you in your life? Draw a picture of something you might do for this person. Or, write a thank you letter from the shoemaker to the elves.",
@@ -82,7 +82,7 @@ namespace BrainyStories
                     CreateNewThinkAndDo(new ThinkAndDo
                     {
                         ThinkAndDoName = "The Three Little Pigs",
-                        AssociatedImage = "S5_TLP_0.JPG",
+                        AssociatedImage = "S5_TLP_0.png",
                         ThinkAndDoAudioClip1 = "S5_TLP_TAD1.mp3",
                         ThinkAndDoAudioClip2 = "S5_TLP_TAD2.mp3",
                         Text1 = "Do you think the first pig made a good choice when he decided to spend all his money on candy? Which pig made the best and smartest choice about saving and then spending his money? Do you think the three pigs were good brothers? Tell why you think that. What if the wolf had one or two brothers? If the wolf had brothers in the story, how do you think the wolf brothers might help each other?",
