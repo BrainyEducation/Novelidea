@@ -469,7 +469,7 @@ namespace BrainyStories
             lastStar.SetFontSize(Stars.LARGE_STAR_SIZE);
             if (Device.RuntimePlatform == Device.iOS)
             {
-                lastStar.SetFontSize(Stars.MEDIUM_STAR_SIZE);
+                lastStar.SetFontSize(Stars.SMALL_STAR_SIZE);
             }
             lastStar.VerticalTextAlignment = TextAlignment.End;
             lastStar.SetValue(Grid.ColumnProperty, 3);

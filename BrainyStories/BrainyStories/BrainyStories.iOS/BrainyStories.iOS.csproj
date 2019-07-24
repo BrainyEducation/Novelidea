@@ -2530,9 +2530,6 @@
     <BundleResource Include="Resources\RewardsButton.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\RewardsCoin.png" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\robot.mp3" />
   </ItemGroup>
   <ItemGroup>
@@ -3212,5 +3209,8 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\S5_TLP_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\RewardsCoin.png" />
   </ItemGroup>
 </Project>
