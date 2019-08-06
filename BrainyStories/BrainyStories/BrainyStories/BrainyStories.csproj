@@ -11,14 +11,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="AppealType.cs" />
     <Compile Remove="EndOfStory.xaml.cs" />
     <Compile Remove="QuizFactory.cs" />
     <Compile Remove="QuizList.xaml.cs" />
     <Compile Remove="QuizPage.xaml.cs" />
-    <Compile Remove="RealmObjects\Story.cs" />
-    <Compile Remove="StoryFactory.cs" />
     <Compile Remove="StoryPage.xaml.cs" />
-    <Compile Remove="TableOfContents.xaml.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -26,8 +24,11 @@
     <EmbeddedResource Remove="QuizList.xaml" />
     <EmbeddedResource Remove="QuizPage.xaml" />
     <EmbeddedResource Remove="StoryPage.xaml" />
-    <EmbeddedResource Remove="TableOfContents.xaml" />
     <EmbeddedResource Remove="ThinkAndDoList-old.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="RealmObjects\AppealType.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -48,6 +49,9 @@
   <ItemGroup>
     <Compile Update="ProgressPage.xaml.cs">
       <DependentUpon>ProgressPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Imagines.xaml.cs">
+      <DependentUpon>Imagines.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
 

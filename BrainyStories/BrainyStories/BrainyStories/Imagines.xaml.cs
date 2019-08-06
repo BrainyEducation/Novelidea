@@ -1,4 +1,5 @@
 using BrainyStories.Objects;
+using BrainyStories.RealmObjects;
 using Rg.Plugins.Popup.Services;
 using System;
 using System.Collections;
@@ -69,21 +70,17 @@ namespace BrainyStories
     }
 
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class TableOfContents : ContentPage
+    public partial class Imagines : ContentPage
     {
-        public TableOfContents(bool imagines)
+        private IEnumerable<Story> ListOfImagines;
+
+        public Imagines()
         {
             NavigationPage.SetHasNavigationBar(this, false);
-            if (imagines)
-            {
-                Story.ListOfStories = StoryFactory.Imagines;
-            }
-            else
-            {
-                Story.ListOfStories = StoryFactory.Stories;
-            }
+            ListOfImagines = new StoryFactory().GenerateOrGetImagines();
+
             InitializeComponent();
-            listView.SelectedItem = null;
+            //listView.SelectedItem = null;
         }
 
         private async void OnItemTapped(object sender, ItemTappedEventArgs e)
@@ -93,10 +90,9 @@ namespace BrainyStories
             {
                 return;
             }
-            User user = User.Instance;
             var story = (Story)view.SelectedItem;
             view.SelectedItem = null;
-            await Navigation.PushAsync(new StoryPage(story));
+            //await Navigation.PushAsync(new StoryPage(story));
         }
 
         // Navbar methods
