@@ -133,11 +133,11 @@ namespace BrainyStories
         {
             var imagines = new List<Story>();
             var realmFile = Realm.GetInstance(RealmConfiguration.DefaultConfiguration);
-            var imaginesQuery = realmFile.All<Story>();
+            var imaginesQuery = realmFile.All<Story>().Where(x => x.IsImagine);
 
-            if (imaginesQuery != null || imaginesQuery.Count() > 0)
+            if (imaginesQuery != null && imaginesQuery.Count() > 0)
             {
-                return imaginesQuery;
+                imagines = imaginesQuery.ToList();
             }
             else
             {
@@ -150,11 +150,12 @@ namespace BrainyStories
                         Appeal = (int)AppealType.General,
                         Description = "Imagine a shoe wanting to be like a car, and what a child might find " +
                         "in the home to help.",
-                        AudioClip = "I1_IAS_IG.mp3"
+                        AudioClip = "I1_IAS_IG.mp3",
+                        IsImagine = true
                     };
 
                     imagines.Add(imagine1);
-                    realmFile.Add(imagine1);
+                    realmFile.Add<Story>(imagine1);
 
                     GenerateStoryPages(realmFile, imagine1.StoryId, "I1_IASW_1.jpg", "I1_IASW_2.jpg",
                         "I1_IASW_3.jpg", "I1_IASW_4.jpg", "I1_IASW_5.jpg");
@@ -167,11 +168,12 @@ namespace BrainyStories
                         Appeal = (int)AppealType.Male,
                         Description = "Imagine swinging as high as trees, birds, clouds, or " +
                         "even higher, what it might feel like, what you might see.",
-                        AudioClip = "I2_DYPYL_IG.mp3"
+                        AudioClip = "I2_DYPYL_IG.mp3",
+                        IsImagine = true
                     };
 
                     imagines.Add(imagine2);
-                    realmFile.Add(imagine2);
+                    realmFile.Add<Story>(imagine2);
 
                     GenerateStoryPages(realmFile, imagine2.StoryId, "I2_DYPYL_1.jpg", "I2_DYPYL_2.jpg", "I2_DYPYL_3.jpg",
                         "I2_DYPYL_4.jpg", "I2_DYPYL_5.jpg", "I2_DYPYL_6.jpg", "I2_DYPYL_7.jpg");
@@ -182,11 +184,12 @@ namespace BrainyStories
                         Icon = "I3_TUDW_1.jpg",
                         Appeal = (int)AppealType.Female,
                         Description = "Imagine wandering into a world where everything is upside down and backwards.",
-                        AudioClip = "I3_UW_IG.mp3"
+                        AudioClip = "I3_UW_IG.mp3",
+                        IsImagine = true
                     };
 
                     imagines.Add(imagine3);
-                    realmFile.Add(imagine3);
+                    realmFile.Add<Story>(imagine3);
 
                     GenerateStoryPages(realmFile, imagine3.StoryId, "I3_TUDW_1.jpg", "I3_TUDW_2.jpg", "I3_TUDW_3.jpg",
                         "I3_TUDW_4.jpg", "I3_TUDW_5.jpg", "I3_TUDW_6.jpg");
@@ -198,11 +201,12 @@ namespace BrainyStories
                         Appeal = (int)AppealType.Female,
                         Description = "Imagine blinking to become very tiny and what you " +
                         "might be able to do if you were very, very small.",
-                        AudioClip = "I5_IANA_IG.mp3"
+                        AudioClip = "I5_IANA_IG.mp3",
+                        IsImagine = true
                     };
 
                     imagines.Add(imagine4);
-                    realmFile.Add(imagine4);
+                    realmFile.Add<Story>(imagine4);
 
                     GenerateStoryPages(realmFile, imagine4.StoryId, "I5_IANA_1.jpg", "I5_IANA_2.jpg",
                         "I5_IANA_3.jpg", "I5_IANA_4.jpg", "I5_IANA_5.jpg", "I5_IANA_6.jpg");
@@ -214,11 +218,12 @@ namespace BrainyStories
                         Appeal = (int)AppealType.General,
                         Description = "Imagine what you’d say if a little angel asked your " +
                         "advice on how to be a tiny bit mischievous.",
-                        AudioClip = "I5_IANA_IG.mp3"
+                        AudioClip = "I5_IANA_IG.mp3",
+                        IsImagine = true
                     };
 
                     imagines.Add(imagine5);
-                    realmFile.Add(imagine5);
+                    realmFile.Add<Story>(imagine5);
 
                     GenerateStoryPages(realmFile, imagine5.StoryId, "I5_IANA_1.jpg", "I5_IANA_2.jpg",
                         "I5_IANA_3.jpg", "I5_IANA_4.jpg", "I5_IANA_5.jpg", "I5_IANA_6.jpg");
@@ -247,7 +252,7 @@ namespace BrainyStories
                     Order = i + 1,
                     StoryId = storyId
                 };
-                realmFile.Add(page);
+                realmFile.Add<StoryPage>(page);
                 storyPages.Add(page);
             }
 

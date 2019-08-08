@@ -54,8 +54,7 @@
                             <ViewCell.View>
                                 <StackLayout Orientation="Horizontal"
                              HeightRequest="150" HorizontalOptions="FillAndExpand">
-                                    <Image Source="{Binding AssociatedImage}"
-                         HeightRequest="150" />
+                                    <Image Source="{Binding AssociatedImage}" HeightRequest="150" />
                                     <StackLayout  Padding="2" Orientation="Horizontal">
                                         <!--<Label Text ="{Binding AssociatedStory}" />-->
                                         <ImageButton HorizontalOptions="StartAndExpand" Source="{Binding Star1Image}"  Clicked="Star1Clicked" BindingContext="{Binding}" BackgroundColor="Transparent" />

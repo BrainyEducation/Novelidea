@@ -72,14 +72,25 @@ namespace BrainyStories
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Imagines : ContentPage
     {
-        private IEnumerable<Story> ListOfImagines;
+        //private IEnumerable<Story> ListOfImagines;
 
         public Imagines()
         {
-            NavigationPage.SetHasNavigationBar(this, false);
-            ListOfImagines = new StoryFactory().GenerateOrGetImagines();
+            //NavigationPage.SetHasNavigationBar(this, false);
 
-            InitializeComponent();
+            try
+            {
+                var imaginesData = new StoryFactory().GenerateOrGetImagines();
+
+                InitializeComponent();
+
+                ListOfImagines.ItemsSource = imaginesData;
+            }
+            catch (Exception e)
+            {
+                e.ToString();
+            }
+
             //listView.SelectedItem = null;
         }
 

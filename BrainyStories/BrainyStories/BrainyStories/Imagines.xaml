@@ -1,20 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:BrainyStories"
              x:Class="BrainyStories.Imagines"
-             x:Name="MyPage"
              NavigationPage.HasNavigationBar="false"
              BackgroundColor="#A9FFF7">
-    <StackLayout Orientation="Vertical"
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical"
                VerticalOptions="FillAndExpand"
                CompressedLayout.IsHeadless="True">
-        <!--<Start of Navigation Bar />-->
-        <StackLayout VerticalOptions="Start"
+            <!--<Start of Navigation Bar />-->
+            <StackLayout VerticalOptions="Start"
               HorizontalOptions="FillAndExpand"
               Orientation="Horizontal"
               BackgroundColor ="#A9FFF7">
-            <ImageButton HorizontalOptions="Start"
+                <ImageButton HorizontalOptions="Start"
                 Source="BackButton.png"
                 Clicked ="BackClicked"
                 WidthRequest="50"
@@ -23,7 +22,7 @@
                 VerticalOptions="CenterAndExpand"
                 BorderColor ="Transparent"
                 BackgroundColor="Transparent" />
-            <ImageButton
+                <ImageButton
                 VerticalOptions="CenterAndExpand"
                 HorizontalOptions="Start"
                 Source="Home.png"
@@ -34,87 +33,44 @@
                 BorderColor ="Transparent"
                 BackgroundColor="Transparent" />
 
-            <Label
+                <Label
                     Text =" Imagines "
                     FontFamily = "{StaticResource Comic}"
                     FontSize ="35"
                     TextColor="Black"
                     VerticalOptions="Center"
                     HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
-        <!--<End of Navigation Bar />-->
+            </StackLayout>
+            <!--<End of Navigation Bar />-->
 
-        <!--<Data bound list of all stories / imagines />-->
-        <ListView SeparatorVisibility="None"
+            <!--<Data bound list of all stories / imagines />-->
+            <ListView SeparatorVisibility="None"
                 HasUnevenRows="True"
                 VerticalOptions ="FillAndExpand"
                 HorizontalOptions="FillAndExpand"
-                x:Name="BindList">
-            <!--<List of all ThinkAndDos />-->
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
-                        <ViewCell.View>
-                            <StackLayout Orientation="Horizontal"
+                x:Name="ListOfImagines">
+                <!--<List of all ThinkAndDos />-->
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.View>
+                                <StackLayout Orientation="Horizontal"
                              HeightRequest="150" HorizontalOptions="FillAndExpand">
-                                <Image Source="{Binding Icon}"
-                         HeightRequest="150" />
-                                <StackLayout  Padding="2" Orientation="Horizontal">
-                                    <!--<Label Text ="{Binding AssociatedStory}" />-->
+                                    <Image Source="{Binding Icon}" HeightRequest="150" />
+                                    <StackLayout  Padding="2" Orientation="Horizontal">
+                                        <Label Text ="test" />
 
-                                    <!--<ImageButton HorizontalOptions="StartAndExpand" Source="{Binding Star1Image}"  Clicked="Star1Clicked" BindingContext="{Binding}" BackgroundColor="Transparent" />
+                                        <!--<ImageButton HorizontalOptions="StartAndExpand" Source="{Binding Star1Image}"  Clicked="Star1Clicked" BindingContext="{Binding}" BackgroundColor="Transparent" />
                                     <Label HorizontalOptions="CenterAndExpand" Text ="{Binding ThinkAndDoName}"  LineBreakMode="WordWrap" VerticalOptions="Center"  FontSize="Large" FontFamily="{StaticResource Comic}" />
                                     <ImageButton HorizontalOptions="StartAndExpand" Source="{Binding Star2Image}"  Clicked="Star2Clicked" BindingContext="{Binding}" BackgroundColor="Transparent" />-->
-                                    <!--<Label Text="{Binding LengthOfAudio1, Mode=OneWay, StringFormat='{}{0:mm}:{0:ss}'}" FontFamily="{StaticResource Comic}" />-->
-                                </StackLayout>
-                            </StackLayout>
-                        </ViewCell.View>
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-        <ListView x:Name="listView"
-              ItemsSource="{Binding ListOfImagines}"
-              HasUnevenRows="True"
-              ItemSelected="OnItemTapped"
-              BackgroundColor="#A9FFF7">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
-                        <ViewCell.View>
-                            <StackLayout Orientation="Horizontal"
-                           Padding="0,0,0,10">
-                                <Image Source="{Binding Icon, Mode=OneWay}"
-                       HeightRequest="150"
-                       VerticalOptions ="Start" />
-                                <StackLayout Orientation="Vertical"
-                             x:Name="verticalStackLayout">
-                                    <Label Text="{Binding Name, Mode=OneWay}"
-                     FontAttributes="Bold"
-                     FontFamily="{StaticResource Comic}" />
-                                    <Label Text="{Binding Description, Mode=OneWay}" FontFamily="{StaticResource Comic}" />
-                                    <StackLayout Orientation="Horizontal">
-                                        <Label Text="{Binding Duration, Mode=OneWay, StringFormat='{}{0:mm}:{0:ss}'}" FontFamily="{StaticResource Comic}" />
-                                        <Label Text="{Binding WordCount, Mode=OneWay, StringFormat='{0} words'}"
-                           HorizontalTextAlignment="End" FontFamily="{StaticResource Comic}" />
+                                        <!--<Label Text="{Binding LengthOfAudio1, Mode=OneWay, StringFormat='{}{0:mm}:{0:ss}'}" FontFamily="{StaticResource Comic}" />-->
                                     </StackLayout>
-                                    <local:BindableStackLayout ItemsSource="{Binding ListOfIcons}"
-                                             Orientation="Horizontal">
-                                        <local:BindableStackLayout.ItemDataTemplate>
-                                            <DataTemplate>
-                                                <StackLayout>
-                                                    <Image Source ="{Binding .}"
-                             Rotation="90" />
-                                                </StackLayout>
-                                            </DataTemplate>
-                                        </local:BindableStackLayout.ItemDataTemplate>
-                                    </local:BindableStackLayout>
                                 </StackLayout>
-                            </StackLayout>
-                        </ViewCell.View>
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-    </StackLayout>
+                            </ViewCell.View>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
 </ContentPage>
