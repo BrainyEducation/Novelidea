@@ -78,20 +78,11 @@ namespace BrainyStories
         {
             //NavigationPage.SetHasNavigationBar(this, false);
 
-            try
-            {
-                var imaginesData = new StoryFactory().GenerateOrGetImagines();
+            var imaginesData = new StoryFactory().GenerateOrGetImagines();
 
-                InitializeComponent();
+            InitializeComponent();
 
-                ListOfImagines.ItemsSource = imaginesData;
-            }
-            catch (Exception e)
-            {
-                e.ToString();
-            }
-
-            //listView.SelectedItem = null;
+            ListOfImagines.ItemsSource = imaginesData;
         }
 
         private async void OnItemTapped(object sender, ItemTappedEventArgs e)

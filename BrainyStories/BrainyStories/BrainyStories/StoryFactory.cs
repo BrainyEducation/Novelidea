@@ -143,91 +143,111 @@ namespace BrainyStories
             {
                 using (var realmTransaction = realmFile.BeginWrite())
                 {
-                    var imagine1 = new Story()
+                    //use a simple audio player to measure duration
+                    using (var player = Plugin.SimpleAudioPlayer.CrossSimpleAudioPlayer.CreateSimpleAudioPlayer())
                     {
-                        Name = "If A Shoe Wanted to be Car",
-                        Icon = "I1_IASW_1.jpg",
-                        Appeal = (int)AppealType.General,
-                        Description = "Imagine a shoe wanting to be like a car, and what a child might find " +
+                        var imagine1 = new Story()
+                        {
+                            Name = "If A Shoe Wanted to be Car",
+                            Icon = "I1_IASW_1.jpg",
+                            Appeal = (int)AppealType.General,
+                            Description = "Imagine a shoe wanting to be like a car, and what a child might find " +
                         "in the home to help.",
-                        AudioClip = "I1_IAS_IG.mp3",
-                        IsImagine = true
-                    };
+                            AudioClip = "I1_IAS_IG.mp3",
+                            IsImagine = true,
+                            //have to add word count manually because the text is embedded in a jpg image
+                            WordCount = 212
+                        };
+                        player.Load(imagine1.AudioClip);
+                        imagine1.DurationInSeconds = player.Duration;
 
-                    imagines.Add(imagine1);
-                    realmFile.Add<Story>(imagine1);
+                        imagines.Add(imagine1);
+                        realmFile.Add<Story>(imagine1);
 
-                    GenerateStoryPages(realmFile, imagine1.StoryId, "I1_IASW_1.jpg", "I1_IASW_2.jpg",
-                        "I1_IASW_3.jpg", "I1_IASW_4.jpg", "I1_IASW_5.jpg");
+                        GenerateStoryPages(realmFile, imagine1.StoryId, "I1_IASW_1.jpg", "I1_IASW_2.jpg",
+                            "I1_IASW_3.jpg", "I1_IASW_4.jpg", "I1_IASW_5.jpg");
 
-                    //imagines 2
-                    var imagine2 = new Story()
-                    {
-                        Name = "Do you pump your legs when you swing?",
-                        Icon = "I2_DYPYL_1.jpg",
-                        Appeal = (int)AppealType.Male,
-                        Description = "Imagine swinging as high as trees, birds, clouds, or " +
-                        "even higher, what it might feel like, what you might see.",
-                        AudioClip = "I2_DYPYL_IG.mp3",
-                        IsImagine = true
-                    };
+                        //imagines 2
+                        var imagine2 = new Story()
+                        {
+                            Name = "Do you pump your legs when you swing?",
+                            Icon = "I2_DYPYL_1.jpg",
+                            Appeal = (int)AppealType.Male,
+                            Description = "Imagine swinging as high as trees, birds, clouds, or " +
+                            "even higher, what it might feel like, what you might see.",
+                            AudioClip = "I2_DYPYL_IG.mp3",
+                            IsImagine = true,
+                            WordCount = 206
+                        };
+                        //TODO: put all this in a nice helper function to avoid having to copy this so much
+                        player.Load(imagine2.AudioClip);
+                        imagine2.DurationInSeconds = player.Duration;
 
-                    imagines.Add(imagine2);
-                    realmFile.Add<Story>(imagine2);
+                        imagines.Add(imagine2);
+                        realmFile.Add<Story>(imagine2);
 
-                    GenerateStoryPages(realmFile, imagine2.StoryId, "I2_DYPYL_1.jpg", "I2_DYPYL_2.jpg", "I2_DYPYL_3.jpg",
-                        "I2_DYPYL_4.jpg", "I2_DYPYL_5.jpg", "I2_DYPYL_6.jpg", "I2_DYPYL_7.jpg");
+                        GenerateStoryPages(realmFile, imagine2.StoryId, "I2_DYPYL_1.jpg", "I2_DYPYL_2.jpg", "I2_DYPYL_3.jpg",
+                            "I2_DYPYL_4.jpg", "I2_DYPYL_5.jpg", "I2_DYPYL_6.jpg", "I2_DYPYL_7.jpg");
 
-                    var imagine3 = new Story()
-                    {
-                        Name = "Upside Down Windows",
-                        Icon = "I3_TUDW_1.jpg",
-                        Appeal = (int)AppealType.Female,
-                        Description = "Imagine wandering into a world where everything is upside down and backwards.",
-                        AudioClip = "I3_UW_IG.mp3",
-                        IsImagine = true
-                    };
+                        var imagine3 = new Story()
+                        {
+                            Name = "Upside Down Windows",
+                            Icon = "I3_TUDW_1.jpg",
+                            Appeal = (int)AppealType.Female,
+                            Description = "Imagine wandering into a world where everything is upside down and backwards.",
+                            AudioClip = "I3_UW_IG.mp3",
+                            IsImagine = true,
+                            WordCount = 248
+                        };
+                        player.Load(imagine3.AudioClip);
+                        imagine3.DurationInSeconds = player.Duration;
 
-                    imagines.Add(imagine3);
-                    realmFile.Add<Story>(imagine3);
+                        imagines.Add(imagine3);
+                        realmFile.Add<Story>(imagine3);
 
-                    GenerateStoryPages(realmFile, imagine3.StoryId, "I3_TUDW_1.jpg", "I3_TUDW_2.jpg", "I3_TUDW_3.jpg",
-                        "I3_TUDW_4.jpg", "I3_TUDW_5.jpg", "I3_TUDW_6.jpg");
+                        GenerateStoryPages(realmFile, imagine3.StoryId, "I3_TUDW_1.jpg", "I3_TUDW_2.jpg", "I3_TUDW_3.jpg",
+                            "I3_TUDW_4.jpg", "I3_TUDW_5.jpg", "I3_TUDW_6.jpg");
 
-                    var imagine4 = new Story()
-                    {
-                        Name = "The Special One-Eye Blink",
-                        Icon = "I4_TSOEB_1.jpg",
-                        Appeal = (int)AppealType.Female,
-                        Description = "Imagine blinking to become very tiny and what you " +
-                        "might be able to do if you were very, very small.",
-                        AudioClip = "I5_IANA_IG.mp3",
-                        IsImagine = true
-                    };
+                        var imagine4 = new Story()
+                        {
+                            Name = "The Special One-Eye Blink",
+                            Icon = "I4_TSOEB_1.jpg",
+                            Appeal = (int)AppealType.Female,
+                            Description = "Imagine blinking to become very tiny and what you " +
+                            "might be able to do if you were very, very small.",
+                            AudioClip = "I5_IANA_IG.mp3",
+                            IsImagine = true,
+                            WordCount = 304
+                        };
+                        player.Load(imagine4.AudioClip);
+                        imagine4.DurationInSeconds = player.Duration;
 
-                    imagines.Add(imagine4);
-                    realmFile.Add<Story>(imagine4);
+                        imagines.Add(imagine4);
+                        realmFile.Add<Story>(imagine4);
 
-                    GenerateStoryPages(realmFile, imagine4.StoryId, "I5_IANA_1.jpg", "I5_IANA_2.jpg",
-                        "I5_IANA_3.jpg", "I5_IANA_4.jpg", "I5_IANA_5.jpg", "I5_IANA_6.jpg");
+                        GenerateStoryPages(realmFile, imagine4.StoryId, "I5_IANA_1.jpg", "I5_IANA_2.jpg",
+                            "I5_IANA_3.jpg", "I5_IANA_4.jpg", "I5_IANA_5.jpg", "I5_IANA_6.jpg");
 
-                    var imagine5 = new Story()
-                    {
-                        Name = "If a Naughty Angel",
-                        Icon = "I5_IANA_1.jpg",
-                        Appeal = (int)AppealType.General,
-                        Description = "Imagine what you’d say if a little angel asked your " +
-                        "advice on how to be a tiny bit mischievous.",
-                        AudioClip = "I5_IANA_IG.mp3",
-                        IsImagine = true
-                    };
+                        var imagine5 = new Story()
+                        {
+                            Name = "If a Naughty Angel",
+                            Icon = "I5_IANA_1.jpg",
+                            Appeal = (int)AppealType.General,
+                            Description = "Imagine what you’d say if a little angel asked your " +
+                            "advice on how to be a tiny bit mischievous.",
+                            AudioClip = "I5_IANA_IG.mp3",
+                            IsImagine = true,
+                            WordCount = 399
+                        };
+                        player.Load(imagine5.AudioClip);
+                        imagine5.DurationInSeconds = player.Duration;
 
-                    imagines.Add(imagine5);
-                    realmFile.Add<Story>(imagine5);
+                        imagines.Add(imagine5);
+                        realmFile.Add<Story>(imagine5);
 
-                    GenerateStoryPages(realmFile, imagine5.StoryId, "I5_IANA_1.jpg", "I5_IANA_2.jpg",
-                        "I5_IANA_3.jpg", "I5_IANA_4.jpg", "I5_IANA_5.jpg", "I5_IANA_6.jpg");
-
+                        GenerateStoryPages(realmFile, imagine5.StoryId, "I5_IANA_1.jpg", "I5_IANA_2.jpg",
+                            "I5_IANA_3.jpg", "I5_IANA_4.jpg", "I5_IANA_5.jpg", "I5_IANA_6.jpg");
+                    }
                     realmTransaction.Commit();
                 }
             }

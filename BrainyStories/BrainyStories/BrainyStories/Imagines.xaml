@@ -48,6 +48,7 @@
                 HasUnevenRows="True"
                 VerticalOptions ="FillAndExpand"
                 HorizontalOptions="FillAndExpand"
+                BackgroundColor="Transparent"
                 x:Name="ListOfImagines">
                 <!--<List of all ThinkAndDos />-->
                 <ListView.ItemTemplate>
@@ -57,13 +58,18 @@
                                 <StackLayout Orientation="Horizontal"
                              HeightRequest="150" HorizontalOptions="FillAndExpand">
                                     <Image Source="{Binding Icon}" HeightRequest="150" />
-                                    <StackLayout  Padding="2" Orientation="Horizontal">
-                                        <Label Text ="test" />
-
-                                        <!--<ImageButton HorizontalOptions="StartAndExpand" Source="{Binding Star1Image}"  Clicked="Star1Clicked" BindingContext="{Binding}" BackgroundColor="Transparent" />
-                                    <Label HorizontalOptions="CenterAndExpand" Text ="{Binding ThinkAndDoName}"  LineBreakMode="WordWrap" VerticalOptions="Center"  FontSize="Large" FontFamily="{StaticResource Comic}" />
-                                    <ImageButton HorizontalOptions="StartAndExpand" Source="{Binding Star2Image}"  Clicked="Star2Clicked" BindingContext="{Binding}" BackgroundColor="Transparent" />-->
-                                        <!--<Label Text="{Binding LengthOfAudio1, Mode=OneWay, StringFormat='{}{0:mm}:{0:ss}'}" FontFamily="{StaticResource Comic}" />-->
+                                    <StackLayout Padding="10" Orientation="Vertical">
+                                        <Label Text ="{Binding Name}" FontAttributes="Bold" FontSize="Large" />
+                                        <Label Text ="{Binding Description}"
+                                               LineBreakMode="WordWrap" VerticalOptions="Start"  FontSize="Medium" FontFamily="{StaticResource Comic}" />
+                                        <StackLayout Orientation="Horizontal" VerticalOptions="Start">
+                                            <Label Text="{Binding DurationInTimeSpan}"
+                                               VerticalOptions="Start"  FontSize="Medium" FontFamily="{StaticResource Comic}" />
+                                            <Label Text="{Binding WordCount}"
+                                               VerticalOptions="Start"  FontSize="Medium" FontFamily="{StaticResource Comic}" />
+                                            <Label Text=" Words"
+                                               VerticalOptions="Start"  FontSize="Medium" FontFamily="{StaticResource Comic}" />
+                                        </StackLayout>
                                     </StackLayout>
                                 </StackLayout>
                             </ViewCell.View>

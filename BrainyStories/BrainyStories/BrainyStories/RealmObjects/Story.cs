@@ -36,11 +36,20 @@ namespace BrainyStories
 
         public bool IsImagine { get; set; }
 
-        //// Timespan for the duration of the story
-        //public TimeSpan Duration { get; set; }
+        // Timespan for the duration of the story
+        public double DurationInSeconds { get; set; }
 
-        //// Int for the wordcount of the story
-        //public int WordCount { get; set; }
+        //this is necessary because Realm doesn't support timespan
+        [Ignored]
+        public TimeSpan DurationInTimeSpan
+        {
+            get
+            {
+                return new TimeSpan(hours: 0, minutes: 0, seconds: (int)DurationInSeconds);
+            }
+        }
+
+        public int WordCount { get; set; }
 
         // TODO: give the quiz object a FK reference to a story
         //public int QuizNum { get; set; } = 0;
