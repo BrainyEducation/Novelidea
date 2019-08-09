@@ -49,7 +49,8 @@
                 VerticalOptions ="FillAndExpand"
                 HorizontalOptions="FillAndExpand"
                 BackgroundColor="Transparent"
-                x:Name="ListOfImagines">
+                x:Name="ListOfImagines"
+                ItemTapped="ImagineClicked">
                 <!--<List of all ThinkAndDos />-->
                 <ListView.ItemTemplate>
                     <DataTemplate>

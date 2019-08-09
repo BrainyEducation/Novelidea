@@ -17,14 +17,12 @@
     <Compile Remove="QuizFactory.cs" />
     <Compile Remove="QuizList.xaml.cs" />
     <Compile Remove="QuizPage.xaml.cs" />
-    <Compile Remove="StoryPage.xaml.cs" />
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Remove="EndOfStory.xaml" />
     <EmbeddedResource Remove="QuizList.xaml" />
     <EmbeddedResource Remove="QuizPage.xaml" />
-    <EmbeddedResource Remove="StoryPage.xaml" />
     <EmbeddedResource Remove="ThinkAndDoList-old.xaml" />
   </ItemGroup>
 

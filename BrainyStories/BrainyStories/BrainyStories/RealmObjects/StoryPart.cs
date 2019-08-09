@@ -5,9 +5,9 @@ using System.Text;
 
 namespace BrainyStories.RealmObjects
 {
-    public class StoryPage : RealmObject
+    public class StoryPart : RealmObject
     {
-        public string StoryPageId { get; private set; } = Guid.NewGuid().ToString();
+        public string StoryPartId { get; private set; } = Guid.NewGuid().ToString();
 
         public string StoryId { get; set; }
 

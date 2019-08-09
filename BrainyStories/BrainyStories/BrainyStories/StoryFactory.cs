@@ -215,7 +215,7 @@ namespace BrainyStories
                             Appeal = (int)AppealType.Female,
                             Description = "Imagine blinking to become very tiny and what you " +
                             "might be able to do if you were very, very small.",
-                            AudioClip = "I5_IANA_IG.mp3",
+                            AudioClip = "I4_TSOEB_IG.mp3",
                             IsImagine = true,
                             WordCount = 304
                         };
@@ -225,8 +225,8 @@ namespace BrainyStories
                         imagines.Add(imagine4);
                         realmFile.Add<Story>(imagine4);
 
-                        GenerateStoryPages(realmFile, imagine4.StoryId, "I5_IANA_1.jpg", "I5_IANA_2.jpg",
-                            "I5_IANA_3.jpg", "I5_IANA_4.jpg", "I5_IANA_5.jpg", "I5_IANA_6.jpg");
+                        GenerateStoryPages(realmFile, imagine4.StoryId, "I4_TSOEB_1.jpg", "I4_TSOEB_2.jpg",
+                            "I4_TSOEB_3.jpg", "I4_TSOEB_4.jpg", "I4_TSOEB_5.jpg", "I4_TSOEB_6.jpg");
 
                         var imagine5 = new Story()
                         {
@@ -260,19 +260,19 @@ namespace BrainyStories
         /// <param name="storyId"></param>
         /// <param name="listOfPages"></param>
         /// <returns></returns>
-        private IEnumerable<StoryPage> GenerateStoryPages(Realm realmFile, string storyId, params string[] listOfPages)
+        private IEnumerable<StoryPart> GenerateStoryPages(Realm realmFile, string storyId, params string[] listOfPages)
         {
-            var storyPages = new List<StoryPage>();
+            var storyPages = new List<StoryPart>();
 
             for (int i = 0; i < listOfPages.Length; i++)
             {
-                var page = new StoryPage()
+                var page = new StoryPart()
                 {
                     Image = listOfPages[i],
                     Order = i + 1,
                     StoryId = storyId
                 };
-                realmFile.Add<StoryPage>(page);
+                realmFile.Add<StoryPart>(page);
                 storyPages.Add(page);
             }
 

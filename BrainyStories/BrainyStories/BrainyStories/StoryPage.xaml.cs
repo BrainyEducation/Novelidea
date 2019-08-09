@@ -10,6 +10,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Internals;
 using Xamarin.Forms.Xaml;
 using BrainyStories.Objects;
+using Realms;
 
 namespace BrainyStories
 {
@@ -30,6 +31,11 @@ namespace BrainyStories
 
         public StoryPage(Story story)
         {
+            //pull the corresponding images out of the database
+            var realmFile = Realm.GetInstance(RealmConfiguration.DefaultConfiguration);
+            var storyPages = realmFile.All<RealmObjects.StoryPart>().Where(x => x.StoryId.Equals(story.StoryId))
+                .OrderBy(x => x.Order).ToList();
+
             InitializeComponent();
             ImageButton button = new ImageButton()
             {
@@ -72,13 +78,13 @@ namespace BrainyStories
             };
             Slider slider = new Slider
             {
-                Maximum = story.Duration.Seconds + (story.Duration.Minutes * 60),
+                Maximum = story.DurationInSeconds,
                 Minimum = 0,
                 Value = 0,
                 HorizontalOptions = LayoutOptions.FillAndExpand,
                 HeightRequest = 50 // Controls size of area that can grab the slider
             };
-            Image storyImage = new Image() { Source = story.PictureCues[new TimeSpan(0, 0, 0)], HeightRequest = 150 };
+            Image storyImage = new Image() { Source = storyPages.First().Image, HeightRequest = 150 };
             var tapGestureRecognizer = new TapGestureRecognizer();
             tapGestureRecognizer.Tapped += (s, e) =>
             {
@@ -111,17 +117,17 @@ namespace BrainyStories
                       audioFromTimer = true;
                       slider.Value += 1;
                   }
-                  if (slider.Value == story.Duration.Seconds + (story.Duration.Minutes * 60))
+                  if (slider.Value == story.DurationInSeconds)
                   {
                       player.Stop();
-                      if (story.QuizNum > 0)
-                      {
-                          ChangePage(story);
-                      }
-                      else
-                      {
-                          GoBack();
-                      }
+                      //if (story.QuizNum > 0)
+                      //{
+                      //    ChangePage(story);
+                      //}
+                      //else
+                      //{
+                      GoBack();
+                      //}
 
                       return false;
                   }
@@ -146,7 +152,7 @@ namespace BrainyStories
             };
             QuizButton.Clicked += (sender, args) =>
             {
-                Navigation.PushAsync(new QuizPage(story.Quizzes[quizNum], story.AudioClip));
+                //Navigation.PushAsync(new QuizPage(story.Quizzes[quizNum], story.AudioClip));
                 QuizButton.IsVisible = false;
                 button.IsVisible = false;
                 button2.IsVisible = true;
@@ -156,9 +162,9 @@ namespace BrainyStories
                 QuizButton.IsVisible = false;
                 int minutes = (int)args.NewValue / 60;
                 int seconds = (int)args.NewValue - (minutes * 60);
-                Console.WriteLine(args.NewValue);
-                Console.WriteLine(player.CurrentPosition);
-                Console.WriteLine(args.NewValue);
+                //Console.WriteLine(args.NewValue);
+                //Console.WriteLine(player.CurrentPosition);
+                //Console.WriteLine(args.NewValue);
                 if (!audioFromTimer)
                 {
                     player.Seek(args.NewValue);
@@ -171,40 +177,40 @@ namespace BrainyStories
                 displayLabel.Text = String.Format("{0}:{1}", minutes, second);
                 timeStamp = new TimeSpan(0, minutes, seconds);
                 var savedTime = new TimeSpan(0, 0, 0);
-                foreach (TimeSpan key in story.PictureCues.Keys)
-                {
-                    if (key.TotalSeconds < args.NewValue)
-                    {
-                        savedTime = key;
-                    }
-                    else
-                    {
-                        break;
-                    }
-                }
-                storyImage.Source = story.PictureCues[savedTime];
+                //foreach (TimeSpan key in story.PictureCues.Keys)
+                //{
+                //    if (key.TotalSeconds < args.NewValue)
+                //    {
+                //        savedTime = key;
+                //    }
+                //    else
+                //    {
+                //        break;
+                //    }
+                //}
+                //storyImage.Source = story.PictureCues[savedTime];
                 quizNum = -1;
-                for (int i = 0; i < story.QuizNum; i++)
-                {
-                    if (timeStamp.CompareTo(story.Quizzes[i].PlayTime) >= 0)
-                    {
-                        quizNum++;
-                    }
-                }
-                for (int i = 0; i < story.QuizNum; i++)
-                {
-                    if (timeStamp.Equals(story.Quizzes[i].PlayTime))
-                    {
-                        player.Pause();
-                        QuizButton.IsVisible = true;
-                        playAudio = false;
-                        button.IsVisible = false;
-                        button2.IsVisible = true;
-                        Content = oldContent;
-                        storyImage.HeightRequest = 150;
-                        fullScreen = false;
-                    }
-                }
+                //for (int i = 0; i < story.QuizNum; i++)
+                //{
+                //    if (timeStamp.CompareTo(story.Quizzes[i].PlayTime) >= 0)
+                //    {
+                //        quizNum++;
+                //    }
+                //}
+                //for (int i = 0; i < story.QuizNum; i++)
+                //{
+                //    if (timeStamp.Equals(story.Quizzes[i].PlayTime))
+                //    {
+                //        player.Pause();
+                //        QuizButton.IsVisible = true;
+                //        playAudio = false;
+                //        button.IsVisible = false;
+                //        button2.IsVisible = true;
+                //        Content = oldContent;
+                //        storyImage.HeightRequest = 150;
+                //        fullScreen = false;
+                //    }
+                //}
                 audioFromTimer = false;
             };
 
@@ -230,7 +236,7 @@ namespace BrainyStories
         // Goes to the end of story page
         protected void ChangePage(Story story)
         {
-            Navigation.PushAsync(new EndOfStory(story));
+            //Navigation.PushAsync(new EndOfStory(story));
         }
 
         // Returns to the previous page
