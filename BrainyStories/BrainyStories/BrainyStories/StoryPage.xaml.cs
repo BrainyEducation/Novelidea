@@ -11,6 +11,7 @@ using Xamarin.Forms.Internals;
 using Xamarin.Forms.Xaml;
 using BrainyStories.Objects;
 using Realms;
+using Xamarin.Essentials;
 
 namespace BrainyStories
 {
@@ -29,6 +30,9 @@ namespace BrainyStories
         private PinchGestureRecognizer pinchGesture = new PinchGestureRecognizer();
         private static TimeSpan timeStamp = new TimeSpan(0, 0, 0);
 
+        public const string PAUSE_ICON = "pause.png";
+        public const string PLAY_ICON = "play.png";
+
         public StoryPage(Story story)
         {
             //pull the corresponding images out of the database
@@ -37,200 +41,127 @@ namespace BrainyStories
                 .OrderBy(x => x.Order).ToList();
 
             InitializeComponent();
-            ImageButton button = new ImageButton()
+
+            PlayButton = new ImageButton()
             {
-                Source = "pause.png",
+                Source = PAUSE_ICON, //set at the pause icon because this page auto-starts
                 HeightRequest = 40,
                 BorderColor = Color.Transparent,
                 BackgroundColor = Color.Transparent,
                 Margin = 20
             };
-            ImageButton button2 = new ImageButton()
-            {
-                Source = "play.png",
-                IsVisible = false,
-                HeightRequest = 40,
-                BorderColor = Color.Transparent,
-                BackgroundColor = Color.Transparent,
-                Margin = 20
-            };
-            ImageButton Expand = new ImageButton()
-            {
-                Source = "expand.png",
-                HorizontalOptions = LayoutOptions.EndAndExpand,
-                HeightRequest = 40,
-                BorderColor = Color.Transparent,
-                BackgroundColor = Color.Transparent,
-                Margin = 20
-            };
-            ImageButton QuizButton = new ImageButton()
+
+            QuizButton = new ImageButton()
             {
                 Source = "Quizzes.png",
                 BackgroundColor = Color.Green,
                 IsVisible = false
             };
 
-            Label displayLabel = new Label
+            DurationLabel = new Label
             {
                 Text = "0:00",
                 FontFamily = Device.RuntimePlatform == Device.Android ? "Comic.ttf#Comic" : "Comic",
                 Margin = 20
             };
-            Slider slider = new Slider
-            {
-                Maximum = story.DurationInSeconds,
-                Minimum = 0,
-                Value = 0,
-                HorizontalOptions = LayoutOptions.FillAndExpand,
-                HeightRequest = 50 // Controls size of area that can grab the slider
-            };
-            Image storyImage = new Image() { Source = storyPages.First().Image, HeightRequest = 150 };
-            var tapGestureRecognizer = new TapGestureRecognizer();
-            tapGestureRecognizer.Tapped += (s, e) =>
-            {
-                if (oldContent != null)
-                {
-                    Content = oldContent;
-                    storyImage.HeightRequest = 150;
-                    fullScreen = false;
-                }
-            };
-            storyImage.GestureRecognizers.Add(tapGestureRecognizer);
 
-            Expand.Clicked += (sender, args) =>
-            {
-                if (!fullScreen)
-                {
-                    Content = storyImage;
-                    fullScreen = true;
-                }
-            };
+            //slider init
+            StoryPageSlider.Maximum = story.DurationInSeconds;
+            StoryPageSlider.Minimum = 0;
+            StoryPageSlider.Value = 0;
+            StoryPageSlider.HorizontalOptions = LayoutOptions.FillAndExpand;
+            StoryPageSlider.MinimumWidthRequest = DeviceDisplay.MainDisplayInfo.Width;
+            StoryPageSlider.HeightRequest = 50; // Controls size of area that can grab the slider
+
+            //story content
+            StoryImage.Source = storyPages.First().Image;
+            StoryImage.MinimumWidthRequest = DeviceDisplay.MainDisplayInfo.Width * .8;
+            StoryImage.Aspect = Aspect.AspectFill;
+
             player = Plugin.SimpleAudioPlayer.CrossSimpleAudioPlayer.Current;
             player.Load(story.AudioClip);
-            bool audioFromTimer = false;
-            bool playAudio = true;
+
+            //register action to be taken once the story ends
+            player.PlaybackEnded += EndPlayback;
+
+            //this starts the audio
             player.Play();
+
+            //timer to move the slider
             Device.StartTimer(new TimeSpan(0, 0, 1), () =>
-              {
-                  if (playAudio)
-                  {
-                      audioFromTimer = true;
-                      slider.Value += 1;
-                  }
-                  if (slider.Value == story.DurationInSeconds)
-                  {
-                      player.Stop();
-                      //if (story.QuizNum > 0)
-                      //{
-                      //    ChangePage(story);
-                      //}
-                      //else
-                      //{
-                      GoBack();
-                      //}
 
-                      return false;
-                  }
-
-                  return true;
-              });
-            button.Clicked += (sender, args) =>
             {
-                player.Pause();
-                playAudio = false;
-                button.IsVisible = false;
-                button2.IsVisible = true;
-            };
-            button2.Clicked += (sender, args) =>
-            {
-                player.Seek(timeStamp.TotalSeconds);
-                player.Play();
+                StoryPageSlider.Value = player.CurrentPosition;
+                return true;
+            });
 
-                playAudio = true;
-                button.IsVisible = true;
-                button2.IsVisible = false;
+            PlayButton.Clicked += (sender, args) =>
+            {
+                //toggle play/pause
+                if (player.IsPlaying)
+                {
+                    player.Pause();
+                    PlayButton.Source = PLAY_ICON;
+                }
+                else
+                {
+                    player.Play();
+                    PlayButton.Source = PAUSE_ICON;
+                }
             };
+
             QuizButton.Clicked += (sender, args) =>
             {
                 //Navigation.PushAsync(new QuizPage(story.Quizzes[quizNum], story.AudioClip));
-                QuizButton.IsVisible = false;
-                button.IsVisible = false;
-                button2.IsVisible = true;
-            };
-            slider.ValueChanged += (sender, args) =>
-            {
-                QuizButton.IsVisible = false;
-                int minutes = (int)args.NewValue / 60;
-                int seconds = (int)args.NewValue - (minutes * 60);
-                //Console.WriteLine(args.NewValue);
-                //Console.WriteLine(player.CurrentPosition);
-                //Console.WriteLine(args.NewValue);
-                if (!audioFromTimer)
-                {
-                    player.Seek(args.NewValue);
-                }
-                String second = seconds.ToString();
-                if (seconds < 10)
-                {
-                    second = '0' + seconds.ToString();
-                }
-                displayLabel.Text = String.Format("{0}:{1}", minutes, second);
-                timeStamp = new TimeSpan(0, minutes, seconds);
-                var savedTime = new TimeSpan(0, 0, 0);
-                //foreach (TimeSpan key in story.PictureCues.Keys)
-                //{
-                //    if (key.TotalSeconds < args.NewValue)
-                //    {
-                //        savedTime = key;
-                //    }
-                //    else
-                //    {
-                //        break;
-                //    }
-                //}
-                //storyImage.Source = story.PictureCues[savedTime];
-                quizNum = -1;
-                //for (int i = 0; i < story.QuizNum; i++)
-                //{
-                //    if (timeStamp.CompareTo(story.Quizzes[i].PlayTime) >= 0)
-                //    {
-                //        quizNum++;
-                //    }
-                //}
-                //for (int i = 0; i < story.QuizNum; i++)
-                //{
-                //    if (timeStamp.Equals(story.Quizzes[i].PlayTime))
-                //    {
-                //        player.Pause();
-                //        QuizButton.IsVisible = true;
-                //        playAudio = false;
-                //        button.IsVisible = false;
-                //        button2.IsVisible = true;
-                //        Content = oldContent;
-                //        storyImage.HeightRequest = 150;
-                //        fullScreen = false;
-                //    }
-                //}
-                audioFromTimer = false;
             };
 
-            StackLayout audio = new StackLayout
-            {
-                Orientation = StackOrientation.Horizontal,
-                Children =
-                {
-                    button,
-                    button2,
-                    displayLabel,
-                    QuizButton,
-                    Expand
-                }
-            };
+            //foreach (TimeSpan key in story.PictureCues.Keys)
+            //{
+            //    if (key.TotalSeconds < args.NewValue)
+            //    {
+            //        savedTime = key;
+            //    }
+            //    else
+            //    {
+            //        break;
+            //    }
+            //}
+            //storyImage.Source = story.PictureCues[savedTime];
+            //for (int i = 0; i < story.QuizNum; i++)
+            //{
+            //    if (timeStamp.CompareTo(story.Quizzes[i].PlayTime) >= 0)
+            //    {
+            //        quizNum++;
+            //    }
+            //}
+            //for (int i = 0; i < story.QuizNum; i++)
+            //{
+            //    if (timeStamp.Equals(story.Quizzes[i].PlayTime))
+            //    {
+            //        player.Pause();
+            //        QuizButton.IsVisible = true;
+            //        playAudio = false;
+            //        button.IsVisible = false;
+            //        button2.IsVisible = true;
+            //        Content = oldContent;
+            //        storyImage.HeightRequest = 150;
+            //        fullScreen = false;
+            //    }
+            //}
+        }
 
-            TopStack.Children.Add(storyImage);
-            TopStack.Children.Add(slider);
-            TopStack.Children.Add(audio);
-            oldContent = Content;
+        private void EndPlayback(object sender, EventArgs e)
+        {
+            //TODO: figure out what this ChangePage/End Of Story logic is all about
+            player.Stop();
+            //if (story.QuizNum > 0)
+            //{
+            //    ChangePage(story);
+            //}
+            //else
+            //{
+            GoBack();
+            //}
         }
 
         // Goes to the end of story page

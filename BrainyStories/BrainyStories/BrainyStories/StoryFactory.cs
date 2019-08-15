@@ -215,7 +215,7 @@ namespace BrainyStories
                             Appeal = (int)AppealType.Female,
                             Description = "Imagine blinking to become very tiny and what you " +
                             "might be able to do if you were very, very small.",
-                            AudioClip = "I4_TSOEB_IG.mp3",
+                            AudioClip = "I4_SOEB_IG.mp3",
                             IsImagine = true,
                             WordCount = 304
                         };
