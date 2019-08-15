@@ -51,6 +51,11 @@ namespace BrainyStories
 
         public int WordCount { get; set; }
 
+        /// <summary>
+        /// This allows us to easily separate out the imagines, stories, and alternate story sets
+        /// </summary>
+        public StorySet Set { get; set; }
+
         // TODO: give the quiz object a FK reference to a story
         //public int QuizNum { get; set; } = 0;
 

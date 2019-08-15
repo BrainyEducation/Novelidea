@@ -74,11 +74,15 @@ namespace BrainyStories
     {
         //private IEnumerable<Story> ListOfImagines;
 
-        public Imagines()
+        /// <summary>
+        /// This class is shared between the stories and the imagines. Stories have one number set, and imagines have another
+        /// </summary>
+        /// <param name="storySet">Pass in the number corresponding to the imagine or story set</param>
+        public Imagines(StorySet storySet)
         {
             //NavigationPage.SetHasNavigationBar(this, false);
 
-            var imaginesData = new StoryFactory().GenerateOrGetImagines();
+            var imaginesData = new StoryFactory().FetchStoriesOrImagines(storySet);
 
             InitializeComponent();
 

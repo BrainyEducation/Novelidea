@@ -1,5 +1,6 @@
 ﻿using BrainyStories.Objects;
 using BrainyStories.RealmObjects;
+using Realms;
 using Rg.Plugins.Popup.Services;
 using System;
 using System.Collections.Generic;
@@ -21,14 +22,26 @@ namespace BrainyStories
         public ObservableCollection<ThinkAndDo> ListOfThinkAndDos;
         private Quiz last;
 
-        public EndOfStory(Story story)
+        public EndOfStory(String storyId)
         {
-            if (!User.Instance.StoriesRead.Contains(story))
-                User.Instance.StoriesRead.Add(story);
-            ListOfThinkAndDos = story.ThinkAndDos;
-            last = story.Quizzes[story.QuizNum - 1];
+            var realm = Realm.GetInstance(RealmConfiguration.DefaultConfiguration);
+            //get the current user's ID - if we ever want multiple users per device, we'll have to store the user's id in RAM
+            var userId = realm.All<User>().FirstOrDefault().UserId;
+
+            //mark this story as read if it hasn't been already
+            using (var transaction = realm.BeginWrite())
+            {
+                realm.Add<UserStoryReads>(new UserStoryReads()
+                {
+                    StoryId = storyId,
+                    Timestamp = DateTime.UtcNow,
+                    UserId = userId,
+                });
+                transaction.Commit();
+            }
+
             InitializeComponent();
-            BindThinkAndDoList.ItemsSource = ListOfThinkAndDos;
+            //BindThinkAndDoList.ItemsSource = ListOfThinkAndDos;
             Label displayLabel = new Label
             {
                 Text = last.QuizName,
@@ -52,7 +65,8 @@ namespace BrainyStories
         // Launches a quiz page for selected quiz
         private async void OnQuizTapped(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new QuizPage(last));
+            //todo: wire this up once quizzes are done
+            //await Navigation.PushAsync(new QuizPage(last));
         }
 
         // Navbar methods

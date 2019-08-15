@@ -17,6 +17,23 @@ namespace BrainyStories
     {
         //private QuizFactory quizFactory = new QuizFactory();
 
+        public IEnumerable<Story> FetchStoriesOrImagines(StorySet storySet)
+        {
+            if (storySet.Equals(StorySet.Imagines))
+            {
+                return GenerateOrGetImagines();
+            }
+            else if (storySet.Equals(storySet))
+            {
+                return GenerateOrGetStories();
+            }
+            else
+            {
+                //return an empty set if this happens, but it shouldn't ever get here
+                return new List<Story>();
+            }
+        }
+
         //MANUAL LIST OF STORIES
         public IEnumerable<Story> GenerateOrGetStories()
         {
@@ -42,13 +59,17 @@ namespace BrainyStories
                         Description = "A lion releases a mouse, believing it’s too small and weak ever to return the favor, " +
                         "but when the lion is trapped in a net the mouse gnaws the threads and releases the lion.",
                         AudioClip = "S1_TLATM_Story.mp3",
+                        Set = StorySet.StorySet1
                     };
 
                     stories.Add(story1);
                     realmFile.Add(story1);
 
+                    //these are a stop gap until we can separate the audio files into one file per segment
+                    var endTimes = new int[] { 5, 32, 49, 62, 97, 116, 150, 9999 }; //max time can be really high since the end of the story will be reached first
+
                     //also add the pages of the story
-                    GenerateStoryPages(realmFile, story1.StoryId, "S1_LATM_1.jpg", "S1_LATM_2.jpg", "S1_LATM_3.jpg",
+                    GenerateStoryPages(realmFile, story1.StoryId, endTimes, "S1_LATM_1.jpg", "S1_LATM_2.jpg", "S1_LATM_3.jpg",
                         "S1_LATM_4.jpg", "S1_LATM_5.jpg", "S1_LATM_6.jpg", "S1_LATM_7.jpg", "S1_LATM_8.jpg");
 
                     //STORY 2
@@ -59,13 +80,17 @@ namespace BrainyStories
                         Appeal = (int)AppealType.Animal,
                         Description = "Lazy animals refuse to help the hen plant the seed, harvest the grain, or bake the " +
                             "bread, so the hen refuses to share the baked bread with the lazy animals.",
-                        AudioClip = "S2_LRH_Story.mp3"
+                        AudioClip = "S2_LRH_Story.mp3",
+                        Set = StorySet.StorySet1
                     };
 
                     stories.Add(story2);
                     realmFile.Add(story2);
 
-                    GenerateStoryPages(realmFile, story2.StoryId, "S2_LRH_1.jpg", "S2_LRH_2.jpg", "S2_LRH_3.jpg", "S2_LRH_4.jpg",
+                    //not sure why these are the same as imagine #1 - it's probably incorrect TODO: check this later
+                    endTimes = new int[] { 5, 32, 49, 62, 97, 116, 9999 };
+
+                    GenerateStoryPages(realmFile, story2.StoryId, endTimes, "S2_LRH_1.jpg", "S2_LRH_2.jpg", "S2_LRH_3.jpg", "S2_LRH_4.jpg",
                         "S2_LRH_5.jpg", "S2_LRH_6.jpg", "S2_LRH_7.jpg", "S2_LRH_8.jpg");
 
                     //STORY 3
@@ -76,13 +101,16 @@ namespace BrainyStories
                         Appeal = (int)AppealType.Male,
                         Description = "Bored watching over the sheep, a boy causes excitement by lying that a wolf " +
                             "threatens; when a real wolf attacks, the people think the boy’s lying and won’t come to help him.",
-                        AudioClip = "S3_BWCW_Story.mp3"
+                        AudioClip = "S3_BWCW_Story.mp3",
+                        Set = StorySet.StorySet1
                     };
 
                     stories.Add(story3);
                     realmFile.Add(story3);
 
-                    GenerateStoryPages(realmFile, story3.StoryId, "S3_TBWCW_1", "S3_TBWCW_2", "S3_TBWCW_3", "S3_TBWCW_4",
+                    endTimes = new int[] { 2, 34, 77, 105, 141, 179, 209, 223, 9999 };
+
+                    GenerateStoryPages(realmFile, story3.StoryId, endTimes, "S3_TBWCW_1", "S3_TBWCW_2", "S3_TBWCW_3", "S3_TBWCW_4",
                         "S3_TBWCW_5", "S3_TBWCW_6", "S3_TBWCW_7", "S3_TBWCW_8", "S3_TBWCW_9");
 
                     //STORY 4
@@ -94,12 +122,15 @@ namespace BrainyStories
                         Description = "By secretly making shoes, two elves save a poor shoemaker and his wife; " +
                         "the man and wife make clothes to reward the elves, who leave when their help is no longer needed.",
                         AudioClip = "S4_TEATS_Story.mp3",
+                        Set = StorySet.StorySet1
                     };
 
                     stories.Add(story4);
                     realmFile.Add(story4);
 
-                    GenerateStoryPages(realmFile, story4.StoryId, "S4_TEATS_1", "S4_TEATS_2", "S4_TEATS_3", "S4_TEATS_4",
+                    endTimes = new int[] { 4, 66, 100, 132, 152, 213, 297, 9999 };
+
+                    GenerateStoryPages(realmFile, story4.StoryId, endTimes, "S4_TEATS_1", "S4_TEATS_2", "S4_TEATS_3", "S4_TEATS_4",
                             "S4_TEATS_5", "S4_TEATS_6", "S4_TEATS_7", "S4_TEATS_7");
 
                     //STORY 5
@@ -110,13 +141,16 @@ namespace BrainyStories
                         Appeal = (int)AppealType.Animal,
                         Description = "Two pigs squander their money and build shabby houses; their smarter brother " +
                              "saves and works hard to build a brick house which protects them all from the big bad wolf.",
-                        AudioClip = "S5_TLP_Story.mp3"
+                        AudioClip = "S5_TLP_Story.mp3",
+                        Set = StorySet.StorySet1
                     };
 
                     stories.Add(story5);
                     realmFile.Add(story5);
 
-                    GenerateStoryPages(realmFile, story5.StoryId, "S5_TLP_1", "S5_TLP_2", "S5_TLP_3", "S5_TLP_4", "S5_TLP_5",
+                    endTimes = new int[] { 27, 65, 139, 161, 192, 237, 260, 289, 358, 371, 390, 391, 9999 };
+
+                    GenerateStoryPages(realmFile, story5.StoryId, endTimes, "S5_TLP_1", "S5_TLP_2", "S5_TLP_3", "S5_TLP_4", "S5_TLP_5",
                           "S5_TLP_6", "S5_TLP_7", "S5_TLP_8", "S5_TLP_9", "S5_TLP_10", "S5_TLP_11", "S5_TLP_12", "S5_TLP_13");
 
                     realmTransaction.Commit();
@@ -154,7 +188,7 @@ namespace BrainyStories
                             Description = "Imagine a shoe wanting to be like a car, and what a child might find " +
                         "in the home to help.",
                             AudioClip = "I1_IAS_IG.mp3",
-                            IsImagine = true,
+                            Set = StorySet.Imagines,
                             //have to add word count manually because the text is embedded in a jpg image
                             WordCount = 212
                         };
@@ -164,7 +198,9 @@ namespace BrainyStories
                         imagines.Add(imagine1);
                         realmFile.Add<Story>(imagine1);
 
-                        GenerateStoryPages(realmFile, imagine1.StoryId, "I1_IASW_1.jpg", "I1_IASW_2.jpg",
+                        var endTimes = new int[] { 8, 43, 67, 86, 9999 };
+
+                        GenerateStoryPages(realmFile, imagine1.StoryId, endTimes, "I1_IASW_1.jpg", "I1_IASW_2.jpg",
                             "I1_IASW_3.jpg", "I1_IASW_4.jpg", "I1_IASW_5.jpg");
 
                         //imagines 2
@@ -176,7 +212,7 @@ namespace BrainyStories
                             Description = "Imagine swinging as high as trees, birds, clouds, or " +
                             "even higher, what it might feel like, what you might see.",
                             AudioClip = "I2_DYPYL_IG.mp3",
-                            IsImagine = true,
+                            Set = StorySet.Imagines,
                             WordCount = 206
                         };
                         //TODO: put all this in a nice helper function to avoid having to copy this so much
@@ -186,7 +222,9 @@ namespace BrainyStories
                         imagines.Add(imagine2);
                         realmFile.Add<Story>(imagine2);
 
-                        GenerateStoryPages(realmFile, imagine2.StoryId, "I2_DYPYL_1.jpg", "I2_DYPYL_2.jpg", "I2_DYPYL_3.jpg",
+                        endTimes = new int[] { 4, 31, 55, 66, 71, 98, 9999 };
+
+                        GenerateStoryPages(realmFile, imagine2.StoryId, endTimes, "I2_DYPYL_1.jpg", "I2_DYPYL_2.jpg", "I2_DYPYL_3.jpg",
                             "I2_DYPYL_4.jpg", "I2_DYPYL_5.jpg", "I2_DYPYL_6.jpg", "I2_DYPYL_7.jpg");
 
                         var imagine3 = new Story()
@@ -196,7 +234,7 @@ namespace BrainyStories
                             Appeal = (int)AppealType.Female,
                             Description = "Imagine wandering into a world where everything is upside down and backwards.",
                             AudioClip = "I3_UW_IG.mp3",
-                            IsImagine = true,
+                            Set = StorySet.Imagines,
                             WordCount = 248
                         };
                         player.Load(imagine3.AudioClip);
@@ -205,7 +243,9 @@ namespace BrainyStories
                         imagines.Add(imagine3);
                         realmFile.Add<Story>(imagine3);
 
-                        GenerateStoryPages(realmFile, imagine3.StoryId, "I3_TUDW_1.jpg", "I3_TUDW_2.jpg", "I3_TUDW_3.jpg",
+                        endTimes = new int[] { 5, 34, 59, 86, 108, 9999 };
+
+                        GenerateStoryPages(realmFile, imagine3.StoryId, endTimes, "I3_TUDW_1.jpg", "I3_TUDW_2.jpg", "I3_TUDW_3.jpg",
                             "I3_TUDW_4.jpg", "I3_TUDW_5.jpg", "I3_TUDW_6.jpg");
 
                         var imagine4 = new Story()
@@ -216,7 +256,7 @@ namespace BrainyStories
                             Description = "Imagine blinking to become very tiny and what you " +
                             "might be able to do if you were very, very small.",
                             AudioClip = "I4_SOEB_IG.mp3",
-                            IsImagine = true,
+                            Set = StorySet.Imagines,
                             WordCount = 304
                         };
                         player.Load(imagine4.AudioClip);
@@ -225,7 +265,9 @@ namespace BrainyStories
                         imagines.Add(imagine4);
                         realmFile.Add<Story>(imagine4);
 
-                        GenerateStoryPages(realmFile, imagine4.StoryId, "I4_TSOEB_1.jpg", "I4_TSOEB_2.jpg",
+                        endTimes = new int[] { 3, 45, 64, 97, 132, 9999 };
+
+                        GenerateStoryPages(realmFile, imagine4.StoryId, endTimes, "I4_TSOEB_1.jpg", "I4_TSOEB_2.jpg",
                             "I4_TSOEB_3.jpg", "I4_TSOEB_4.jpg", "I4_TSOEB_5.jpg", "I4_TSOEB_6.jpg");
 
                         var imagine5 = new Story()
@@ -236,7 +278,7 @@ namespace BrainyStories
                             Description = "Imagine what you’d say if a little angel asked your " +
                             "advice on how to be a tiny bit mischievous.",
                             AudioClip = "I5_IANA_IG.mp3",
-                            IsImagine = true,
+                            Set = StorySet.Imagines,
                             WordCount = 399
                         };
                         player.Load(imagine5.AudioClip);
@@ -245,7 +287,9 @@ namespace BrainyStories
                         imagines.Add(imagine5);
                         realmFile.Add<Story>(imagine5);
 
-                        GenerateStoryPages(realmFile, imagine5.StoryId, "I5_IANA_1.jpg", "I5_IANA_2.jpg",
+                        endTimes = new int[] { 3, 45, 64, 97, 132, 9999 };
+
+                        GenerateStoryPages(realmFile, imagine5.StoryId, endTimes, "I5_IANA_1.jpg", "I5_IANA_2.jpg",
                             "I5_IANA_3.jpg", "I5_IANA_4.jpg", "I5_IANA_5.jpg", "I5_IANA_6.jpg");
                     }
                     realmTransaction.Commit();
@@ -260,7 +304,7 @@ namespace BrainyStories
         /// <param name="storyId"></param>
         /// <param name="listOfPages"></param>
         /// <returns></returns>
-        private IEnumerable<StoryPart> GenerateStoryPages(Realm realmFile, string storyId, params string[] listOfPages)
+        private IEnumerable<StoryPart> GenerateStoryPages(Realm realmFile, string storyId, int[] endTimes, params string[] listOfPages)
         {
             var storyPages = new List<StoryPart>();
 
@@ -270,7 +314,8 @@ namespace BrainyStories
                 {
                     Image = listOfPages[i],
                     Order = i + 1,
-                    StoryId = storyId
+                    StoryId = storyId,
+                    EndTimeInSeconds = endTimes[i]
                 };
                 realmFile.Add<StoryPart>(page);
                 storyPages.Add(page);

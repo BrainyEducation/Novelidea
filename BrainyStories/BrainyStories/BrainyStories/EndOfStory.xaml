@@ -4,46 +4,46 @@
              x:Class="BrainyStories.EndOfStory"
              NavigationPage.HasNavigationBar="false"
              BackgroundColor="#A9FFF7">
-  <ContentPage.Content>
-    <StackLayout Orientation="Vertical"
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical"
                VerticalOptions="FillAndExpand"
                CompressedLayout.IsHeadless="True">
-      <!--<Start of Navigation Bar />-->
-      <StackLayout VerticalOptions="Start"
+            <!--<Start of Navigation Bar />-->
+            <StackLayout VerticalOptions="Start"
             HorizontalOptions="FillAndExpand"
             Orientation="Horizontal"
             BackgroundColor ="#B8E1FF">
-        <ImageButton HorizontalOptions="Start"
+                <ImageButton HorizontalOptions="Start"
                 Source="BackButton.png"
                 Clicked ="BackClicked"
                 BorderColor ="Transparent"
                 BackgroundColor="Transparent" />
-        <ImageButton HorizontalOptions="Start"
+                <ImageButton HorizontalOptions="Start"
                 Source="Home.png"
                 Clicked ="HomeClicked"
                 BorderColor ="Transparent"
                 BackgroundColor="Transparent" />
-      </StackLayout>
-      <!--<End of Navigation Bar />-->
-      <Label Text ="You've Completed the Story!!"
+            </StackLayout>
+            <!--<End of Navigation Bar />-->
+            <Label Text ="You've Completed the Story!!"
              FontFamily="{StaticResource Comic}"
              FontSize="32"
              HorizontalTextAlignment="Center"
              TextColor="#BCB6FF"
              FontAttributes="Bold" />
-      <!--<Last Quiz of the story />-->
-      <StackLayout Orientation="Vertical">
-        <StackLayout x:Name="LastQuiz"
+            <!--<Last Quiz of the story />-->
+            <StackLayout Orientation="Vertical">
+                <StackLayout x:Name="LastQuiz"
             Orientation="Horizontal">
-          <Image Source ="Quizzes.png"
+                    <Image Source ="Quizzes.png"
                  HeightRequest="100" />
-          <StackLayout.GestureRecognizers>
-            <TapGestureRecognizer Tapped="OnQuizTapped" />
-          </StackLayout.GestureRecognizers>
-        </StackLayout>
-      </StackLayout>
-      <!--<List of associated ThinkAndDos />-->
-      <ListView SeparatorVisibility="None"
+                    <!--<StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnQuizTapped" />
+                    </StackLayout.GestureRecognizers>-->
+                </StackLayout>
+            </StackLayout>
+            <!--<List of associated ThinkAndDos />-->
+            <!--<ListView SeparatorVisibility="None"
                 VerticalOptions ="Start"
                 HasUnevenRows="True"
                 ItemTapped="OnTaskTapped"
@@ -66,7 +66,7 @@
             </ViewCell>
           </DataTemplate>
         </ListView.ItemTemplate>
-      </ListView>
-    </StackLayout>
-  </ContentPage.Content>
+      </ListView>-->
+        </StackLayout>
+    </ContentPage.Content>
 </ContentPage>

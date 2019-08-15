@@ -1,4 +1,5 @@
-﻿using Rg.Plugins.Popup.Services;
+﻿using BrainyStories.RealmObjects;
+using Rg.Plugins.Popup.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,14 +22,14 @@ namespace BrainyStories
         // Argument: True = Imagines, False = Stories
         private async void ImaginesClicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new Imagines());
+            await Navigation.PushAsync(new Imagines(storySet: StorySet.Imagines));
         }
 
         // Stories Table of Contents Page Button
         // Argument: True = Imagines, False = Stories
         private async void StoriesClicked(object sender, EventArgs e)
         {
-            // await Navigation.PushAsync(new TableOfContents(false));
+            await Navigation.PushAsync(new Imagines(storySet: StorySet.StorySet1));
         }
 
         // Think and Do List Page Button
