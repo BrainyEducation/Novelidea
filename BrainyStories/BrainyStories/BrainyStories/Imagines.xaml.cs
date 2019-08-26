@@ -86,6 +86,15 @@ namespace BrainyStories
 
             InitializeComponent();
 
+            if (storySet == StorySet.Imagines)
+            {
+                StoryMenuLabel.Text = "Imagines";
+            }
+            else if (storySet == StorySet.StorySet1)
+            {
+                StoryMenuLabel.Text = "Stories";
+            }
+
             ListOfImagines.ItemsSource = imaginesData;
         }
 

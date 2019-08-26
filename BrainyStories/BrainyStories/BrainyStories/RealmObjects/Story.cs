@@ -52,9 +52,23 @@ namespace BrainyStories
         public int WordCount { get; set; }
 
         /// <summary>
-        /// This allows us to easily separate out the imagines, stories, and alternate story sets
+        /// This allows us to easily separate out the imagines, stories, and alternate story sets. Realm requires
+        /// us to save this as an int
         /// </summary>
-        public StorySet Set { get; set; }
+        public int StorySet { get; private set; }
+
+        [Ignored]
+        public StorySet StorySetAsEnum
+        {
+            get
+            {
+                return (RealmObjects.StorySet)StorySet;
+            }
+            set
+            {
+                StorySet = (int)value;
+            }
+        }
 
         // TODO: give the quiz object a FK reference to a story
         //public int QuizNum { get; set; } = 0;

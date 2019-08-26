@@ -34,7 +34,7 @@
                 BackgroundColor="Transparent" />
 
                 <Label
-                    Text =" Imagines "
+                    x:Name="StoryMenuLabel"
                     FontFamily = "{StaticResource Comic}"
                     FontSize ="35"
                     TextColor="Black"

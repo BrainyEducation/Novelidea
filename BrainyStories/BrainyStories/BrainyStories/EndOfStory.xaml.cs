@@ -42,14 +42,13 @@ namespace BrainyStories
 
             InitializeComponent();
             //BindThinkAndDoList.ItemsSource = ListOfThinkAndDos;
-            Label displayLabel = new Label
-            {
-                Text = last.QuizName,
-                FontFamily = Device.RuntimePlatform == Device.Android ? "Comic.ttf#Comic" : "Comic",
-                VerticalOptions = LayoutOptions.Center,
-                FontSize = 20
-            };
-            LastQuiz.Children.Add(displayLabel);
+            //Label displayLabel = new Label
+            //{
+            //    Text = last.QuizName,
+            //    FontFamily = "ComicSansMS", //Device.RuntimePlatform == Device.Android ? "Comic.ttf#Comic" : "Comic",
+            //    VerticalOptions = LayoutOptions.Center,
+            //    FontSize = 20
+            //};
         }
 
         // Launches a ThinkAndDo popup for selected activity

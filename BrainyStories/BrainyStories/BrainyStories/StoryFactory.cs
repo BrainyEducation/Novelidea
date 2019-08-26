@@ -19,11 +19,11 @@ namespace BrainyStories
 
         public IEnumerable<Story> FetchStoriesOrImagines(StorySet storySet)
         {
-            if (storySet.Equals(StorySet.Imagines))
+            if (storySet == StorySet.Imagines)
             {
                 return GenerateOrGetImagines();
             }
-            else if (storySet.Equals(storySet))
+            else if (storySet == StorySet.StorySet1)
             {
                 return GenerateOrGetStories();
             }
@@ -40,8 +40,8 @@ namespace BrainyStories
             var stories = new List<Story>();
             var realmFile = Realm.GetInstance(RealmConfiguration.DefaultConfiguration);
 
-            var queryAllStories = realmFile.All<Story>();
-            if (queryAllStories != null || queryAllStories.Count() > 0)
+            var queryAllStories = realmFile.All<Story>().Where(x => x.StorySet == (int)(StorySet.StorySet1));
+            if (queryAllStories != null && queryAllStories.Count() > 0)
             {
                 return queryAllStories;
             }
@@ -59,7 +59,8 @@ namespace BrainyStories
                         Description = "A lion releases a mouse, believing it’s too small and weak ever to return the favor, " +
                         "but when the lion is trapped in a net the mouse gnaws the threads and releases the lion.",
                         AudioClip = "S1_TLATM_Story.mp3",
-                        Set = StorySet.StorySet1
+                        StorySetAsEnum = StorySet.StorySet1,
+                        WordCount = 395
                     };
 
                     stories.Add(story1);
@@ -81,17 +82,18 @@ namespace BrainyStories
                         Description = "Lazy animals refuse to help the hen plant the seed, harvest the grain, or bake the " +
                             "bread, so the hen refuses to share the baked bread with the lazy animals.",
                         AudioClip = "S2_LRH_Story.mp3",
-                        Set = StorySet.StorySet1
+                        StorySetAsEnum = StorySet.StorySet1,
+                        WordCount = 477
                     };
 
                     stories.Add(story2);
                     realmFile.Add(story2);
 
-                    //not sure why these are the same as imagine #1 - it's probably incorrect TODO: check this later
+                    //not s ure why these are the same as imagine #1 - it's probably incorrect TODO: check this later
                     endTimes = new int[] { 5, 32, 49, 62, 97, 116, 9999 };
 
                     GenerateStoryPages(realmFile, story2.StoryId, endTimes, "S2_LRH_1.jpg", "S2_LRH_2.jpg", "S2_LRH_3.jpg", "S2_LRH_4.jpg",
-                        "S2_LRH_5.jpg", "S2_LRH_6.jpg", "S2_LRH_7.jpg", "S2_LRH_8.jpg");
+                        "S2_LRH_5.jpg", "S2_LRH_6.jpg", "S2_LRH_7.jpg");
 
                     //STORY 3
                     var story3 = new Story()
@@ -102,7 +104,8 @@ namespace BrainyStories
                         Description = "Bored watching over the sheep, a boy causes excitement by lying that a wolf " +
                             "threatens; when a real wolf attacks, the people think the boy’s lying and won’t come to help him.",
                         AudioClip = "S3_BWCW_Story.mp3",
-                        Set = StorySet.StorySet1
+                        StorySetAsEnum = StorySet.StorySet1,
+                        WordCount = 722
                     };
 
                     stories.Add(story3);
@@ -122,7 +125,8 @@ namespace BrainyStories
                         Description = "By secretly making shoes, two elves save a poor shoemaker and his wife; " +
                         "the man and wife make clothes to reward the elves, who leave when their help is no longer needed.",
                         AudioClip = "S4_TEATS_Story.mp3",
-                        Set = StorySet.StorySet1
+                        StorySetAsEnum = StorySet.StorySet1,
+                        WordCount = 830
                     };
 
                     stories.Add(story4);
@@ -142,7 +146,8 @@ namespace BrainyStories
                         Description = "Two pigs squander their money and build shabby houses; their smarter brother " +
                              "saves and works hard to build a brick house which protects them all from the big bad wolf.",
                         AudioClip = "S5_TLP_Story.mp3",
-                        Set = StorySet.StorySet1
+                        StorySetAsEnum = StorySet.StorySet1,
+                        WordCount = 986
                     };
 
                     stories.Add(story5);
@@ -167,7 +172,8 @@ namespace BrainyStories
         {
             var imagines = new List<Story>();
             var realmFile = Realm.GetInstance(RealmConfiguration.DefaultConfiguration);
-            var imaginesQuery = realmFile.All<Story>().Where(x => x.IsImagine);
+            //we have to query the db using an int because Realm doesn't deal with enums
+            var imaginesQuery = realmFile.All<Story>().Where(x => x.StorySet == ((int)StorySet.Imagines));
 
             if (imaginesQuery != null && imaginesQuery.Count() > 0)
             {
@@ -188,7 +194,7 @@ namespace BrainyStories
                             Description = "Imagine a shoe wanting to be like a car, and what a child might find " +
                         "in the home to help.",
                             AudioClip = "I1_IAS_IG.mp3",
-                            Set = StorySet.Imagines,
+                            StorySetAsEnum = StorySet.Imagines,
                             //have to add word count manually because the text is embedded in a jpg image
                             WordCount = 212
                         };
@@ -212,7 +218,7 @@ namespace BrainyStories
                             Description = "Imagine swinging as high as trees, birds, clouds, or " +
                             "even higher, what it might feel like, what you might see.",
                             AudioClip = "I2_DYPYL_IG.mp3",
-                            Set = StorySet.Imagines,
+                            StorySetAsEnum = StorySet.Imagines,
                             WordCount = 206
                         };
                         //TODO: put all this in a nice helper function to avoid having to copy this so much
@@ -234,7 +240,7 @@ namespace BrainyStories
                             Appeal = (int)AppealType.Female,
                             Description = "Imagine wandering into a world where everything is upside down and backwards.",
                             AudioClip = "I3_UW_IG.mp3",
-                            Set = StorySet.Imagines,
+                            StorySetAsEnum = StorySet.Imagines,
                             WordCount = 248
                         };
                         player.Load(imagine3.AudioClip);
@@ -256,7 +262,7 @@ namespace BrainyStories
                             Description = "Imagine blinking to become very tiny and what you " +
                             "might be able to do if you were very, very small.",
                             AudioClip = "I4_SOEB_IG.mp3",
-                            Set = StorySet.Imagines,
+                            StorySetAsEnum = StorySet.Imagines,
                             WordCount = 304
                         };
                         player.Load(imagine4.AudioClip);
@@ -278,7 +284,7 @@ namespace BrainyStories
                             Description = "Imagine what you’d say if a little angel asked your " +
                             "advice on how to be a tiny bit mischievous.",
                             AudioClip = "I5_IANA_IG.mp3",
-                            Set = StorySet.Imagines,
+                            StorySetAsEnum = StorySet.Imagines,
                             WordCount = 399
                         };
                         player.Load(imagine5.AudioClip);
@@ -292,6 +298,7 @@ namespace BrainyStories
                         GenerateStoryPages(realmFile, imagine5.StoryId, endTimes, "I5_IANA_1.jpg", "I5_IANA_2.jpg",
                             "I5_IANA_3.jpg", "I5_IANA_4.jpg", "I5_IANA_5.jpg", "I5_IANA_6.jpg");
                     }
+
                     realmTransaction.Commit();
                 }
             }
