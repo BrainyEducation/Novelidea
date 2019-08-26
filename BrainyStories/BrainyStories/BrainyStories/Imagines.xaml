@@ -57,7 +57,7 @@
                         <ViewCell>
                             <ViewCell.View>
                                 <StackLayout Orientation="Horizontal"
-                             HeightRequest="150" HorizontalOptions="FillAndExpand">
+                             HeightRequest="250" HorizontalOptions="FillAndExpand">
                                     <Image Source="{Binding Icon}" HeightRequest="150" />
                                     <StackLayout Padding="10" Orientation="Vertical">
                                         <Label Text ="{Binding Name}" FontAttributes="Bold" FontSize="Large" />

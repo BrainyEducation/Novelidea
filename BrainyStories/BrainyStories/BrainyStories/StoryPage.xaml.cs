@@ -54,6 +54,25 @@ namespace BrainyStories
             DurationLabel.FontFamily = Device.RuntimePlatform == Device.Android ? "Comic.ttf#Comic" : "Comic";
             DurationLabel.Margin = 20;
 
+            CurrentStoryPage = storyPages.First();
+            //story content
+            StoryImage.Source = CurrentStoryPage.Image;
+            StoryImage.MinimumWidthRequest = DeviceDisplay.MainDisplayInfo.Width;
+            StoryImage.Aspect = Aspect.AspectFit;
+
+            player = Plugin.SimpleAudioPlayer.CrossSimpleAudioPlayer.Current;
+            player.Load(story.AudioClip);
+
+            //find the story duration if we haven't already
+            if (story.DurationInSeconds <= 0)
+            {
+                using (var transaction = realmFile.BeginWrite())
+                {
+                    story.DurationInSeconds = player.Duration;
+                    transaction.Commit();
+                }
+            }
+
             //slider init
             StoryPageSlider.Maximum = story.DurationInSeconds;
             StoryPageSlider.Minimum = 0;
@@ -63,33 +82,33 @@ namespace BrainyStories
             StoryPageSlider.HeightRequest = 50; // Controls size of area that can grab the slider
             StoryPageSlider.ValueChanged += SliderValueChanged;
 
-            CurrentStoryPage = storyPages.First();
-            //story content
-            StoryImage.Source = CurrentStoryPage.Image;
-            StoryImage.MinimumWidthRequest = DeviceDisplay.MainDisplayInfo.Width;
-            StoryImage.Aspect = Aspect.AspectFill;
-
-            player = Plugin.SimpleAudioPlayer.CrossSimpleAudioPlayer.Current;
-            player.Load(story.AudioClip);
-
             //register action to be taken once the story ends
             player.PlaybackEnded += EndPlayback;
 
             //this starts the audio
             player.Play();
 
+            var timerThread = new Thread(new ThreadStart(() =>
             //timer to move the slider
             Device.StartTimer(new TimeSpan(0, 0, 1), () =>
 
             {
                 var audioPosition = player.CurrentPosition;
-                StoryPageSlider.Value = audioPosition;
+                var progressionTime = new TimeSpan(0, 0, (int)audioPosition);
+                Device.BeginInvokeOnMainThread(() =>
+                {
+                    StoryPageSlider.Value = audioPosition; //moves the slider along
+                    DurationLabel.Text = String.Format("{0}:{1}", progressionTime.Minutes, progressionTime.Seconds.ToString("D2")); //updates the text
+                });
                 //check if the audio position has moved forward or backward - then see if we need to make sure the image should progress or regress
                 if (audioPosition > PreviousTime && audioPosition >= CurrentStoryPage.EndTimeInSeconds)
                 {
                     //progress to the next story page
                     CurrentStoryPage = storyPages.Where(x => x.Order == (CurrentStoryPage.Order + 1)).FirstOrDefault();
-                    StoryImage.Source = CurrentStoryPage.Image;
+                    Device.BeginInvokeOnMainThread(() =>
+                    {
+                        StoryImage.Source = CurrentStoryPage.Image;
+                    });
                 }
                 else if (audioPosition < PreviousTime)
                 {
@@ -105,12 +124,18 @@ namespace BrainyStories
                         pageNumber++;
                     } while (pageEndTime <= audioPosition);
                     CurrentStoryPage = currentPage;
-                    StoryImage.Source = CurrentStoryPage.Image;
+                    Device.BeginInvokeOnMainThread(() =>
+                    {
+                        StoryImage.Source = CurrentStoryPage.Image;
+                    });
                 }
                 //log the previous time
                 PreviousTime = audioPosition;
+
                 return true;
-            });
+            })));
+
+            timerThread.Start();
 
             PlayButton.Clicked += (sender, args) =>
             {
@@ -194,15 +219,10 @@ namespace BrainyStories
         }
 
         // Returns to the previous page
-        private async void GoBack()
-        {
-            await App.Current.MainPage.Navigation.PopAsync();
-        }
-
-        // Returns to the previous page
         protected override bool OnBackButtonPressed()
         {
             player.Stop();
+            player = null;
             return base.OnBackButtonPressed();
         }
 
@@ -211,6 +231,7 @@ namespace BrainyStories
         private async void BackClicked(object sender, EventArgs e)
         {
             player.Stop();
+            player = null;
             await App.Current.MainPage.Navigation.PopAsync();
         }
 
@@ -218,6 +239,7 @@ namespace BrainyStories
         private async void HomeClicked(object sender, EventArgs e)
         {
             player.Stop();
+            player = null;
             await App.Current.MainPage.Navigation.PopToRootAsync();
         }
     }

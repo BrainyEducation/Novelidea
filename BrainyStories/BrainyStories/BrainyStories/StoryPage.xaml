@@ -34,15 +34,24 @@
                 BorderColor ="Transparent"
                 BackgroundColor="Transparent" />
             </StackLayout>
-            <!--<End of Navigation Bar />-->
-            <Image x:Name="StoryImage" BackgroundColor="Black" ></Image>
-            <!--Imagines Control - Slider-->
-            <StackLayout Orientation="Horizontal">
-                <ImageButton x:Name="PlayButton"></ImageButton>
-                <ImageButton x:Name="QuizButton"></ImageButton>
-                <Label x:Name="DurationLabel"></Label>
-                <Slider x:Name="StoryPageSlider"></Slider>
-            </StackLayout>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="8*" />
+                    <RowDefinition Height="2*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <!--<End of Navigation Bar />-->
+                <Image Grid.Column="0" Grid.Row="0" x:Name="StoryImage"  ></Image>
+                <!--Imagines Control - Slider-->
+                <StackLayout Orientation="Horizontal" Grid.Column="0" Grid.Row="1">
+                    <ImageButton x:Name="PlayButton"></ImageButton>
+                    <ImageButton x:Name="QuizButton"></ImageButton>
+                    <Label x:Name="DurationLabel"></Label>
+                    <Slider x:Name="StoryPageSlider"></Slider>
+                </StackLayout>
+            </Grid>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

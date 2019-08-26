@@ -25,8 +25,6 @@ namespace BrainyStories
             await Navigation.PushAsync(new Imagines(storySet: StorySet.Imagines));
         }
 
-        // Stories Table of Contents Page Button
-        // Argument: True = Imagines, False = Stories
         private async void StoriesClicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new Imagines(storySet: StorySet.StorySet1));

@@ -10,19 +10,36 @@
                CompressedLayout.IsHeadless="True">
             <!--<Start of Navigation Bar />-->
             <StackLayout VerticalOptions="Start"
-            HorizontalOptions="FillAndExpand"
-            Orientation="Horizontal"
-            BackgroundColor ="#B8E1FF">
+              HorizontalOptions="FillAndExpand"
+              Orientation="Horizontal"
+              BackgroundColor ="#A9FFF7">
                 <ImageButton HorizontalOptions="Start"
                 Source="BackButton.png"
                 Clicked ="BackClicked"
+                WidthRequest="50"
+                HeightRequest="50"
+                Aspect="AspectFill"
+                VerticalOptions="CenterAndExpand"
                 BorderColor ="Transparent"
                 BackgroundColor="Transparent" />
-                <ImageButton HorizontalOptions="Start"
+                <ImageButton
+                VerticalOptions="CenterAndExpand"
+                HorizontalOptions="Start"
                 Source="Home.png"
+                Aspect="AspectFill"
+                WidthRequest="50"
+                HeightRequest="50"
                 Clicked ="HomeClicked"
                 BorderColor ="Transparent"
                 BackgroundColor="Transparent" />
+
+                <Label
+                    x:Name="StoryMenuLabel"
+                    FontFamily = "{StaticResource Comic}"
+                    FontSize ="35"
+                    TextColor="Black"
+                    VerticalOptions="Center"
+                    HorizontalOptions="CenterAndExpand" />
             </StackLayout>
             <!--<End of Navigation Bar />-->
             <Label Text ="You've Completed the Story!!"
