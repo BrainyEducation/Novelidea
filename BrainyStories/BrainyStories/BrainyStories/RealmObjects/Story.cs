@@ -34,8 +34,6 @@ namespace BrainyStories
         //String for audio file
         public String AudioClip { get; set; }
 
-        public bool IsImagine { get; set; }
-
         // Timespan for the duration of the story
         public double DurationInSeconds { get; set; }
 
