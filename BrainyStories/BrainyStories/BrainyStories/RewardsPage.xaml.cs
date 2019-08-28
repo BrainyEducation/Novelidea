@@ -134,7 +134,7 @@ namespace BrainyStories
 
             quizzes.Add(new Quiz()
             {
-                AssociatedImage = "S1_LATM_1.jpg",
+                AssociatedImage = "S1_LATM_1.png",
                 NumberOfAttempts = 2,
                 QuizName = "The Lion and the Mouse Quiz 1",
             });

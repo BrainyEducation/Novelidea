@@ -54,7 +54,7 @@ namespace BrainyStories
                     var story1 = new Story()
                     {
                         Name = "The Lion and the Mouse",
-                        Icon = "S1_LATM_1.jpg",
+                        Icon = "S1_LATM_1.png",
                         Appeal = (int)AppealType.Animal,
                         Description = "A lion releases a mouse, believing it’s too small and weak ever to return the favor, " +
                         "but when the lion is trapped in a net the mouse gnaws the threads and releases the lion.",
@@ -77,7 +77,7 @@ namespace BrainyStories
                     var story2 = new Story()
                     {
                         Name = "The Little Red Hen",
-                        Icon = "S2_LRH_1.jpg",
+                        Icon = "S2_LRH_0.png",
                         Appeal = (int)AppealType.Animal,
                         Description = "Lazy animals refuse to help the hen plant the seed, harvest the grain, or bake the " +
                             "bread, so the hen refuses to share the baked bread with the lazy animals.",
@@ -99,7 +99,7 @@ namespace BrainyStories
                     var story3 = new Story()
                     {
                         Name = "The Boy Who Cried Wolf",
-                        Icon = "S3_TBWCW_1.jpg",
+                        Icon = "S3_TBWCW_1.png",
                         Appeal = (int)AppealType.Male,
                         Description = "Bored watching over the sheep, a boy causes excitement by lying that a wolf " +
                             "threatens; when a real wolf attacks, the people think the boy’s lying and won’t come to help him.",
@@ -113,14 +113,14 @@ namespace BrainyStories
 
                     endTimes = new int[] { 2, 34, 77, 105, 141, 179, 209, 223, 9999 };
 
-                    GenerateStoryPages(realmFile, story3.StoryId, endTimes, "S3_TBWCW_1", "S3_TBWCW_2", "S3_TBWCW_3", "S3_TBWCW_4",
-                        "S3_TBWCW_5", "S3_TBWCW_6", "S3_TBWCW_7", "S3_TBWCW_8", "S3_TBWCW_9");
+                    GenerateStoryPages(realmFile, story3.StoryId, endTimes, "S3_TBWCW_1.png", "S3_TBWCW_2.jpg", "S3_TBWCW_3.jpg", "S3_TBWCW_4.jpg",
+                        "S3_TBWCW_5.jpg", "S3_TBWCW_6.jpg", "S3_TBWCW_7.jpg", "S3_TBWCW_8.jpg", "S3_TBWCW_9.jpg");
 
                     //STORY 4
                     var story4 = new Story()
                     {
                         Name = "The Elves and Shoemaker",
-                        Icon = "S4_TEATS_1.jpg",
+                        Icon = "S4_TEATS_1.png",
                         Appeal = (int)AppealType.General,
                         Description = "By secretly making shoes, two elves save a poor shoemaker and his wife; " +
                         "the man and wife make clothes to reward the elves, who leave when their help is no longer needed.",
@@ -134,14 +134,14 @@ namespace BrainyStories
 
                     endTimes = new int[] { 4, 66, 100, 132, 152, 213, 297, 9999 };
 
-                    GenerateStoryPages(realmFile, story4.StoryId, endTimes, "S4_TEATS_1", "S4_TEATS_2", "S4_TEATS_3", "S4_TEATS_4",
-                            "S4_TEATS_5", "S4_TEATS_6", "S4_TEATS_7", "S4_TEATS_7");
+                    GenerateStoryPages(realmFile, story4.StoryId, endTimes, "S4_TEATS_1.png", "S4_TEATS_2.jpg", "S4_TEATS_3.jpg", "S4_TEATS_4.jpg",
+                            "S4_TEATS_5.jpg", "S4_TEATS_6.jpg", "S4_TEATS_7.jpg", "S4_TEATS_7.jpg");
 
                     //STORY 5
                     var story5 = new Story()
                     {
                         Name = "The Three Little Pigs",
-                        Icon = "S5_TLP_1.jpg",
+                        Icon = "S5_TLP_0.png",
                         Appeal = (int)AppealType.Animal,
                         Description = "Two pigs squander their money and build shabby houses; their smarter brother " +
                              "saves and works hard to build a brick house which protects them all from the big bad wolf.",
@@ -155,8 +155,8 @@ namespace BrainyStories
 
                     endTimes = new int[] { 27, 65, 139, 161, 192, 237, 260, 289, 358, 371, 390, 391, 9999 };
 
-                    GenerateStoryPages(realmFile, story5.StoryId, endTimes, "S5_TLP_1", "S5_TLP_2", "S5_TLP_3", "S5_TLP_4", "S5_TLP_5",
-                          "S5_TLP_6", "S5_TLP_7", "S5_TLP_8", "S5_TLP_9", "S5_TLP_10", "S5_TLP_11", "S5_TLP_12", "S5_TLP_13");
+                    GenerateStoryPages(realmFile, story5.StoryId, endTimes, "S5_TLP_1.jpg", "S5_TLP_2.jpg", "S5_TLP_3.jpg", "S5_TLP_4.jpg", "S5_TLP_5.jpg",
+                          "S5_TLP_6.jpg", "S5_TLP_7.jpg", "S5_TLP_8.jpg", "S5_TLP_9.jpg", "S5_TLP_10.jpg", "S5_TLP_11.jpg", "S5_TLP_12.jpg", "S5_TLP_13.jpg");
 
                     realmTransaction.Commit();
                 }
