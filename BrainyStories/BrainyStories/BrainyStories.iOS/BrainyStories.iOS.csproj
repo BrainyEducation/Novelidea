@@ -135,8 +135,6 @@
     </BundleResource>
     <BundleResource Include="Resources\Curly.otf" />
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
-    <ITunesArtwork Include="iTunesArtwork" />
-    <ITunesArtwork Include="iTunesArtwork%402x" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

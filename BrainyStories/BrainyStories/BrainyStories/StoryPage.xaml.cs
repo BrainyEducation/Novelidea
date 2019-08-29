@@ -27,21 +27,50 @@ namespace BrainyStories
         private StoryPart CurrentStoryPage = null;
         private double PreviousTime = 0;
         private string StoryId;
+        private StorySet StorySet;
         public const string PAUSE_ICON = "pause.png";
         public const string PLAY_ICON = "play.png";
 
+        //this is the percentage of the story that must be completed to be counted as read
+        private const double COMPLETION_THRESHOLD = .9;
+
+        //user this variable to track the start and stop time for this story
+        private UserStoryReads UserStoryTransaction;
+
+        private IEnumerable<StoryPart> StoryPages;
+        private Story Story;
+
         public StoryPage(Story story)
         {
+            Story = story;
             StoryId = story.StoryId;
+            StorySet = story.StorySetAsEnum;
             //pull the corresponding images out of the database
             var realmFile = Realm.GetInstance(RealmConfiguration.DefaultConfiguration);
-            var storyPages = realmFile.All<RealmObjects.StoryPart>().Where(x => x.StoryId.Equals(story.StoryId))
+            StoryPages = realmFile.All<RealmObjects.StoryPart>().Where(x => x.StoryId.Equals(story.StoryId))
                    .OrderBy(x => x.Order).ToList();
+            //get the current user's ID - if we ever want multiple users per device, we'll have to store the user's id in RAM
+            var userId = realmFile.All<User>().FirstOrDefault().UserId;
+
+            //init user story transaction
+            using (var writer = realmFile.BeginWrite())
+            {
+                UserStoryTransaction = new UserStoryReads();
+                UserStoryTransaction.StoryId = StoryId;
+                UserStoryTransaction.UserId = userId;
+                UserStoryTransaction.StartReadTime = DateTime.UtcNow;
+
+                //add to the db
+                realmFile.Add<UserStoryReads>(UserStoryTransaction);
+
+                writer.Commit();
+            }
 
             InitializeComponent();
 
             PlayButton.Source = PAUSE_ICON; //set at the pause icon because this page auto-starts
             PlayButton.HeightRequest = 40;
+            PlayButton.WidthRequest = 50;
             PlayButton.BorderColor = Color.Transparent;
             PlayButton.BackgroundColor = Color.Transparent;
             PlayButton.Margin = 20;
@@ -54,7 +83,7 @@ namespace BrainyStories
             DurationLabel.FontFamily = Device.RuntimePlatform == Device.Android ? "Comic.ttf#Comic" : "Comic";
             DurationLabel.Margin = 20;
 
-            CurrentStoryPage = storyPages.First();
+            CurrentStoryPage = StoryPages.First();
             //story content
             StoryImage.Source = CurrentStoryPage.Image;
             StoryImage.MinimumWidthRequest = DeviceDisplay.MainDisplayInfo.Width;
@@ -73,6 +102,10 @@ namespace BrainyStories
                 }
             }
 
+            //kill the realm file to help with memory consumption
+            realmFile.Dispose();
+            realmFile = null;
+
             //slider init
             StoryPageSlider.Maximum = story.DurationInSeconds;
             StoryPageSlider.Minimum = 0;
@@ -84,58 +117,15 @@ namespace BrainyStories
 
             //register action to be taken once the story ends
             player.PlaybackEnded += EndPlayback;
+            player.Loop = false;
 
-            //this starts the audio
-            player.Play();
-
-            var timerThread = new Thread(new ThreadStart(() =>
-            //timer to move the slider
-            Device.StartTimer(new TimeSpan(0, 0, 1), () =>
-
+            //start the player in a different thread
+            var playerThread = new Thread(new ThreadStart(() =>
             {
-                var audioPosition = player.CurrentPosition;
-                var progressionTime = new TimeSpan(0, 0, (int)audioPosition);
-                Device.BeginInvokeOnMainThread(() =>
-                {
-                    StoryPageSlider.Value = audioPosition; //moves the slider along
-                    DurationLabel.Text = String.Format("{0}:{1}", progressionTime.Minutes, progressionTime.Seconds.ToString("D2")); //updates the text
-                });
-                //check if the audio position has moved forward or backward - then see if we need to make sure the image should progress or regress
-                if (audioPosition > PreviousTime && audioPosition >= CurrentStoryPage.EndTimeInSeconds)
-                {
-                    //progress to the next story page
-                    CurrentStoryPage = storyPages.Where(x => x.Order == (CurrentStoryPage.Order + 1)).FirstOrDefault();
-                    Device.BeginInvokeOnMainThread(() =>
-                    {
-                        StoryImage.Source = CurrentStoryPage.Image;
-                    });
-                }
-                else if (audioPosition < PreviousTime)
-                {
-                    //if the current position is less than the previous one - the user has moved the slider backwards
-                    var pageEndTime = -1;
-                    int pageNumber = 1;
-                    StoryPart currentPage;
-                    //loop through the ordered storypages list until we get the first one where the end time is after our current time
-                    do
-                    {
-                        currentPage = storyPages.Where(x => x.Order == pageNumber).FirstOrDefault();
-                        pageEndTime = currentPage.EndTimeInSeconds;
-                        pageNumber++;
-                    } while (pageEndTime <= audioPosition);
-                    CurrentStoryPage = currentPage;
-                    Device.BeginInvokeOnMainThread(() =>
-                    {
-                        StoryImage.Source = CurrentStoryPage.Image;
-                    });
-                }
-                //log the previous time
-                PreviousTime = audioPosition;
-
-                return true;
-            })));
-
-            timerThread.Start();
+                //this starts the audio
+                player.Play();
+            }));
+            playerThread.Start();
 
             PlayButton.Clicked += (sender, args) =>
             {
@@ -152,44 +142,95 @@ namespace BrainyStories
                 }
             };
 
+            RefreshStoryPagesTimer();
+
             QuizButton.Clicked += (sender, args) =>
             {
                 //Navigation.PushAsync(new QuizPage(story.Quizzes[quizNum], story.AudioClip));
             };
+        }
 
-            //foreach (TimeSpan key in story.PictureCues.Keys)
-            //{
-            //    if (key.TotalSeconds < args.NewValue)
-            //    {
-            //        savedTime = key;
-            //    }
-            //    else
-            //    {
-            //        break;
-            //    }
-            //}
-            //storyImage.Source = story.PictureCues[savedTime];
-            //for (int i = 0; i < story.QuizNum; i++)
-            //{
-            //    if (timeStamp.CompareTo(story.Quizzes[i].PlayTime) >= 0)
-            //    {
-            //        quizNum++;
-            //    }
-            //}
-            //for (int i = 0; i < story.QuizNum; i++)
-            //{
-            //    if (timeStamp.Equals(story.Quizzes[i].PlayTime))
-            //    {
-            //        player.Pause();
-            //        QuizButton.IsVisible = true;
-            //        playAudio = false;
-            //        button.IsVisible = false;
-            //        button2.IsVisible = true;
-            //        Content = oldContent;
-            //        storyImage.HeightRequest = 150;
-            //        fullScreen = false;
-            //    }
-            //}
+        private void RefreshStoryPagesTimer()
+        {
+            Device.BeginInvokeOnMainThread(() =>
+            {
+                //once the desired story % is read, mark this boolean true
+                bool storyMarkedRead = false;
+                //timer to track story progress and swap pages
+                Device.StartTimer(new TimeSpan(0, 0, 1), () =>
+                {
+                    if (player != null)
+                    {
+                        var audioPosition = player.CurrentPosition;
+                        var progressionTime = new TimeSpan(0, 0, (int)audioPosition);
+
+                        //check if the audio position has moved forward or backward - then see if we need to make sure the image should progress or regress
+                        if (audioPosition > PreviousTime)
+                        {
+                            //after 90% of the story has been read, mark as read if not marked as read already
+                            if (!storyMarkedRead && audioPosition >= (Story.DurationInSeconds * COMPLETION_THRESHOLD))
+                            {
+                                MarkAsRead();
+                                storyMarkedRead = true;
+                            }
+                            //if the page has been completed, go to the next one
+                            else if (audioPosition >= CurrentStoryPage.EndTimeInSeconds * COMPLETION_THRESHOLD)
+                            {
+                                //progress to the next story page
+                                CurrentStoryPage = StoryPages.Where(x => x.EndTimeInSeconds >= audioPosition
+                                    && x.StartTimeInSeconds <= audioPosition).FirstOrDefault();
+
+                                StoryImage.Source = CurrentStoryPage.Image;
+                            }
+                        }
+                        else if (audioPosition < PreviousTime)
+                        {
+                            //if the current position is less than the previous one - the user has moved the slider backwards
+                            var pageEndTime = -1;
+                            int pageNumber = 1;
+                            StoryPart currentPage;
+                            //loop through the ordered storypages list until we get the first one where the end time is after our current time
+                            do
+                            {
+                                currentPage = StoryPages.Where(x => x.Order == pageNumber).FirstOrDefault();
+                                pageEndTime = currentPage.EndTimeInSeconds;
+                                pageNumber++;
+                            } while (pageEndTime <= audioPosition);
+                            CurrentStoryPage = currentPage;
+
+                            StoryImage.Source = CurrentStoryPage.Image;
+                        }
+                        //Important - do not manually update the slider here - that will cause "stuttering" in the audio playback
+                        //update the timestamp text
+                        DurationLabel.Text = String.Format("{0}:{1}", progressionTime.Minutes,
+                            progressionTime.Seconds.ToString("D2"));
+
+                        //log the previous time
+                        PreviousTime = audioPosition;
+                        return true;
+                    }
+                    else
+                    {
+                        //stop the timer when the player object is null
+                        return false;
+                    }
+                });
+            });
+        }
+
+        //helper function mark the story as read in the UserStory Transaction table
+        private void MarkAsRead()
+        {
+            var realm = Realm.GetInstance(RealmConfiguration.DefaultConfiguration);
+
+            //mark this story as read if it hasn't been already
+            using (var transaction = realm.BeginWrite())
+            {
+                UserStoryTransaction.EndReadTime = DateTime.UtcNow;
+                transaction.Commit();
+            }
+            realm.Dispose();
+            realm = null;
         }
 
         private void SliderValueChanged(object sender, ValueChangedEventArgs e)
@@ -204,10 +245,11 @@ namespace BrainyStories
         private void EndPlayback(object sender, EventArgs e)
         {
             //TODO: figure out what this ChangePage/End Of Story logic is all about
-            player.Stop();
-            player = null;
+            EndPlayer();
             //go to the end story screen
-            Navigation.PushAsync(new EndOfStory(StoryId));
+
+            Navigation.PushAsync(new Imagines(StorySet));
+
             //if (story.QuizNum > 0)
             //{
             //    ChangePage(story);
@@ -221,8 +263,7 @@ namespace BrainyStories
         // Returns to the previous page
         protected override bool OnBackButtonPressed()
         {
-            player.Stop();
-            player = null;
+            EndPlayer();
             return base.OnBackButtonPressed();
         }
 
@@ -230,17 +271,25 @@ namespace BrainyStories
         // Returns to the previous page
         private async void BackClicked(object sender, EventArgs e)
         {
-            player.Stop();
-            player = null;
+            EndPlayer();
             await App.Current.MainPage.Navigation.PopAsync();
         }
 
         // Returns to the Home page
         private async void HomeClicked(object sender, EventArgs e)
         {
-            player.Stop();
-            player = null;
+            EndPlayer();
             await App.Current.MainPage.Navigation.PopToRootAsync();
+        }
+
+        private void EndPlayer()
+        {
+            if (player != null)
+            {
+                player.Stop();
+                player = null;
+            }
+            timerThread = null;
         }
     }
 }

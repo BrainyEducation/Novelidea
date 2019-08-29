@@ -70,7 +70,7 @@ namespace BrainyStories
                     var endTimes = new int[] { 5, 32, 49, 62, 97, 116, 150, 9999 }; //max time can be really high since the end of the story will be reached first
 
                     //also add the pages of the story
-                    GenerateStoryPages(realmFile, story1.StoryId, endTimes, "S1_LATM_1.jpg", "S1_LATM_2.jpg", "S1_LATM_3.jpg",
+                    GenerateStoryPages(realmFile, story1.StoryId, endTimes, "S1_LATM_1.png", "S1_LATM_2.jpg", "S1_LATM_3.jpg",
                         "S1_LATM_4.jpg", "S1_LATM_5.jpg", "S1_LATM_6.jpg", "S1_LATM_7.jpg", "S1_LATM_8.jpg");
 
                     //STORY 2
@@ -322,7 +322,9 @@ namespace BrainyStories
                     Image = listOfPages[i],
                     Order = i + 1,
                     StoryId = storyId,
-                    EndTimeInSeconds = endTimes[i]
+                    EndTimeInSeconds = endTimes[i],
+                    //set the start time to end time of the previous page plus 1 (this helps for faster sorting later)
+                    StartTimeInSeconds = i > 0 ? (endTimes[i - 1]) : 0
                 };
                 realmFile.Add<StoryPart>(page);
                 storyPages.Add(page);

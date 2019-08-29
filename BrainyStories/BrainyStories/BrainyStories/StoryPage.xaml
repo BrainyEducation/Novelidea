@@ -4,54 +4,54 @@
              x:Class="BrainyStories.StoryPage"
              NavigationPage.HasNavigationBar="false"
              BackgroundColor="#A9FFF7">
-    <ContentPage.Content>
-        <StackLayout Orientation="Vertical"
-               VerticalOptions="FillAndExpand"
-               CompressedLayout.IsHeadless="True"
-               x:Name="TopStack">
-            <!--<Start of Navigation Bar />-->
-            <StackLayout VerticalOptions="Start"
-              HorizontalOptions="FillAndExpand"
-              Orientation="Horizontal"
-              BackgroundColor ="#A9FFF7">
-                <ImageButton HorizontalOptions="Start"
-                Source="BackButton.png"
-                Clicked ="BackClicked"
-                WidthRequest="50"
-                HeightRequest="50"
-                Aspect="AspectFill"
-                VerticalOptions="CenterAndExpand"
-                BorderColor ="Transparent"
-                BackgroundColor="Transparent" />
-                <ImageButton
-                VerticalOptions="CenterAndExpand"
-                HorizontalOptions="Start"
-                Source="Home.png"
-                Aspect="AspectFill"
-                WidthRequest="50"
-                HeightRequest="50"
-                Clicked ="HomeClicked"
-                BorderColor ="Transparent"
-                BackgroundColor="Transparent" />
-            </StackLayout>
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="8*" />
-                    <RowDefinition Height="2*" />
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-                <!--<End of Navigation Bar />-->
-                <Image Grid.Column="0" Grid.Row="0" x:Name="StoryImage"  ></Image>
-                <!--Imagines Control - Slider-->
-                <StackLayout Orientation="Horizontal" Grid.Column="0" Grid.Row="1">
-                    <ImageButton x:Name="PlayButton"></ImageButton>
-                    <ImageButton x:Name="QuizButton"></ImageButton>
-                    <Label x:Name="DurationLabel"></Label>
-                    <Slider x:Name="StoryPageSlider"></Slider>
-                </StackLayout>
-            </Grid>
+  <ContentPage.Content>
+    <StackLayout Orientation="Vertical"
+           VerticalOptions="FillAndExpand"
+           CompressedLayout.IsHeadless="True"
+           x:Name="TopStack">
+      <!--<Start of Navigation Bar />-->
+      <StackLayout VerticalOptions="Start"
+        HorizontalOptions="FillAndExpand"
+        Orientation="Horizontal"
+        BackgroundColor ="#A9FFF7">
+        <ImageButton HorizontalOptions="Start"
+        Source="BackButton.png"
+        Clicked ="BackClicked"
+        WidthRequest="50"
+        HeightRequest="50"
+        Aspect="AspectFill"
+        VerticalOptions="CenterAndExpand"
+        BorderColor ="Transparent"
+        BackgroundColor="Transparent" />
+        <ImageButton
+        VerticalOptions="CenterAndExpand"
+        HorizontalOptions="Start"
+        Source="Home.png"
+        Aspect="AspectFill"
+        WidthRequest="50"
+        HeightRequest="50"
+        Clicked ="HomeClicked"
+        BorderColor ="Transparent"
+        BackgroundColor="Transparent" />
+      </StackLayout>
+      <Grid>
+        <Grid.RowDefinitions>
+          <RowDefinition Height="3*" />
+          <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <!--<End of Navigation Bar />-->
+        <Image Grid.Column="0" Grid.Row="0" x:Name="StoryImage"  ></Image>
+        <!--Imagines Control - Slider-->
+        <StackLayout Orientation="Horizontal" Grid.Column="0" Grid.Row="1">
+          <ImageButton x:Name="PlayButton"></ImageButton>
+          <ImageButton x:Name="QuizButton"></ImageButton>
+          <Label x:Name="DurationLabel"></Label>
+          <Slider x:Name="StoryPageSlider"></Slider>
         </StackLayout>
-    </ContentPage.Content>
+      </Grid>
+    </StackLayout>
+  </ContentPage.Content>
 </ContentPage>

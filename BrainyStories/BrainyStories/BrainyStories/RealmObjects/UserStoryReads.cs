@@ -17,7 +17,9 @@ namespace BrainyStories.RealmObjects
 
         public String StoryId { get; set; }
 
+        public DateTimeOffset StartReadTime { get; set; }
+
         //records when the story was read - to get total times, query this table and count the total user stories
-        public DateTimeOffset Timestamp { get; set; }
+        public DateTimeOffset EndReadTime { get; set; }
     }
 }
