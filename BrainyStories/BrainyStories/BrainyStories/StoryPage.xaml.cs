@@ -289,7 +289,6 @@ namespace BrainyStories
                 player.Stop();
                 player = null;
             }
-            timerThread = null;
         }
     }
 }
