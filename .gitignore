@@ -328,3 +328,6 @@ ASALocalRun/
 
 # MFractors (Xamarin productivity tool) working folder 
 .mfractor/
+*.dll
+*.mdb
+BrainyStories/BrainyStories/BrainyStories.Android/Resources/Resource.designer.cs

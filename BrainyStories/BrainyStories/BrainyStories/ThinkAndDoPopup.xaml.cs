@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 using BrainyStories.Objects;
 using Plugin.SimpleAudioPlayer;
+using Realms;
 using Rg.Plugins.Popup.Pages;
 using Rg.Plugins.Popup.Services;
 using Xamarin.Forms;
@@ -16,11 +18,37 @@ namespace BrainyStories
     {
         private ISimpleAudioPlayer player;
 
-        public ThinkAndDoPopup (ThinkAndDo thinkAndDo)
+        //track which star was clicked last
+        private static int lastClickedStarNumber;
+
+        private static string lastClickedThinkAndDoName;
+
+        //force them to use the parameterized constructor
+        private ThinkAndDoPopup()
+        {
+        }
+
+        /// <summary>
+        /// This constructor creates a think and do popup for either the first or second star number
+        /// </summary>
+        /// <param name="thinkAndDo">Desired think and do</param>
+        /// <param name="starNumber">Enter 1 for Star Number 1 or 2 for Star Number 2</param>
+        public ThinkAndDoPopup(ThinkAndDo thinkAndDo, int starNumber)
         {
             InitializeComponent();
-            ThinkAndDoTitle.Text = thinkAndDo.ThinkAndDoName;
-            ThinkAndDoText.Text = thinkAndDo.Text;
+            ThinkAndDoTitle.Text = starNumber == 1 ? thinkAndDo.Text1 : thinkAndDo.Text2;
+            lastClickedStarNumber = starNumber;
+            lastClickedThinkAndDoName = thinkAndDo.ThinkAndDoName;
+
+            //June 2019: moved the player init to the top of the file to be able to calculate duration later on
+            ObjCRuntime.Class.ThrowOnInitFailure = false;
+
+            player = Plugin.SimpleAudioPlayer.CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
+
+            string audioFile = starNumber == 1 ? thinkAndDo.ThinkAndDoAudioClip1 : thinkAndDo.ThinkAndDoAudioClip2;
+
+            player.Load(audioFile);
+
             ImageButton button = new ImageButton()
             {
                 Source = "pause.png",
@@ -37,9 +65,10 @@ namespace BrainyStories
                 Text = "0:00",
                 TextColor = Color.White
             };
+
             Slider slider = new Slider
             {
-                Maximum = thinkAndDo.Length.Seconds + (thinkAndDo.Length.Minutes * 60),
+                Maximum = player.Duration,
                 Minimum = 0,
                 Value = 0,
                 HorizontalOptions = LayoutOptions.FillAndExpand,
@@ -52,12 +81,11 @@ namespace BrainyStories
             };
             close.Clicked += (sender, args) =>
             {
-                player.Stop();
                 CloseAllPopup();
             };
-           
-            player = Plugin.SimpleAudioPlayer.CrossSimpleAudioPlayer.Current;
-            player.Load(thinkAndDo.ThinkAndDoAudioClip);
+
+            //here is where we should add logic for what happens when playback ends
+            player.PlaybackEnded += MarkAsPlayed;
             bool audioFromTimer = false;
             bool playAudio = true;
             player.Play();
@@ -86,26 +114,25 @@ namespace BrainyStories
             });
             slider.ValueChanged += (sender, args) =>
             {
-                int minutes = (int)args.NewValue / 60;
-                int seconds = (int)args.NewValue - (minutes * 60);
-                Console.WriteLine(args.NewValue);
-                Console.WriteLine(player.CurrentPosition);
-                Console.WriteLine(args.NewValue);
-                if (!audioFromTimer)
+                if (player != null)
                 {
-                    player.Seek(args.NewValue);
-                }
-                String second = seconds.ToString();
-                if (seconds < 10)
-                {
-                    second = '0' + seconds.ToString();
-                }
-                displayLabel.Text = String.Format("{0}:{1}", minutes, second);
-                var timeStamp = new TimeSpan(0, minutes, seconds);
-                audioFromTimer = false;
-                if (timeStamp.Equals(thinkAndDo.Length))
-                {
-                    thinkAndDo.Completed = true;
+                    int minutes = (int)args.NewValue / 60;
+                    int seconds = (int)args.NewValue - (minutes * 60);
+                    Console.WriteLine(args.NewValue);
+                    Console.WriteLine(player.CurrentPosition);
+                    Console.WriteLine(args.NewValue);
+                    if (!audioFromTimer)
+                    {
+                        player.Seek(args.NewValue);
+                    }
+                    String second = seconds.ToString();
+                    if (seconds < 10)
+                    {
+                        second = '0' + seconds.ToString();
+                    }
+                    displayLabel.Text = String.Format("{0}:{1}", minutes, second);
+                    var timeStamp = new TimeSpan(0, minutes, seconds);
+                    audioFromTimer = false;
                 }
             };
             StackLayout audio = new StackLayout
@@ -124,24 +151,46 @@ namespace BrainyStories
             TopStack.Children.Add(audio);
         }
 
+        //marks a think and do as completed
+        private void MarkAsPlayed(object sender, EventArgs e)
+        {
+            //write to the database that the think and do is completed
+            using (var realmConnection = Realm.GetInstance(RealmConfiguration.DefaultConfiguration))
+            {
+                using (var writer = realmConnection.BeginWrite())
+                {
+                    ////update the prompt completion status
+                    var playedTAD = realmConnection.All<ThinkAndDo>().Where(x => x.ThinkAndDoName.Equals(lastClickedThinkAndDoName)).FirstOrDefault();
+                    if (lastClickedStarNumber == 1)
+                    {
+                        playedTAD.CompletedPrompt1 = true;
+                    }
+                    else
+                    {
+                        playedTAD.CompletedPrompt2 = true;
+                    }
+                    writer.Commit();
+                }
+            }
+            CloseAllPopup();
+        }
+
         // Returns to previous page when back button is selected
         protected override bool OnBackButtonPressed()
         {
-            player.Stop();
+            CloseAllPopup();
             return false;
         }
 
         // Returns to the previous page when an area outside the popup is clicked
         private void OnCloseButtonTapped(object sender, EventArgs e)
         {
-            player.Stop();
             CloseAllPopup();
         }
 
         // Returns to the previous page when an area outside the popup is clicked
         protected override bool OnBackgroundClicked()
         {
-            player.Stop();
             CloseAllPopup();
             return false;
         }
@@ -149,8 +198,10 @@ namespace BrainyStories
         // Returns to the previous page when an area outside the popup is clicked
         private async void CloseAllPopup()
         {
+            player.Stop();
             await PopupNavigation.Instance.PopAsync();
+            player.Dispose();
+            player = null;
         }
-  
     }
 }

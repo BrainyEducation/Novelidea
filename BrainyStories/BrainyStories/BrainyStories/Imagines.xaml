@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BrainyStories.Imagines"
+             NavigationPage.HasNavigationBar="false"
+             BackgroundColor="#A9FFF7">
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical"
+               VerticalOptions="FillAndExpand"
+               CompressedLayout.IsHeadless="True">
+            <!--<Start of Navigation Bar />-->
+            <StackLayout VerticalOptions="Start"
+              HorizontalOptions="FillAndExpand"
+              Orientation="Horizontal"
+              BackgroundColor ="#A9FFF7">
+                <ImageButton HorizontalOptions="Start"
+                Source="BackButton.png"
+                Clicked ="BackClicked"
+                WidthRequest="50"
+                HeightRequest="50"
+                Aspect="AspectFill"
+                VerticalOptions="CenterAndExpand"
+                BorderColor ="Transparent"
+                BackgroundColor="Transparent" />
+                <ImageButton
+                VerticalOptions="CenterAndExpand"
+                HorizontalOptions="Start"
+                Source="Home.png"
+                Aspect="AspectFill"
+                WidthRequest="50"
+                HeightRequest="50"
+                Clicked ="HomeClicked"
+                BorderColor ="Transparent"
+                BackgroundColor="Transparent" />
+
+                <Label
+                    x:Name="StoryMenuLabel"
+                    FontFamily = "{StaticResource Comic}"
+                    FontSize ="35"
+                    TextColor="Black"
+                    VerticalOptions="Center"
+                    HorizontalOptions="CenterAndExpand" />
+            </StackLayout>
+            <!--<End of Navigation Bar />-->
+
+            <!--<Data bound list of all stories / imagines />-->
+            <ListView SeparatorVisibility="None"
+                HasUnevenRows="True"
+                VerticalOptions ="FillAndExpand"
+                HorizontalOptions="FillAndExpand"
+                BackgroundColor="Transparent"
+                x:Name="ListOfImagines"
+                ItemTapped="ImagineClicked">
+                <!--<List of all ThinkAndDos />-->
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.View>
+                                <StackLayout Orientation="Horizontal"
+                             HeightRequest="250" HorizontalOptions="FillAndExpand">
+                                    <Image Source="{Binding Icon}" HeightRequest="150" />
+                                    <StackLayout Padding="10" Orientation="Vertical">
+                                        <Label Text ="{Binding Name}" FontAttributes="Bold" FontSize="Large" />
+                                        <Label Text ="{Binding Description}"
+                                               LineBreakMode="WordWrap" VerticalOptions="Start"  FontSize="Medium" FontFamily="{StaticResource Comic}" />
+                                        <StackLayout Orientation="Horizontal" VerticalOptions="Start">
+                                            <Label Text="{Binding DurationInTimeSpan}"
+                                               VerticalOptions="Start"  FontSize="Medium" FontFamily="{StaticResource Comic}" />
+                                            <Label Text="{Binding WordCount}"
+                                               VerticalOptions="Start"  FontSize="Medium" FontFamily="{StaticResource Comic}" />
+                                            <Label Text=" Words"
+                                               VerticalOptions="Start"  FontSize="Medium" FontFamily="{StaticResource Comic}" />
+                                        </StackLayout>
+                                    </StackLayout>
+                                </StackLayout>
+                            </ViewCell.View>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

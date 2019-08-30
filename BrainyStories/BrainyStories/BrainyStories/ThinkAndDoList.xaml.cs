@@ -3,6 +3,9 @@ using Rg.Plugins.Popup.Services;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Collections.Specialized;
+using System.ComponentModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,55 +15,63 @@ using Xamarin.Forms.Xaml;
 
 namespace BrainyStories
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
+    [XamlCompilation(XamlCompilationOptions.Compile)]
 
     // Class for the ThinkAndDo list page
-	public partial class ThinkAndDoList : ContentPage
-	{
-        private Settings settingsPage;
-        private ThinkAndDoFactory factory = new ThinkAndDoFactory();
-
-        public ObservableCollection<ThinkAndDo> ListOfThinkAndDos;
-        public ThinkAndDoList ()
-		{ 
-            ListOfThinkAndDos = factory.generateThinkAndDos();
+    public partial class ThinkAndDoList : ContentPage
+    {
+        public ThinkAndDoList()
+        {
+            var ListOfThinkAndDos = new ThinkAndDoFactory().generateThinkAndDos();
             InitializeComponent();
             BindList.ItemsSource = ListOfThinkAndDos;
-            settingsPage = new Settings();
-           
         }
 
         // Lauches a ThinkAndDo popup for the selected ThinkAndDo
-        async void OnItemTapped(object sender, ItemTappedEventArgs e)
+        private async void StarTapped(object sender, int starNumber)
         {
-            ListView view = (ListView)sender;
-            if (view.SelectedItem == null)
-            {
-                return;
-            }
-            var think = (ThinkAndDo)view.SelectedItem;
-            view.SelectedItem = null;
-            ThinkAndDoPopup pop = new ThinkAndDoPopup(think);
-            await PopupNavigation.Instance.PushAsync(pop);     
+            ThinkAndDo think = ((ImageButton)sender).BindingContext as ThinkAndDo;
+
+            ThinkAndDoPopup pop = new ThinkAndDoPopup(think, starNumber);
+            pop.Disappearing += PopUpClosed;
+
+            await PopupNavigation.Instance.PushAsync(pop);
+        }
+
+        //refreshes the stars after the popup is closed
+        private void PopUpClosed(object sender, EventArgs e)
+        {
+            BindList.ItemsSource = new ThinkAndDoFactory().generateThinkAndDos();
         }
 
         // Navbar methods
         // Returns to the previous page
-        async void BackClicked(object sender, EventArgs e)
+        private async void BackClicked(object sender, EventArgs e)
         {
             await App.Current.MainPage.Navigation.PopAsync();
         }
 
         // Returns to the Home page
-        async void HomeClicked(object sender, EventArgs e)
+        private async void HomeClicked(object sender, EventArgs e)
         {
             await App.Current.MainPage.Navigation.PopToRootAsync();
         }
 
-        // Launches a settings popup
-        async void SettingsClicked(object sender, EventArgs e)
+        private void Star1Clicked(object sender, EventArgs e)
         {
-            await PopupNavigation.Instance.PushAsync(settingsPage);
+            StarTapped(sender, 1);
+        }
+
+        private void Star2Clicked(object sender, EventArgs e)
+        {
+            StarTapped(sender, 2);
+        }
+
+        protected override void OnDisappearing()
+        {
+            base.OnDisappearing();
+
+            GC.Collect();
         }
     }
 }

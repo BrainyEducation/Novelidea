@@ -9,14 +9,14 @@ using Xamarin.Forms.Xaml;
 
 namespace BrainyStories
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class ProgressSummaryPage : ContentPage
-	{
-		public ProgressSummaryPage ()
-		{
-			InitializeComponent ();
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class ProgressSummaryPage : ContentPage
+    {
+        public ProgressSummaryPage()
+        {
+            InitializeComponent();
             // Set the binding context for this page to the User singleton instance, so that stats come from that User
-            BindingContext = Objects.User.Instance;
-		}
-	}
+            // BindingContext = Objects.User.Instance;
+        }
+    }
 }

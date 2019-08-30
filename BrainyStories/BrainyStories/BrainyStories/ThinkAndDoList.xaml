@@ -6,49 +6,61 @@
              BackgroundColor="#A9FFF7">
     <ContentPage.Content>
         <StackLayout Orientation="Vertical"
-                   VerticalOptions="FillAndExpand"
-                   CompressedLayout.IsHeadless="True">
-            <!--<Start of Navigation Bar/>-->
+               VerticalOptions="FillAndExpand"
+               CompressedLayout.IsHeadless="True">
+            <!--<Start of Navigation Bar />-->
             <StackLayout VerticalOptions="Start"
-                  HorizontalOptions="FillAndExpand"
-                  Orientation="Horizontal"
-                  BackgroundColor ="#A9FFF7">
+            HorizontalOptions="FillAndExpand"
+            Orientation="Horizontal"
+            BackgroundColor ="#A9FFF7">
                 <ImageButton HorizontalOptions="Start"
-                        Source="BackButton.png"
-                        Clicked ="BackClicked"
-                        BorderColor ="Transparent"
-                        BackgroundColor="Transparent"/>
-                <ImageButton HorizontalOptions="Start"
-                        Source="Home.png"
-                        Clicked ="HomeClicked"
-                        BorderColor ="Transparent"
-                        BackgroundColor="Transparent"/>
-                <ImageButton HorizontalOptions="LayoutOptions.EndAndExpand"
-                        Source="SettingsButton.png"
-                        Clicked ="SettingsClicked"
-                        BorderColor ="Transparent"
-                        BackgroundColor="Transparent"/>
+                Source="BackButton.png"
+                Clicked ="BackClicked"
+                WidthRequest="50"
+                HeightRequest="50"
+                Aspect="AspectFill"
+                VerticalOptions="CenterAndExpand"
+                BorderColor ="Transparent"
+                BackgroundColor="Transparent" />
+                <ImageButton
+                VerticalOptions="CenterAndExpand"
+                HorizontalOptions="Start"
+                Source="Home.png"
+                Aspect="AspectFill"
+                WidthRequest="50"
+                HeightRequest="50"
+                Clicked ="HomeClicked"
+                BorderColor ="Transparent"
+                BackgroundColor="Transparent" />
+
+                <Label
+                    Text ="  ⭐ Think and Do ⭐ "
+                    FontFamily = "{StaticResource Comic}"
+                    FontSize ="35"
+                    TextColor="Black"
+                    VerticalOptions="Center"
+                    HorizontalOptions="CenterAndExpand" />
             </StackLayout>
-            <!--<End of Navigation Bar/>-->
+            <!--<End of Navigation Bar />-->
             <ListView SeparatorVisibility="None"
-                      HasUnevenRows="True"
-                      VerticalOptions ="FillAndExpand"
-                      HorizontalOptions="FillAndExpand"
-                      ItemTapped="OnItemTapped"
-                      x:Name="BindList">
-                <!--<List of all ThinkAndDos/>-->
+                HasUnevenRows="True"
+                VerticalOptions ="FillAndExpand"
+                HorizontalOptions="FillAndExpand"
+                x:Name="BindList">
+                <!--<List of all ThinkAndDos />-->
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <ViewCell.View>
                                 <StackLayout Orientation="Horizontal"
-                                             HeightRequest="150">
-                                    <Image Source="{Binding AssociatedImage}"
-                                           HeightRequest="150"/>
-                                    <StackLayout Padding="2">
-                                        <!--<Label Text ="{Binding AssociatedStory}"/>-->
-                                        <Label Text ="{Binding ThinkAndDoName}" FontFamily="{StaticResource Comic}"/>
-                                        <Label Text="{Binding Length, Mode=OneWay, StringFormat='{}{0:mm}:{0:ss}'}" FontFamily="{StaticResource Comic}"/>
+                             HeightRequest="150" HorizontalOptions="FillAndExpand">
+                                    <Image Source="{Binding AssociatedImage}" HeightRequest="150" />
+                                    <StackLayout  Padding="2" Orientation="Horizontal">
+                                        <!--<Label Text ="{Binding AssociatedStory}" />-->
+                                        <ImageButton HorizontalOptions="StartAndExpand" Source="{Binding Star1Image}"  Clicked="Star1Clicked" BindingContext="{Binding}" BackgroundColor="Transparent" />
+                                        <Label HorizontalOptions="CenterAndExpand" Text ="{Binding ThinkAndDoName}"  LineBreakMode="WordWrap" VerticalOptions="Center"  FontSize="Large" FontFamily="{StaticResource Comic}" />
+                                        <ImageButton HorizontalOptions="StartAndExpand" Source="{Binding Star2Image}"  Clicked="Star2Clicked" BindingContext="{Binding}" BackgroundColor="Transparent" />
+                                        <!--<Label Text="{Binding LengthOfAudio1, Mode=OneWay, StringFormat='{}{0:mm}:{0:ss}'}" FontFamily="{StaticResource Comic}" />-->
                                     </StackLayout>
                                 </StackLayout>
                             </ViewCell.View>

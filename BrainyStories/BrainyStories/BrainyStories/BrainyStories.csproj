@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -7,32 +7,52 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DebugType>pdbonly</DebugType>
     <DebugSymbols>true</DebugSymbols>
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x86</PlatformTarget>
+    <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
-    <PackageReference Include="Rg.Plugins.Popup" Version="1.1.5.188" />
-    <PackageReference Include="Xam.Plugin.SimpleAudioPlayer" Version="1.3.0" />
-    <PackageReference Include="Xamarin.Forms" Version="3.6.0.264807" />
+    <Compile Remove="AppealType.cs" />
+    <Compile Remove="QuizFactory.cs" />
+    <Compile Remove="QuizList.xaml.cs" />
+    <Compile Remove="QuizPage.xaml.cs" />
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="QuizList.xaml.cs">
-      <DependentUpon>QuizList.xaml</DependentUpon>
-    </Compile>
+    <EmbeddedResource Remove="QuizList.xaml" />
+    <EmbeddedResource Remove="QuizPage.xaml" />
+    <EmbeddedResource Remove="ThinkAndDoList-old.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="RealmObjects\AppealType.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
+    <PackageReference Include="Realm.Database" Version="3.4.0" />
+    <PackageReference Include="Rg.Plugins.Popup" Version="1.1.5.188" />
+    <PackageReference Include="Xam.Plugin.SimpleAudioPlayer" Version="1.3.1" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.2.0" />
+    <PackageReference Include="Xamarin.Forms" Version="4.2.0.709249" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Xamarin.iOS">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\ReferenceAssemblies\Microsoft\Framework\Xamarin.iOS\v1.0\Xamarin.iOS.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Update="ProgressPage.xaml.cs">
       <DependentUpon>ProgressPage.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Imagines.xaml.cs">
+      <DependentUpon>Imagines.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="EndOfStory.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="QuizList.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
     <EmbeddedResource Update="ProgressIndividualPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
@@ -42,23 +62,11 @@
     <EmbeddedResource Update="ProgressSummaryPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="QuizPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
     <EmbeddedResource Update="RewardsPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Settings.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="StoryPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="ProgressPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="TableOfContents.xaml">
-      <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="ThinkAndDoList.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
@@ -72,7 +80,43 @@
     <None Update="App.xaml">
       <Generator>MSBuild:Compile</Generator>
     </None>
+    <None Update="EndOfStory.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
     <None Update="MainPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="ProgressIndividualPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="ProgressOverallPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="ProgressPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="ProgressSummaryPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="QuizList.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="QuizPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="RewardsPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="StoryPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="TableOfContents.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="ThinkAndDoList.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="ThinkAndDoPopup.xaml">
       <Generator>MSBuild:Compile</Generator>
     </None>
   </ItemGroup>
