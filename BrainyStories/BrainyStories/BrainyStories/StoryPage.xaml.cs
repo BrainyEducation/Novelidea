@@ -111,9 +111,10 @@ namespace BrainyStories
             StoryPageSlider.Minimum = 0;
             StoryPageSlider.Value = 0;
             StoryPageSlider.HorizontalOptions = LayoutOptions.FillAndExpand;
-            StoryPageSlider.MinimumWidthRequest = DeviceDisplay.MainDisplayInfo.Width - (PlayButton.Width * 4);
+            //StoryPageSlider.MinimumWidthRequest = DeviceDisplay.MainDisplayInfo.Width - (PlayButton.Width * 4);
             StoryPageSlider.HeightRequest = 50; // Controls size of area that can grab the slider
-            StoryPageSlider.ValueChanged += SliderValueChanged;
+            //use drag completed instead of value changed to avoid "stuttering" audio
+            StoryPageSlider.DragCompleted += UserDraggedSlider;
 
             //register action to be taken once the story ends
             player.PlaybackEnded += EndPlayback;
@@ -174,7 +175,7 @@ namespace BrainyStories
                                 storyMarkedRead = true;
                             }
                             //if the page has been completed, go to the next one
-                            else if (audioPosition >= CurrentStoryPage.EndTimeInSeconds * COMPLETION_THRESHOLD)
+                            else if (audioPosition >= CurrentStoryPage.EndTimeInSeconds)
                             {
                                 //progress to the next story page
                                 CurrentStoryPage = StoryPages.Where(x => x.EndTimeInSeconds >= audioPosition
@@ -200,7 +201,7 @@ namespace BrainyStories
 
                             StoryImage.Source = CurrentStoryPage.Image;
                         }
-                        //Important - do not manually update the slider here - that will cause "stuttering" in the audio playback
+                        StoryPageSlider.Value = audioPosition;
                         //update the timestamp text
                         DurationLabel.Text = String.Format("{0}:{1}", progressionTime.Minutes,
                             progressionTime.Seconds.ToString("D2"));
@@ -233,7 +234,7 @@ namespace BrainyStories
             realm = null;
         }
 
-        private void SliderValueChanged(object sender, ValueChangedEventArgs e)
+        private void UserDraggedSlider(object sender, EventArgs e)
         {
             //when the slider is dragged change the playback
             if (StoryPageSlider.Value < player.Duration)

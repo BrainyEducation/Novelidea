@@ -787,12 +787,6 @@
     <AndroidAsset Include="Assets\S5_TLP_TAD2.mp3" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidAsset Include="Assets\S10_LRRH_TAD1.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidAsset Include="Assets\S10_LRRH_TAD2.mp3" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidAsset Include="Assets\afraid.mp3" />
   </ItemGroup>
   <ItemGroup>

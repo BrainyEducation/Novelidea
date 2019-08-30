@@ -89,8 +89,7 @@ namespace BrainyStories
                     stories.Add(story2);
                     realmFile.Add(story2);
 
-                    //not s ure why these are the same as imagine #1 - it's probably incorrect TODO: check this later
-                    endTimes = new int[] { 5, 32, 49, 62, 97, 116, 9999 };
+                    endTimes = new int[] { 24, 54, 63, 96, 127, 160, 9999 };
 
                     GenerateStoryPages(realmFile, story2.StoryId, endTimes, "S2_LRH_1.jpg", "S2_LRH_2.jpg", "S2_LRH_3.jpg", "S2_LRH_4.jpg",
                         "S2_LRH_5.jpg", "S2_LRH_6.jpg", "S2_LRH_7.jpg");
