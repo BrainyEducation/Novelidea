@@ -33,5 +33,9 @@
 	</array>
 	<key>UIMainStoryboardFile</key>
 	<string>LaunchScreen</string>
+	<key>UIStatusBarHidden</key>
+	<true/>
+	<key>UIRequiresFullScreen</key>
+	<true/>
 </dict>
 </plist>

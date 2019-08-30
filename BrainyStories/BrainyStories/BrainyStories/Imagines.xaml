@@ -58,7 +58,7 @@
                             <ViewCell.View>
                                 <StackLayout Orientation="Horizontal"
                              HeightRequest="250" HorizontalOptions="FillAndExpand">
-                                    <Image Source="{Binding Icon}" HeightRequest="150" />
+                                    <Image Source="{Binding Icon}" HeightRequest="{Binding HeightRequest}" />
                                     <StackLayout Padding="10" Orientation="Vertical">
                                         <Label Text ="{Binding Name}" FontAttributes="Bold" FontSize="Large" />
                                         <Label Text ="{Binding Description}"
@@ -70,6 +70,11 @@
                                                VerticalOptions="Start"  FontSize="Medium" FontFamily="{StaticResource Comic}" />
                                             <Label Text=" Words"
                                                VerticalOptions="Start"  FontSize="Medium" FontFamily="{StaticResource Comic}" />
+
+                                            <ImageButton HorizontalOptions="StartAndExpand" WidthRequest= "50"
+                                                         Source="{Binding ThinkAndDo.Star1Image}" Clicked="StarTapped" CommandParameter="1"  BackgroundColor="Transparent" />
+                                            <ImageButton HorizontalOptions="StartAndExpand" WidthRequest="50"
+                                                         Source="{Binding ThinkAndDo.Star2Image}" Clicked="StarTapped" CommandParameter="2"  BackgroundColor="Transparent" />
                                         </StackLayout>
                                     </StackLayout>
                                 </StackLayout>

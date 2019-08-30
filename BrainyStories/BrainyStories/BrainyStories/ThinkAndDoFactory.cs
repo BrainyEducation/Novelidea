@@ -44,7 +44,8 @@ namespace BrainyStories
                         ThinkAndDoAudioClip1 = "S1_TLATM_TAD1.mp3",
                         ThinkAndDoAudioClip2 = "S1_TLATM_TAD2.mp3",
                         Text1 = "Draw a picture of the lion that’s different from a picture you’ve already seen. Draw a picture of the mouse that’s different from a picture you’re already seen. Write or say what the mouse was afraid might happen to him. Write or say what the lion was afraid might happen to him.",
-                        Text2 = "The lion did not believe the mouse would be able to help him. Did the lion make a mistake about that? Even the smallest friends can do big favors. Have you ever felt too small to help someone?  Cut out a piece of paper and draw or write about a favor that you have done for someone else. Or, you can draw or write about a favor someone did for you. Make a “favor chain” by taping or hooking the papers together in a chain. Hang up the “favor chain” and add a paper link each time you do a favor or someone does a favor for you."
+                        Text2 = "The lion did not believe the mouse would be able to help him. Did the lion make a mistake about that? Even the smallest friends can do big favors. Have you ever felt too small to help someone?  Cut out a piece of paper and draw or write about a favor that you have done for someone else. Or, you can draw or write about a favor someone did for you. Make a “favor chain” by taping or hooking the papers together in a chain. Hang up the “favor chain” and add a paper link each time you do a favor or someone does a favor for you.",
+                        StoryId = StoryFactory.LION_AND_MOUSE_ID
                     });
 
                     // The Little Red Hen Think and Dos
@@ -53,7 +54,8 @@ namespace BrainyStories
                         ThinkAndDoName = RED_HEN_NAME,
                         AssociatedImage = "S2_LRH_0.png",
                         ThinkAndDoAudioClip1 = "S2_LRH_TAD1.mp3",
-                        Text1 = "When the Little Red Hen found a grain of wheat what did she want to do with it? Put the story in order by what she did. Did she really want to do all the work alone all by herself? Who did she ask for help? Did the animals help the Little Red Hen in any way? After the Little Red Hen finished with the bread, what did she do?"
+                        Text1 = "When the Little Red Hen found a grain of wheat what did she want to do with it? Put the story in order by what she did. Did she really want to do all the work alone all by herself? Who did she ask for help? Did the animals help the Little Red Hen in any way? After the Little Red Hen finished with the bread, what did she do?",
+                        StoryId = StoryFactory.LITTLE_RED_HEN_ID
                     });
 
                     // The Boy Who Cried Wolf Think and Dos
@@ -64,7 +66,8 @@ namespace BrainyStories
                         ThinkAndDoAudioClip1 = "S3_BWCW_TAD1.mp3",
                         ThinkAndDoAudioClip2 = "S3_BWCW_TAD2.mp3",
                         Text1 = "Who is the main character in the story? At the beginning of the story what did he think was a problem? How did he try to solve the problem? By the end of the story what did the people in the village think was the problem? How did the people solve the problem?",
-                        Text2 = "Why is it important to tell the truth ? How do you think the people of the town felt when the boy lied to them? At the end of the story, the boy seemed very sorry that he had lied.Write, say, or draw an apology letter from the boy to the people in the town. What would he say to make them believe him ?"
+                        Text2 = "Why is it important to tell the truth ? How do you think the people of the town felt when the boy lied to them? At the end of the story, the boy seemed very sorry that he had lied.Write, say, or draw an apology letter from the boy to the people in the town. What would he say to make them believe him ?",
+                        StoryId = StoryFactory.BOY_CRIED_WOLF_ID
                     });
 
                     // The Elves and the Shoemaker Think and Dos
@@ -75,7 +78,8 @@ namespace BrainyStories
                         ThinkAndDoAudioClip1 = "S4_TEATS_TAD1.mp3",
                         ThinkAndDoAudioClip2 = "S4_TEATS_TAD2.mp3",
                         Text1 = "The elves in the story helped the shoemaker without being asked. What did the elves do to show they were nice? In what way did the shoemaker and his wife thank the elves? Has anyone ever helped you in your life? Draw a picture of something you might do for this person. Or, write a thank you letter from the shoemaker to the elves.",
-                        Text2 = "Do you think the story is about something that really did happen, or about something that could happen, or about something that could never happen? What in the story makes you think so?"
+                        Text2 = "Do you think the story is about something that really did happen, or about something that could happen, or about something that could never happen? What in the story makes you think so?",
+                        StoryId = StoryFactory.ELVES_SHOEMAKER_ID
                     });
 
                     // The Three Little Pigs Think and Dos
@@ -86,7 +90,8 @@ namespace BrainyStories
                         ThinkAndDoAudioClip1 = "S5_TLP_TAD1.mp3",
                         ThinkAndDoAudioClip2 = "S5_TLP_TAD2.mp3",
                         Text1 = "Do you think the first pig made a good choice when he decided to spend all his money on candy? Which pig made the best and smartest choice about saving and then spending his money? Do you think the three pigs were good brothers? Tell why you think that. What if the wolf had one or two brothers? If the wolf had brothers in the story, how do you think the wolf brothers might help each other?",
-                        Text2 = "Have you heard a different version of the story about the three pigs or seen a picture book version or watched a cartoon version of the story? If so, which version did you like best and why? Did a different version tell about the pig’s mother? Did the pigs have money in another version? Did the pigs buy candy in another version? Did the wolf say: “Little pig, little pig, let me come in.” Did the pig answer: “Not by the hair of my chinny, chin, chin.” In the other version, what happened to the wolf at the very end? Did he become the pigs’ dinner or did he run away?"
+                        Text2 = "Have you heard a different version of the story about the three pigs or seen a picture book version or watched a cartoon version of the story? If so, which version did you like best and why? Did a different version tell about the pig’s mother? Did the pigs have money in another version? Did the pigs buy candy in another version? Did the wolf say: “Little pig, little pig, let me come in.” Did the pig answer: “Not by the hair of my chinny, chin, chin.” In the other version, what happened to the wolf at the very end? Did he become the pigs’ dinner or did he run away?",
+                        StoryId = StoryFactory.THREE_PIGS_ID
                     });
 
                     //commenting out the last 5 stories to cut down on resource usage

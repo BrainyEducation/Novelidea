@@ -111,7 +111,6 @@ namespace BrainyStories
             StoryPageSlider.Minimum = 0;
             StoryPageSlider.Value = 0;
             StoryPageSlider.HorizontalOptions = LayoutOptions.FillAndExpand;
-            //StoryPageSlider.MinimumWidthRequest = DeviceDisplay.MainDisplayInfo.Width - (PlayButton.Width * 4);
             StoryPageSlider.HeightRequest = 50; // Controls size of area that can grab the slider
             //use drag completed instead of value changed to avoid "stuttering" audio
             StoryPageSlider.DragCompleted += UserDraggedSlider;

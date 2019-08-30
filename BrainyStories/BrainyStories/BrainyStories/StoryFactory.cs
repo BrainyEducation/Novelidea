@@ -15,6 +15,12 @@ namespace BrainyStories
     // Class for generating all story objectds
     public class StoryFactory
     {
+        public static readonly string LION_AND_MOUSE_ID = Guid.Parse("7632eca7-4310-4b1f-b91d-871d59b9783c").ToString();
+        public static readonly string LITTLE_RED_HEN_ID = Guid.Parse("e48f424e-664a-4ddd-98d7-13328633eb8b").ToString();
+        public static readonly string BOY_CRIED_WOLF_ID = Guid.Parse("50003f4c-7c67-4781-adbf-39c29d47dd00").ToString();
+        public static readonly string ELVES_SHOEMAKER_ID = Guid.Parse("b19284f6-8d7c-4399-ac18-2e9491f8a811").ToString();
+        public static readonly string THREE_PIGS_ID = Guid.Parse("7fe02c5d-f12d-4e06-8be2-43b98cd38711").ToString();
+
         //private QuizFactory quizFactory = new QuizFactory();
 
         public IEnumerable<Story> FetchStoriesOrImagines(StorySet storySet)
@@ -47,12 +53,16 @@ namespace BrainyStories
             }
             else
             {
+                //create the Think and Do's if they haven't been already created
+                var thinkAndDos = new ThinkAndDoFactory().generateThinkAndDos();
+
                 //add stories and their pages to the db
                 using (var realmTransaction = realmFile.BeginWrite())
                 {
                     //STORY 1
                     var story1 = new Story()
                     {
+                        StoryId = LION_AND_MOUSE_ID,
                         Name = "The Lion and the Mouse",
                         Icon = "S1_LATM_1.png",
                         Appeal = (int)AppealType.Animal,
@@ -60,9 +70,10 @@ namespace BrainyStories
                         "but when the lion is trapped in a net the mouse gnaws the threads and releases the lion.",
                         AudioClip = "S1_TLATM_Story.mp3",
                         StorySetAsEnum = StorySet.StorySet1,
-                        WordCount = 395
+                        WordCount = 395,
                     };
 
+                    story1.ThinkAndDo = thinkAndDos.Where(x => x.StoryId == story1.StoryId).FirstOrDefault();
                     stories.Add(story1);
                     realmFile.Add(story1);
 
@@ -70,12 +81,13 @@ namespace BrainyStories
                     var endTimes = new int[] { 5, 32, 49, 62, 97, 116, 150, 9999 }; //max time can be really high since the end of the story will be reached first
 
                     //also add the pages of the story
-                    GenerateStoryPages(realmFile, story1.StoryId, endTimes, "S1_LATM_1.png", "S1_LATM_2.jpg", "S1_LATM_3.jpg",
+                    GenerateStoryPages(realmFile, LION_AND_MOUSE_ID, endTimes, "S1_LATM_1.png", "S1_LATM_2.jpg", "S1_LATM_3.jpg",
                         "S1_LATM_4.jpg", "S1_LATM_5.jpg", "S1_LATM_6.jpg", "S1_LATM_7.jpg", "S1_LATM_8.jpg");
 
                     //STORY 2
                     var story2 = new Story()
                     {
+                        StoryId = LITTLE_RED_HEN_ID,
                         Name = "The Little Red Hen",
                         Icon = "S2_LRH_0.png",
                         Appeal = (int)AppealType.Animal,
@@ -86,17 +98,19 @@ namespace BrainyStories
                         WordCount = 477
                     };
 
+                    story2.ThinkAndDo = thinkAndDos.Where(x => x.StoryId == story2.StoryId).FirstOrDefault();
                     stories.Add(story2);
                     realmFile.Add(story2);
 
                     endTimes = new int[] { 24, 54, 63, 96, 127, 160, 9999 };
 
-                    GenerateStoryPages(realmFile, story2.StoryId, endTimes, "S2_LRH_1.jpg", "S2_LRH_2.jpg", "S2_LRH_3.jpg", "S2_LRH_4.jpg",
+                    GenerateStoryPages(realmFile, LITTLE_RED_HEN_ID, endTimes, "S2_LRH_1.jpg", "S2_LRH_2.jpg", "S2_LRH_3.jpg", "S2_LRH_4.jpg",
                         "S2_LRH_5.jpg", "S2_LRH_6.jpg", "S2_LRH_7.jpg");
 
                     //STORY 3
                     var story3 = new Story()
                     {
+                        StoryId = BOY_CRIED_WOLF_ID,
                         Name = "The Boy Who Cried Wolf",
                         Icon = "S3_TBWCW_1.png",
                         Appeal = (int)AppealType.Male,
@@ -107,17 +121,19 @@ namespace BrainyStories
                         WordCount = 722
                     };
 
+                    story3.ThinkAndDo = thinkAndDos.Where(x => x.StoryId == story3.StoryId).FirstOrDefault();
                     stories.Add(story3);
                     realmFile.Add(story3);
 
                     endTimes = new int[] { 2, 34, 77, 105, 141, 179, 209, 223, 9999 };
 
-                    GenerateStoryPages(realmFile, story3.StoryId, endTimes, "S3_TBWCW_1.png", "S3_TBWCW_2.jpg", "S3_TBWCW_3.jpg", "S3_TBWCW_4.jpg",
+                    GenerateStoryPages(realmFile, BOY_CRIED_WOLF_ID, endTimes, "S3_TBWCW_1.png", "S3_TBWCW_2.jpg", "S3_TBWCW_3.jpg", "S3_TBWCW_4.jpg",
                         "S3_TBWCW_5.jpg", "S3_TBWCW_6.jpg", "S3_TBWCW_7.jpg", "S3_TBWCW_8.jpg", "S3_TBWCW_9.jpg");
 
                     //STORY 4
                     var story4 = new Story()
                     {
+                        StoryId = ELVES_SHOEMAKER_ID,
                         Name = "The Elves and Shoemaker",
                         Icon = "S4_TEATS_1.png",
                         Appeal = (int)AppealType.General,
@@ -128,17 +144,19 @@ namespace BrainyStories
                         WordCount = 830
                     };
 
+                    story4.ThinkAndDo = thinkAndDos.Where(x => x.StoryId == story4.StoryId).FirstOrDefault();
                     stories.Add(story4);
                     realmFile.Add(story4);
 
                     endTimes = new int[] { 4, 66, 100, 132, 152, 213, 297, 9999 };
 
-                    GenerateStoryPages(realmFile, story4.StoryId, endTimes, "S4_TEATS_1.png", "S4_TEATS_2.jpg", "S4_TEATS_3.jpg", "S4_TEATS_4.jpg",
+                    GenerateStoryPages(realmFile, BOY_CRIED_WOLF_ID, endTimes, "S4_TEATS_1.png", "S4_TEATS_2.jpg", "S4_TEATS_3.jpg", "S4_TEATS_4.jpg",
                             "S4_TEATS_5.jpg", "S4_TEATS_6.jpg", "S4_TEATS_7.jpg", "S4_TEATS_7.jpg");
 
                     //STORY 5
                     var story5 = new Story()
                     {
+                        StoryId = THREE_PIGS_ID,
                         Name = "The Three Little Pigs",
                         Icon = "S5_TLP_0.png",
                         Appeal = (int)AppealType.Animal,
@@ -149,12 +167,13 @@ namespace BrainyStories
                         WordCount = 986
                     };
 
+                    story5.ThinkAndDo = thinkAndDos.Where(x => x.StoryId == story5.StoryId).FirstOrDefault();
                     stories.Add(story5);
                     realmFile.Add(story5);
 
                     endTimes = new int[] { 27, 65, 139, 161, 192, 237, 260, 289, 358, 371, 390, 391, 9999 };
 
-                    GenerateStoryPages(realmFile, story5.StoryId, endTimes, "S5_TLP_1.jpg", "S5_TLP_2.jpg", "S5_TLP_3.jpg", "S5_TLP_4.jpg", "S5_TLP_5.jpg",
+                    GenerateStoryPages(realmFile, THREE_PIGS_ID, endTimes, "S5_TLP_1.jpg", "S5_TLP_2.jpg", "S5_TLP_3.jpg", "S5_TLP_4.jpg", "S5_TLP_5.jpg",
                           "S5_TLP_6.jpg", "S5_TLP_7.jpg", "S5_TLP_8.jpg", "S5_TLP_9.jpg", "S5_TLP_10.jpg", "S5_TLP_11.jpg", "S5_TLP_12.jpg", "S5_TLP_13.jpg");
 
                     realmTransaction.Commit();

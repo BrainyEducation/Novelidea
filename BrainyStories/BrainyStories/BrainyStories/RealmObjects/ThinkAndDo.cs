@@ -55,5 +55,8 @@ namespace BrainyStories.Objects
         public String Text1 { get; set; }
 
         public String Text2 { get; set; }
+
+        //foreign key to Stories
+        public String StoryId { get; set; } = null; //nullable
     }
 }

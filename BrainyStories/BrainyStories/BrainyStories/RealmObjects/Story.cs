@@ -15,7 +15,7 @@ namespace BrainyStories
     // We can't have child classes for the Story and Imagines from a common base class- this isn't supported by Ralm
     public class Story : RealmObject
     {
-        public string StoryId { get; private set; } = Guid.NewGuid().ToString();
+        public string StoryId { get; set; } = Guid.NewGuid().ToString();
 
         // String of the name of story
         public String Name { get; set; }
@@ -67,6 +67,18 @@ namespace BrainyStories
                 StorySet = (int)value;
             }
         }
+
+        [Ignored]
+        public int HeightRequest
+        {
+            get
+            {
+                //TODO: standardize the aspect ratio of all story /imagine icons. Until then, use this
+                return this.StorySetAsEnum == RealmObjects.StorySet.StorySet1 ? 200 : 130;
+            }
+        }
+
+        public ThinkAndDo ThinkAndDo { get; set; }
 
         // TODO: give the quiz object a FK reference to a story
         //public int QuizNum { get; set; } = 0;

@@ -1,5 +1,6 @@
 using BrainyStories.Objects;
 using BrainyStories.RealmObjects;
+using Rg.Plugins.Popup.Services;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -71,7 +72,7 @@ namespace BrainyStories
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Imagines : ContentPage
     {
-        //private IEnumerable<Story> ListOfImagines;
+        private StorySet StorySet;
 
         /// <summary>
         /// This class is shared between the stories and the imagines. Stories have one number set, and imagines have another
@@ -79,22 +80,42 @@ namespace BrainyStories
         /// <param name="storySet">Pass in the number corresponding to the imagine or story set</param>
         public Imagines(StorySet storySet)
         {
-            //NavigationPage.SetHasNavigationBar(this, false);
+            NavigationPage.SetHasNavigationBar(this, false);
+            StorySet = storySet;
 
-            var imaginesData = new StoryFactory().FetchStoriesOrImagines(storySet);
+            var imaginesData = new StoryFactory().FetchStoriesOrImagines(StorySet);
 
             InitializeComponent();
 
-            if (storySet == StorySet.Imagines)
+            if (StorySet == StorySet.Imagines)
             {
                 StoryMenuLabel.Text = "Imagines";
             }
-            else if (storySet == StorySet.StorySet1)
+            else if (StorySet == StorySet.StorySet1)
             {
                 StoryMenuLabel.Text = "Stories";
             }
 
             ListOfImagines.ItemsSource = imaginesData;
+        }
+
+        // Lauches a ThinkAndDo popup for the selected ThinkAndDo
+        private async void StarTapped(object sender, EventArgs e)
+        {
+            var senderAsImageButton = ((ImageButton)sender);
+            Story callingStory = senderAsImageButton.BindingContext as Story;
+            ThinkAndDo think = callingStory.ThinkAndDo;
+            var starNumber = Int32.Parse(senderAsImageButton.CommandParameter.ToString());
+
+            ThinkAndDoPopup pop = new ThinkAndDoPopup(think, starNumber);
+            pop.Disappearing += PopUpClosed;
+
+            await PopupNavigation.Instance.PushAsync(pop);
+        }
+
+        private void PopUpClosed(object sender, EventArgs e)
+        {
+            ListOfImagines.ItemsSource = new StoryFactory().FetchStoriesOrImagines(StorySet);
         }
 
         private async void ImagineClicked(object sender, ItemTappedEventArgs e)
