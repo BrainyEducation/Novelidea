@@ -88,6 +88,22 @@ namespace BrainyStories
         public string Prize4 { get; set; } = String.Empty;
         public string Prize5 { get; set; } = String.Empty;
 
+        //helper method to figure out how many prizes have been won for this story
+        [Ignored]
+        public int PrizesSelected
+        {
+            get
+            {
+                int count = 0;
+                count += Prize1 != String.Empty;
+                count += Prize2 != String.Empty;
+                count += Prize3 != String.Empty;
+                count += Prize4 != String.Empty;
+                count += Prize5 != String.Empty;
+                return count;
+            }
+        }
+
         //this toggle allows the user to switch between viewing prizes and viewing story details - default to false
         [Ignored]
         public bool IsGridVisible { get; set; } = false;

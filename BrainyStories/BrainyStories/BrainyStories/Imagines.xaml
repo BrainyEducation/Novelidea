@@ -36,6 +36,7 @@
                     <ImageButton
                         VerticalOptions="CenterAndExpand"
                         HorizontalOptions="End"
+                        Padding="20"
                         Source="prize.jpg"
                         HeightRequest ="100"
                         Clicked="PrizeTapped" />
@@ -52,6 +53,7 @@
                         HorizontalOptions="Start"
                         Source="kitten.jpg"
                         HeightRequest="100"
+                        Padding="20"
                         Clicked="CatClicked" />
                 </StackLayout>
             </StackLayout>
