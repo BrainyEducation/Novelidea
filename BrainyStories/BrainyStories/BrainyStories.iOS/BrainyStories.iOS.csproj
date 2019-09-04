@@ -622,4 +622,16 @@
   <ItemGroup>
     <BundleResource Include="Resources\trophy.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\AllPrizes.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Prize-Bigfoot.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Prize-Cat.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Prize-Dino.jpg" />
+  </ItemGroup>
 </Project>

@@ -95,11 +95,11 @@ namespace BrainyStories
             get
             {
                 int count = 0;
-                count += Prize1 != String.Empty;
-                count += Prize2 != String.Empty;
-                count += Prize3 != String.Empty;
-                count += Prize4 != String.Empty;
-                count += Prize5 != String.Empty;
+                count += Convert.ToInt32(Prize1 != String.Empty);
+                count += Convert.ToInt32(Prize2 != String.Empty);
+                count += Convert.ToInt32(Prize3 != String.Empty);
+                count += Convert.ToInt32(Prize4 != String.Empty);
+                count += Convert.ToInt32(Prize5 != String.Empty);
                 return count;
             }
         }

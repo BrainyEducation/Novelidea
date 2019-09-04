@@ -36,7 +36,7 @@
                     <ImageButton
                         VerticalOptions="CenterAndExpand"
                         HorizontalOptions="End"
-                        Padding="20"
+                        Padding= "10"
                         Source="prize.jpg"
                         HeightRequest ="100"
                         Clicked="PrizeTapped" />
@@ -53,7 +53,7 @@
                         HorizontalOptions="Start"
                         Source="kitten.jpg"
                         HeightRequest="100"
-                        Padding="20"
+                        Padding="10"
                         Clicked="CatClicked" />
                 </StackLayout>
             </StackLayout>
@@ -105,9 +105,20 @@
                                             <ColumnDefinition Width="1*" />
                                         </Grid.ColumnDefinitions>
                                         <Image
+                                            HorizontalOptions="Center"
                                             Grid.Column="1"
                                             Grid.Row="0"
                                             Source="trophy.png" />
+                                        <Label
+                                            HorizontalOptions="Center"
+                                            HorizontalTextAlignment="Center"
+                                            VerticalTextAlignment="Center"
+                                            FontSize="30"
+                                            FontAttributes="Bold"
+                                            TextColor="White"
+                                            Grid.Column="1"
+                                            Grid.Row="0"
+                                            Text="{Binding PrizesSelected}" />
                                         <Image
                                             Grid.Row="1"
                                             Grid.Column="0"

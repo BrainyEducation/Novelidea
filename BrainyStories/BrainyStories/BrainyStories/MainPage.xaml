@@ -53,29 +53,32 @@
          Grid.Column="1"
          Grid.RowSpan="2"
          Grid.ColumnSpan="8" />
-        <!--<Six home page buttons />-->
-        <ImageButton
-              VerticalOptions="FillAndExpand"
-              HorizontalOptions="FillAndExpand"
-              Clicked="ImaginesClicked"
-              Grid.Row="2"
-              Grid.Column="1"
-              Grid.ColumnSpan="4"
-              BorderColor="Black"
-              BorderWidth="10"
-              CornerRadius="50"
-              Source="ImaginesButton.png" />
+        <!--<Two home page buttons />-->
         <ImageButton
               Clicked="StoriesClicked"
               BorderColor="Black"
               BorderWidth="10"
               Grid.Row="2"
-              Grid.Column="5"
-              Grid.ColumnSpan="4"
+              Grid.Column="0"
+              Grid.ColumnSpan="10"
               CornerRadius="50"
-              VerticalOptions="FillAndExpand"
+              VerticalOptions="CenterAndExpand"
               Source="ClassicStoriesButton.png" />
+
         <ImageButton
+              VerticalOptions="CenterAndExpand"
+              Clicked="ImaginesClicked"
+              Grid.Row="3"
+              Grid.Column="0"
+              Grid.ColumnSpan="10"
+              BorderColor="Black"
+              BorderWidth="10"
+              CornerRadius="50"
+              Source="ImaginesButton.png" />
+
+        <!--The 4 image buttons commented out here are from the first iteration of the app. They may be required
+        again if we revert back to the 6 button main screen-->
+        <!--<ImageButton
               Source="RewardsButton.png"
               VerticalOptions="Fill"
               Grid.Row="3"
@@ -100,6 +103,6 @@
               Clicked="ThinkAndDoClicked"
               Grid.Row="3"
               Grid.Column="7"
-              Grid.ColumnSpan="2" />
+              Grid.ColumnSpan="2" />-->
     </Grid>
 </ContentPage>

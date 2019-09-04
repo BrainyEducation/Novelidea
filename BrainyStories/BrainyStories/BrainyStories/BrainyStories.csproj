@@ -44,6 +44,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="PotentialPrizes.xaml.cs">
+      <DependentUpon>PotentialPrizes.xaml</DependentUpon>
+    </Compile>
     <Compile Update="ProgressPage.xaml.cs">
       <DependentUpon>ProgressPage.xaml</DependentUpon>
     </Compile>
