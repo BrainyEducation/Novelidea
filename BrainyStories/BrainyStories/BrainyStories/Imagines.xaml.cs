@@ -99,6 +99,30 @@ namespace BrainyStories
             ListOfImagines.ItemsSource = imaginesData;
         }
 
+        private void PrizeTapped(object sender, EventArgs e)
+        {
+            var newItemSource = new List<Story>();
+            //switch to the prize grid view when the student clicks a button to view their prizes
+            foreach (var story in (IEnumerable<Story>)ListOfImagines.ItemsSource)
+            {
+                story.IsGridVisible = true;
+                newItemSource.Add(story);
+            }
+            ListOfImagines.ItemsSource = newItemSource;
+        }
+
+        private void CatClicked(object sender, EventArgs e)
+        {
+            var newItemSource = new List<Story>();
+            //go back to story mode
+            foreach (var story in (IEnumerable<Story>)ListOfImagines.ItemsSource)
+            {
+                story.IsGridVisible = false;
+                newItemSource.Add(story);
+            }
+            ListOfImagines.ItemsSource = newItemSource;
+        }
+
         // Lauches a ThinkAndDo popup for the selected ThinkAndDo
         private async void StarTapped(object sender, EventArgs e)
         {

@@ -80,7 +80,29 @@ namespace BrainyStories
 
         public ThinkAndDo ThinkAndDo { get; set; }
 
+        //store each prize icon (up to five prizes)
+        public string Prize1 { get; set; } = String.Empty;
+
+        public string Prize2 { get; set; } = String.Empty;
+        public string Prize3 { get; set; } = String.Empty;
+        public string Prize4 { get; set; } = String.Empty;
+        public string Prize5 { get; set; } = String.Empty;
+
+        //this toggle allows the user to switch between viewing prizes and viewing story details - default to false
+        [Ignored]
+        public bool IsGridVisible { get; set; } = false;
+
+        [Ignored]
+        public bool IsStoryVisible
+        {
+            get
+            {
+                return !IsGridVisible;
+            }
+        }
+
         // TODO: give the quiz object a FK reference to a story
+
         //public int QuizNum { get; set; } = 0;
 
         // Dictionary of cues for quizzes to quizzes

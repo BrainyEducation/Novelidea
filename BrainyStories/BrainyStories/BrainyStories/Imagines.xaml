@@ -32,14 +32,28 @@
                 Clicked ="HomeClicked"
                 BorderColor ="Transparent"
                 BackgroundColor="Transparent" />
-
-                <Label
-                    x:Name="StoryMenuLabel"
-                    FontFamily = "{StaticResource Comic}"
-                    FontSize ="35"
-                    TextColor="Black"
-                    VerticalOptions="Center"
-                    HorizontalOptions="CenterAndExpand" />
+                <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
+                    <ImageButton
+                        VerticalOptions="CenterAndExpand"
+                        HorizontalOptions="End"
+                        Source="prize.jpg"
+                        HeightRequest ="100"
+                        Clicked="PrizeTapped" />
+                    <Label
+                        x:Name="StoryMenuLabel"
+                        FontFamily = "{StaticResource Comic}"
+                        FontSize ="35"
+                        TextColor="Black"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center"
+                        HeightRequest="100" />
+                    <ImageButton
+                        VerticalOptions="CenterAndExpand"
+                        HorizontalOptions="Start"
+                        Source="kitten.jpg"
+                        HeightRequest="100"
+                        Clicked="CatClicked" />
+                </StackLayout>
             </StackLayout>
             <!--<End of Navigation Bar />-->
 
@@ -59,7 +73,7 @@
                                 <StackLayout Orientation="Horizontal"
                              HeightRequest="250" HorizontalOptions="FillAndExpand">
                                     <Image Source="{Binding Icon}" HeightRequest="{Binding HeightRequest}" />
-                                    <StackLayout Padding="10" Orientation="Vertical">
+                                    <StackLayout IsVisible="{Binding IsStoryVisible}" Padding="10" Orientation="Vertical">
                                         <Label Text ="{Binding Name}" FontAttributes="Bold" FontSize="Large" />
                                         <Label Text ="{Binding Description}"
                                                LineBreakMode="WordWrap" VerticalOptions="Start"  FontSize="Medium" FontFamily="{StaticResource Comic}" />
@@ -71,12 +85,51 @@
                                             <Label Text=" Words"
                                                VerticalOptions="Start"  FontSize="Medium" FontFamily="{StaticResource Comic}" />
 
-                                            <ImageButton HorizontalOptions="StartAndExpand" WidthRequest= "50"
+                                            <ImageButton HorizontalOptions="Start" WidthRequest= "50"
                                                          Source="{Binding ThinkAndDo.Star1Image}" Clicked="StarTapped" CommandParameter="1"  BackgroundColor="Transparent" />
-                                            <ImageButton HorizontalOptions="StartAndExpand" WidthRequest="50"
+                                            <ImageButton HorizontalOptions="Start" WidthRequest="50"
                                                          Source="{Binding ThinkAndDo.Star2Image}" Clicked="StarTapped" CommandParameter="2"  BackgroundColor="Transparent" />
                                         </StackLayout>
                                     </StackLayout>
+                                    <Grid IsVisible="{Binding IsGridVisible}" HorizontalOptions="FillAndExpand">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="1*" />
+                                            <RowDefinition Height="1*" />
+                                            <RowDefinition Height="1*" />
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="1*" />
+                                            <ColumnDefinition Width="1*" />
+                                            <ColumnDefinition Width="1*" />
+                                        </Grid.ColumnDefinitions>
+                                        <Image
+                                            Grid.Column="1"
+                                            Grid.Row="0"
+                                            Source="trophy.png" />
+                                        <Image
+                                            Grid.Row="1"
+                                            Grid.Column="0"
+                                            Source="{Binding Prize1}" />
+                                        <Image
+                                            Grid.Row="1"
+                                            Grid.Column="1"
+                                            Source="{Binding Prize2}" />
+                                        <Image
+                                            Grid.Row="1"
+                                            Grid.Column="2"
+                                            Source="{Binding Prize3}" />
+                                        <Image
+                                            Grid.Row="2"
+                                            Grid.Column="0"
+                                            Source="{Binding Prize4}" />
+                                        <Image
+                                            Grid.Row="2"
+                                            Grid.Column="1" />
+                                        <Image
+                                            Grid.Row="2"
+                                            Grid.Column="2"
+                                            Source="{Binding Prize5}" />
+                                    </Grid>
                                 </StackLayout>
                             </ViewCell.View>
                         </ViewCell>
