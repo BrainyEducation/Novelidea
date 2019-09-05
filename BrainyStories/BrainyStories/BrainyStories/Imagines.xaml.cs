@@ -105,7 +105,7 @@ namespace BrainyStories
             //switch to the prize grid view when the student clicks a button to view their prizes
             foreach (var story in (IEnumerable<Story>)ListOfImagines.ItemsSource)
             {
-                story.IsGridVisible = !story.IsGridVisible;
+                story.AreRewardsVisible = !story.AreRewardsVisible;
                 newItemSource.Add(story);
             }
             ListOfImagines.ItemsSource = newItemSource;

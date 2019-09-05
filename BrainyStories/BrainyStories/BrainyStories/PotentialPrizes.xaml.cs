@@ -44,27 +44,28 @@ namespace BrainyStories
                     var story = realmFile.All<Story>().Where(x => x.StoryId.Equals(StoryId)).FirstOrDefault();
                     using (var realmTransaction = realmFile.BeginWrite())
                     {
+                        var imageSourcePath = ((FileImageSource)selectedPrize.Source).File.ToString();
                         //figure out how many prizes have already been selected and add to the next prize
                         switch (story.PrizesSelected)
                         {
                             case (0):
-                                story.Prize1 = ((FileImageSource)selectedPrize.Source).File.ToString();
+                                story.Prize1 = imageSourcePath;
                                 break;
 
                             case (1):
-                                story.Prize2 = new Uri(selectedPrize.Source.ToString()).ToString();
+                                story.Prize2 = imageSourcePath;
                                 break;
 
                             case (2):
-                                story.Prize3 = new Uri(selectedPrize.Source.ToString()).ToString();
+                                story.Prize3 = imageSourcePath;
                                 break;
 
                             case (3):
-                                story.Prize4 = new Uri(selectedPrize.Source.ToString()).ToString();
+                                story.Prize4 = imageSourcePath;
                                 break;
 
                             case (4):
-                                story.Prize5 = new Uri(selectedPrize.Source.ToString()).ToString();
+                                story.Prize5 = imageSourcePath;
                                 break;
 
                             default:

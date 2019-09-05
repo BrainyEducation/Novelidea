@@ -106,14 +106,14 @@ namespace BrainyStories
 
         //this toggle allows the user to switch between viewing prizes and viewing story details - default to false
         [Ignored]
-        public bool IsGridVisible { get; set; } = false;
+        public bool AreRewardsVisible { get; set; } = false;
 
         [Ignored]
         public bool IsStoryVisible
         {
             get
             {
-                return !IsGridVisible;
+                return !AreRewardsVisible;
             }
         }
 

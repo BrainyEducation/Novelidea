@@ -701,7 +701,7 @@
     <BundleResource Include="Resources\Prizes\Tiger.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\Prizes\Triked.png" />
+    <BundleResource Include="Resources\Prizes\Trike.png" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\Prizes\Unicorn.png" />

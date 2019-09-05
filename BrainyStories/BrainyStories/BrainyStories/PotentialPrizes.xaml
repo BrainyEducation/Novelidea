@@ -61,126 +61,126 @@
                     <ImageButton
                         Grid.Row="0"
                         Grid.Column="1"
-                        Source="Prizes/Cat.png"
+                        Source="Prizes/Dog.png"
                          Clicked="PrizeSelected" />
                     <ImageButton
                         Grid.Row="0"
                         Grid.Column="2"
-                        Source="Prizes/Cat.png"
+                        Source="Prizes/IceCream.png"
                          Clicked="PrizeSelected" />
                     <ImageButton
                         Grid.Row="0"
                         Grid.Column="3"
-                        Source="Prizes/Cat.png"
+                        Source="Prizes/Robot.png"
                          Clicked="PrizeSelected" />
                     <ImageButton
                         Grid.Row="0"
                         Grid.Column="4"
-                        Source="Prizes/Cat.png"
+                        Source="Prizes/Elephant.png"
                          Clicked="PrizeSelected" />
                     <!--Row 2-->
                     <ImageButton
                         Grid.Row="1"
                         Grid.Column="0"
-                        Source="Prizes/Cat.png"
+                        Source="Prizes/Firetruck.png"
                         Clicked="PrizeSelected" />
                     <ImageButton
                         Grid.Row="1"
                         Grid.Column="1"
-                        Source="Prizes/Cat.png"
+                        Source="Prizes/Dolphin.png"
                          Clicked="PrizeSelected" />
                     <ImageButton
                         Grid.Row="1"
                         Grid.Column="2"
-                        Source="Prizes/Cat.png"
+                        Source="Prizes/Butterfly.png"
                          Clicked="PrizeSelected" />
                     <ImageButton
                         Grid.Row="1"
                         Grid.Column="3"
-                        Source="Prizes/Cat.png"
+                        Source="Prizes/Swing.png"
                         Clicked="PrizeSelected" />
                     <ImageButton
                         Grid.Row="1"
                         Grid.Column="4"
-                        Source="Prizes/Cat.png"
+                        Source="Prizes/Trike.png"
                          Clicked="PrizeSelected" />
                     <!--Row 3-->
                     <ImageButton
                         Grid.Row="2"
                         Grid.Column="0"
-                        Source="Prizes/Cat.png"
+                        Source="Prizes/Gold.png"
                         Clicked="PrizeSelected" />
                     <ImageButton
                         Grid.Row="2"
                         Grid.Column="1"
-                        Source="Prizes/Cat.png"
+                        Source="Prizes/Parrot.png"
                          Clicked="PrizeSelected" />
                     <ImageButton
                         Grid.Row="2"
                         Grid.Column="2"
-                        Source="Prizes/Cat.png"
+                        Source="Prizes/Dino.png"
                          Clicked="PrizeSelected" />
                     <ImageButton
                         Grid.Row="2"
                         Grid.Column="3"
-                        Source="Prizes/Cat.png"
+                        Source="Prizes/Skateboard.png"
                         Clicked="PrizeSelected" />
                     <ImageButton
                         Grid.Row="2"
                         Grid.Column="4"
-                        Source="Prizes/Cat.png"
+                        Source="Prizes/Tiger.png"
                          Clicked="PrizeSelected" />
                     <!--Row 4-->
                     <ImageButton
                         Grid.Row="3"
                         Grid.Column="0"
-                        Source="Prizes/Cat.png"
+                        Source="Prizes/Dollhouse.png"
                         Clicked="PrizeSelected" />
                     <ImageButton
                         Grid.Row="3"
                         Grid.Column="1"
-                        Source="Prizes/Cat.png"
+                        Source="Prizes/Cookies.png"
                          Clicked="PrizeSelected" />
                     <ImageButton
                         Grid.Row="3"
                         Grid.Column="2"
-                        Source="Prizes/Cat.png"
+                        Source="Prizes/Tiara.png"
                          Clicked="PrizeSelected" />
                     <ImageButton
                         Grid.Row="3"
                         Grid.Column="3"
-                        Source="Prizes/Cat.png"
+                        Source="Prizes/Tent.png"
                         Clicked="PrizeSelected" />
                     <ImageButton
                         Grid.Row="3"
                         Grid.Column="4"
-                        Source="Prizes/Cat.png"
+                        Source="Prizes/Canoe.png"
                          Clicked="PrizeSelected" />
                     <!--Row 5-->
                     <ImageButton
                         Grid.Row="4"
                         Grid.Column="0"
-                        Source="Prizes/Cat.png"
+                        Source="Prizes/Unicorn.png"
                         Clicked="PrizeSelected" />
                     <ImageButton
                         Grid.Row="4"
                         Grid.Column="1"
-                        Source="Prizes/Cat.png"
+                        Source="Prizes/Bigfoot.png"
                          Clicked="PrizeSelected" />
                     <ImageButton
                         Grid.Row="4"
                         Grid.Column="2"
-                        Source="Prizes/Cat.png"
+                        Source="Prizes/Dragon.png"
                          Clicked="PrizeSelected" />
                     <ImageButton
                         Grid.Row="4"
                         Grid.Column="3"
-                        Source="Prizes/Cat.png"
+                        Source="Prizes/Bulldozer.png"
                         Clicked="PrizeSelected" />
                     <ImageButton
                         Grid.Row="4"
                         Grid.Column="4"
-                        Source="Prizes/Cat.png"
+                        Source="Prizes/Mermaid.png"
                          Clicked="PrizeSelected" />
                 </Grid>
             </ScrollView>
