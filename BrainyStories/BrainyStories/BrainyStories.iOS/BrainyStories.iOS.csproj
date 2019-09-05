@@ -623,9 +623,6 @@
     <BundleResource Include="Resources\trophy.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\AllPrizes.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\Prize-Bigfoot.jpg" />
   </ItemGroup>
   <ItemGroup>
@@ -633,5 +630,80 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\Prize-Dino.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Prizes\Bigfoot.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Prizes\Bulldozer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Prizes\Butterfly.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Prizes\Canoe.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Prizes\Cat.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Prizes\Cookies.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Prizes\Dino.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Prizes\Dog.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Prizes\Dollhouse.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Prizes\Dolphin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Prizes\Dragon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Prizes\Elephant.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Prizes\Firetruck.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Prizes\Gold.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Prizes\IceCream.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Prizes\Mermaid.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Prizes\Parrot.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Prizes\Robot.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Prizes\Skateboard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Prizes\Swing.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Prizes\Tent.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Prizes\Tiara.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Prizes\Tiger.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Prizes\Triked.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Prizes\Unicorn.png" />
   </ItemGroup>
 </Project>

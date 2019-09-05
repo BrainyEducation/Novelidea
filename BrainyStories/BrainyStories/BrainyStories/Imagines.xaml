@@ -113,7 +113,7 @@
                                             HorizontalOptions="Center"
                                             HorizontalTextAlignment="Center"
                                             VerticalTextAlignment="Center"
-                                            FontSize="30"
+                                            FontSize="22"
                                             FontAttributes="Bold"
                                             TextColor="White"
                                             Grid.Column="1"

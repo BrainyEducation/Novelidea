@@ -71,8 +71,6 @@ namespace BrainyStories
                         AudioClip = "S1_TLATM_Story.mp3",
                         StorySetAsEnum = StorySet.StorySet1,
                         WordCount = 395,
-                        Prize1 = "Prize-Cat.jpg",
-                        Prize2 = "Prize-Dino.jpg"
                     };
 
                     story1.ThinkAndDo = thinkAndDos.Where(x => x.StoryId == story1.StoryId).FirstOrDefault();
@@ -98,7 +96,6 @@ namespace BrainyStories
                         AudioClip = "S2_LRH_Story.mp3",
                         StorySetAsEnum = StorySet.StorySet1,
                         WordCount = 477,
-                        Prize1 = "Prize-Bigfoot.jpg"
                     };
 
                     story2.ThinkAndDo = thinkAndDos.Where(x => x.StoryId == story2.StoryId).FirstOrDefault();

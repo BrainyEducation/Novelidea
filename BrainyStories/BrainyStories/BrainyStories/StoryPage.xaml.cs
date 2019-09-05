@@ -244,11 +244,9 @@ namespace BrainyStories
 
         private void EndPlayback(object sender, EventArgs e)
         {
-            //TODO: figure out what this ChangePage/End Of Story logic is all about
             EndPlayer();
-            //go to the end story screen
-
-            Navigation.PushAsync(new Imagines(StorySet));
+            //go to the prize screen
+            Navigation.PushAsync(new PotentialPrizes(StoryId, StorySet));
 
             //if (story.QuizNum > 0)
             //{

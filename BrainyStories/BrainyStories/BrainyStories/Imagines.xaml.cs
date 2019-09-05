@@ -111,6 +111,7 @@ namespace BrainyStories
             ListOfImagines.ItemsSource = newItemSource;
         }
 
+        //view the screen that displays all potential prizes
         private async void PrizeTapped(object sender, EventArgs e)
         {
             //load screen of potential prizes
