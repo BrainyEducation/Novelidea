@@ -97,6 +97,18 @@ namespace BrainyStories
             }
 
             ListOfImagines.ItemsSource = imaginesData;
+            //set the total number of prizes
+            TotalPrizeCount.Text = GetTotalPrizeCount();
+        }
+
+        private String GetTotalPrizeCount()
+        {
+            var count = 0;
+            foreach (var story in (IEnumerable<Story>)ListOfImagines.ItemsSource)
+            {
+                count += story.PrizesSelected;
+            }
+            return count.ToString();
         }
 
         private void CatClicked(object sender, EventArgs e)

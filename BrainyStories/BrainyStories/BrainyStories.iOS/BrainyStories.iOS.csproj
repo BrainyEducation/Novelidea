@@ -614,9 +614,6 @@
     <BundleResource Include="Resources\RewardsCoin.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\prize.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\kitten.jpg" />
   </ItemGroup>
   <ItemGroup>
@@ -705,5 +702,8 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\Prizes\Unicorn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\prize.png" />
   </ItemGroup>
 </Project>

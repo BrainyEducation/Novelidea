@@ -7,7 +7,8 @@
         <Grid.RowDefinitions>
             <RowDefinition  Height="*" />
             <RowDefinition  Height="*" />
-            <RowDefinition  Height="3*" />
+            <RowDefinition  Height="2*" />
+            <RowDefinition  Height="1*" />
             <RowDefinition  Height="2*" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
@@ -59,6 +60,7 @@
               BorderColor="Black"
               BorderWidth="10"
               Grid.Row="2"
+              Grid.RowSpan="2"
               Grid.Column="0"
               Grid.ColumnSpan="10"
               CornerRadius="50"
@@ -68,7 +70,8 @@
         <ImageButton
               VerticalOptions="CenterAndExpand"
               Clicked="ImaginesClicked"
-              Grid.Row="3"
+              Grid.Row="4"
+              Grid.RowSpan="2"
               Grid.Column="0"
               Grid.ColumnSpan="10"
               BorderColor="Black"

@@ -37,25 +37,54 @@
                         VerticalOptions="CenterAndExpand"
                         HorizontalOptions="End"
                         Padding= "10"
-                        Source="prize.jpg"
-                        HeightRequest ="100"
+                        HeightRequest="100"
+                        Source="prize.png"
                         Clicked="PrizeTapped" />
                     <Label
                         x:Name="StoryMenuLabel"
                         FontFamily = "{StaticResource Comic}"
                         FontSize ="35"
                         TextColor="Black"
+                        HorizontalTextAlignment="Center"
+                        VerticalTextAlignment="Center"
                         VerticalOptions="Center"
                         HorizontalOptions="Center"
                         HeightRequest="100" />
                     <ImageButton
                         VerticalOptions="CenterAndExpand"
                         HorizontalOptions="Start"
-                        Source="kitten.jpg"
                         HeightRequest="100"
+                        Source="kitten.jpg"
                         Padding="10"
                         Clicked="CatClicked" />
                 </StackLayout>
+
+                <Grid
+                        HorizontalOptions="End"
+                        VerticalOptions="CenterAndExpand"
+                        HeightRequest="100"
+                        Padding="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*" />
+                    </Grid.ColumnDefinitions>
+                    <Image
+                            Grid.Row="0"
+                            Grid.Column="0"
+                            Source="trophy.png" />
+                    <Label
+                            x:Name="TotalPrizeCount"
+                            FontSize="25"
+                            TextColor="White"
+                            VerticalOptions="Center"
+                            VerticalTextAlignment="Center"
+                            HorizontalOptions="Center"
+                            HorizontalTextAlignment="Center"
+                            Grid.Row="0"
+                            Grid.Column="0" />
+                </Grid>
             </StackLayout>
             <!--<End of Navigation Bar />-->
 
