@@ -150,7 +150,7 @@ namespace BrainyStories
 
                     endTimes = new int[] { 4, 66, 100, 132, 152, 213, 297, 9999 };
 
-                    GenerateStoryPages(realmFile, BOY_CRIED_WOLF_ID, endTimes, "S4_TEATS_1.png", "S4_TEATS_2.jpg", "S4_TEATS_3.jpg", "S4_TEATS_4.jpg",
+                    GenerateStoryPages(realmFile, ELVES_SHOEMAKER_ID, endTimes, "S4_TEATS_1.png", "S4_TEATS_2.jpg", "S4_TEATS_3.jpg", "S4_TEATS_4.jpg",
                             "S4_TEATS_5.jpg", "S4_TEATS_6.jpg", "S4_TEATS_7.jpg", "S4_TEATS_7.jpg");
 
                     //STORY 5
@@ -171,7 +171,7 @@ namespace BrainyStories
                     stories.Add(story5);
                     realmFile.Add(story5);
 
-                    endTimes = new int[] { 27, 65, 139, 161, 192, 237, 260, 289, 358, 371, 390, 391, 9999 };
+                    endTimes = new int[] { 27, 65, 102, 151, 164, 194, 210, 237, 260, 288, 359, 372, 9999 };
 
                     GenerateStoryPages(realmFile, THREE_PIGS_ID, endTimes, "S5_TLP_1.jpg", "S5_TLP_2.jpg", "S5_TLP_3.jpg", "S5_TLP_4.jpg", "S5_TLP_5.jpg",
                           "S5_TLP_6.jpg", "S5_TLP_7.jpg", "S5_TLP_8.jpg", "S5_TLP_9.jpg", "S5_TLP_10.jpg", "S5_TLP_11.jpg", "S5_TLP_12.jpg", "S5_TLP_13.jpg");
@@ -289,7 +289,7 @@ namespace BrainyStories
                         imagines.Add(imagine4);
                         realmFile.Add<Story>(imagine4);
 
-                        endTimes = new int[] { 3, 45, 64, 97, 132, 9999 };
+                        endTimes = new int[] { 3, 35, 55, 80, 103, 9999 };
 
                         GenerateStoryPages(realmFile, imagine4.StoryId, endTimes, "I4_TSOEB_1.jpg", "I4_TSOEB_2.jpg",
                             "I4_TSOEB_3.jpg", "I4_TSOEB_4.jpg", "I4_TSOEB_5.jpg", "I4_TSOEB_6.jpg");

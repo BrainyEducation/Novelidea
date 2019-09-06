@@ -244,7 +244,6 @@ namespace BrainyStories
 
         private void EndPlayback(object sender, EventArgs e)
         {
-            EndPlayer();
             //go to the prize screen
             Navigation.PushAsync(new PotentialPrizes(StoryId, StorySet));
 
@@ -285,8 +284,18 @@ namespace BrainyStories
             if (player != null)
             {
                 player.Stop();
+                player.PlaybackEnded -= EndPlayback;
+                player.Dispose();
                 player = null;
             }
+        }
+
+        /// <summary>
+        /// gets called when a new screen is loaded - 
+        /// </summary>
+        protected override void OnDisappearing()
+        {
+            EndPlayer();
         }
     }
 }

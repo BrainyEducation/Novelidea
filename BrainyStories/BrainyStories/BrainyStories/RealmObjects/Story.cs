@@ -15,12 +15,11 @@ namespace BrainyStories
     // We can't have child classes for the Story and Imagines from a common base class- this isn't supported by Ralm
     public class Story : RealmObject
     {
-        public string StoryId { get; set; } = Guid.NewGuid().ToString();
+        public string StoryId { get; set; }
 
         // String of the name of story
         public String Name { get; set; }
 
-        //TODO: should this be ImageSource?
         // string link to the image
         public string Icon { get; set; }
 
