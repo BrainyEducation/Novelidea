@@ -32,13 +32,16 @@ namespace BrainyStories
         public const string PLAY_ICON = "play.png";
 
         //this is the percentage of the story that must be completed to be counted as read
-        private const double COMPLETION_THRESHOLD = .9;
+        private const double COMPLETION_THRESHOLD = .95;
 
         //user this variable to track the start and stop time for this story
         private UserStoryReads UserStoryTransaction;
 
         private IEnumerable<StoryPart> StoryPages;
         private Story Story;
+
+        //once the desired story % is read, mark this boolean true
+        private bool StoryMarkedRead = false;
 
         public StoryPage(Story story)
         {
@@ -75,6 +78,7 @@ namespace BrainyStories
             PlayButton.BackgroundColor = Color.Transparent;
             PlayButton.Margin = 20;
 
+            //September 2019: quiz button will be useful in future releases of the app
             QuizButton.Source = "Quizzes.png";
             QuizButton.BackgroundColor = Color.Green;
             QuizButton.IsVisible = false;
@@ -154,8 +158,10 @@ namespace BrainyStories
         {
             Device.BeginInvokeOnMainThread(() =>
             {
-                //once the desired story % is read, mark this boolean true
-                bool storyMarkedRead = false;
+                //track how much of the story the user has listened to (not just how much has been progressed with the slider)
+                var secondsRead = 0;
+                //reset the story - start out as not read
+                StoryMarkedRead = false;
                 //timer to track story progress and swap pages
                 Device.StartTimer(new TimeSpan(0, 0, 1), () =>
                 {
@@ -167,11 +173,13 @@ namespace BrainyStories
                         //check if the audio position has moved forward or backward - then see if we need to make sure the image should progress or regress
                         if (audioPosition > PreviousTime)
                         {
+                            secondsRead++;
+
                             //after 90% of the story has been read, mark as read if not marked as read already
-                            if (!storyMarkedRead && audioPosition >= (Story.DurationInSeconds * COMPLETION_THRESHOLD))
+                            if (!StoryMarkedRead && secondsRead >= (Story.DurationInSeconds * COMPLETION_THRESHOLD))
                             {
                                 MarkAsRead();
-                                storyMarkedRead = true;
+                                StoryMarkedRead = true;
                             }
                             //if the page has been completed, go to the next one
                             else if (audioPosition >= CurrentStoryPage.EndTimeInSeconds)
@@ -244,17 +252,17 @@ namespace BrainyStories
 
         private void EndPlayback(object sender, EventArgs e)
         {
-            //go to the prize screen
-            Navigation.PushAsync(new PotentialPrizes(StoryId, StorySet));
-
-            //if (story.QuizNum > 0)
-            //{
-            //    ChangePage(story);
-            //}
-            //else
-            //{
-            //GoBack();
-            //}
+            //if the user has listened to enough of the story to win a prize, show that screen
+            if (StoryMarkedRead)
+            {
+                //go to the prize screen
+                Navigation.PushAsync(new PotentialPrizes(StoryId, StorySet));
+            }
+            else
+            {
+                //otherwise, return to the imagines screen
+                Navigation.PushAsync(new Imagines(StorySet));
+            }
         }
 
         // Returns to the previous page
@@ -291,7 +299,7 @@ namespace BrainyStories
         }
 
         /// <summary>
-        /// gets called when a new screen is loaded - 
+        /// gets called when a new screen is loaded
         /// </summary>
         protected override void OnDisappearing()
         {
