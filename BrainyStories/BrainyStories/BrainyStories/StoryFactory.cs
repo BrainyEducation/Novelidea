@@ -15,11 +15,21 @@ namespace BrainyStories
     // Class for generating all story objectds
     public class StoryFactory
     {
+        //Stories
+
         public static readonly string LION_AND_MOUSE_ID = Guid.Parse("7632eca7-4310-4b1f-b91d-871d59b9783c").ToString();
         public static readonly string LITTLE_RED_HEN_ID = Guid.Parse("e48f424e-664a-4ddd-98d7-13328633eb8b").ToString();
         public static readonly string BOY_CRIED_WOLF_ID = Guid.Parse("50003f4c-7c67-4781-adbf-39c29d47dd00").ToString();
         public static readonly string ELVES_SHOEMAKER_ID = Guid.Parse("b19284f6-8d7c-4399-ac18-2e9491f8a811").ToString();
         public static readonly string THREE_PIGS_ID = Guid.Parse("7fe02c5d-f12d-4e06-8be2-43b98cd38711").ToString();
+
+        //Imagines
+
+        public static readonly string SHOE_CAR_ID = Guid.Parse("176b3ce3-8282-4fc5-aef2-76c92196ff0b").ToString();
+        public static readonly string PUMP_LEGS_ID = Guid.Parse("02a82436-eaad-48c2-99ca-b4a99e3a6056").ToString();
+        public static readonly string UPSIDE_DOWN_ID = Guid.Parse("20585bea-282c-4e4f-9c35-1eadd56980e8").ToString();
+        public static readonly string ONE_EYED_ID = Guid.Parse("7c76c511-f8f3-4184-a21a-9c764a21ebc4").ToString();
+        public static readonly string NAUGHTY_ANGEL_ID = Guid.Parse("ebd79204-a921-4769-a460-19fced4099ac").ToString();
 
         //private QuizFactory quizFactory = new QuizFactory();
 
@@ -206,6 +216,7 @@ namespace BrainyStories
                     {
                         var imagine1 = new Story()
                         {
+                            StoryId = SHOE_CAR_ID,
                             Name = "If A Shoe Wanted to be Car",
                             Icon = "I1_IASW_1.jpg",
                             Appeal = (int)AppealType.General,
@@ -230,6 +241,7 @@ namespace BrainyStories
                         //imagines 2
                         var imagine2 = new Story()
                         {
+                            StoryId = PUMP_LEGS_ID,
                             Name = "Do you pump your legs when you swing?",
                             Icon = "I2_DYPYL_1.jpg",
                             Appeal = (int)AppealType.Male,
@@ -253,6 +265,7 @@ namespace BrainyStories
 
                         var imagine3 = new Story()
                         {
+                            StoryId = UPSIDE_DOWN_ID,
                             Name = "Upside Down Windows",
                             Icon = "I3_TUDW_1.jpg",
                             Appeal = (int)AppealType.Female,
@@ -274,6 +287,7 @@ namespace BrainyStories
 
                         var imagine4 = new Story()
                         {
+                            StoryId = ONE_EYED_ID,
                             Name = "The Special One-Eye Blink",
                             Icon = "I4_TSOEB_1.jpg",
                             Appeal = (int)AppealType.Female,
@@ -296,6 +310,7 @@ namespace BrainyStories
 
                         var imagine5 = new Story()
                         {
+                            StoryId = NAUGHTY_ANGEL_ID,
                             Name = "If a Naughty Angel",
                             Icon = "I5_IANA_1.jpg",
                             Appeal = (int)AppealType.General,

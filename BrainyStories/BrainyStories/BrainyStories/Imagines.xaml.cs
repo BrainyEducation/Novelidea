@@ -1,5 +1,6 @@
 using BrainyStories.Objects;
 using BrainyStories.RealmObjects;
+using Realms;
 using Rg.Plugins.Popup.Services;
 using System;
 using System.Collections;
@@ -170,6 +171,49 @@ namespace BrainyStories
         private async void HomeClicked(object sender, EventArgs e)
         {
             await App.Current.MainPage.Navigation.PopToRootAsync();
+        }
+
+        /// <summary>
+        /// This is used to stage data for testing - this shouldn't be accessible when this goes to production
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void StagePrizes(object sender, EventArgs e)
+        {
+            var realmFile = Realm.GetInstance(RealmConfiguration.DefaultConfiguration);
+            //lookup the story in the database and add the selected prize
+            var stories = realmFile.All<Story>();
+            using (var realmTransaction = realmFile.BeginWrite())
+            {
+                foreach (var story in stories)
+                {
+                    story.Prize1 = story.Prize2 = story.Prize3 = story.Prize4 = story.Prize5 = String.Empty;
+                    //random number of prizes between 0 and 5
+                    var randomPrizeCount = new Random().Next(0, 6);
+                    switch (randomPrizeCount)
+                    {
+                        case 5:
+                            story.Prize5 = "Prizes/Bigfoot.png";
+                            goto case 4;
+                        case 4:
+                            story.Prize4 = "Prizes/Cat.png";
+                            goto case 3;
+                        case 3:
+                            story.Prize3 = "Prizes/Canoe.png";
+                            goto case 2;
+                        case 2:
+                            story.Prize2 = "Prizes/Dolphin.png";
+                            goto case 1;
+                        case 1:
+                            story.Prize1 = "Prizes/Firetruck.png";
+                            break;
+
+                        default:
+                            break;
+                    }
+                }
+                realmTransaction.Commit();
+            }
         }
     }
 }

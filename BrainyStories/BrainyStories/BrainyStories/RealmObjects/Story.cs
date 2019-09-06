@@ -72,8 +72,9 @@ namespace BrainyStories
         {
             get
             {
-                //TODO: standardize the aspect ratio of all story /imagine icons. Until then, use this
-                return this.StorySetAsEnum == RealmObjects.StorySet.StorySet1 ? 200 : 130;
+                //TODO: figure out what to do with this number based on walter's feedback
+                //return this.StorySetAsEnum == RealmObjects.StorySet.StorySet1 ? 250 : 200;
+                return 200;
             }
         }
 

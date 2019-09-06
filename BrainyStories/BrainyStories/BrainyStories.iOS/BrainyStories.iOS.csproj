@@ -620,15 +620,6 @@
     <BundleResource Include="Resources\trophy.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\Prize-Bigfoot.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Prize-Cat.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Prize-Dino.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\Prizes\Bigfoot.png" />
   </ItemGroup>
   <ItemGroup>
