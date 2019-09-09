@@ -1,5 +1,6 @@
 using BrainyStories.Objects;
 using BrainyStories.RealmObjects;
+using Plugin.SimpleAudioPlayer;
 using Realms;
 using Rg.Plugins.Popup.Services;
 using System;
@@ -75,11 +76,15 @@ namespace BrainyStories
     {
         private StorySet StorySet;
 
+        //used for prize accouncement playback
+        private ISimpleAudioPlayer player;
+
         /// <summary>
         /// This class is shared between the stories and the imagines. Stories have one number set, and imagines have another
         /// </summary>
         /// <param name="storySet">Pass in the number corresponding to the imagine or story set</param>
-        public Imagines(StorySet storySet)
+        /// <param name="displayDescription">This boolean defaults to true. If false, display the rewards instead of the description</param>
+        public Imagines(StorySet storySet, bool displayDescription = true)
         {
             NavigationPage.SetHasNavigationBar(this, false);
             StorySet = storySet;
@@ -100,6 +105,10 @@ namespace BrainyStories
             ListOfImagines.ItemsSource = imaginesData;
             //set the total number of prizes
             TotalPrizeCount.Text = GetTotalPrizeCount();
+            if (!displayDescription)
+            {
+                ToggleRewardsScreen();
+            }
         }
 
         private String GetTotalPrizeCount()
@@ -113,6 +122,11 @@ namespace BrainyStories
         }
 
         private void CatClicked(object sender, EventArgs e)
+        {
+            ToggleRewardsScreen();
+        }
+
+        private void ToggleRewardsScreen()
         {
             var newItemSource = new List<Story>();
             //switch to the prize grid view when the student clicks a button to view their prizes
@@ -145,12 +159,36 @@ namespace BrainyStories
             await PopupNavigation.Instance.PushAsync(pop);
         }
 
+        private void PlayPrizeAudio(object sender, EventArgs e)
+        {
+            var imageButton = (ImageButton)sender;
+
+            var realmFile = Realm.GetInstance(RealmConfiguration.DefaultConfiguration);
+            var prize = realmFile.All<Prize>()
+                .Where(x => x.Name.Equals(((FileImageSource)imageButton.Source).File.ToString())).FirstOrDefault();
+            //play audio to describe the prize
+            player = CrossSimpleAudioPlayer.Current;
+            player.Load(prize.Audio);
+            player.Play();
+            player.PlaybackEnded += EndAudio;
+        }
+
+        private void EndAudio(object sender, EventArgs e)
+        {
+            if (player != null)
+            {
+                player.Stop();
+                player.PlaybackEnded -= EndAudio;
+                player = null;
+            }
+        }
+
         private void PopUpClosed(object sender, EventArgs e)
         {
             ListOfImagines.ItemsSource = new StoryFactory().FetchStoriesOrImagines(StorySet);
         }
 
-        private async void ImagineClicked(object sender, ItemTappedEventArgs e)
+        private async void ImagineClicked(object sender, EventArgs e)
         {
             ListView view = (ListView)sender;
             if (view.SelectedItem == null)

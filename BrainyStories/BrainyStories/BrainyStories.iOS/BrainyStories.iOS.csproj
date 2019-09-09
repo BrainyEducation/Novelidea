@@ -697,4 +697,79 @@
   <ItemGroup>
     <BundleResource Include="Resources\prize.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\PrizeAudio\backhoe.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\PrizeAudio\bigfoot.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\PrizeAudio\butterfly.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\PrizeAudio\canoe.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\PrizeAudio\coins.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\PrizeAudio\cookies.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\PrizeAudio\dollhouse.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\PrizeAudio\dolphin.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\PrizeAudio\dragon.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\PrizeAudio\elephant.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\PrizeAudio\firetruck.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\PrizeAudio\icecream.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\PrizeAudio\kitten.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\PrizeAudio\mermaid.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\PrizeAudio\parrot.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\PrizeAudio\puppy.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\PrizeAudio\robot.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\PrizeAudio\skateboard.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\PrizeAudio\swings.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\PrizeAudio\tent.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\PrizeAudio\tiara.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\PrizeAudio\tiger.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\PrizeAudio\trex.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\PrizeAudio\tricycle.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\PrizeAudio\unicorn.mp3" />
+  </ItemGroup>
 </Project>
