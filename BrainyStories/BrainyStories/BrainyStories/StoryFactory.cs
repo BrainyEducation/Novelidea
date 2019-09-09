@@ -69,123 +69,141 @@ namespace BrainyStories
                 //add stories and their pages to the db
                 using (var realmTransaction = realmFile.BeginWrite())
                 {
-                    //STORY 1
-                    var story1 = new Story()
+                    //use a simple audio player to measure duration
+                    using (var player = Plugin.SimpleAudioPlayer.CrossSimpleAudioPlayer.CreateSimpleAudioPlayer())
                     {
-                        StoryId = LION_AND_MOUSE_ID,
-                        Name = "The Lion and the Mouse",
-                        Icon = "S1_LATM_1.png",
-                        Appeal = (int)AppealType.Animal,
-                        Description = "A lion releases a mouse, believing it’s too small and weak ever to return the favor, " +
+                        //STORY 1
+                        var story1 = new Story()
+                        {
+                            StoryId = LION_AND_MOUSE_ID,
+                            Name = "The Lion and the Mouse",
+                            Icon = "S1_LATM_1.png",
+                            Appeal = (int)AppealType.Animal,
+                            Description = "A lion releases a mouse, believing it’s too small and weak ever to return the favor, " +
                         "but when the lion is trapped in a net the mouse gnaws the threads and releases the lion.",
-                        AudioClip = "S1_TLATM_Story.mp3",
-                        StorySetAsEnum = StorySet.StorySet1,
-                        WordCount = 395,
-                    };
+                            AudioClip = "S1_TLATM_Story.mp3",
+                            StorySetAsEnum = StorySet.StorySet1,
+                            WordCount = 395,
+                        };
 
-                    story1.ThinkAndDo = thinkAndDos.Where(x => x.StoryId == story1.StoryId).FirstOrDefault();
-                    stories.Add(story1);
-                    realmFile.Add(story1);
+                        story1.ThinkAndDo = thinkAndDos.Where(x => x.StoryId == story1.StoryId).FirstOrDefault();
 
-                    //these are a stop gap until we can separate the audio files into one file per segment
-                    var endTimes = new int[] { 5, 32, 49, 62, 97, 116, 150, 9999 }; //max time can be really high since the end of the story will be reached first
+                        player.Load(story1.AudioClip);
+                        story1.DurationInSeconds = player.Duration;
+                        stories.Add(story1);
+                        realmFile.Add(story1);
 
-                    //also add the pages of the story
-                    GenerateStoryPages(realmFile, LION_AND_MOUSE_ID, endTimes, "S1_LATM_1.png", "S1_LATM_2.jpg", "S1_LATM_3.jpg",
-                        "S1_LATM_4.jpg", "S1_LATM_5.jpg", "S1_LATM_6.jpg", "S1_LATM_7.jpg", "S1_LATM_8.jpg");
+                        //these are a stop gap until we can separate the audio files into one file per segment
+                        var endTimes = new int[] { 5, 32, 49, 62, 97, 116, 150, 9999 }; //max time can be really high since the end of the story will be reached first
 
-                    //STORY 2
-                    var story2 = new Story()
-                    {
-                        StoryId = LITTLE_RED_HEN_ID,
-                        Name = "The Little Red Hen",
-                        Icon = "S2_LRH_0.png",
-                        Appeal = (int)AppealType.Animal,
-                        Description = "Lazy animals refuse to help the hen plant the seed, harvest the grain, or bake the " +
-                            "bread, so the hen refuses to share the baked bread with the lazy animals.",
-                        AudioClip = "S2_LRH_Story.mp3",
-                        StorySetAsEnum = StorySet.StorySet1,
-                        WordCount = 477,
-                    };
+                        //also add the pages of the story
+                        GenerateStoryPages(realmFile, LION_AND_MOUSE_ID, endTimes, "S1_LATM_1.png", "S1_LATM_2.jpg", "S1_LATM_3.jpg",
+                            "S1_LATM_4.jpg", "S1_LATM_5.jpg", "S1_LATM_6.jpg", "S1_LATM_7.jpg", "S1_LATM_8.jpg");
 
-                    story2.ThinkAndDo = thinkAndDos.Where(x => x.StoryId == story2.StoryId).FirstOrDefault();
-                    stories.Add(story2);
-                    realmFile.Add(story2);
+                        //STORY 2
+                        var story2 = new Story()
+                        {
+                            StoryId = LITTLE_RED_HEN_ID,
+                            Name = "The Little Red Hen",
+                            Icon = "S2_LRH_0.png",
+                            Appeal = (int)AppealType.Animal,
+                            Description = "Lazy animals refuse to help the hen plant the seed, harvest the grain, or bake the " +
+                                "bread, so the hen refuses to share the baked bread with the lazy animals.",
+                            AudioClip = "S2_LRH_Story.mp3",
+                            StorySetAsEnum = StorySet.StorySet1,
+                            WordCount = 477,
+                        };
 
-                    endTimes = new int[] { 24, 54, 63, 96, 127, 160, 9999 };
+                        story2.ThinkAndDo = thinkAndDos.Where(x => x.StoryId == story2.StoryId).FirstOrDefault();
 
-                    GenerateStoryPages(realmFile, LITTLE_RED_HEN_ID, endTimes, "S2_LRH_1.jpg", "S2_LRH_2.jpg", "S2_LRH_3.jpg", "S2_LRH_4.jpg",
-                        "S2_LRH_5.jpg", "S2_LRH_6.jpg", "S2_LRH_7.jpg");
+                        player.Load(story2.AudioClip);
+                        story2.DurationInSeconds = player.Duration;
+                        stories.Add(story2);
+                        realmFile.Add(story2);
 
-                    //STORY 3
-                    var story3 = new Story()
-                    {
-                        StoryId = BOY_CRIED_WOLF_ID,
-                        Name = "The Boy Who Cried Wolf",
-                        Icon = "S3_TBWCW_1.png",
-                        Appeal = (int)AppealType.Male,
-                        Description = "Bored watching over the sheep, a boy causes excitement by lying that a wolf " +
-                            "threatens; when a real wolf attacks, the people think the boy’s lying and won’t come to help him.",
-                        AudioClip = "S3_BWCW_Story.mp3",
-                        StorySetAsEnum = StorySet.StorySet1,
-                        WordCount = 722
-                    };
+                        endTimes = new int[] { 24, 54, 63, 96, 127, 160, 9999 };
 
-                    story3.ThinkAndDo = thinkAndDos.Where(x => x.StoryId == story3.StoryId).FirstOrDefault();
-                    stories.Add(story3);
-                    realmFile.Add(story3);
+                        GenerateStoryPages(realmFile, LITTLE_RED_HEN_ID, endTimes, "S2_LRH_1.jpg", "S2_LRH_2.jpg", "S2_LRH_3.jpg", "S2_LRH_4.jpg",
+                            "S2_LRH_5.jpg", "S2_LRH_6.jpg", "S2_LRH_7.jpg");
 
-                    endTimes = new int[] { 2, 34, 77, 105, 141, 179, 209, 223, 9999 };
+                        //STORY 3
+                        var story3 = new Story()
+                        {
+                            StoryId = BOY_CRIED_WOLF_ID,
+                            Name = "The Boy Who Cried Wolf",
+                            Icon = "S3_TBWCW_1.png",
+                            Appeal = (int)AppealType.Male,
+                            Description = "Bored watching over the sheep, a boy causes excitement by lying that a wolf " +
+                                "threatens; when a real wolf attacks, the people think the boy’s lying and won’t come to help him.",
+                            AudioClip = "S3_BWCW_Story.mp3",
+                            StorySetAsEnum = StorySet.StorySet1,
+                            WordCount = 722
+                        };
 
-                    GenerateStoryPages(realmFile, BOY_CRIED_WOLF_ID, endTimes, "S3_TBWCW_1.png", "S3_TBWCW_2.jpg", "S3_TBWCW_3.jpg", "S3_TBWCW_4.jpg",
-                        "S3_TBWCW_5.jpg", "S3_TBWCW_6.jpg", "S3_TBWCW_7.jpg", "S3_TBWCW_8.jpg", "S3_TBWCW_9.jpg");
+                        story3.ThinkAndDo = thinkAndDos.Where(x => x.StoryId == story3.StoryId).FirstOrDefault();
 
-                    //STORY 4
-                    var story4 = new Story()
-                    {
-                        StoryId = ELVES_SHOEMAKER_ID,
-                        Name = "The Elves and Shoemaker",
-                        Icon = "S4_TEATS_1.png",
-                        Appeal = (int)AppealType.General,
-                        Description = "By secretly making shoes, two elves save a poor shoemaker and his wife; " +
-                        "the man and wife make clothes to reward the elves, who leave when their help is no longer needed.",
-                        AudioClip = "S4_TEATS_Story.mp3",
-                        StorySetAsEnum = StorySet.StorySet1,
-                        WordCount = 830
-                    };
+                        player.Load(story3.AudioClip);
+                        story3.DurationInSeconds = player.Duration;
+                        stories.Add(story3);
+                        realmFile.Add(story3);
 
-                    story4.ThinkAndDo = thinkAndDos.Where(x => x.StoryId == story4.StoryId).FirstOrDefault();
-                    stories.Add(story4);
-                    realmFile.Add(story4);
+                        endTimes = new int[] { 2, 34, 77, 105, 141, 179, 209, 223, 9999 };
 
-                    endTimes = new int[] { 4, 66, 100, 132, 152, 213, 297, 9999 };
+                        GenerateStoryPages(realmFile, BOY_CRIED_WOLF_ID, endTimes, "S3_TBWCW_1.png", "S3_TBWCW_2.jpg", "S3_TBWCW_3.jpg", "S3_TBWCW_4.jpg",
+                            "S3_TBWCW_5.jpg", "S3_TBWCW_6.jpg", "S3_TBWCW_7.jpg", "S3_TBWCW_8.jpg", "S3_TBWCW_9.jpg");
 
-                    GenerateStoryPages(realmFile, ELVES_SHOEMAKER_ID, endTimes, "S4_TEATS_1.png", "S4_TEATS_2.jpg", "S4_TEATS_3.jpg", "S4_TEATS_4.jpg",
-                            "S4_TEATS_5.jpg", "S4_TEATS_6.jpg", "S4_TEATS_7.jpg", "S4_TEATS_7.jpg");
+                        //STORY 4
+                        var story4 = new Story()
+                        {
+                            StoryId = ELVES_SHOEMAKER_ID,
+                            Name = "The Elves and Shoemaker",
+                            Icon = "S4_TEATS_1.png",
+                            Appeal = (int)AppealType.General,
+                            Description = "By secretly making shoes, two elves save a poor shoemaker and his wife; " +
+                            "the man and wife make clothes to reward the elves, who leave when their help is no longer needed.",
+                            AudioClip = "S4_TEATS_Story.mp3",
+                            StorySetAsEnum = StorySet.StorySet1,
+                            WordCount = 830
+                        };
 
-                    //STORY 5
-                    var story5 = new Story()
-                    {
-                        StoryId = THREE_PIGS_ID,
-                        Name = "The Three Little Pigs",
-                        Icon = "S5_TLP_0.png",
-                        Appeal = (int)AppealType.Animal,
-                        Description = "Two pigs squander their money and build shabby houses; their smarter brother " +
-                             "saves and works hard to build a brick house which protects them all from the big bad wolf.",
-                        AudioClip = "S5_TLP_Story.mp3",
-                        StorySetAsEnum = StorySet.StorySet1,
-                        WordCount = 986
-                    };
+                        story4.ThinkAndDo = thinkAndDos.Where(x => x.StoryId == story4.StoryId).FirstOrDefault();
 
-                    story5.ThinkAndDo = thinkAndDos.Where(x => x.StoryId == story5.StoryId).FirstOrDefault();
-                    stories.Add(story5);
-                    realmFile.Add(story5);
+                        player.Load(story4.AudioClip);
+                        story4.DurationInSeconds = player.Duration;
+                        stories.Add(story4);
+                        realmFile.Add(story4);
 
-                    endTimes = new int[] { 27, 65, 102, 151, 164, 194, 210, 237, 260, 288, 359, 372, 9999 };
+                        endTimes = new int[] { 4, 66, 100, 132, 152, 213, 297, 9999 };
 
-                    GenerateStoryPages(realmFile, THREE_PIGS_ID, endTimes, "S5_TLP_1.jpg", "S5_TLP_2.jpg", "S5_TLP_3.jpg", "S5_TLP_4.jpg", "S5_TLP_5.jpg",
-                          "S5_TLP_6.jpg", "S5_TLP_7.jpg", "S5_TLP_8.jpg", "S5_TLP_9.jpg", "S5_TLP_10.jpg", "S5_TLP_11.jpg", "S5_TLP_12.jpg", "S5_TLP_13.jpg");
+                        GenerateStoryPages(realmFile, ELVES_SHOEMAKER_ID, endTimes, "S4_TEATS_1.png", "S4_TEATS_2.jpg", "S4_TEATS_3.jpg", "S4_TEATS_4.jpg",
+                                "S4_TEATS_5.jpg", "S4_TEATS_6.jpg", "S4_TEATS_7.jpg", "S4_TEATS_7.jpg");
 
+                        //STORY 5
+                        var story5 = new Story()
+                        {
+                            StoryId = THREE_PIGS_ID,
+                            Name = "The Three Little Pigs",
+                            Icon = "S5_TLP_0.png",
+                            Appeal = (int)AppealType.Animal,
+                            Description = "Two pigs squander their money and build shabby houses; their smarter brother " +
+                                 "saves and works hard to build a brick house which protects them all from the big bad wolf.",
+                            AudioClip = "S5_TLP_Story.mp3",
+                            StorySetAsEnum = StorySet.StorySet1,
+                            WordCount = 986
+                        };
+
+                        story5.ThinkAndDo = thinkAndDos.Where(x => x.StoryId == story5.StoryId).FirstOrDefault();
+
+                        player.Load(story5.AudioClip);
+                        story5.DurationInSeconds = player.Duration;
+                        stories.Add(story5);
+                        realmFile.Add(story5);
+
+                        endTimes = new int[] { 27, 65, 102, 151, 164, 194, 210, 237, 260, 288, 359, 372, 9999 };
+
+                        GenerateStoryPages(realmFile, THREE_PIGS_ID, endTimes, "S5_TLP_1.jpg", "S5_TLP_2.jpg", "S5_TLP_3.jpg", "S5_TLP_4.jpg", "S5_TLP_5.jpg",
+                              "S5_TLP_6.jpg", "S5_TLP_7.jpg", "S5_TLP_8.jpg", "S5_TLP_9.jpg", "S5_TLP_10.jpg", "S5_TLP_11.jpg", "S5_TLP_12.jpg", "S5_TLP_13.jpg");
+                    }
                     realmTransaction.Commit();
                 }
             }

@@ -38,11 +38,12 @@ namespace BrainyStories
 
         //this is necessary because Realm doesn't support timespan
         [Ignored]
-        public TimeSpan DurationInTimeSpan
+        public String DurationInTimeSpanString
         {
             get
             {
-                return new TimeSpan(hours: 0, minutes: 0, seconds: (int)DurationInSeconds);
+                var durationTimeSpan = new TimeSpan(hours: 0, minutes: 0, seconds: (int)DurationInSeconds);
+                return durationTimeSpan.ToString();
             }
         }
 
@@ -74,7 +75,7 @@ namespace BrainyStories
             {
                 //TODO: figure out what to do with this number based on walter's feedback
                 //return this.StorySetAsEnum == RealmObjects.StorySet.StorySet1 ? 250 : 200;
-                return 200;
+                return 150;
             }
         }
 

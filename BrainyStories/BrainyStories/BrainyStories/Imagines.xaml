@@ -110,20 +110,36 @@
                                     <StackLayout IsVisible="{Binding IsStoryVisible}" Padding="10" Orientation="Vertical">
                                         <Label Text ="{Binding Name}" FontAttributes="Bold" FontSize="35" />
                                         <Label Text ="{Binding Description}"
-                                               LineBreakMode="WordWrap" VerticalOptions="Start"  FontSize="25" FontFamily="{StaticResource Comic}" />
-                                        <StackLayout Orientation="Horizontal" VerticalOptions="Start">
-                                            <Label Text="{Binding DurationInTimeSpan}"
-                                               VerticalOptions="Start"  FontSize="25" FontFamily="{StaticResource Comic}" />
-                                            <Label Text="{Binding WordCount}"
-                                               VerticalOptions="Start"  FontSize="25" FontFamily="{StaticResource Comic}" />
-                                            <Label Text=" Words"
-                                               VerticalOptions="Start"  FontSize="25" FontFamily="{StaticResource Comic}" />
+                                               LineBreakMode="WordWrap" VerticalOptions="Start"  FontSize="23" FontFamily="{StaticResource Comic}" />
 
-                                            <ImageButton HorizontalOptions="Start" WidthRequest= "50"
+                                        <!--Grid for the Stars-->
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="*" />
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="4*" />
+                                                <ColumnDefinition Width="2*" />
+                                                <ColumnDefinition Width="2*" />
+                                                <ColumnDefinition Width="1*" />
+                                                <ColumnDefinition Width="2*" />
+                                            </Grid.ColumnDefinitions>
+
+                                            <StackLayout Grid.Row="0" Grid.Column="0" Orientation="Horizontal" VerticalOptions="Start">
+                                                <!--Uncomment below if we need a timespan-->
+                                                <!--<Label Text="{Binding DurationInTimeSpanString}"
+                                                     FontSize="25" FontFamily="{StaticResource Comic}" />-->
+                                                <Label Text="{Binding WordCount}"
+                                                    VerticalOptions="Center"  FontSize="25" FontFamily="{StaticResource Comic}" />
+                                                <Label Text=" Words"
+                                                    VerticalOptions="Center"  FontSize="25" FontFamily="{StaticResource Comic}" />
+                                            </StackLayout>
+
+                                            <ImageButton Grid.Row="0" Grid.Column="3" HorizontalOptions="End" WidthRequest= "50"
                                                          Source="{Binding ThinkAndDo.Star1Image}" Clicked="StarTapped" CommandParameter="1"  BackgroundColor="Transparent" />
-                                            <ImageButton HorizontalOptions="Start" WidthRequest="50"
+                                            <ImageButton Grid.Row="0" Grid.Column="5" HorizontalOptions="End" WidthRequest="50"
                                                          Source="{Binding ThinkAndDo.Star2Image}" Clicked="StarTapped" CommandParameter="2"  BackgroundColor="Transparent" />
-                                        </StackLayout>
+                                        </Grid>
                                     </StackLayout>
                                     <!--This half of the View Cell is for the Prize View-->
                                     <Image HeightRequest="{Binding HeightRequest}"

@@ -32,11 +32,6 @@ namespace BrainyStories.Objects
         {
             get
             {
-                //an exception here for the red hen story
-                if (ThinkAndDoName.Equals(ThinkAndDoFactory.RED_HEN_NAME))
-                {
-                    return String.Empty;
-                }
                 return CompletedPrompt2 ? "GoldStar2.png" : "SilverStar2.png";
             }
         }
