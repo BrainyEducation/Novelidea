@@ -187,8 +187,8 @@ namespace BrainyStories
                                 //progress to the next story page
                                 CurrentStoryPage = StoryPages.Where(x => x.EndTimeInSeconds >= audioPosition
                                     && x.StartTimeInSeconds <= audioPosition).FirstOrDefault();
-
                                 StoryImage.Source = CurrentStoryPage.Image;
+                                GC.Collect();
                             }
                         }
                         else if (audioPosition < PreviousTime)
@@ -304,6 +304,11 @@ namespace BrainyStories
         protected override void OnDisappearing()
         {
             EndPlayer();
+            CurrentStoryPage = null;
+            Story = null;
+            StoryPages = null;
+            UserStoryTransaction = null;
+            GC.Collect();
         }
     }
 }
