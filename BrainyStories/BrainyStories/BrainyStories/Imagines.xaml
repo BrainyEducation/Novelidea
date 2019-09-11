@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
              x:Class="BrainyStories.Imagines"
              NavigationPage.HasNavigationBar="false"
              BackgroundColor="#A9FFF7">
@@ -105,7 +106,7 @@
                                 <StackLayout Orientation="Horizontal"
                              HeightRequest="250" HorizontalOptions="FillAndExpand">
                                     <!--Structured to allow for toggle between the Story View and the Prize View-->
-                                    <Image VerticalOptions="FillAndExpand" Aspect="AspectFill"
+                                    <ffimageloading:CachedImage VerticalOptions="FillAndExpand" Aspect="AspectFill"
                                            IsVisible="{Binding IsStoryVisible}" Source="{Binding Icon}" />
                                     <StackLayout IsVisible="{Binding IsStoryVisible}" Padding="10" Orientation="Vertical">
                                         <Label Text ="{Binding Name}" FontAttributes="Bold" FontSize="35" />
@@ -142,7 +143,7 @@
                                         </Grid>
                                     </StackLayout>
                                     <!--This half of the View Cell is for the Prize View-->
-                                    <Image HeightRequest="{Binding HeightRequest}"
+                                    <ffimageloading:CachedImage HeightRequest="{Binding HeightRequest}"
                                                IsVisible="{Binding AreRewardsVisible}" Source="{Binding Icon}" />
                                     <Grid IsVisible="{Binding AreRewardsVisible}">
                                         <Grid.RowDefinitions>

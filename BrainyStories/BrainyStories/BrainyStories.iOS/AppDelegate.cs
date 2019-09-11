@@ -1,4 +1,5 @@
-﻿using Foundation;
+﻿using FFImageLoading.Forms.Platform;
+using Foundation;
 using UIKit;
 
 namespace BrainyStories.iOS
@@ -20,8 +21,9 @@ namespace BrainyStories.iOS
         {
             Rg.Plugins.Popup.Popup.Init();
             Xamarin.Forms.Forms.Init();
+            CachedImageRenderer.InitImageSourceHandler();
             LoadApplication(new App());
-
+            FFImageLoading.Forms.Platform.CachedImageRenderer.Init();
             return base.FinishedLaunching(app, options);
         }
     }

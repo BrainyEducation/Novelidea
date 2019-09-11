@@ -14,6 +14,7 @@ using BrainyStories.Objects;
 using Realms;
 using Xamarin.Essentials;
 using BrainyStories.RealmObjects;
+using FFImageLoading.Forms;
 
 namespace BrainyStories
 {
@@ -188,7 +189,6 @@ namespace BrainyStories
                                 CurrentStoryPage = StoryPages.Where(x => x.EndTimeInSeconds >= audioPosition
                                     && x.StartTimeInSeconds <= audioPosition).FirstOrDefault();
                                 StoryImage.Source = CurrentStoryPage.Image;
-                                GC.Collect();
                             }
                         }
                         else if (audioPosition < PreviousTime)
@@ -303,12 +303,13 @@ namespace BrainyStories
         /// </summary>
         protected override void OnDisappearing()
         {
+            base.OnDisappearing();
             EndPlayer();
             CurrentStoryPage = null;
             Story = null;
             StoryPages = null;
             UserStoryTransaction = null;
-            GC.Collect();
+            System.GC.Collect();
         }
     }
 }

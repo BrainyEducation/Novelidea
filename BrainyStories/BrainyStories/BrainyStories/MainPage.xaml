@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
              x:Class="BrainyStories.MainPage"
              NavigationPage.HasNavigationBar="false">
     <Grid x:Name="pageGrid" BackgroundColor="#99d9ea" Padding="5,5,5,5">
@@ -23,61 +24,54 @@
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-        <!--<Start of Navigation Bar />-->
-        <StackLayout VerticalOptions="Start"
-                 HorizontalOptions="FillAndExpand"
-                 Orientation="Horizontal"
-                 BackgroundColor ="#99d9ea">
-            <ImageButton HorizontalOptions="Start"
-                   Source="BackButton.png"
-                   Clicked ="BackClicked"
-                   BorderColor ="Transparent"
-                   BackgroundColor="Transparent"
-                   IsVisible="False" />
-            <ImageButton HorizontalOptions="Start"
-                   Source="Home.png"
-                   Clicked ="HomeClicked"
-                   BorderColor ="Transparent"
-                   BackgroundColor="Transparent"
-                   IsVisible="False" />
-        </StackLayout>
-
-        <!--<End of Navigation Bar />-->
 
         <!--<Brainy Stories Logo />-->
 
-        <Image Source="logo.png"
-
-         VerticalOptions="CenterAndExpand"
-         HorizontalOptions="CenterAndExpand"
-         Grid.Row="0"
-         Grid.Column="1"
-         Grid.RowSpan="2"
-         Grid.ColumnSpan="8" />
+        <ffimageloading:CachedImage
+            Source="logo.png"
+             VerticalOptions="CenterAndExpand"
+             HorizontalOptions="CenterAndExpand"
+             Grid.Row="0"
+             Grid.Column="1"
+             Grid.RowSpan="2"
+             Grid.ColumnSpan="8" />
         <!--<Two home page buttons />-->
-        <ImageButton
-              Clicked="StoriesClicked"
-              BorderColor="Black"
-              BorderWidth="10"
-              Grid.Row="2"
-              Grid.RowSpan="2"
-              Grid.Column="0"
-              Grid.ColumnSpan="10"
-              CornerRadius="50"
-              VerticalOptions="CenterAndExpand"
-              Source="ClassicStoriesButton.png" />
+        <Frame
+            BorderColor="Black"
+            Grid.Row="2"
+            Grid.RowSpan="2"
+            Grid.Column="0"
+            Grid.ColumnSpan="10"
+            BackgroundColor="Transparent"
+            CornerRadius="50">
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer Tapped="StoriesClicked" />
+            </Frame.GestureRecognizers>
+            <ffimageloading:CachedImage
+                Grid.ColumnSpan="10"
+                Grid.RowSpan="2"
+                Source="ClassicStoriesButton.png">
+            </ffimageloading:CachedImage>
+        </Frame>
 
-        <ImageButton
-              VerticalOptions="CenterAndExpand"
-              Clicked="ImaginesClicked"
+        <Frame
               Grid.Row="4"
               Grid.RowSpan="2"
               Grid.Column="0"
-              Grid.ColumnSpan="10"
               BorderColor="Black"
-              BorderWidth="10"
               CornerRadius="50"
-              Source="ImaginesButton.png" />
+              BackgroundColor="Transparent"
+              Grid.ColumnSpan="10">
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer Tapped="ImaginesClicked" />
+            </Frame.GestureRecognizers>
+            <ffimageloading:CachedImage
+              Grid.ColumnSpan="10"
+              Grid.RowSpan="2"
+              VerticalOptions="CenterAndExpand"
+              Source="ImaginesButton.png">
+            </ffimageloading:CachedImage>
+        </Frame>
 
         <!--The 4 image buttons commented out here are from the first iteration of the app. They may be required
         again if we revert back to the 6 button main screen-->

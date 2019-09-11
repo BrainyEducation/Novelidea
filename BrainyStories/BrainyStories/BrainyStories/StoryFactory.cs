@@ -203,6 +203,8 @@ namespace BrainyStories
 
                         GenerateStoryPages(realmFile, THREE_PIGS_ID, endTimes, "S5_TLP_1.jpg", "S5_TLP_2.jpg", "S5_TLP_3.jpg", "S5_TLP_4.jpg", "S5_TLP_5.jpg",
                               "S5_TLP_6.jpg", "S5_TLP_7.jpg", "S5_TLP_8.jpg", "S5_TLP_9.jpg", "S5_TLP_10.jpg", "S5_TLP_11.jpg", "S5_TLP_12.jpg", "S5_TLP_13.jpg");
+
+                        player.Dispose();
                     }
                     realmTransaction.Commit();
                 }
@@ -348,6 +350,8 @@ namespace BrainyStories
 
                         GenerateStoryPages(realmFile, imagine5.StoryId, endTimes, "I5_IANA_1.jpg", "I5_IANA_2.jpg",
                             "I5_IANA_3.jpg", "I5_IANA_4.jpg", "I5_IANA_5.jpg", "I5_IANA_6.jpg");
+
+                        player.Dispose();
                     }
 
                     realmTransaction.Commit();

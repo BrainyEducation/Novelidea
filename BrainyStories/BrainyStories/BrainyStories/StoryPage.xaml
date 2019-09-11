@@ -1,20 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
              x:Class="BrainyStories.StoryPage"
              NavigationPage.HasNavigationBar="false"
              BackgroundColor="#A9FFF7">
-  <ContentPage.Content>
-    <StackLayout Orientation="Vertical"
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical"
            VerticalOptions="FillAndExpand"
            CompressedLayout.IsHeadless="True"
            x:Name="TopStack">
-      <!--<Start of Navigation Bar />-->
-      <StackLayout VerticalOptions="Start"
+            <!--<Start of Navigation Bar />-->
+            <StackLayout VerticalOptions="Start"
         HorizontalOptions="FillAndExpand"
         Orientation="Horizontal"
         BackgroundColor ="#A9FFF7">
-        <ImageButton HorizontalOptions="Start"
+                <ImageButton HorizontalOptions="Start"
         Source="BackButton.png"
         Clicked ="BackClicked"
         WidthRequest="50"
@@ -23,7 +24,7 @@
         VerticalOptions="CenterAndExpand"
         BorderColor ="Transparent"
         BackgroundColor="Transparent" />
-        <ImageButton
+                <ImageButton
         VerticalOptions="CenterAndExpand"
         HorizontalOptions="Start"
         Source="Home.png"
@@ -33,25 +34,25 @@
         Clicked ="HomeClicked"
         BorderColor ="Transparent"
         BackgroundColor="Transparent" />
-      </StackLayout>
-      <Grid>
-        <Grid.RowDefinitions>
-          <RowDefinition Height="3*" />
-          <RowDefinition Height="1*" />
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-          <ColumnDefinition Width="*" />
-        </Grid.ColumnDefinitions>
-        <!--<End of Navigation Bar />-->
-        <Image Grid.Column="0" Grid.Row="0" x:Name="StoryImage"  ></Image>
-        <!--Imagines Control - Slider-->
-        <StackLayout Orientation="Horizontal" Grid.Column="0" Grid.Row="1">
-          <ImageButton x:Name="PlayButton"></ImageButton>
-          <ImageButton x:Name="QuizButton"></ImageButton>
-          <Label x:Name="DurationLabel"></Label>
-          <Slider x:Name="StoryPageSlider"></Slider>
+            </StackLayout>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="3*" />
+                    <RowDefinition Height="1*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <!--<End of Navigation Bar />-->
+                <ffimageloading:CachedImage  Grid.Column="0" Grid.Row="0" x:Name="StoryImage" />
+                <!--Imagines Control - Slider-->
+                <StackLayout Orientation="Horizontal" Grid.Column="0" Grid.Row="1">
+                    <ImageButton x:Name="PlayButton"></ImageButton>
+                    <ImageButton x:Name="QuizButton"></ImageButton>
+                    <Label x:Name="DurationLabel"></Label>
+                    <Slider x:Name="StoryPageSlider"></Slider>
+                </StackLayout>
+            </Grid>
         </StackLayout>
-      </Grid>
-    </StackLayout>
-  </ContentPage.Content>
+    </ContentPage.Content>
 </ContentPage>
