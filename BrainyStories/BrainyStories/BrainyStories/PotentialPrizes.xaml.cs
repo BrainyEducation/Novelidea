@@ -1,4 +1,5 @@
 using BrainyStories.RealmObjects;
+using FFImageLoading.Forms;
 using Plugin.SimpleAudioPlayer;
 using Realms;
 using Rg.Plugins.Popup.Services;
@@ -36,15 +37,23 @@ namespace BrainyStories
             //populate prize screen
             foreach (var prize in prizes)
             {
-                var prizeButton = new ImageButton()
+                //add a content view, then insert the image and click listener inside it
+                var contentView = new ContentView();
+                contentView.SetValue(Grid.RowProperty, prize.Row);
+                contentView.SetValue(Grid.ColumnProperty, prize.Column);
+
+                var prizeImage = new CachedImage()
                 {
                     Source = prize.Name
                 };
-                prizeButton.SetValue(Grid.RowProperty, prize.Row);
-                prizeButton.SetValue(Grid.ColumnProperty, prize.Column);
 
-                prizeButton.Clicked += PrizeSelected;
-                PrizeGrid.Children.Add(prizeButton);
+                var gesture = new TapGestureRecognizer();
+                gesture.Tapped += PrizeSelected;
+
+                contentView.Content = prizeImage;
+                contentView.GestureRecognizers.Add(gesture);
+
+                PrizeGrid.Children.Add(contentView);
             }
         }
 
@@ -58,14 +67,14 @@ namespace BrainyStories
         public async void PrizeSelected(object sender, EventArgs e)
         {
             //this is the prize that has been selected
-            var selectedPrize = (ImageButton)sender;
+            var selectedPrize = (CachedImage)((ContentView)sender).Content;
 
             //find the associated audio
             var prize = RealmFile.All<Prize>()
                 .Where(x => x.Name == ((FileImageSource)selectedPrize.Source).File.ToString()).FirstOrDefault();
 
             //play audio to describe the prize
-            player = CrossSimpleAudioPlayer.Current;
+            player = CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
             player.Load(prize.Audio);
             player.Play();
             player.PlaybackEnded += EndAudio;
@@ -120,10 +129,16 @@ namespace BrainyStories
 
         private void EndAudio(object sender, EventArgs e)
         {
+            StopAndDisposePlayer();
+        }
+
+        private void StopAndDisposePlayer()
+        {
             if (player != null)
             {
                 player.Stop();
                 player.PlaybackEnded -= EndAudio;
+                player.Dispose();
                 player = null;
             }
         }
@@ -147,6 +162,12 @@ namespace BrainyStories
             await App.Current.MainPage.Navigation.PopToRootAsync();
         }
 
+        protected override void OnDisappearing()
+        {
+            StopAndDisposePlayer();
+            RealmFile.Dispose();
+        }
+
         private void PopulatePrizes()
         {
             using (var transaction = RealmFile.BeginWrite())
@@ -154,7 +175,7 @@ namespace BrainyStories
                 var prize1 = new Prize()
                 {
                     Audio = "PrizeAudio/backhoe.mp3",
-                    Name = "Prizes/Bulldozer.png",
+                    Name = GetPrizeFilepath("Bulldozer.png"),
                     Column = 0,
                     Row = 0
                 };
@@ -164,7 +185,7 @@ namespace BrainyStories
                 var prize2 = new Prize()
                 {
                     Audio = "PrizeAudio/bigfoot.mp3",
-                    Name = "Prizes/Bigfoot.png",
+                    Name = GetPrizeFilepath("Bigfoot.png"),
                     Column = 1,
                     Row = 0
                 };
@@ -174,7 +195,7 @@ namespace BrainyStories
                 var prize3 = new Prize()
                 {
                     Audio = "PrizeAudio/butterfly.mp3",
-                    Name = "Prizes/Butterfly.png",
+                    Name = GetPrizeFilepath("Butterfly.png"),
                     Column = 2,
                     Row = 0
                 };
@@ -184,7 +205,7 @@ namespace BrainyStories
                 var prize4 = new Prize()
                 {
                     Audio = "PrizeAudio/canoe.mp3",
-                    Name = "Prizes/Canoe.png",
+                    Name = GetPrizeFilepath("Canoe.png"),
                     Column = 3,
                     Row = 0
                 };
@@ -194,7 +215,7 @@ namespace BrainyStories
                 var prize5 = new Prize()
                 {
                     Audio = "PrizeAudio/coins.mp3",
-                    Name = "Prizes/Gold.png",
+                    Name = GetPrizeFilepath("Gold.png"),
                     Column = 4,
                     Row = 0
                 };
@@ -204,7 +225,7 @@ namespace BrainyStories
                 var prize6 = new Prize()
                 {
                     Audio = "PrizeAudio/cookies.mp3",
-                    Name = "Prizes/Cookies.png",
+                    Name = GetPrizeFilepath("Cookies.png"),
                     Column = 0,
                     Row = 1
                 };
@@ -214,7 +235,7 @@ namespace BrainyStories
                 var prize7 = new Prize()
                 {
                     Audio = "PrizeAudio/dollhouse.mp3",
-                    Name = "Prizes/Dollhouse.png",
+                    Name = GetPrizeFilepath("Dollhouse.png"),
                     Column = 1,
                     Row = 1
                 };
@@ -224,7 +245,7 @@ namespace BrainyStories
                 var prize8 = new Prize()
                 {
                     Audio = "PrizeAudio/dolphin.mp3",
-                    Name = "Prizes/Dolphin.png",
+                    Name = GetPrizeFilepath("Dolphin.png"),
                     Column = 2,
                     Row = 1
                 };
@@ -234,7 +255,7 @@ namespace BrainyStories
                 var prize9 = new Prize()
                 {
                     Audio = "PrizeAudio/dragon.mp3",
-                    Name = "Prizes/Dragon.png",
+                    Name = GetPrizeFilepath("Dragon.png"),
                     Column = 3,
                     Row = 1
                 };
@@ -244,7 +265,7 @@ namespace BrainyStories
                 var prize10 = new Prize()
                 {
                     Audio = "PrizeAudio/elephant.mp3",
-                    Name = "Prizes/Elephant.png",
+                    Name = GetPrizeFilepath("Elephant.png"),
                     Column = 4,
                     Row = 1
                 };
@@ -254,7 +275,7 @@ namespace BrainyStories
                 var prize11 = new Prize()
                 {
                     Audio = "PrizeAudio/firetruck.mp3",
-                    Name = "Prizes/Firetruck.png",
+                    Name = GetPrizeFilepath("Firetruck.png"),
                     Column = 0,
                     Row = 2
                 };
@@ -264,7 +285,7 @@ namespace BrainyStories
                 var prize12 = new Prize()
                 {
                     Audio = "PrizeAudio/icecream.mp3",
-                    Name = "Prizes/IceCream.png",
+                    Name = GetPrizeFilepath("IceCream.png"),
                     Column = 1,
                     Row = 2
                 };
@@ -274,7 +295,7 @@ namespace BrainyStories
                 var prize13 = new Prize()
                 {
                     Audio = "PrizeAudio/kitten.mp3",
-                    Name = "Prizes/Cat.png",
+                    Name = GetPrizeFilepath("Cat.png"),
                     Column = 2,
                     Row = 2
                 };
@@ -284,7 +305,7 @@ namespace BrainyStories
                 var prize14 = new Prize()
                 {
                     Audio = "PrizeAudio/mermaid.mp3",
-                    Name = "Prizes/Mermaid.png",
+                    Name = GetPrizeFilepath("Mermaid.png"),
                     Column = 3,
                     Row = 2
                 };
@@ -294,7 +315,7 @@ namespace BrainyStories
                 var prize15 = new Prize()
                 {
                     Audio = "PrizeAudio/parrot.mp3",
-                    Name = "Prizes/Parrot.png",
+                    Name = GetPrizeFilepath("Parrot.png"),
                     Column = 4,
                     Row = 2
                 };
@@ -304,7 +325,7 @@ namespace BrainyStories
                 var prize16 = new Prize()
                 {
                     Audio = "PrizeAudio/puppy.mp3",
-                    Name = "Prizes/Dog.png",
+                    Name = GetPrizeFilepath("Dog.png"),
                     Column = 0,
                     Row = 3
                 };
@@ -314,7 +335,7 @@ namespace BrainyStories
                 var prize17 = new Prize()
                 {
                     Audio = "PrizeAudio/robot.mp3",
-                    Name = "Prizes/Robot.png",
+                    Name = GetPrizeFilepath("Robot.png"),
                     Column = 1,
                     Row = 3
                 };
@@ -324,7 +345,7 @@ namespace BrainyStories
                 var prize18 = new Prize()
                 {
                     Audio = "PrizeAudio/skateboard.mp3",
-                    Name = "Prizes/Skateboard.png",
+                    Name = GetPrizeFilepath("Skateboard.png"),
                     Column = 2,
                     Row = 3
                 };
@@ -334,7 +355,7 @@ namespace BrainyStories
                 var prize19 = new Prize()
                 {
                     Audio = "PrizeAudio/swings.mp3",
-                    Name = "Prizes/Swing.png",
+                    Name = GetPrizeFilepath("Swing.png"),
                     Column = 3,
                     Row = 3
                 };
@@ -344,7 +365,7 @@ namespace BrainyStories
                 var prize20 = new Prize()
                 {
                     Audio = "PrizeAudio/tent.mp3",
-                    Name = "Prizes/Tent.png",
+                    Name = GetPrizeFilepath("Tent.png"),
                     Column = 4,
                     Row = 3
                 };
@@ -354,7 +375,7 @@ namespace BrainyStories
                 var prize21 = new Prize()
                 {
                     Audio = "PrizeAudio/tiara.mp3",
-                    Name = "Prizes/Tiara.png",
+                    Name = GetPrizeFilepath("Tiara.png"),
                     Column = 0,
                     Row = 4
                 };
@@ -364,7 +385,7 @@ namespace BrainyStories
                 var prize22 = new Prize()
                 {
                     Audio = "PrizeAudio/tiger.mp3",
-                    Name = "Prizes/Tiger.png",
+                    Name = GetPrizeFilepath("Tiger.png"),
                     Column = 1,
                     Row = 4
                 };
@@ -374,7 +395,7 @@ namespace BrainyStories
                 var prize23 = new Prize()
                 {
                     Audio = "PrizeAudio/trex.mp3",
-                    Name = "Prizes/Dino.png",
+                    Name = GetPrizeFilepath("Dino.png"),
                     Column = 2,
                     Row = 4
                 };
@@ -384,7 +405,7 @@ namespace BrainyStories
                 var prize24 = new Prize()
                 {
                     Audio = "PrizeAudio/tricycle.mp3",
-                    Name = "Prizes/Trike.png",
+                    Name = GetPrizeFilepath("Trike.png"),
                     Column = 3,
                     Row = 4
                 };
@@ -394,7 +415,7 @@ namespace BrainyStories
                 var prize25 = new Prize()
                 {
                     Audio = "PrizeAudio/unicorn.mp3",
-                    Name = "Prizes/Unicorn.png",
+                    Name = GetPrizeFilepath("Unicorn.png"),
                     Column = 4,
                     Row = 4
                 };
@@ -403,6 +424,17 @@ namespace BrainyStories
 
                 transaction.Commit();
             }
+        }
+
+        //on Android, I have to keep the prize images inside the Resources folder without any subfolders - on iOS, I don't
+        public static string GetPrizeFilepath(string filepath)
+        {
+            var returnPath = $"Prizes/{filepath}";
+            if (Device.RuntimePlatform.Equals(Device.Android))
+            {
+                return filepath;
+            }
+            return returnPath;
         }
     }
 }

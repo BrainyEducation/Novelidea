@@ -1,5 +1,6 @@
 using BrainyStories.Objects;
 using BrainyStories.RealmObjects;
+using FFImageLoading.Forms;
 using Plugin.SimpleAudioPlayer;
 using Realms;
 using Rg.Plugins.Popup.Services;
@@ -148,10 +149,13 @@ namespace BrainyStories
         // Lauches a ThinkAndDo popup for the selected ThinkAndDo
         private async void StarTapped(object sender, EventArgs e)
         {
-            var senderAsImageButton = ((ImageButton)sender);
+            var contentView = ((ContentView)sender);
+            //there should only be one tap gesture recognizer
+            var tapGestureRecognizer = (TapGestureRecognizer)contentView.GestureRecognizers.FirstOrDefault();
+            var senderAsImageButton = (CachedImage)contentView.Content;
             Story callingStory = senderAsImageButton.BindingContext as Story;
             ThinkAndDo think = callingStory.ThinkAndDo;
-            var starNumber = Int32.Parse(senderAsImageButton.CommandParameter.ToString());
+            var starNumber = Int32.Parse(tapGestureRecognizer.CommandParameter.ToString());
 
             ThinkAndDoPopup pop = new ThinkAndDoPopup(think, starNumber);
             pop.Disappearing += PopUpClosed;
@@ -161,7 +165,7 @@ namespace BrainyStories
 
         private void PlayPrizeAudio(object sender, EventArgs e)
         {
-            var imageButton = (ImageButton)sender;
+            var imageButton = (CachedImage)((ContentView)sender).Content;
 
             var realmFile = Realm.GetInstance(RealmConfiguration.DefaultConfiguration);
             var prize = realmFile.All<Prize>()
@@ -231,19 +235,19 @@ namespace BrainyStories
                     switch (randomPrizeCount)
                     {
                         case 5:
-                            story.Prize5 = "Prizes/Bigfoot.png";
+                            story.Prize5 = PotentialPrizes.GetPrizeFilepath("Bigfoot.png");
                             goto case 4;
                         case 4:
-                            story.Prize4 = "Prizes/Cat.png";
+                            story.Prize4 = PotentialPrizes.GetPrizeFilepath("Cat.png");
                             goto case 3;
                         case 3:
-                            story.Prize3 = "Prizes/Canoe.png";
+                            story.Prize3 = PotentialPrizes.GetPrizeFilepath("Canoe.png");
                             goto case 2;
                         case 2:
-                            story.Prize2 = "Prizes/Dolphin.png";
+                            story.Prize2 = PotentialPrizes.GetPrizeFilepath("Dolphin.png");
                             goto case 1;
                         case 1:
-                            story.Prize1 = "Prizes/Firetruck.png";
+                            story.Prize1 = PotentialPrizes.GetPrizeFilepath("Firetruck.png");
                             break;
 
                         default:

@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
              x:Class="BrainyStories.PotentialPrizes"
              NavigationPage.HasNavigationBar="false"
              BackgroundColor="#A9FFF7">
@@ -13,25 +14,31 @@
               HorizontalOptions="FillAndExpand"
               Orientation="Horizontal"
               BackgroundColor ="#A9FFF7">
-                <ImageButton HorizontalOptions="Start"
-                Source="BackButton.png"
-                Clicked ="BackClicked"
-                WidthRequest="50"
-                HeightRequest="50"
-                Aspect="AspectFill"
-                VerticalOptions="CenterAndExpand"
-                BorderColor ="Transparent"
-                BackgroundColor="Transparent" />
-                <ImageButton
-                VerticalOptions="CenterAndExpand"
-                HorizontalOptions="Start"
-                Source="Home.png"
-                Aspect="AspectFill"
-                WidthRequest="50"
-                HeightRequest="50"
-                Clicked ="HomeClicked"
-                BorderColor ="Transparent"
-                BackgroundColor="Transparent" />
+                <ContentView
+                    WidthRequest="50"
+                    HeightRequest="50"
+                    VerticalOptions="CenterAndExpand">
+                    <ffimageloading:CachedImage
+                            Aspect="AspectFill"
+                            Source="BackButton.png">
+                    </ffimageloading:CachedImage>
+                    <ContentView.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="BackClicked" />
+                    </ContentView.GestureRecognizers>
+                </ContentView>
+
+                <ContentView
+                    WidthRequest="50"
+                    HeightRequest="50"
+                    VerticalOptions="CenterAndExpand">
+                    <ffimageloading:CachedImage
+                            Aspect="AspectFill"
+                            Source="Home.png">
+                    </ffimageloading:CachedImage>
+                    <ContentView.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="HomeClicked" />
+                    </ContentView.GestureRecognizers>
+                </ContentView>
             </StackLayout>
             <!--<End of Navigation Bar />-->
             <!--placeholder for content of the prizes page-->

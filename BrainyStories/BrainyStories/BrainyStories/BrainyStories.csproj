@@ -13,15 +13,27 @@
 
   <ItemGroup>
     <Compile Remove="AppealType.cs" />
+    <Compile Remove="ProgressIndividualPage.xaml.cs" />
+    <Compile Remove="ProgressOverallPage.xaml.cs" />
+    <Compile Remove="ProgressPage.xaml.cs" />
+    <Compile Remove="ProgressSummaryPage.xaml.cs" />
     <Compile Remove="QuizFactory.cs" />
     <Compile Remove="QuizList.xaml.cs" />
     <Compile Remove="QuizPage.xaml.cs" />
+    <Compile Remove="RewardsPage.xaml.cs" />
+    <Compile Remove="ThinkAndDoList.xaml.cs" />
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Remove="ProgressIndividualPage.xaml" />
+    <EmbeddedResource Remove="ProgressOverallPage.xaml" />
+    <EmbeddedResource Remove="ProgressPage.xaml" />
+    <EmbeddedResource Remove="ProgressSummaryPage.xaml" />
     <EmbeddedResource Remove="QuizList.xaml" />
     <EmbeddedResource Remove="QuizPage.xaml" />
+    <EmbeddedResource Remove="RewardsPage.xaml" />
     <EmbeddedResource Remove="ThinkAndDoList-old.xaml" />
+    <EmbeddedResource Remove="ThinkAndDoList.xaml" />
   </ItemGroup>
 
   <ItemGroup>
@@ -36,7 +48,6 @@
     <PackageReference Include="Xamarin.Essentials" Version="1.2.0" />
     <PackageReference Include="Xamarin.FFImageLoading" Version="2.4.11.982" />
     <PackageReference Include="Xamarin.FFImageLoading.Forms" Version="2.4.11.982" />
-    <PackageReference Include="Xamarin.Forms" Version="4.2.0.709249" />
   </ItemGroup>
 
   <ItemGroup>
@@ -49,33 +60,12 @@
     <Compile Update="PotentialPrizes.xaml.cs">
       <DependentUpon>PotentialPrizes.xaml</DependentUpon>
     </Compile>
-    <Compile Update="ProgressPage.xaml.cs">
-      <DependentUpon>ProgressPage.xaml</DependentUpon>
-    </Compile>
     <Compile Update="Imagines.xaml.cs">
       <DependentUpon>Imagines.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="ProgressIndividualPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="ProgressOverallPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="ProgressSummaryPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="RewardsPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="ProgressPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="ThinkAndDoList.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
     <EmbeddedResource Update="ThinkAndDoPopup.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>

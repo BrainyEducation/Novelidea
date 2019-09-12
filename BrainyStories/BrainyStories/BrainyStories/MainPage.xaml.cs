@@ -31,28 +31,28 @@ namespace BrainyStories
         }
 
         // Think and Do List Page Button
-        private async void ThinkAndDoClicked(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new ThinkAndDoList());
-        }
+        //private async void ThinkAndDoClicked(object sender, EventArgs e)
+        //{
+        //    await Navigation.PushAsync(new ThinkAndDoList());
+        //}
 
         // Quiz List Page Button
-        private async void QuizzesClicked(object sender, EventArgs e)
-        {
-            //await Navigation.PushAsync(new QuizList());
-        }
+        //private async void QuizzesClicked(object sender, EventArgs e)
+        //{
+        //    //await Navigation.PushAsync(new QuizList());
+        //}
 
         // Progress Page Button
-        private async void ProgressClicked(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new ProgressPage());
-        }
+        //private async void ProgressClicked(object sender, EventArgs e)
+        //{
+        //    await Navigation.PushAsync(new ProgressPage());
+        //}
 
         // Rewards Page button
-        private async void RewardsClicked(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new RewardsPage());
-        }
+        //private async void RewardsClicked(object sender, EventArgs e)
+        //{
+        //    await Navigation.PushAsync(new RewardsPage());
+        //}
 
         // Navbar methods
         // Returns to the previous page

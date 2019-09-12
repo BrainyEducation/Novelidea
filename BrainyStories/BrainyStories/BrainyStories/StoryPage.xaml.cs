@@ -15,6 +15,7 @@ using Realms;
 using Xamarin.Essentials;
 using BrainyStories.RealmObjects;
 using FFImageLoading.Forms;
+using UIKit;
 
 namespace BrainyStories
 {
@@ -73,16 +74,11 @@ namespace BrainyStories
             InitializeComponent();
 
             PlayButton.Source = PAUSE_ICON; //set at the pause icon because this page auto-starts
-            PlayButton.HeightRequest = 40;
-            PlayButton.WidthRequest = 50;
-            PlayButton.BorderColor = Color.Transparent;
-            PlayButton.BackgroundColor = Color.Transparent;
-            PlayButton.Margin = 20;
 
             //September 2019: quiz button will be useful in future releases of the app
-            QuizButton.Source = "Quizzes.png";
-            QuizButton.BackgroundColor = Color.Green;
-            QuizButton.IsVisible = false;
+            //QuizButton.Source = "Quizzes.png";
+            //QuizButton.BackgroundColor = Color.Green;
+            //QuizButton.IsVisible = false;
 
             DurationLabel.Text = "0:00";
             DurationLabel.FontFamily = Device.RuntimePlatform == Device.Android ? "Comic.ttf#Comic" : "Comic";
@@ -94,7 +90,8 @@ namespace BrainyStories
             StoryImage.MinimumWidthRequest = DeviceDisplay.MainDisplayInfo.Width;
             StoryImage.Aspect = Aspect.AspectFit;
 
-            player = Plugin.SimpleAudioPlayer.CrossSimpleAudioPlayer.Current;
+            player = Plugin.SimpleAudioPlayer.CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
+
             player.Load(story.AudioClip);
 
             //find the story duration if we haven't already
@@ -118,7 +115,7 @@ namespace BrainyStories
             StoryPageSlider.HorizontalOptions = LayoutOptions.FillAndExpand;
             StoryPageSlider.HeightRequest = 50; // Controls size of area that can grab the slider
             //use drag completed instead of value changed to avoid "stuttering" audio
-            StoryPageSlider.DragCompleted += UserDraggedSlider;
+            StoryPageSlider.ValueChanged += UserDraggedSlider;
 
             //register action to be taken once the story ends
             player.PlaybackEnded += EndPlayback;
@@ -132,27 +129,12 @@ namespace BrainyStories
             }));
             playerThread.Start();
 
-            PlayButton.Clicked += (sender, args) =>
-            {
-                //toggle play/pause
-                if (player.IsPlaying)
-                {
-                    player.Pause();
-                    PlayButton.Source = PLAY_ICON;
-                }
-                else
-                {
-                    player.Play();
-                    PlayButton.Source = PAUSE_ICON;
-                }
-            };
-
             RefreshStoryPagesTimer();
 
-            QuizButton.Clicked += (sender, args) =>
-            {
-                //Navigation.PushAsync(new QuizPage(story.Quizzes[quizNum], story.AudioClip));
-            };
+            //QuizButton.Clicked += (sender, args) =>
+            //{
+            //    //Navigation.PushAsync(new QuizPage(story.Quizzes[quizNum], story.AudioClip));
+            //};
         }
 
         private void RefreshStoryPagesTimer()
@@ -189,6 +171,7 @@ namespace BrainyStories
                                 CurrentStoryPage = StoryPages.Where(x => x.EndTimeInSeconds >= audioPosition
                                     && x.StartTimeInSeconds <= audioPosition).FirstOrDefault();
                                 StoryImage.Source = CurrentStoryPage.Image;
+                                GC.Collect();
                             }
                         }
                         else if (audioPosition < PreviousTime)
@@ -243,8 +226,9 @@ namespace BrainyStories
 
         private void UserDraggedSlider(object sender, EventArgs e)
         {
-            //when the slider is dragged change the playback
-            if (StoryPageSlider.Value < player.Duration)
+            var newSliderPosition = StoryPageSlider.Value;
+            //when the slider is dragged (as determined by moving more than 2 seconds) change the playback
+            if (Math.Abs(PreviousTime - newSliderPosition) > 2 && newSliderPosition < player.Duration)
             {
                 player.Seek(StoryPageSlider.Value);
             }
@@ -262,6 +246,21 @@ namespace BrainyStories
             {
                 //otherwise, return to the imagines screen
                 Navigation.PushAsync(new Imagines(StorySet));
+            }
+        }
+
+        private void PlayButtonClicked(object sender, EventArgs e)
+        {
+            //toggle play/pause
+            if (player.IsPlaying)
+            {
+                player.Pause();
+                PlayButton.Source = PLAY_ICON;
+            }
+            else
+            {
+                player.Play();
+                PlayButton.Source = PAUSE_ICON;
             }
         }
 

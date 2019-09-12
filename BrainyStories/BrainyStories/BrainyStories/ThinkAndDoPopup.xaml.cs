@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Threading.Tasks;
 using BrainyStories.Objects;
+using FFImageLoading.Forms;
 using Plugin.SimpleAudioPlayer;
 using Realms;
 using Rg.Plugins.Popup.Pages;
@@ -22,6 +23,8 @@ namespace BrainyStories
         private static int lastClickedStarNumber;
 
         private static string lastClickedThinkAndDoName;
+
+        private CachedImage playButton;
 
         //force them to use the parameterized constructor
         private ThinkAndDoPopup()
@@ -49,17 +52,11 @@ namespace BrainyStories
 
             player.Load(audioFile);
 
-            ImageButton button = new ImageButton()
+            playButton = new CachedImage()
             {
                 Source = "pause.png",
-                BackgroundColor = Color.Transparent
             };
-            ImageButton button2 = new ImageButton()
-            {
-                Source = "play.png",
-                IsVisible = false,
-                BackgroundColor = Color.Transparent
-            };
+
             Label displayLabel = new Label
             {
                 Text = "0:00",
@@ -74,35 +71,27 @@ namespace BrainyStories
                 HorizontalOptions = LayoutOptions.FillAndExpand,
                 HeightRequest = 50 // Controls size of area that can grab the slider
             };
-            ImageButton close = new ImageButton()
+
+            CachedImage close = new CachedImage()
             {
                 Source = "CloseButton",
                 BackgroundColor = Color.Transparent
             };
-            close.Clicked += (sender, args) =>
-            {
-                CloseAllPopup();
-            };
+            var closeGestureRecognizer = new TapGestureRecognizer();
+            closeGestureRecognizer.Tapped += OnCloseButtonTapped;
+
+            close.GestureRecognizers.Add(closeGestureRecognizer);
 
             //here is where we should add logic for what happens when playback ends
             player.PlaybackEnded += MarkAsPlayed;
             bool audioFromTimer = false;
             bool playAudio = true;
             player.Play();
-            button.Clicked += (sender, args) =>
-            {
-                player.Pause();
-                playAudio = false;
-                button.IsVisible = false;
-                button2.IsVisible = true;
-            };
-            button2.Clicked += (sender, args) =>
-            {
-                player.Play();
-                playAudio = true;
-                button.IsVisible = true;
-                button2.IsVisible = false;
-            };
+
+            var playGestureRecognizer = new TapGestureRecognizer();
+            playGestureRecognizer.Tapped += PlayButtonTapped;
+            playButton.GestureRecognizers.Add(playGestureRecognizer);
+
             Device.StartTimer(new TimeSpan(0, 0, 1), () =>
             {
                 if (playAudio)
@@ -140,8 +129,7 @@ namespace BrainyStories
                 Orientation = StackOrientation.Horizontal,
                 Children =
                 {
-                    button,
-                    button2,
+                    playButton,
                     displayLabel,
                     close
                 }
@@ -149,6 +137,21 @@ namespace BrainyStories
 
             TopStack.Children.Add(slider);
             TopStack.Children.Add(audio);
+        }
+
+        private void PlayButtonTapped(object sender, EventArgs e)
+        {
+            //toggle play/pause
+            if (player.IsPlaying)
+            {
+                player.Pause();
+                playButton.Source = StoryPage.PLAY_ICON;
+            }
+            else
+            {
+                player.Play();
+                playButton.Source = StoryPage.PAUSE_ICON;
+            }
         }
 
         //marks a think and do as completed

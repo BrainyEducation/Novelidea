@@ -293,7 +293,6 @@
     </AndroidResource>
     <AndroidResource Include="Resources\drawable\logo.png">
       <SubType>Designer</SubType>
-      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
     </AndroidResource>
     <AndroidResource Include="Resources\drawable\Male.png">
       <SubType>Designer</SubType>
@@ -470,154 +469,154 @@
     <AndroidResource Include="Resources\drawable\ThinkAndDoButton.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\drawable\Prizes\Bigfoot.png" />
+    <AndroidResource Include="Resources\drawable\Bigfoot.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\drawable\Prizes\Bulldozer.png" />
+    <AndroidResource Include="Resources\drawable\Bulldozer.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\drawable\Prizes\Butterfly.png" />
+    <AndroidResource Include="Resources\drawable\Butterfly.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\drawable\Prizes\Canoe.png" />
+    <AndroidResource Include="Resources\drawable\Canoe.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\drawable\Prizes\Cat.png" />
+    <AndroidResource Include="Resources\drawable\Cat.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\drawable\Prizes\Cookies.png" />
+    <AndroidResource Include="Resources\drawable\Cookies.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\drawable\Prizes\Dino.png" />
+    <AndroidResource Include="Resources\drawable\Dino.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\drawable\Prizes\Dog.png" />
+    <AndroidResource Include="Resources\drawable\Dog.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\drawable\Prizes\Dollhouse.png" />
+    <AndroidResource Include="Resources\drawable\Dollhouse.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\drawable\Prizes\Dolphin.png" />
+    <AndroidResource Include="Resources\drawable\Dolphin.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\drawable\Prizes\Dragon.png" />
+    <AndroidResource Include="Resources\drawable\Dragon.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\drawable\Prizes\Elephant.png" />
+    <AndroidResource Include="Resources\drawable\Elephant.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\drawable\Prizes\Firetruck.png" />
+    <AndroidResource Include="Resources\drawable\Firetruck.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\drawable\Prizes\Gold.png" />
+    <AndroidResource Include="Resources\drawable\Gold.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\drawable\Prizes\IceCream.png" />
+    <AndroidResource Include="Resources\drawable\IceCream.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\drawable\Prizes\Mermaid.png" />
+    <AndroidResource Include="Resources\drawable\Mermaid.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\drawable\Prizes\Parrot.png" />
+    <AndroidResource Include="Resources\drawable\Parrot.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\drawable\Prizes\Robot.png" />
+    <AndroidResource Include="Resources\drawable\Robot.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\drawable\Prizes\Skateboard.png" />
+    <AndroidResource Include="Resources\drawable\Skateboard.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\drawable\Prizes\Swing.png" />
+    <AndroidResource Include="Resources\drawable\Swing.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\drawable\Prizes\Tent.png" />
+    <AndroidResource Include="Resources\drawable\Tent.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\drawable\Prizes\Tiara.png" />
+    <AndroidResource Include="Resources\drawable\Tiara.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\drawable\Prizes\Tiger.png" />
+    <AndroidResource Include="Resources\drawable\Tiger.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\drawable\Prizes\Trike.png" />
+    <AndroidResource Include="Resources\drawable\Trike.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\drawable\Prizes\Unicorn.png" />
+    <AndroidResource Include="Resources\drawable\Unicorn.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Assets\PrizeAudio\backhoe.mp3" />
+    <AndroidAsset Include="Assets\PrizeAudio\backhoe.mp3" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Assets\PrizeAudio\bigfoot.mp3" />
+    <AndroidAsset Include="Assets\PrizeAudio\bigfoot.mp3" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Assets\PrizeAudio\butterfly.mp3" />
+    <AndroidAsset Include="Assets\PrizeAudio\butterfly.mp3" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Assets\PrizeAudio\canoe.mp3" />
+    <AndroidAsset Include="Assets\PrizeAudio\canoe.mp3" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Assets\PrizeAudio\coins.mp3" />
+    <AndroidAsset Include="Assets\PrizeAudio\coins.mp3" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Assets\PrizeAudio\cookies.mp3" />
+    <AndroidAsset Include="Assets\PrizeAudio\cookies.mp3" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Assets\PrizeAudio\dollhouse.mp3" />
+    <AndroidAsset Include="Assets\PrizeAudio\dollhouse.mp3" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Assets\PrizeAudio\dolphin.mp3" />
+    <AndroidAsset Include="Assets\PrizeAudio\dolphin.mp3" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Assets\PrizeAudio\dragon.mp3" />
+    <AndroidAsset Include="Assets\PrizeAudio\dragon.mp3" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Assets\PrizeAudio\elephant.mp3" />
+    <AndroidAsset Include="Assets\PrizeAudio\elephant.mp3" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Assets\PrizeAudio\firetruck.mp3" />
+    <AndroidAsset Include="Assets\PrizeAudio\firetruck.mp3" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Assets\PrizeAudio\icecream.mp3" />
+    <AndroidAsset Include="Assets\PrizeAudio\icecream.mp3" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Assets\PrizeAudio\kitten.mp3" />
+    <AndroidAsset Include="Assets\PrizeAudio\kitten.mp3" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Assets\PrizeAudio\mermaid.mp3" />
+    <AndroidAsset Include="Assets\PrizeAudio\mermaid.mp3" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Assets\PrizeAudio\parrot.mp3" />
+    <AndroidAsset Include="Assets\PrizeAudio\parrot.mp3" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Assets\PrizeAudio\puppy.mp3" />
+    <AndroidAsset Include="Assets\PrizeAudio\puppy.mp3" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Assets\PrizeAudio\robot.mp3" />
+    <AndroidAsset Include="Assets\PrizeAudio\robot.mp3" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Assets\PrizeAudio\skateboard.mp3" />
+    <AndroidAsset Include="Assets\PrizeAudio\skateboard.mp3" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Assets\PrizeAudio\swings.mp3" />
+    <AndroidAsset Include="Assets\PrizeAudio\swings.mp3" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Assets\PrizeAudio\tent.mp3" />
+    <AndroidAsset Include="Assets\PrizeAudio\tent.mp3" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Assets\PrizeAudio\tiara.mp3" />
+    <AndroidAsset Include="Assets\PrizeAudio\tiara.mp3" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Assets\PrizeAudio\tiger.mp3" />
+    <AndroidAsset Include="Assets\PrizeAudio\tiger.mp3" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Assets\PrizeAudio\trex.mp3" />
+    <AndroidAsset Include="Assets\PrizeAudio\trex.mp3" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Assets\PrizeAudio\tricycle.mp3" />
+    <AndroidAsset Include="Assets\PrizeAudio\tricycle.mp3" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Assets\PrizeAudio\unicorn.mp3" />
+    <AndroidAsset Include="Assets\PrizeAudio\unicorn.mp3" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\S2_LRH_7.jpg" />

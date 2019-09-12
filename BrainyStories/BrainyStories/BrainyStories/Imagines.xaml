@@ -14,33 +14,46 @@
               HorizontalOptions="FillAndExpand"
               Orientation="Horizontal"
               BackgroundColor ="#A9FFF7">
-                <ImageButton HorizontalOptions="Start"
-                Source="BackButton.png"
-                Clicked ="BackClicked"
-                WidthRequest="50"
-                HeightRequest="50"
-                Aspect="AspectFill"
-                VerticalOptions="CenterAndExpand"
-                BorderColor ="Transparent"
-                BackgroundColor="Transparent" />
-                <ImageButton
-                VerticalOptions="CenterAndExpand"
-                HorizontalOptions="Start"
-                Source="Home.png"
-                Aspect="AspectFill"
-                WidthRequest="50"
-                HeightRequest="50"
-                Clicked ="HomeClicked"
-                BorderColor ="Transparent"
-                BackgroundColor="Transparent" />
+                <ContentView
+                    WidthRequest="50"
+                    HeightRequest="50"
+                    VerticalOptions="CenterAndExpand">
+                    <ffimageloading:CachedImage
+                            Aspect="AspectFill"
+                            Source="BackButton.png">
+                    </ffimageloading:CachedImage>
+                    <ContentView.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="BackClicked" />
+                    </ContentView.GestureRecognizers>
+                </ContentView>
+
+                <ContentView
+                    WidthRequest="50"
+                    HeightRequest="50"
+                    VerticalOptions="CenterAndExpand">
+                    <ffimageloading:CachedImage
+                            Aspect="AspectFill"
+                            Source="Home.png">
+                    </ffimageloading:CachedImage>
+                    <ContentView.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="HomeClicked" />
+                    </ContentView.GestureRecognizers>
+                </ContentView>
+
                 <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
-                    <ImageButton
-                        VerticalOptions="CenterAndExpand"
-                        HorizontalOptions="End"
+                    <ContentView
                         Padding= "10"
                         HeightRequest="100"
-                        Source="prize.png"
-                        Clicked="PrizeTapped" />
+                        VerticalOptions="CenterAndExpand"
+                        HorizontalOptions="End">
+                        <ffimageloading:CachedImage
+                            Source="prize.png">
+                        </ffimageloading:CachedImage>
+                        <ContentView.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="PrizeTapped" />
+                        </ContentView.GestureRecognizers>
+                    </ContentView>
+
                     <Label
                         x:Name="StoryMenuLabel"
                         FontFamily = "{StaticResource Comic}"
@@ -51,13 +64,19 @@
                         VerticalOptions="Center"
                         HorizontalOptions="Center"
                         HeightRequest="100" />
-                    <ImageButton
+
+                    <ContentView
+                        Padding= "10"
                         VerticalOptions="CenterAndExpand"
                         HorizontalOptions="Start"
-                        HeightRequest="100"
-                        Source="kitten.jpg"
-                        Padding="10"
-                        Clicked="CatClicked" />
+                        HeightRequest="100">
+                        <ffimageloading:CachedImage
+                            Source="kitten.jpg">
+                        </ffimageloading:CachedImage>
+                        <ContentView.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="CatClicked" />
+                        </ContentView.GestureRecognizers>
+                    </ContentView>
                 </StackLayout>
 
                 <Grid
@@ -71,11 +90,19 @@
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="1*" />
                     </Grid.ColumnDefinitions>
-                    <ImageButton
-                            Grid.Row="0"
-                            Grid.Column="0"
-                            Clicked="StagePrizes"
-                            Source="trophy.png" />
+
+                    <ContentView
+                        Padding= "10"
+                        Grid.Row="0"
+                        Grid.Column="0">
+                        <ffimageloading:CachedImage
+                            Source="trophy.png">
+                        </ffimageloading:CachedImage>
+                        <ContentView.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="StagePrizes" />
+                        </ContentView.GestureRecognizers>
+                    </ContentView>
+
                     <Label
                             x:Name="TotalPrizeCount"
                             FontSize="25"
@@ -136,10 +163,27 @@
                                                     VerticalOptions="Center"  FontSize="25" FontFamily="{StaticResource Comic}" />
                                             </StackLayout>
 
-                                            <ImageButton Grid.Row="0" Grid.Column="3" HorizontalOptions="End" WidthRequest= "50"
-                                                         Source="{Binding ThinkAndDo.Star1Image}" Clicked="StarTapped" CommandParameter="1"  BackgroundColor="Transparent" />
-                                            <ImageButton Grid.Row="0" Grid.Column="5" HorizontalOptions="End" WidthRequest="50"
-                                                         Source="{Binding ThinkAndDo.Star2Image}" Clicked="StarTapped" CommandParameter="2"  BackgroundColor="Transparent" />
+                                            <!--Star 1-->
+                                            <ContentView
+                                               Grid.Row="0" Grid.Column="3" HorizontalOptions="End" WidthRequest= "50">
+                                                <ffimageloading:CachedImage
+                                                   Source="{Binding ThinkAndDo.Star1Image}">
+                                                </ffimageloading:CachedImage>
+                                                <ContentView.GestureRecognizers>
+                                                    <TapGestureRecognizer Tapped="StarTapped" CommandParameter="1" />
+                                                </ContentView.GestureRecognizers>
+                                            </ContentView>
+
+                                            <!--Star 2-->
+                                            <ContentView
+                                               Grid.Row="0" Grid.Column="5" HorizontalOptions="End" WidthRequest= "50">
+                                                <ffimageloading:CachedImage
+                                                   Source="{Binding ThinkAndDo.Star2Image}">
+                                                </ffimageloading:CachedImage>
+                                                <ContentView.GestureRecognizers>
+                                                    <TapGestureRecognizer Tapped="StarTapped" CommandParameter="2" />
+                                                </ContentView.GestureRecognizers>
+                                            </ContentView>
                                         </Grid>
                                     </StackLayout>
                                     <!--This half of the View Cell is for the Prize View-->
@@ -158,38 +202,67 @@
                                             <ColumnDefinition Width="1*" />
                                         </Grid.ColumnDefinitions>
 
-                                        <ImageButton
-                                                    Grid.Column="0"
-                                                    Grid.Row="0"
-                                                    Aspect="AspectFit"
-                                                    Clicked="PlayPrizeAudio"
-                                                    Source="{Binding Prize1}" />
-                                        <ImageButton
-                                                    Grid.Column="1"
-                                                    Grid.Row="0"
-                                                    Aspect="AspectFit"
-                                                    Clicked="PlayPrizeAudio"
-                                                    Source="{Binding Prize2}" />
-                                        <ImageButton
-                                                    Grid.Column="2"
-                                                    Grid.Row="0"
-                                                    Aspect="AspectFit"
-                                                    Clicked="PlayPrizeAudio"
-                                                    Source="{Binding Prize3}" />
-                                        <ImageButton
-                                                    Grid.Column="3"
-                                                    Grid.Row="0"
-                                                    Aspect="AspectFit"
-                                                    Clicked="PlayPrizeAudio"
-                                                    Source="{Binding Prize4}" />
-                                        <ImageButton
-                                                    Grid.Column="4"
-                                                    Grid.Row="0"
-                                                    Aspect="AspectFit"
-                                                    Clicked="PlayPrizeAudio"
-                                                    Source="{Binding Prize5}" />
+                                        <ContentView
+                                                Grid.Column="0"
+                                                Grid.Row="0">
+                                            <ffimageloading:CachedImage
+                                                Aspect="AspectFit"
+                                                Source="{Binding Prize1}">
+                                            </ffimageloading:CachedImage>
+                                            <ContentView.GestureRecognizers>
+                                                <TapGestureRecognizer Tapped="PlayPrizeAudio" />
+                                            </ContentView.GestureRecognizers>
+                                        </ContentView>
 
-                                        <Image
+                                        <ContentView
+                                                Grid.Column="1"
+                                                Grid.Row="0">
+                                            <ffimageloading:CachedImage
+                                                Aspect="AspectFit"
+                                                Source="{Binding Prize2}">
+                                            </ffimageloading:CachedImage>
+                                            <ContentView.GestureRecognizers>
+                                                <TapGestureRecognizer Tapped="PlayPrizeAudio" />
+                                            </ContentView.GestureRecognizers>
+                                        </ContentView>
+
+                                        <ContentView
+                                                Grid.Column="2"
+                                                Grid.Row="0">
+                                            <ffimageloading:CachedImage
+                                                Aspect="AspectFit"
+                                                Source="{Binding Prize3}">
+                                            </ffimageloading:CachedImage>
+                                            <ContentView.GestureRecognizers>
+                                                <TapGestureRecognizer Tapped="PlayPrizeAudio" />
+                                            </ContentView.GestureRecognizers>
+                                        </ContentView>
+
+                                        <ContentView
+                                                Grid.Column="3"
+                                                Grid.Row="0">
+                                            <ffimageloading:CachedImage
+                                                Aspect="AspectFit"
+                                                Source="{Binding Prize4}">
+                                            </ffimageloading:CachedImage>
+                                            <ContentView.GestureRecognizers>
+                                                <TapGestureRecognizer Tapped="PlayPrizeAudio" />
+                                            </ContentView.GestureRecognizers>
+                                        </ContentView>
+
+                                        <ContentView
+                                                Grid.Column="4"
+                                                Grid.Row="0">
+                                            <ffimageloading:CachedImage
+                                                Aspect="AspectFit"
+                                                Source="{Binding Prize5}">
+                                            </ffimageloading:CachedImage>
+                                            <ContentView.GestureRecognizers>
+                                                <TapGestureRecognizer Tapped="PlayPrizeAudio" />
+                                            </ContentView.GestureRecognizers>
+                                        </ContentView>
+
+                                        <ffimageloading:CachedImage
                                             HorizontalOptions="Center"
                                             Grid.Column="5"
                                             Grid.Row="0"
