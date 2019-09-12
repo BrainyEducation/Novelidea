@@ -73,6 +73,7 @@ namespace BrainyStories
             var prize = RealmFile.All<Prize>()
                 .Where(x => x.Name == ((FileImageSource)selectedPrize.Source).File.ToString()).FirstOrDefault();
 
+            CrossSimpleAudioPlayer.Current.Dispose();
             //play audio to describe the prize
             player = CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
             player.Load(prize.Audio);
@@ -129,16 +130,15 @@ namespace BrainyStories
 
         private void EndAudio(object sender, EventArgs e)
         {
-            StopAndDisposePlayer();
+            StopPlayer();
         }
 
-        private void StopAndDisposePlayer()
+        private void StopPlayer()
         {
             if (player != null)
             {
                 player.Stop();
                 player.PlaybackEnded -= EndAudio;
-                player.Dispose();
                 player = null;
             }
         }
@@ -164,7 +164,7 @@ namespace BrainyStories
 
         protected override void OnDisappearing()
         {
-            StopAndDisposePlayer();
+            StopPlayer();
             RealmFile.Dispose();
         }
 

@@ -107,8 +107,8 @@
                             x:Name="TotalPrizeCount"
                             FontSize="25"
                             TextColor="White"
-                            VerticalOptions="Center"
-                            VerticalTextAlignment="Center"
+                            VerticalOptions="Start"
+                            VerticalTextAlignment="Start"
                             HorizontalOptions="Center"
                             HorizontalTextAlignment="Center"
                             Grid.Row="0"
@@ -261,23 +261,30 @@
                                                 <TapGestureRecognizer Tapped="PlayPrizeAudio" />
                                             </ContentView.GestureRecognizers>
                                         </ContentView>
-
-                                        <ffimageloading:CachedImage
+                                        <Grid
                                             HorizontalOptions="Center"
+                                            VerticalOptions="Center"
                                             Grid.Column="5"
                                             Grid.Row="0"
-                                            HeightRequest="100"
-                                            Source="trophy.png" />
-                                        <Label
-                                            HorizontalOptions="Center"
-                                            HorizontalTextAlignment="Center"
-                                            VerticalTextAlignment="Center"
-                                            FontSize="25"
-                                            FontAttributes="Bold"
-                                            TextColor="White"
-                                            Grid.Column="5"
-                                            Grid.Row="0"
-                                            Text="{Binding PrizesSelected}" />
+                                            HeightRequest="100">
+                                            <ffimageloading:CachedImage
+                                                HorizontalOptions="Center"
+                                                VerticalOptions="Center"
+                                                Source="trophy.png"
+                                                HeightRequest="125"
+                                                Grid.Column="0"
+                                                Grid.Row="0" />
+                                            <Label
+                                                HorizontalOptions="Center"
+                                                HorizontalTextAlignment="Center"
+                                                VerticalTextAlignment="Center"
+                                                FontSize="25"
+                                                FontAttributes="Bold"
+                                                TextColor="White"
+                                                Grid.Column="0"
+                                                Grid.Row="0"
+                                                Text="{Binding PrizesSelected}" />
+                                        </Grid>
                                     </Grid>
                                     <!--<Grid IsVisible="{Binding IsGridVisible}" HorizontalOptions="FillAndExpand">
                                         <Grid.RowDefinitions>

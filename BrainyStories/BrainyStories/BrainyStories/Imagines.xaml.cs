@@ -119,7 +119,7 @@ namespace BrainyStories
             {
                 count += story.PrizesSelected;
             }
-            return count.ToString();
+            return Environment.NewLine + count.ToString();
         }
 
         private void CatClicked(object sender, EventArgs e)
