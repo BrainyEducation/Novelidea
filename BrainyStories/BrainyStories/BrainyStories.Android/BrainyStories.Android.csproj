@@ -760,9 +760,6 @@
     <AndroidResource Include="Resources\drawable\S5_TLP_9.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\kitten.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\drawable\prize.png" />
   </ItemGroup>
   <ItemGroup>
@@ -797,6 +794,9 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\BS1_Wolf_8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\kitten.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

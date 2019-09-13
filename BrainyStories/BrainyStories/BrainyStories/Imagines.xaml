@@ -40,9 +40,8 @@
                     </ContentView.GestureRecognizers>
                 </ContentView>
 
-                <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
+                <StackLayout  Margin="20,0,0,0"  HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
                     <ContentView
-                        Padding= "10"
                         HeightRequest="100"
                         VerticalOptions="CenterAndExpand"
                         HorizontalOptions="End">
@@ -68,10 +67,10 @@
                     <ContentView
                         Padding= "10"
                         VerticalOptions="CenterAndExpand"
-                        HorizontalOptions="Start"
+                        HorizontalOptions="Center"
                         HeightRequest="100">
                         <ffimageloading:CachedImage
-                            Source="kitten.jpg">
+                            Source="kitten.png">
                         </ffimageloading:CachedImage>
                         <ContentView.GestureRecognizers>
                             <TapGestureRecognizer Tapped="CatClicked" />
@@ -82,8 +81,7 @@
                 <Grid
                         HorizontalOptions="End"
                         VerticalOptions="CenterAndExpand"
-                        HeightRequest="100"
-                        Padding="10">
+                        HeightRequest="100">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="1*" />
                     </Grid.RowDefinitions>
@@ -92,7 +90,7 @@
                     </Grid.ColumnDefinitions>
 
                     <ContentView
-                        Padding= "10"
+                        HorizontalOptions="End"
                         Grid.Row="0"
                         Grid.Column="0">
                         <ffimageloading:CachedImage
@@ -109,8 +107,9 @@
                             TextColor="White"
                             VerticalOptions="Start"
                             VerticalTextAlignment="Start"
-                            HorizontalOptions="Center"
+                            HorizontalOptions="End"
                             HorizontalTextAlignment="Center"
+                            Margin="0,0,40,0"
                             Grid.Row="0"
                             Grid.Column="0" />
                 </Grid>
@@ -262,27 +261,29 @@
                                             </ContentView.GestureRecognizers>
                                         </ContentView>
                                         <Grid
-                                            HorizontalOptions="Center"
+                                            HorizontalOptions="EndAndExpand"
                                             VerticalOptions="Center"
                                             Grid.Column="5"
                                             Grid.Row="0"
-                                            HeightRequest="100">
+                                            HeightRequest="150">
                                             <ffimageloading:CachedImage
-                                                HorizontalOptions="Center"
+                                                HorizontalOptions="EndAndExpand"
                                                 VerticalOptions="Center"
                                                 Source="trophy.png"
-                                                HeightRequest="125"
+                                                HeightRequest="150"
                                                 Grid.Column="0"
                                                 Grid.Row="0" />
                                             <Label
-                                                HorizontalOptions="Center"
+                                                HorizontalOptions="CenterAndExpand"
                                                 HorizontalTextAlignment="Center"
                                                 VerticalTextAlignment="Center"
+                                                VerticalOptions="CenterAndExpand"
                                                 FontSize="25"
                                                 FontAttributes="Bold"
                                                 TextColor="White"
                                                 Grid.Column="0"
                                                 Grid.Row="0"
+                                                Margin="0, 0, 0, 15"
                                                 Text="{Binding PrizesSelected}" />
                                         </Grid>
                                     </Grid>

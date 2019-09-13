@@ -620,9 +620,6 @@
     <BundleResource Include="Resources\RewardsCoin.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\kitten.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\trophy.png" />
   </ItemGroup>
   <ItemGroup>
@@ -807,5 +804,8 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\BS1_Wolf_8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\kitten.png" />
   </ItemGroup>
 </Project>
