@@ -778,4 +778,34 @@
   <ItemGroup>
     <BundleResource Include="Resources\PrizeAudio\unicorn.mp3" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\BS1_Angel_5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\BS1_Blink_4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\BS1_Elves_9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\BS1_Lion_6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\BS1_Pigs_10.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\BS1_Pump_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\BS1_Red_Riding_7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\BS1_Shoe_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\BS1_Windows_3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\BS1_Wolf_8.png" />
+  </ItemGroup>
 </Project>

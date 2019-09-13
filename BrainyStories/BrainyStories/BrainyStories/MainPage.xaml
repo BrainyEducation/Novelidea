@@ -45,13 +45,52 @@
             BackgroundColor="Transparent"
             CornerRadius="50">
             <Frame.GestureRecognizers>
-                <TapGestureRecognizer Tapped="StoriesClicked" />
+                <TapGestureRecognizer Tapped="ImaginesClicked" />
             </Frame.GestureRecognizers>
-            <ffimageloading:CachedImage
-                Grid.ColumnSpan="10"
-                Grid.RowSpan="2"
-                Source="ClassicStoriesButton.png">
-            </ffimageloading:CachedImage>
+            <Grid
+                Padding="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="3*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="1*" />
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Row="0" Grid.ColumnSpan="5" HorizontalTextAlignment="Center"
+                       FontFamily="{StaticResource Comic}"
+                       Text="Imagines" FontSize="35" FontAttributes="Bold" />
+
+                <ffimageloading:CachedImage
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        Source="BS1_Shoe_1.png">
+                </ffimageloading:CachedImage>
+                <ffimageloading:CachedImage
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        Source="BS1_Pump_2.png">
+                </ffimageloading:CachedImage>
+                <ffimageloading:CachedImage
+                        Grid.Row="1"
+                        Grid.Column="2"
+                        Source="BS1_Windows_3.png">
+                </ffimageloading:CachedImage>
+                <ffimageloading:CachedImage
+                        Grid.Row="1"
+                        Grid.Column="3"
+                        Source="BS1_Blink_4.png">
+                </ffimageloading:CachedImage>
+                <ffimageloading:CachedImage
+                        Grid.Row="1"
+                        Grid.Column="4"
+                        Source="BS1_Angel_5.png">
+                </ffimageloading:CachedImage>
+            </Grid>
         </Frame>
 
         <Frame
@@ -63,14 +102,52 @@
               BackgroundColor="Transparent"
               Grid.ColumnSpan="10">
             <Frame.GestureRecognizers>
-                <TapGestureRecognizer Tapped="ImaginesClicked" />
+                <TapGestureRecognizer Tapped="StoriesClicked" />
             </Frame.GestureRecognizers>
-            <ffimageloading:CachedImage
-              Grid.ColumnSpan="10"
-              Grid.RowSpan="2"
-              VerticalOptions="CenterAndExpand"
-              Source="ImaginesButton.png">
-            </ffimageloading:CachedImage>
+            <Grid
+                Padding="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="3*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="1*" />
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Row="0" Grid.ColumnSpan="5" HorizontalTextAlignment="Center"
+                       FontFamily="{StaticResource Comic}"
+                       Text="Stories" FontSize="35" FontAttributes="Bold" />
+
+                <ffimageloading:CachedImage
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        Source="BS1_Lion_6.png">
+                </ffimageloading:CachedImage>
+                <ffimageloading:CachedImage
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        Source="BS1_Red_Riding_7.png">
+                </ffimageloading:CachedImage>
+                <ffimageloading:CachedImage
+                        Grid.Row="1"
+                        Grid.Column="2"
+                        Source="BS1_Wolf_8.png">
+                </ffimageloading:CachedImage>
+                <ffimageloading:CachedImage
+                        Grid.Row="1"
+                        Grid.Column="3"
+                        Source="BS1_Elves_9.png">
+                </ffimageloading:CachedImage>
+                <ffimageloading:CachedImage
+                        Grid.Row="1"
+                        Grid.Column="4"
+                        Source="BS1_Pigs_10.png">
+                </ffimageloading:CachedImage>
+            </Grid>
         </Frame>
 
         <!--The 4 image buttons commented out here are from the first iteration of the app. They may be required
