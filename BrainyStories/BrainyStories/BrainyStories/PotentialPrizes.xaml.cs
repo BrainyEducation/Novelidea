@@ -77,6 +77,7 @@ namespace BrainyStories
             //play audio to describe the prize
             player = CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
             player.Load(prize.Audio);
+            player.Volume = 1;
             player.Play();
             player.PlaybackEnded += EndAudio;
 

@@ -109,7 +109,6 @@
                             VerticalTextAlignment="Start"
                             HorizontalOptions="End"
                             HorizontalTextAlignment="Center"
-                            Margin="0,0,40,0"
                             Grid.Row="0"
                             Grid.Column="0" />
                 </Grid>

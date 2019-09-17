@@ -51,6 +51,7 @@ namespace BrainyStories
             string audioFile = starNumber == 1 ? thinkAndDo.ThinkAndDoAudioClip1 : thinkAndDo.ThinkAndDoAudioClip2;
 
             player.Load(audioFile);
+            player.Volume = 1;
 
             playButton = new CachedImage()
             {

@@ -6,23 +6,23 @@
              NavigationPage.HasNavigationBar="false">
     <Grid x:Name="pageGrid" BackgroundColor="#99d9ea" Padding="5,5,5,5">
         <Grid.RowDefinitions>
-            <RowDefinition  Height="*" />
-            <RowDefinition  Height="*" />
-            <RowDefinition  Height="2*" />
             <RowDefinition  Height="1*" />
-            <RowDefinition  Height="2*" />
+            <RowDefinition  Height="1*" />
+            <RowDefinition  Height="4*" />
+            <RowDefinition  Height="1*" />
+            <RowDefinition  Height="4*" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
         </Grid.ColumnDefinitions>
 
         <!--<Brainy Stories Logo />-->
@@ -43,15 +43,17 @@
             Grid.Column="0"
             Grid.ColumnSpan="10"
             BackgroundColor="Transparent"
+            Padding="0,0,0,0"
             CornerRadius="50">
             <Frame.GestureRecognizers>
                 <TapGestureRecognizer Tapped="ImaginesClicked" />
             </Frame.GestureRecognizers>
             <Grid
-                Padding="10">
+                VerticalOptions="StartAndExpand"
+                Padding="10,0,10,0">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="1*" />
-                    <RowDefinition Height="3*" />
+                    <RowDefinition Height="4*" />
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="1*" />
@@ -94,21 +96,25 @@
         </Frame>
 
         <Frame
+              x:Name="StoriesFrame"
               Grid.Row="4"
               Grid.RowSpan="2"
               Grid.Column="0"
               BorderColor="Black"
               CornerRadius="50"
               BackgroundColor="Transparent"
+              VerticalOptions="FillAndExpand"
+              Padding="0,0,0, 0"
               Grid.ColumnSpan="10">
             <Frame.GestureRecognizers>
                 <TapGestureRecognizer Tapped="StoriesClicked" />
             </Frame.GestureRecognizers>
             <Grid
-                Padding="10">
+                VerticalOptions="StartAndExpand"
+                Padding="10,0,10,0">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="1*" />
-                    <RowDefinition Height="3*" />
+                    <RowDefinition Height="4*" />
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="1*" />
@@ -118,9 +124,11 @@
                     <ColumnDefinition Width="1*" />
                 </Grid.ColumnDefinitions>
 
-                <Label Grid.Row="0" Grid.ColumnSpan="5" HorizontalTextAlignment="Center"
+                <Label HorizontalTextAlignment="Center"
                        FontFamily="{StaticResource Comic}"
-                       Text="Stories" FontSize="35" FontAttributes="Bold" />
+                       VerticalTextAlignment="Start" VerticalOptions="Start"
+                       Text="Stories" FontSize="35" FontAttributes="Bold"
+                       Grid.Row="0" Grid.Column="2" />
 
                 <ffimageloading:CachedImage
                         Grid.Row="1"
@@ -130,7 +138,7 @@
                 <ffimageloading:CachedImage
                         Grid.Row="1"
                         Grid.Column="1"
-                        Source="BS1_Red_Riding_7.png">
+                        Source="BS1_Hen_7.png">
                 </ffimageloading:CachedImage>
                 <ffimageloading:CachedImage
                         Grid.Row="1"

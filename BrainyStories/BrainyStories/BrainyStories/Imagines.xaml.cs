@@ -105,21 +105,30 @@ namespace BrainyStories
 
             ListOfImagines.ItemsSource = imaginesData;
             //set the total number of prizes
-            TotalPrizeCount.Text = GetTotalPrizeCount();
+            var totalNumberOfPrizes = GetTotalPrizeCount();
+            TotalPrizeCount.Text = Environment.NewLine + totalNumberOfPrizes.ToString();
+            if (totalNumberOfPrizes > 9)
+            {
+                TotalPrizeCount.Margin = new Thickness(0, 0, 38, 0);
+            }
+            else
+            {
+                TotalPrizeCount.Margin = new Thickness(0, 0, 43, 0);
+            }
             if (!displayDescription)
             {
                 ToggleRewardsScreen();
             }
         }
 
-        private String GetTotalPrizeCount()
+        private int GetTotalPrizeCount()
         {
             var count = 0;
             foreach (var story in (IEnumerable<Story>)ListOfImagines.ItemsSource)
             {
                 count += story.PrizesSelected;
             }
-            return Environment.NewLine + count.ToString();
+            return count;
         }
 
         private void CatClicked(object sender, EventArgs e)
@@ -173,6 +182,7 @@ namespace BrainyStories
             //play audio to describe the prize
             player = CrossSimpleAudioPlayer.Current;
             player.Load(prize.Audio);
+            player.Volume = 1;
             player.Play();
             player.PlaybackEnded += EndAudio;
         }

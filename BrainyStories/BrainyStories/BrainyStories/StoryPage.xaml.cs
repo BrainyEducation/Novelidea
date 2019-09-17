@@ -87,13 +87,12 @@ namespace BrainyStories
             CurrentStoryPage = StoryPages.First();
             //story content
             StoryImage.Source = CurrentStoryPage.Image;
-            StoryImage.MinimumWidthRequest = DeviceDisplay.MainDisplayInfo.Width;
-            StoryImage.Aspect = Aspect.AspectFit;
+            StoryImage.Aspect = Aspect.Fill;
 
             player = Plugin.SimpleAudioPlayer.CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
 
             player.Load(story.AudioClip);
-
+            player.Volume = 1;
             //find the story duration if we haven't already
             if (story.DurationInSeconds <= 0)
             {

@@ -41,10 +41,11 @@
                     </ContentView.GestureRecognizers>
                 </ContentView>
             </StackLayout>
-            <Grid>
+            <Grid
+                VerticalOptions="FillAndExpand">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="3*" />
-                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="8*" />
+                    <RowDefinition Height="2*" />
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
