@@ -13,9 +13,18 @@ namespace BrainyStories
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MainPage : ContentPage
     {
+        private const int PHONE_SCREEN_FONT_SIZE = 18;
+
         public MainPage()
         {
             InitializeComponent();
+            if (Device.Idiom == TargetIdiom.Phone)
+            {
+                ImaginesLabel.FontSize = PHONE_SCREEN_FONT_SIZE;
+                StoriesLabel.FontSize = PHONE_SCREEN_FONT_SIZE;
+                StoriesGrid.Padding = new Thickness(25, 5, 25, 5);
+                ImaginesGrid.Padding = new Thickness(25, 5, 25, 5);
+            }
         }
 
         // Imagines TOC

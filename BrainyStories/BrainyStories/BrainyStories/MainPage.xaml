@@ -49,6 +49,7 @@
                 <TapGestureRecognizer Tapped="ImaginesClicked" />
             </Frame.GestureRecognizers>
             <Grid
+                x:Name="ImaginesGrid"
                 VerticalOptions="StartAndExpand"
                 Padding="10,0,10,0">
                 <Grid.RowDefinitions>
@@ -63,7 +64,7 @@
                     <ColumnDefinition Width="1*" />
                 </Grid.ColumnDefinitions>
 
-                <Label Grid.Row="0" Grid.ColumnSpan="5" HorizontalTextAlignment="Center"
+                <Label x:Name="ImaginesLabel" Grid.Row="0" Grid.ColumnSpan="5" HorizontalTextAlignment="Center"
                        FontFamily="{StaticResource Comic}"
                        Text="Imagines" FontSize="35" FontAttributes="Bold" />
 
@@ -110,6 +111,7 @@
                 <TapGestureRecognizer Tapped="StoriesClicked" />
             </Frame.GestureRecognizers>
             <Grid
+                x:Name="StoriesGrid"
                 VerticalOptions="StartAndExpand"
                 Padding="10,0,10,0">
                 <Grid.RowDefinitions>
@@ -124,11 +126,13 @@
                     <ColumnDefinition Width="1*" />
                 </Grid.ColumnDefinitions>
 
-                <Label HorizontalTextAlignment="Center"
-                       FontFamily="{StaticResource Comic}"
-                       VerticalTextAlignment="Start" VerticalOptions="Start"
-                       Text="Stories" FontSize="35" FontAttributes="Bold"
-                       Grid.Row="0" Grid.Column="2" />
+                <Label
+                        x:Name="StoriesLabel"
+                        HorizontalTextAlignment="Center"
+                        FontFamily="{StaticResource Comic}"
+                        VerticalTextAlignment="Start" VerticalOptions="Start"
+                        Text="Stories" FontSize="35" FontAttributes="Bold"
+                        Grid.Row="0" Grid.Column="2" />
 
                 <ffimageloading:CachedImage
                         Grid.Row="1"
