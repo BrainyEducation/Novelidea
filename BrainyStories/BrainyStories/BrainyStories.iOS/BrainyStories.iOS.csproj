@@ -808,4 +808,7 @@
   <ItemGroup>
     <BundleResource Include="Resources\BS1_Hen_7.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\S2_LRH_TAD2.mp3" />
+  </ItemGroup>
 </Project>

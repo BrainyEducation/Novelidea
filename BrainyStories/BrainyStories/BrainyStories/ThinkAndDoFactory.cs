@@ -54,9 +54,9 @@ namespace BrainyStories
                         ThinkAndDoName = RED_HEN_NAME,
                         AssociatedImage = "S2_LRH_0.png",
                         ThinkAndDoAudioClip1 = "S2_LRH_TAD1.mp3",
-                        ThinkAndDoAudioClip2 = "S2_LRH_TAD1.mp3",
+                        ThinkAndDoAudioClip2 = "S2_LRH_TAD2.mp3",
                         Text1 = "When the Little Red Hen found a grain of wheat what did she want to do with it? Put the story in order by what she did. Did she really want to do all the work alone all by herself? Who did she ask for help? Did the animals help the Little Red Hen in any way? After the Little Red Hen finished with the bread, what did she do?",
-                        Text2 = "Coming Soon!",
+                        Text2 = "When somebody asks you to help with a task, did you ever say no? Why did you say no? Did you ever help somebody do something when they asked for help? How did that make you feel? Did somebody ever help you when you asked for help? How did that make you feel? Of the different tasks the little red hen completed, which do you think was the hardest and most difficult? Can you draw a picture of her completing that task?",
                         StoryId = StoryFactory.LITTLE_RED_HEN_ID
                     });
 
