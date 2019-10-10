@@ -75,6 +75,9 @@ namespace BrainyStories
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Imagines : ContentPage
     {
+        private const int PHONE_SCREEN_FONT_SIZE = 18;
+        private const int PHONE_SCREEN_ICON_SIZE = 50;
+
         private StorySet StorySet;
 
         //used for prize accouncement playback
@@ -94,6 +97,39 @@ namespace BrainyStories
 
             InitializeComponent();
 
+            //set the total number of prizes
+            var totalNumberOfPrizes = GetTotalPrizeCount(imaginesData);
+
+            //set the number on the top right corner of the screen
+            TotalPrizeCount.Text = Environment.NewLine + totalNumberOfPrizes.ToString();
+            if (totalNumberOfPrizes > 9)
+            {
+                TotalPrizeCount.Margin = new Thickness(0, 0, 38, 0);
+            }
+            else
+            {
+                TotalPrizeCount.Margin = new Thickness(0, 0, 43, 0);
+            }
+
+            if (Device.Idiom == TargetIdiom.Phone)
+            {
+                StoryMenuLabel.FontSize = PHONE_SCREEN_FONT_SIZE;
+                KidContentView.HeightRequest = PHONE_SCREEN_ICON_SIZE;
+                KittenContentView.HeightRequest = PHONE_SCREEN_ICON_SIZE;
+                TrophyContentView.HeightRequest = PHONE_SCREEN_ICON_SIZE;
+
+                TotalPrizeCount.Text = totalNumberOfPrizes.ToString();
+                TotalPrizeCount.FontSize = 14;
+                if (totalNumberOfPrizes > 9)
+                {
+                    TotalPrizeCount.Margin = new Thickness(0, 10, 15, 0);
+                }
+                else
+                {
+                    TotalPrizeCount.Margin = new Thickness(0, 10, 25, 0);
+                }
+            }
+
             if (StorySet == StorySet.Imagines)
             {
                 StoryMenuLabel.Text = "Imagines";
@@ -104,27 +140,17 @@ namespace BrainyStories
             }
 
             ListOfImagines.ItemsSource = imaginesData;
-            //set the total number of prizes
-            var totalNumberOfPrizes = GetTotalPrizeCount();
-            TotalPrizeCount.Text = Environment.NewLine + totalNumberOfPrizes.ToString();
-            if (totalNumberOfPrizes > 9)
-            {
-                TotalPrizeCount.Margin = new Thickness(0, 0, 38, 0);
-            }
-            else
-            {
-                TotalPrizeCount.Margin = new Thickness(0, 0, 43, 0);
-            }
+
             if (!displayDescription)
             {
                 ToggleRewardsScreen();
             }
         }
 
-        private int GetTotalPrizeCount()
+        private int GetTotalPrizeCount(IEnumerable<Story> imaginesData)
         {
             var count = 0;
-            foreach (var story in (IEnumerable<Story>)ListOfImagines.ItemsSource)
+            foreach (var story in imaginesData)
             {
                 count += story.PrizesSelected;
             }
@@ -145,6 +171,7 @@ namespace BrainyStories
                 story.AreRewardsVisible = !story.AreRewardsVisible;
                 newItemSource.Add(story);
             }
+
             ListOfImagines.ItemsSource = newItemSource;
         }
 

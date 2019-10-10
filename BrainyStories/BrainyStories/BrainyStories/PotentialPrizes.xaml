@@ -15,11 +15,10 @@
               Orientation="Horizontal"
               BackgroundColor ="#A9FFF7">
                 <ContentView
-                    WidthRequest="50"
                     HeightRequest="50"
                     VerticalOptions="CenterAndExpand">
                     <ffimageloading:CachedImage
-                            Aspect="AspectFill"
+                            Aspect="AspectFit"
                             Source="BackButton.png">
                     </ffimageloading:CachedImage>
                     <ContentView.GestureRecognizers>
@@ -28,11 +27,10 @@
                 </ContentView>
 
                 <ContentView
-                    WidthRequest="50"
                     HeightRequest="50"
                     VerticalOptions="CenterAndExpand">
                     <ffimageloading:CachedImage
-                            Aspect="AspectFill"
+                            Aspect="AspectFit"
                             Source="Home.png">
                     </ffimageloading:CachedImage>
                     <ContentView.GestureRecognizers>

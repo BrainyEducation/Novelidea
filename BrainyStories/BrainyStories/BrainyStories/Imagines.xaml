@@ -15,11 +15,10 @@
               Orientation="Horizontal"
               BackgroundColor ="#A9FFF7">
                 <ContentView
-                    WidthRequest="50"
                     HeightRequest="50"
                     VerticalOptions="CenterAndExpand">
                     <ffimageloading:CachedImage
-                            Aspect="AspectFill"
+                            Aspect="AspectFit"
                             Source="BackButton.png">
                     </ffimageloading:CachedImage>
                     <ContentView.GestureRecognizers>
@@ -28,11 +27,10 @@
                 </ContentView>
 
                 <ContentView
-                    WidthRequest="50"
                     HeightRequest="50"
                     VerticalOptions="CenterAndExpand">
                     <ffimageloading:CachedImage
-                            Aspect="AspectFill"
+                            Aspect="AspectFit"
                             Source="Home.png">
                     </ffimageloading:CachedImage>
                     <ContentView.GestureRecognizers>
@@ -42,10 +40,12 @@
 
                 <StackLayout  Margin="20,0,0,0"  HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
                     <ContentView
+                       x:Name="KidContentView"
                         HeightRequest="100"
-                        VerticalOptions="CenterAndExpand"
+                        VerticalOptions="Center"
                         HorizontalOptions="End">
                         <ffimageloading:CachedImage
+                            Aspect="AspectFit"
                             Source="prize.png">
                         </ffimageloading:CachedImage>
                         <ContentView.GestureRecognizers>
@@ -61,15 +61,15 @@
                         HorizontalTextAlignment="Center"
                         VerticalTextAlignment="Center"
                         VerticalOptions="Center"
-                        HorizontalOptions="Center"
-                        HeightRequest="100" />
+                        HorizontalOptions="Center" />
 
                     <ContentView
-                        Padding= "10"
-                        VerticalOptions="CenterAndExpand"
-                        HorizontalOptions="Center"
-                        HeightRequest="100">
+                        x:Name="KittenContentView"
+                        HeightRequest="100"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center">
                         <ffimageloading:CachedImage
+                            Aspect="AspectFit"
                             Source="kitten.png">
                         </ffimageloading:CachedImage>
                         <ContentView.GestureRecognizers>
@@ -80,8 +80,7 @@
 
                 <Grid
                         HorizontalOptions="End"
-                        VerticalOptions="CenterAndExpand"
-                        HeightRequest="100">
+                        VerticalOptions="CenterAndExpand">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="1*" />
                     </Grid.RowDefinitions>
@@ -90,10 +89,13 @@
                     </Grid.ColumnDefinitions>
 
                     <ContentView
+                        x:Name ="TrophyContentView"
+                        HeightRequest="100"
                         HorizontalOptions="End"
                         Grid.Row="0"
                         Grid.Column="0">
                         <ffimageloading:CachedImage
+                            Aspect="AspectFit"
                             Source="trophy.png">
                         </ffimageloading:CachedImage>
                         <ContentView.GestureRecognizers>
@@ -116,6 +118,7 @@
             <!--<End of Navigation Bar />-->
 
             <!--<Data bound list of all stories / imagines />-->
+
             <ListView SeparatorVisibility="None"
                 HasUnevenRows="True"
                 VerticalOptions ="FillAndExpand"
@@ -129,14 +132,33 @@
                         <ViewCell>
                             <ViewCell.View>
                                 <StackLayout Orientation="Horizontal"
-                             HeightRequest="250" HorizontalOptions="FillAndExpand">
+                                             HorizontalOptions="FillAndExpand">
+
                                     <!--Structured to allow for toggle between the Story View and the Prize View-->
-                                    <ffimageloading:CachedImage VerticalOptions="FillAndExpand" Aspect="AspectFill"
-                                           IsVisible="{Binding IsStoryVisible}" Source="{Binding Icon}" />
+                                    <ffimageloading:CachedImage x:Name="StoryIcon" VerticalOptions="Start"  Aspect="AspectFit"
+                                           WidthRequest="250" IsVisible="{Binding IsStoryVisible}" Source="{Binding Icon}" />
                                     <StackLayout IsVisible="{Binding IsStoryVisible}" Padding="10" Orientation="Vertical">
-                                        <Label Text ="{Binding Name}" FontAttributes="Bold" FontSize="35" />
-                                        <Label Text ="{Binding Description}"
+                                        <OnIdiom x:TypeArguments="View">
+                                            <OnIdiom.Tablet>
+                                                <Label Text ="{Binding Name}" FontAttributes="Bold" FontSize="Large"
+                                                       HorizontalTextAlignment="Center" />
+                                            </OnIdiom.Tablet>
+                                            <OnIdiom.Phone>
+                                                <Label Text ="{Binding Name}" FontAttributes="Bold" FontSize="20"
+                                                       HorizontalTextAlignment="Center" BackgroundColor="Transparent" />
+                                            </OnIdiom.Phone>
+                                        </OnIdiom>
+
+                                        <OnIdiom x:TypeArguments="View">
+                                            <OnIdiom.Tablet>
+                                                <Label Text ="{Binding Description}"
                                                LineBreakMode="WordWrap" VerticalOptions="Start"  FontSize="23" FontFamily="{StaticResource Comic}" />
+                                            </OnIdiom.Tablet>
+                                            <OnIdiom.Phone>
+                                                <Label Text ="{Binding Description}"
+                                               LineBreakMode="WordWrap" VerticalOptions="Start"  FontSize="12" FontFamily="{StaticResource Comic}" />
+                                            </OnIdiom.Phone>
+                                        </OnIdiom>
 
                                         <!--Grid for the Stars-->
                                         <Grid>
@@ -144,8 +166,7 @@
                                                 <RowDefinition Height="*" />
                                             </Grid.RowDefinitions>
                                             <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="4*" />
-                                                <ColumnDefinition Width="2*" />
+                                                <ColumnDefinition Width="7*" />
                                                 <ColumnDefinition Width="2*" />
                                                 <ColumnDefinition Width="1*" />
                                                 <ColumnDefinition Width="2*" />
@@ -155,28 +176,60 @@
                                                 <!--Uncomment below if we need a timespan-->
                                                 <!--<Label Text="{Binding DurationInTimeSpanString}"
                                                      FontSize="25" FontFamily="{StaticResource Comic}" />-->
-                                                <Label Text="{Binding WordCount}"
+                                                <OnIdiom x:TypeArguments="View">
+                                                    <OnIdiom.Tablet>
+                                                        <Label Text="{Binding WordCount}"
                                                     VerticalOptions="Center"  FontSize="25" FontFamily="{StaticResource Comic}" />
-                                                <Label Text=" Words"
+                                                    </OnIdiom.Tablet>
+
+                                                    <OnIdiom.Phone>
+                                                        <Label Text="{Binding WordCount}"
+                                                    VerticalOptions="Center"  FontSize="12" FontFamily="{StaticResource Comic}" />
+                                                    </OnIdiom.Phone>
+                                                </OnIdiom>
+                                                <OnIdiom  x:TypeArguments="View">
+                                                    <OnIdiom.Tablet>
+                                                        <Label Text=" Words"
                                                     VerticalOptions="Center"  FontSize="25" FontFamily="{StaticResource Comic}" />
+                                                    </OnIdiom.Tablet>
+                                                    <OnIdiom.Phone>
+                                                        <Label Text=" Words"
+                                                    VerticalOptions="Center"  FontSize="12" FontFamily="{StaticResource Comic}" />
+                                                    </OnIdiom.Phone>
+                                                </OnIdiom>
                                             </StackLayout>
 
                                             <!--Star 1-->
-                                            <ContentView
-                                               Grid.Row="0" Grid.Column="3" HorizontalOptions="End" WidthRequest= "50">
-                                                <ffimageloading:CachedImage
-                                                   Source="{Binding ThinkAndDo.Star1Image}">
-                                                </ffimageloading:CachedImage>
-                                                <ContentView.GestureRecognizers>
-                                                    <TapGestureRecognizer Tapped="StarTapped" CommandParameter="1" />
-                                                </ContentView.GestureRecognizers>
-                                            </ContentView>
+                                            <OnIdiom x:TypeArguments="View">
+                                                <OnIdiom.Tablet>
+                                                    <ContentView
+                                                        Grid.Row="0" Grid.Column="1" HorizontalOptions="End" WidthRequest= "50">
+                                                        <ffimageloading:CachedImage
+                                                            Source="{Binding ThinkAndDo.Star1Image}" Aspect="AspectFit">
+                                                        </ffimageloading:CachedImage>
+                                                        <ContentView.GestureRecognizers>
+                                                            <TapGestureRecognizer Tapped="StarTapped" CommandParameter="1" />
+                                                        </ContentView.GestureRecognizers>
+                                                    </ContentView>
+                                                </OnIdiom.Tablet>
+                                                <OnIdiom.Phone>
+                                                    <ContentView
+                                                         Grid.Row="0" Grid.Column="1" HorizontalOptions="End" WidthRequest= "50">
+                                                        <ffimageloading:CachedImage
+                                                             Source="{Binding ThinkAndDo.Star1Image}" Aspect="AspectFit">
+                                                        </ffimageloading:CachedImage>
+                                                        <ContentView.GestureRecognizers>
+                                                            <TapGestureRecognizer Tapped="StarTapped" CommandParameter="1" />
+                                                        </ContentView.GestureRecognizers>
+                                                    </ContentView>
+                                                </OnIdiom.Phone>
+                                            </OnIdiom>
 
                                             <!--Star 2-->
                                             <ContentView
-                                               Grid.Row="0" Grid.Column="5" HorizontalOptions="End" WidthRequest= "50">
+                                               Grid.Row="0" Grid.Column="3" HorizontalOptions="End" WidthRequest= "50">
                                                 <ffimageloading:CachedImage
-                                                   Source="{Binding ThinkAndDo.Star2Image}">
+                                                   Source="{Binding ThinkAndDo.Star2Image}" Aspect="AspectFit">
                                                 </ffimageloading:CachedImage>
                                                 <ContentView.GestureRecognizers>
                                                     <TapGestureRecognizer Tapped="StarTapped" CommandParameter="2" />
@@ -185,157 +238,226 @@
                                         </Grid>
                                     </StackLayout>
                                     <!--This half of the View Cell is for the Prize View-->
-                                    <ffimageloading:CachedImage HeightRequest="{Binding HeightRequest}"
-                                               IsVisible="{Binding AreRewardsVisible}" Source="{Binding Icon}" />
-                                    <Grid IsVisible="{Binding AreRewardsVisible}">
-                                        <Grid.RowDefinitions>
-                                            <RowDefinition Height="1*" />
-                                        </Grid.RowDefinitions>
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="1*" />
-                                            <ColumnDefinition Width="1*" />
-                                            <ColumnDefinition Width="1*" />
-                                            <ColumnDefinition Width="1*" />
-                                            <ColumnDefinition Width="1*" />
-                                            <ColumnDefinition Width="1*" />
-                                        </Grid.ColumnDefinitions>
+                                    <!--todo: width request for tablet-->
+                                    <OnIdiom x:TypeArguments="ffimageloading:CachedImage">
+                                        <OnIdiom.Tablet>
+                                            <ffimageloading:CachedImage
+                                               IsVisible="{Binding AreRewardsVisible}" HeightRequest="150" Source="{Binding Icon}" Aspect="AspectFit" Margin="0,0,0,0" />
+                                        </OnIdiom.Tablet>
+                                        <OnIdiom.Phone>
+                                            <ffimageloading:CachedImage
+                                               IsVisible="{Binding AreRewardsVisible}" WidthRequest="200" Source="{Binding Icon}" Aspect="AspectFit" Margin="0,0,0,0" />
+                                        </OnIdiom.Phone>
+                                    </OnIdiom>
+                                    <OnIdiom x:TypeArguments="Grid">
+                                        <OnIdiom.Tablet>
+                                            <Grid IsVisible="{Binding AreRewardsVisible}">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="1*" />
+                                                </Grid.RowDefinitions>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="1*" />
+                                                    <ColumnDefinition Width="1*" />
+                                                    <ColumnDefinition Width="1*" />
+                                                    <ColumnDefinition Width="1*" />
+                                                    <ColumnDefinition Width="1*" />
+                                                    <ColumnDefinition Width="1*" />
+                                                </Grid.ColumnDefinitions>
 
-                                        <ContentView
+                                                <ContentView
                                                 Grid.Column="0"
                                                 Grid.Row="0">
-                                            <ffimageloading:CachedImage
-                                                Aspect="AspectFit"
-                                                Source="{Binding Prize1}">
-                                            </ffimageloading:CachedImage>
-                                            <ContentView.GestureRecognizers>
-                                                <TapGestureRecognizer Tapped="PlayPrizeAudio" />
-                                            </ContentView.GestureRecognizers>
-                                        </ContentView>
+                                                    <ffimageloading:CachedImage
+                                                        Aspect="AspectFit"
+                                                        Source="{Binding Prize1}">
+                                                    </ffimageloading:CachedImage>
+                                                    <ContentView.GestureRecognizers>
+                                                        <TapGestureRecognizer Tapped="PlayPrizeAudio" />
+                                                    </ContentView.GestureRecognizers>
+                                                </ContentView>
 
-                                        <ContentView
+                                                <ContentView
                                                 Grid.Column="1"
                                                 Grid.Row="0">
-                                            <ffimageloading:CachedImage
+                                                    <ffimageloading:CachedImage
                                                 Aspect="AspectFit"
                                                 Source="{Binding Prize2}">
-                                            </ffimageloading:CachedImage>
-                                            <ContentView.GestureRecognizers>
-                                                <TapGestureRecognizer Tapped="PlayPrizeAudio" />
-                                            </ContentView.GestureRecognizers>
-                                        </ContentView>
+                                                    </ffimageloading:CachedImage>
+                                                    <ContentView.GestureRecognizers>
+                                                        <TapGestureRecognizer Tapped="PlayPrizeAudio" />
+                                                    </ContentView.GestureRecognizers>
+                                                </ContentView>
 
-                                        <ContentView
+                                                <ContentView
                                                 Grid.Column="2"
                                                 Grid.Row="0">
-                                            <ffimageloading:CachedImage
+                                                    <ffimageloading:CachedImage
                                                 Aspect="AspectFit"
                                                 Source="{Binding Prize3}">
-                                            </ffimageloading:CachedImage>
-                                            <ContentView.GestureRecognizers>
-                                                <TapGestureRecognizer Tapped="PlayPrizeAudio" />
-                                            </ContentView.GestureRecognizers>
-                                        </ContentView>
+                                                    </ffimageloading:CachedImage>
+                                                    <ContentView.GestureRecognizers>
+                                                        <TapGestureRecognizer Tapped="PlayPrizeAudio" />
+                                                    </ContentView.GestureRecognizers>
+                                                </ContentView>
 
-                                        <ContentView
+                                                <ContentView
                                                 Grid.Column="3"
                                                 Grid.Row="0">
-                                            <ffimageloading:CachedImage
+                                                    <ffimageloading:CachedImage
                                                 Aspect="AspectFit"
                                                 Source="{Binding Prize4}">
-                                            </ffimageloading:CachedImage>
-                                            <ContentView.GestureRecognizers>
-                                                <TapGestureRecognizer Tapped="PlayPrizeAudio" />
-                                            </ContentView.GestureRecognizers>
-                                        </ContentView>
+                                                    </ffimageloading:CachedImage>
+                                                    <ContentView.GestureRecognizers>
+                                                        <TapGestureRecognizer Tapped="PlayPrizeAudio" />
+                                                    </ContentView.GestureRecognizers>
+                                                </ContentView>
 
-                                        <ContentView
+                                                <ContentView
                                                 Grid.Column="4"
                                                 Grid.Row="0">
-                                            <ffimageloading:CachedImage
+                                                    <ffimageloading:CachedImage
                                                 Aspect="AspectFit"
                                                 Source="{Binding Prize5}">
-                                            </ffimageloading:CachedImage>
-                                            <ContentView.GestureRecognizers>
-                                                <TapGestureRecognizer Tapped="PlayPrizeAudio" />
-                                            </ContentView.GestureRecognizers>
-                                        </ContentView>
-                                        <Grid
+                                                    </ffimageloading:CachedImage>
+                                                    <ContentView.GestureRecognizers>
+                                                        <TapGestureRecognizer Tapped="PlayPrizeAudio" />
+                                                    </ContentView.GestureRecognizers>
+                                                </ContentView>
+                                                <Grid
                                             HorizontalOptions="EndAndExpand"
                                             VerticalOptions="Center"
                                             Grid.Column="5"
                                             Grid.Row="0"
                                             HeightRequest="150">
-                                            <ffimageloading:CachedImage
+                                                    <ffimageloading:CachedImage
                                                 HorizontalOptions="EndAndExpand"
                                                 VerticalOptions="Center"
                                                 Source="trophy.png"
                                                 HeightRequest="150"
                                                 Grid.Column="0"
                                                 Grid.Row="0" />
-                                            <Label
-                                                HorizontalOptions="CenterAndExpand"
-                                                HorizontalTextAlignment="Center"
-                                                VerticalTextAlignment="Center"
-                                                VerticalOptions="CenterAndExpand"
-                                                FontSize="25"
-                                                FontAttributes="Bold"
-                                                TextColor="White"
+                                                    <Label
+                                                        HorizontalOptions="CenterAndExpand"
+                                                        HorizontalTextAlignment="Center"
+                                                        VerticalTextAlignment="Center"
+                                                        VerticalOptions="CenterAndExpand"
+                                                        FontAttributes="Bold"
+                                                        TextColor="White"
+                                                        Font ="25"
+                                                        Grid.Column="0"
+                                                        Grid.Row="0"
+                                                        Margin="0, 0, 0, 15"
+                                                        Text="{Binding PrizesSelected}" />
+                                                </Grid>
+                                            </Grid>
+                                        </OnIdiom.Tablet>
+
+                                        <OnIdiom.Phone>
+                                            <Grid IsVisible="{Binding AreRewardsVisible}" HeightRequest="100" Padding="0,5,0,5">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="1*" />
+                                                    <RowDefinition Height="1*" />
+                                                </Grid.RowDefinitions>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="1*" />
+                                                    <ColumnDefinition Width="1*" />
+                                                    <ColumnDefinition Width="1*" />
+                                                    <ColumnDefinition Width="1*" />
+                                                </Grid.ColumnDefinitions>
+
+                                                <ContentView
+                                                    Grid.RowSpan="1"
+                                                    Grid.Column="0"
+                                                    Grid.Row="0">
+                                                    <ffimageloading:CachedImage
+                                                         Margin="0,0,0,0"
+                                                        Aspect="AspectFit"
+                                                        Source="{Binding Prize1}">
+                                                    </ffimageloading:CachedImage>
+                                                    <ContentView.GestureRecognizers>
+                                                        <TapGestureRecognizer Tapped="PlayPrizeAudio" />
+                                                    </ContentView.GestureRecognizers>
+                                                </ContentView>
+
+                                                <ContentView
+                                                    Grid.RowSpan="1"
+                                                    Grid.Column="1"
+                                                    Grid.Row="0">
+                                                    <ffimageloading:CachedImage
+                                                        Aspect="AspectFit"
+                                                        Source="{Binding Prize2}">
+                                                    </ffimageloading:CachedImage>
+                                                    <ContentView.GestureRecognizers>
+                                                        <TapGestureRecognizer Tapped="PlayPrizeAudio" />
+                                                    </ContentView.GestureRecognizers>
+                                                </ContentView>
+
+                                                <ContentView
+                                                    Grid.RowSpan="1"
+                                                    Grid.Column="2"
+                                                    Grid.Row="0">
+                                                    <ffimageloading:CachedImage
+                                                         Aspect="AspectFit"
+                                                         Source="{Binding Prize3}">
+                                                    </ffimageloading:CachedImage>
+                                                    <ContentView.GestureRecognizers>
+                                                        <TapGestureRecognizer Tapped="PlayPrizeAudio" />
+                                                    </ContentView.GestureRecognizers>
+                                                </ContentView>
+
+                                                <ContentView
                                                 Grid.Column="0"
-                                                Grid.Row="0"
-                                                Margin="0, 0, 0, 15"
-                                                Text="{Binding PrizesSelected}" />
-                                        </Grid>
-                                    </Grid>
-                                    <!--<Grid IsVisible="{Binding IsGridVisible}" HorizontalOptions="FillAndExpand">
-                                        <Grid.RowDefinitions>
-                                            <RowDefinition Height="1*" />
-                                            <RowDefinition Height="1*" />
-                                            <RowDefinition Height="1*" />
-                                        </Grid.RowDefinitions>
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="1*" />
-                                            <ColumnDefinition Width="1*" />
-                                            <ColumnDefinition Width="1*" />
-                                        </Grid.ColumnDefinitions>
-                                        <Image
-                                            HorizontalOptions="Center"
-                                            Grid.Column="1"
-                                            Grid.Row="0"
-                                            Source="trophy.png" />
-                                        <Label
-                                            HorizontalOptions="Center"
-                                            HorizontalTextAlignment="Center"
-                                            VerticalTextAlignment="Center"
-                                            FontSize="22"
-                                            FontAttributes="Bold"
-                                            TextColor="White"
-                                            Grid.Column="1"
-                                            Grid.Row="0"
-                                            Text="{Binding PrizesSelected}" />
-                                        <Image
-                                            Grid.Row="1"
-                                            Grid.Column="0"
-                                            Source="{Binding Prize1}" />
-                                        <Image
-                                            Grid.Row="1"
-                                            Grid.Column="1"
-                                            Source="{Binding Prize2}" />
-                                        <Image
-                                            Grid.Row="1"
-                                            Grid.Column="2"
-                                            Source="{Binding Prize3}" />
-                                        <Image
-                                            Grid.Row="2"
-                                            Grid.Column="0"
-                                            Source="{Binding Prize4}" />
-                                        <Image
-                                            Grid.Row="2"
-                                            Grid.Column="1" />
-                                        <Image
-                                            Grid.Row="2"
-                                            Grid.Column="2"
-                                            Source="{Binding Prize5}" />
-                                    </Grid>-->
+                                                Grid.Row="1">
+                                                    <ffimageloading:CachedImage
+                                                Aspect="AspectFit"
+                                                Source="{Binding Prize4}">
+                                                    </ffimageloading:CachedImage>
+                                                    <ContentView.GestureRecognizers>
+                                                        <TapGestureRecognizer Tapped="PlayPrizeAudio" />
+                                                    </ContentView.GestureRecognizers>
+                                                </ContentView>
+
+                                                <ContentView
+                                                Grid.Column="1"
+                                                Grid.Row="1">
+                                                    <ffimageloading:CachedImage
+                                                Aspect="AspectFit"
+                                                Source="{Binding Prize5}">
+                                                    </ffimageloading:CachedImage>
+                                                    <ContentView.GestureRecognizers>
+                                                        <TapGestureRecognizer Tapped="PlayPrizeAudio" />
+                                                    </ContentView.GestureRecognizers>
+                                                </ContentView>
+                                                <Grid
+                                                    HorizontalOptions="EndAndExpand"
+                                                    VerticalOptions="Center"
+                                                    Grid.Column="3"
+                                                    Grid.Row="0"
+                                                    Grid.RowSpan="2"
+                                                    HeightRequest="150">
+                                                    <ffimageloading:CachedImage
+                                                        HorizontalOptions="EndAndExpand"
+                                                        VerticalOptions="Center"
+                                                        Source="trophy.png"
+                                                        HeightRequest="150"
+                                                        Grid.Column="0"
+                                                        Grid.Row="0" />
+                                                    <Label
+                                                        HorizontalOptions="CenterAndExpand"
+                                                        HorizontalTextAlignment="Center"
+                                                        VerticalTextAlignment="Center"
+                                                        VerticalOptions="CenterAndExpand"
+                                                        FontAttributes="Bold"
+                                                        TextColor="White"
+                                                        Font ="12"
+                                                        Grid.Column="0"
+                                                        Grid.Row="0"
+                                                        Margin="0, 0, 0, 10"
+                                                        Text="{Binding PrizesSelected}" />
+                                                </Grid>
+                                            </Grid>
+                                        </OnIdiom.Phone>
+                                    </OnIdiom>
                                 </StackLayout>
                             </ViewCell.View>
                         </ViewCell>
