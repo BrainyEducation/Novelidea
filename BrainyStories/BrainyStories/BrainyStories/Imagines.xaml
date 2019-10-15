@@ -133,14 +133,23 @@
                             <ViewCell.View>
                                 <StackLayout Orientation="Horizontal"
                                              HorizontalOptions="FillAndExpand">
-
-                                    <!--Structured to allow for toggle between the Story View and the Prize View-->
-                                    <ffimageloading:CachedImage x:Name="StoryIcon" VerticalOptions="Start"  Aspect="AspectFit"
+                                    <OnIdiom x:TypeArguments="ffimageloading:CachedImage">
+                                        <OnIdiom.Tablet>
+                                            <!--Structured to allow for toggle between the Story View and the Prize View-->
+                                            <ffimageloading:CachedImage  VerticalOptions="Start"  Aspect="AspectFill" Margin="10,0,0, 10"
+                                           WidthRequest="500" IsVisible="{Binding IsStoryVisible}" Source="{Binding Icon}" />
+                                        </OnIdiom.Tablet>
+                                        <OnIdiom.Phone>
+                                            <!--Structured to allow for toggle between the Story View and the Prize View-->
+                                            <ffimageloading:CachedImage VerticalOptions="Start"  Aspect="AspectFit"
                                            WidthRequest="250" IsVisible="{Binding IsStoryVisible}" Source="{Binding Icon}" />
+                                        </OnIdiom.Phone>
+                                    </OnIdiom>
+
                                     <StackLayout IsVisible="{Binding IsStoryVisible}" Padding="10" Orientation="Vertical">
                                         <OnIdiom x:TypeArguments="View">
                                             <OnIdiom.Tablet>
-                                                <Label Text ="{Binding Name}" FontAttributes="Bold" FontSize="Large"
+                                                <Label Text ="{Binding Name}" FontAttributes="Bold" FontSize="32"
                                                        HorizontalTextAlignment="Center" />
                                             </OnIdiom.Tablet>
                                             <OnIdiom.Phone>
@@ -242,7 +251,7 @@
                                     <OnIdiom x:TypeArguments="ffimageloading:CachedImage">
                                         <OnIdiom.Tablet>
                                             <ffimageloading:CachedImage
-                                               IsVisible="{Binding AreRewardsVisible}" HeightRequest="150" Source="{Binding Icon}" Aspect="AspectFit" Margin="0,0,0,0" />
+                                               IsVisible="{Binding AreRewardsVisible}" WidthRequest="250" Source="{Binding Icon}" Aspect="AspectFill" Margin="5,0,0,5" />
                                         </OnIdiom.Tablet>
                                         <OnIdiom.Phone>
                                             <ffimageloading:CachedImage
@@ -346,7 +355,7 @@
                                                         Font ="25"
                                                         Grid.Column="0"
                                                         Grid.Row="0"
-                                                        Margin="0, 0, 0, 15"
+                                                        Margin="0, 0, 0, 18"
                                                         Text="{Binding PrizesSelected}" />
                                                 </Grid>
                                             </Grid>

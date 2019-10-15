@@ -104,11 +104,11 @@ namespace BrainyStories
             TotalPrizeCount.Text = Environment.NewLine + totalNumberOfPrizes.ToString();
             if (totalNumberOfPrizes > 9)
             {
-                TotalPrizeCount.Margin = new Thickness(0, 0, 38, 0);
+                TotalPrizeCount.Margin = new Thickness(0, 0, 38, 2);
             }
             else
             {
-                TotalPrizeCount.Margin = new Thickness(0, 0, 43, 0);
+                TotalPrizeCount.Margin = new Thickness(0, 0, 43, 2);
             }
 
             if (Device.Idiom == TargetIdiom.Phone)
