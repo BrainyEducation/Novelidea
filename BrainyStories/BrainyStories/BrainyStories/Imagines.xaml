@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:brainystories="clr-namespace:BrainyStories"
              x:Class="BrainyStories.Imagines"
              NavigationPage.HasNavigationBar="false"
              BackgroundColor="#A9FFF7">
@@ -17,10 +18,10 @@
                 <ContentView
                     HeightRequest="50"
                     VerticalOptions="CenterAndExpand">
-                    <ffimageloading:CachedImage
+                    <brainystories:LoadingImage
                             Aspect="AspectFit"
                             Source="BackButton.png">
-                    </ffimageloading:CachedImage>
+                    </brainystories:LoadingImage>
                     <ContentView.GestureRecognizers>
                         <TapGestureRecognizer Tapped="BackClicked" />
                     </ContentView.GestureRecognizers>
@@ -29,10 +30,10 @@
                 <ContentView
                     HeightRequest="50"
                     VerticalOptions="CenterAndExpand">
-                    <ffimageloading:CachedImage
+                    <brainystories:LoadingImage
                             Aspect="AspectFit"
                             Source="Home.png">
-                    </ffimageloading:CachedImage>
+                    </brainystories:LoadingImage>
                     <ContentView.GestureRecognizers>
                         <TapGestureRecognizer Tapped="HomeClicked" />
                     </ContentView.GestureRecognizers>
@@ -44,10 +45,10 @@
                         HeightRequest="100"
                         VerticalOptions="Center"
                         HorizontalOptions="End">
-                        <ffimageloading:CachedImage
+                        <brainystories:LoadingImage
                             Aspect="AspectFit"
                             Source="prize.png">
-                        </ffimageloading:CachedImage>
+                        </brainystories:LoadingImage>
                         <ContentView.GestureRecognizers>
                             <TapGestureRecognizer Tapped="PrizeTapped" />
                         </ContentView.GestureRecognizers>
@@ -68,10 +69,10 @@
                         HeightRequest="100"
                         VerticalOptions="Center"
                         HorizontalOptions="Center">
-                        <ffimageloading:CachedImage
+                        <brainystories:LoadingImage
                             Aspect="AspectFit"
                             Source="kitten.png">
-                        </ffimageloading:CachedImage>
+                        </brainystories:LoadingImage>
                         <ContentView.GestureRecognizers>
                             <TapGestureRecognizer Tapped="CatClicked" />
                         </ContentView.GestureRecognizers>
@@ -94,13 +95,13 @@
                         HorizontalOptions="End"
                         Grid.Row="0"
                         Grid.Column="0">
-                        <ffimageloading:CachedImage
+                        <brainystories:LoadingImage
                             Aspect="AspectFit"
                             Source="trophy.png">
-                        </ffimageloading:CachedImage>
-                        <ContentView.GestureRecognizers>
+                        </brainystories:LoadingImage>
+                        <!--<ContentView.GestureRecognizers>
                             <TapGestureRecognizer Tapped="StagePrizes" />
-                        </ContentView.GestureRecognizers>
+                        </ContentView.GestureRecognizers>-->
                     </ContentView>
 
                     <Label
@@ -136,12 +137,12 @@
                                     <OnIdiom x:TypeArguments="ffimageloading:CachedImage">
                                         <OnIdiom.Tablet>
                                             <!--Structured to allow for toggle between the Story View and the Prize View-->
-                                            <ffimageloading:CachedImage  VerticalOptions="Start"  Aspect="AspectFill" Margin="10,0,0, 10"
+                                            <brainystories:LoadingImage  VerticalOptions="Start"  Aspect="AspectFill" Margin="10,0,0, 10"
                                            WidthRequest="500" IsVisible="{Binding IsStoryVisible}" Source="{Binding Icon}" />
                                         </OnIdiom.Tablet>
                                         <OnIdiom.Phone>
                                             <!--Structured to allow for toggle between the Story View and the Prize View-->
-                                            <ffimageloading:CachedImage VerticalOptions="Start"  Aspect="AspectFit"
+                                            <brainystories:LoadingImage VerticalOptions="Start"  Aspect="AspectFit"
                                            WidthRequest="250" IsVisible="{Binding IsStoryVisible}" Source="{Binding Icon}" />
                                         </OnIdiom.Phone>
                                     </OnIdiom>
@@ -213,9 +214,9 @@
                                                 <OnIdiom.Tablet>
                                                     <ContentView
                                                         Grid.Row="0" Grid.Column="1" HorizontalOptions="End" WidthRequest= "50">
-                                                        <ffimageloading:CachedImage
+                                                        <brainystories:LoadingImage
                                                             Source="{Binding ThinkAndDo.Star1Image}" Aspect="AspectFit">
-                                                        </ffimageloading:CachedImage>
+                                                        </brainystories:LoadingImage>
                                                         <ContentView.GestureRecognizers>
                                                             <TapGestureRecognizer Tapped="StarTapped" CommandParameter="1" />
                                                         </ContentView.GestureRecognizers>
@@ -224,9 +225,9 @@
                                                 <OnIdiom.Phone>
                                                     <ContentView
                                                          Grid.Row="0" Grid.Column="1" HorizontalOptions="End" WidthRequest= "50">
-                                                        <ffimageloading:CachedImage
+                                                        <brainystories:LoadingImage
                                                              Source="{Binding ThinkAndDo.Star1Image}" Aspect="AspectFit">
-                                                        </ffimageloading:CachedImage>
+                                                        </brainystories:LoadingImage>
                                                         <ContentView.GestureRecognizers>
                                                             <TapGestureRecognizer Tapped="StarTapped" CommandParameter="1" />
                                                         </ContentView.GestureRecognizers>
@@ -237,9 +238,9 @@
                                             <!--Star 2-->
                                             <ContentView
                                                Grid.Row="0" Grid.Column="3" HorizontalOptions="End" WidthRequest= "50">
-                                                <ffimageloading:CachedImage
+                                                <brainystories:LoadingImage
                                                    Source="{Binding ThinkAndDo.Star2Image}" Aspect="AspectFit">
-                                                </ffimageloading:CachedImage>
+                                                </brainystories:LoadingImage>
                                                 <ContentView.GestureRecognizers>
                                                     <TapGestureRecognizer Tapped="StarTapped" CommandParameter="2" />
                                                 </ContentView.GestureRecognizers>
@@ -250,11 +251,11 @@
                                     <!--todo: width request for tablet-->
                                     <OnIdiom x:TypeArguments="ffimageloading:CachedImage">
                                         <OnIdiom.Tablet>
-                                            <ffimageloading:CachedImage
+                                            <brainystories:LoadingImage
                                                IsVisible="{Binding AreRewardsVisible}" WidthRequest="250" Source="{Binding Icon}" Aspect="AspectFill" Margin="5,0,0,5" />
                                         </OnIdiom.Tablet>
                                         <OnIdiom.Phone>
-                                            <ffimageloading:CachedImage
+                                            <brainystories:LoadingImage
                                                IsVisible="{Binding AreRewardsVisible}" WidthRequest="200" Source="{Binding Icon}" Aspect="AspectFit" Margin="0,0,0,0" />
                                         </OnIdiom.Phone>
                                     </OnIdiom>
@@ -276,10 +277,10 @@
                                                 <ContentView
                                                 Grid.Column="0"
                                                 Grid.Row="0">
-                                                    <ffimageloading:CachedImage
+                                                    <brainystories:LoadingImage
                                                         Aspect="AspectFit"
                                                         Source="{Binding Prize1}">
-                                                    </ffimageloading:CachedImage>
+                                                    </brainystories:LoadingImage>
                                                     <ContentView.GestureRecognizers>
                                                         <TapGestureRecognizer Tapped="PlayPrizeAudio" />
                                                     </ContentView.GestureRecognizers>
@@ -288,10 +289,10 @@
                                                 <ContentView
                                                 Grid.Column="1"
                                                 Grid.Row="0">
-                                                    <ffimageloading:CachedImage
+                                                    <brainystories:LoadingImage
                                                 Aspect="AspectFit"
                                                 Source="{Binding Prize2}">
-                                                    </ffimageloading:CachedImage>
+                                                    </brainystories:LoadingImage>
                                                     <ContentView.GestureRecognizers>
                                                         <TapGestureRecognizer Tapped="PlayPrizeAudio" />
                                                     </ContentView.GestureRecognizers>
@@ -300,10 +301,10 @@
                                                 <ContentView
                                                 Grid.Column="2"
                                                 Grid.Row="0">
-                                                    <ffimageloading:CachedImage
+                                                    <brainystories:LoadingImage
                                                 Aspect="AspectFit"
                                                 Source="{Binding Prize3}">
-                                                    </ffimageloading:CachedImage>
+                                                    </brainystories:LoadingImage>
                                                     <ContentView.GestureRecognizers>
                                                         <TapGestureRecognizer Tapped="PlayPrizeAudio" />
                                                     </ContentView.GestureRecognizers>
@@ -312,10 +313,10 @@
                                                 <ContentView
                                                 Grid.Column="3"
                                                 Grid.Row="0">
-                                                    <ffimageloading:CachedImage
+                                                    <brainystories:LoadingImage
                                                 Aspect="AspectFit"
                                                 Source="{Binding Prize4}">
-                                                    </ffimageloading:CachedImage>
+                                                    </brainystories:LoadingImage>
                                                     <ContentView.GestureRecognizers>
                                                         <TapGestureRecognizer Tapped="PlayPrizeAudio" />
                                                     </ContentView.GestureRecognizers>
@@ -324,10 +325,10 @@
                                                 <ContentView
                                                 Grid.Column="4"
                                                 Grid.Row="0">
-                                                    <ffimageloading:CachedImage
+                                                    <brainystories:LoadingImage
                                                 Aspect="AspectFit"
                                                 Source="{Binding Prize5}">
-                                                    </ffimageloading:CachedImage>
+                                                    </brainystories:LoadingImage>
                                                     <ContentView.GestureRecognizers>
                                                         <TapGestureRecognizer Tapped="PlayPrizeAudio" />
                                                     </ContentView.GestureRecognizers>
@@ -338,7 +339,7 @@
                                             Grid.Column="5"
                                             Grid.Row="0"
                                             HeightRequest="150">
-                                                    <ffimageloading:CachedImage
+                                                    <brainystories:LoadingImage
                                                 HorizontalOptions="EndAndExpand"
                                                 VerticalOptions="Center"
                                                 Source="trophy.png"
@@ -378,11 +379,11 @@
                                                     Grid.RowSpan="1"
                                                     Grid.Column="0"
                                                     Grid.Row="0">
-                                                    <ffimageloading:CachedImage
+                                                    <brainystories:LoadingImage
                                                          Margin="0,0,0,0"
                                                         Aspect="AspectFit"
                                                         Source="{Binding Prize1}">
-                                                    </ffimageloading:CachedImage>
+                                                    </brainystories:LoadingImage>
                                                     <ContentView.GestureRecognizers>
                                                         <TapGestureRecognizer Tapped="PlayPrizeAudio" />
                                                     </ContentView.GestureRecognizers>
@@ -392,10 +393,10 @@
                                                     Grid.RowSpan="1"
                                                     Grid.Column="1"
                                                     Grid.Row="0">
-                                                    <ffimageloading:CachedImage
+                                                    <brainystories:LoadingImage
                                                         Aspect="AspectFit"
                                                         Source="{Binding Prize2}">
-                                                    </ffimageloading:CachedImage>
+                                                    </brainystories:LoadingImage>
                                                     <ContentView.GestureRecognizers>
                                                         <TapGestureRecognizer Tapped="PlayPrizeAudio" />
                                                     </ContentView.GestureRecognizers>
@@ -405,10 +406,10 @@
                                                     Grid.RowSpan="1"
                                                     Grid.Column="2"
                                                     Grid.Row="0">
-                                                    <ffimageloading:CachedImage
+                                                    <brainystories:LoadingImage
                                                          Aspect="AspectFit"
                                                          Source="{Binding Prize3}">
-                                                    </ffimageloading:CachedImage>
+                                                    </brainystories:LoadingImage>
                                                     <ContentView.GestureRecognizers>
                                                         <TapGestureRecognizer Tapped="PlayPrizeAudio" />
                                                     </ContentView.GestureRecognizers>
@@ -417,10 +418,10 @@
                                                 <ContentView
                                                 Grid.Column="0"
                                                 Grid.Row="1">
-                                                    <ffimageloading:CachedImage
+                                                    <brainystories:LoadingImage
                                                 Aspect="AspectFit"
                                                 Source="{Binding Prize4}">
-                                                    </ffimageloading:CachedImage>
+                                                    </brainystories:LoadingImage>
                                                     <ContentView.GestureRecognizers>
                                                         <TapGestureRecognizer Tapped="PlayPrizeAudio" />
                                                     </ContentView.GestureRecognizers>
@@ -429,10 +430,10 @@
                                                 <ContentView
                                                 Grid.Column="1"
                                                 Grid.Row="1">
-                                                    <ffimageloading:CachedImage
+                                                    <brainystories:LoadingImage
                                                 Aspect="AspectFit"
                                                 Source="{Binding Prize5}">
-                                                    </ffimageloading:CachedImage>
+                                                    </brainystories:LoadingImage>
                                                     <ContentView.GestureRecognizers>
                                                         <TapGestureRecognizer Tapped="PlayPrizeAudio" />
                                                     </ContentView.GestureRecognizers>
@@ -444,7 +445,7 @@
                                                     Grid.Row="0"
                                                     Grid.RowSpan="2"
                                                     HeightRequest="150">
-                                                    <ffimageloading:CachedImage
+                                                    <brainystories:LoadingImage
                                                         HorizontalOptions="EndAndExpand"
                                                         VerticalOptions="Center"
                                                         Source="trophy.png"

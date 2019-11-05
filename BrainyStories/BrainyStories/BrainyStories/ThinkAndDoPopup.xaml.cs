@@ -53,7 +53,7 @@ namespace BrainyStories
             player.Load(audioFile);
             player.Volume = 1;
 
-            playButton = new CachedImage()
+            playButton = new LoadingImage()
             {
                 Source = "pause.png",
             };
@@ -73,7 +73,7 @@ namespace BrainyStories
                 HeightRequest = 50 // Controls size of area that can grab the slider
             };
 
-            CachedImage close = new CachedImage()
+            CachedImage close = new LoadingImage()
             {
                 Source = "CloseButton",
                 BackgroundColor = Color.Transparent

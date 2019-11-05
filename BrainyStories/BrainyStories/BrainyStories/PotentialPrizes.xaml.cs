@@ -42,7 +42,7 @@ namespace BrainyStories
                 contentView.SetValue(Grid.RowProperty, prize.Row);
                 contentView.SetValue(Grid.ColumnProperty, prize.Column);
 
-                var prizeImage = new CachedImage()
+                var prizeImage = new LoadingImage()
                 {
                     Source = prize.Name
                 };

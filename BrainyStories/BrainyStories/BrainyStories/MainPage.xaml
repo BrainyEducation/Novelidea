@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:brainystories="clr-namespace:BrainyStories"
              x:Class="BrainyStories.MainPage"
              NavigationPage.HasNavigationBar="false">
     <Grid x:Name="pageGrid" BackgroundColor="#99d9ea" Padding="5,5,5,5">
@@ -26,15 +27,15 @@
         </Grid.ColumnDefinitions>
 
         <!--<Brainy Stories Logo />-->
-
-        <ffimageloading:CachedImage
-            Source="logo.png"
+        <brainystories:LoadingImage
+             Source="logo.png"
              VerticalOptions="CenterAndExpand"
              HorizontalOptions="CenterAndExpand"
              Grid.Row="0"
              Grid.Column="1"
              Grid.RowSpan="2"
              Grid.ColumnSpan="8" />
+
         <!--<Two home page buttons />-->
         <Frame
             BorderColor="Black"
@@ -68,31 +69,31 @@
                        FontFamily="{StaticResource Comic}"
                        Text="Imagines" FontSize="35" FontAttributes="Bold" />
 
-                <ffimageloading:CachedImage
+                <brainystories:LoadingImage
                         Grid.Row="1"
                         Grid.Column="0"
                         Source="BS1_Shoe_1.png">
-                </ffimageloading:CachedImage>
-                <ffimageloading:CachedImage
+                </brainystories:LoadingImage>
+                <brainystories:LoadingImage
                         Grid.Row="1"
                         Grid.Column="1"
                         Source="BS1_Pump_2.png">
-                </ffimageloading:CachedImage>
-                <ffimageloading:CachedImage
+                </brainystories:LoadingImage>
+                <brainystories:LoadingImage
                         Grid.Row="1"
                         Grid.Column="2"
                         Source="BS1_Windows_3.png">
-                </ffimageloading:CachedImage>
-                <ffimageloading:CachedImage
+                </brainystories:LoadingImage>
+                <brainystories:LoadingImage
                         Grid.Row="1"
                         Grid.Column="3"
                         Source="BS1_Blink_4.png">
-                </ffimageloading:CachedImage>
-                <ffimageloading:CachedImage
+                </brainystories:LoadingImage>
+                <brainystories:LoadingImage
                         Grid.Row="1"
                         Grid.Column="4"
                         Source="BS1_Angel_5.png">
-                </ffimageloading:CachedImage>
+                </brainystories:LoadingImage>
             </Grid>
         </Frame>
 
@@ -134,31 +135,31 @@
                         Text="Stories" FontSize="35" FontAttributes="Bold"
                         Grid.Row="0" Grid.Column="2" />
 
-                <ffimageloading:CachedImage
+                <brainystories:LoadingImage
                         Grid.Row="1"
                         Grid.Column="0"
                         Source="BS1_Lion_6.png">
-                </ffimageloading:CachedImage>
-                <ffimageloading:CachedImage
+                </brainystories:LoadingImage>
+                <brainystories:LoadingImage
                         Grid.Row="1"
                         Grid.Column="1"
                         Source="BS1_Hen_7.png">
-                </ffimageloading:CachedImage>
-                <ffimageloading:CachedImage
+                </brainystories:LoadingImage>
+                <brainystories:LoadingImage
                         Grid.Row="1"
                         Grid.Column="2"
                         Source="BS1_Wolf_8.png">
-                </ffimageloading:CachedImage>
-                <ffimageloading:CachedImage
+                </brainystories:LoadingImage>
+                <brainystories:LoadingImage
                         Grid.Row="1"
                         Grid.Column="3"
                         Source="BS1_Elves_9.png">
-                </ffimageloading:CachedImage>
-                <ffimageloading:CachedImage
+                </brainystories:LoadingImage>
+                <brainystories:LoadingImage
                         Grid.Row="1"
                         Grid.Column="4"
                         Source="BS1_Pigs_10.png">
-                </ffimageloading:CachedImage>
+                </brainystories:LoadingImage>
             </Grid>
         </Frame>
 

@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:brainystories="clr-namespace:BrainyStories"
              x:Class="BrainyStories.StoryPage"
              NavigationPage.HasNavigationBar="false"
              BackgroundColor="#A9FFF7">
@@ -18,10 +19,10 @@
                 <ContentView
                     HeightRequest="50"
                     VerticalOptions="CenterAndExpand">
-                    <ffimageloading:CachedImage
+                    <brainystories:LoadingImage
                             Aspect="AspectFit"
                             Source="BackButton.png">
-                    </ffimageloading:CachedImage>
+                    </brainystories:LoadingImage>
                     <ContentView.GestureRecognizers>
                         <TapGestureRecognizer Tapped="BackClicked" />
                     </ContentView.GestureRecognizers>
@@ -30,10 +31,10 @@
                 <ContentView
                     HeightRequest="50"
                     VerticalOptions="CenterAndExpand">
-                    <ffimageloading:CachedImage
+                    <brainystories:LoadingImage
                             Aspect="AspectFit"
                             Source="Home.png">
-                    </ffimageloading:CachedImage>
+                    </brainystories:LoadingImage>
                     <ContentView.GestureRecognizers>
                         <TapGestureRecognizer Tapped="HomeClicked" />
                     </ContentView.GestureRecognizers>
@@ -49,7 +50,7 @@
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
                 <!--<End of Navigation Bar />-->
-                <ffimageloading:CachedImage  Grid.Column="0" Grid.Row="0" x:Name="StoryImage" />
+                <brainystories:LoadingImage  Grid.Column="0" Grid.Row="0" x:Name="StoryImage" />
                 <!--Imagines Control - Slider-->
                 <StackLayout Orientation="Horizontal" Grid.Column="0" Grid.Row="1">
                     <!--Play Button-->
@@ -57,9 +58,9 @@
                         HeightRequest = "40"
                         WidthRequest="50"
                         Margin="20">
-                        <ffimageloading:CachedImage
+                        <brainystories:LoadingImage
                             x:Name="PlayButton">
-                        </ffimageloading:CachedImage>
+                        </brainystories:LoadingImage>
                         <ContentView.GestureRecognizers>
                             <TapGestureRecognizer Tapped="PlayButtonClicked" />
                         </ContentView.GestureRecognizers>
@@ -67,9 +68,9 @@
 
                     <!--Quiz Button-->
                     <!--<ContentView>
-                        <ffimageloading:CachedImage
+                        <brainystories:LoadingImage
                             x:Name="QuizButton">
-                        </ffimageloading:CachedImage>
+                        </brainystories:LoadingImage>
                         <ContentView.GestureRecognizers>
                             <TapGestureRecognizer Tapped="" />
                         </ContentView.GestureRecognizers>
