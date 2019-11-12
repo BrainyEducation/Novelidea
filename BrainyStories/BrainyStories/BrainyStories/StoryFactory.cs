@@ -147,7 +147,7 @@ namespace BrainyStories
                         stories.Add(story3);
                         realmFile.Add(story3);
 
-                        endTimes = new int[] { 2, 34, 77, 105, 141, 179, 209, 223, 9999 };
+                        endTimes = new int[] { 3, 36, 82, 110, 146, 186, 216, 232, 9999 };
 
                         GenerateStoryPages(realmFile, BOY_CRIED_WOLF_ID, endTimes, "S3_TBWCW_1.png", "S3_TBWCW_2.jpg", "S3_TBWCW_3.jpg", "S3_TBWCW_4.jpg",
                             "S3_TBWCW_5.jpg", "S3_TBWCW_6.jpg", "S3_TBWCW_7.jpg", "S3_TBWCW_8.jpg", "S3_TBWCW_9.jpg");
