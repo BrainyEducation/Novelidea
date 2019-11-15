@@ -157,7 +157,7 @@ namespace BrainyStories
                         {
                             StoryId = ELVES_SHOEMAKER_ID,
                             Name = "The Elves and Shoemaker",
-                            Icon = "S4_TEATS_1.png",
+                            Icon = "S4_TEATS_1.jpg",
                             Appeal = (int)AppealType.General,
                             Description = "By secretly making shoes, two elves save a poor shoemaker and his wife; " +
                             "the man and wife make clothes to reward the elves, who leave when their help is no longer needed.",
@@ -173,10 +173,11 @@ namespace BrainyStories
                         stories.Add(story4);
                         realmFile.Add(story4);
 
-                        endTimes = new int[] { 4, 66, 100, 132, 152, 213, 297, 9999 };
+                        endTimes = new int[] { 5, 24, 67, 101, 132, 154, 180, 213, 259, 298, 336, 9999 };
 
-                        GenerateStoryPages(realmFile, ELVES_SHOEMAKER_ID, endTimes, "S4_TEATS_1.png", "S4_TEATS_2.jpg", "S4_TEATS_3.jpg", "S4_TEATS_4.jpg",
-                                "S4_TEATS_5.jpg", "S4_TEATS_6.jpg", "S4_TEATS_7.jpg", "S4_TEATS_7.jpg");
+                        GenerateStoryPages(realmFile, ELVES_SHOEMAKER_ID, endTimes, "S4_TEATS_1.jpg", "S4_TEATS_2.jpg", "S4_TEATS_3.jpg", "S4_TEATS_4.jpg",
+                            "S4_TEATS_5.jpg", "S4_TEATS_6.jpg", "S4_TEATS_7.jpg", "S4_TEATS_8.jpg", "S4_TEATS_9.jpg", "S4_TEATS_10.jpg", "S4_TEATS_11.jpg",
+                            "S4_TEATS_12.jpg");
 
                         //STORY 5
                         var story5 = new Story()
