@@ -1,43 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-<dict>
-	<key>UIDeviceFamily</key>
-	<array>
-		<integer>1</integer>
-		<integer>2</integer>
-	</array>
-	<key>UISupportedInterfaceOrientations</key>
-	<array>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
-	</array>
-	<key>UISupportedInterfaceOrientations~ipad</key>
-	<array>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
-	</array>
-	<key>MinimumOSVersion</key>
-	<string>8.0</string>
-	<key>CFBundleDisplayName</key>
-	<string>BrainyStories</string>
-	<key>CFBundleIdentifier</key>
-	<string>com.companyname.BrainyStories</string>
-	<key>CFBundleVersion</key>
-	<string>1.0</string>
-	<key>CFBundleName</key>
-	<string>BrainyStories</string>
-	<key>UIAppFonts</key>
-	<array>
-		<string>Comic.ttf</string>
-	</array>
-	<key>UIMainStoryboardFile</key>
-	<string>LaunchScreen</string>
-	<key>UIStatusBarHidden</key>
-	<true/>
-	<key>UIRequiresFullScreen</key>
-	<true/>
-	<key>XSAppIconAssets</key>
-	<string>Assets.xcassets/AppIcons1.appiconset</string>
-</dict>
+  <dict>
+    <key>UIDeviceFamily</key>
+    <array>
+      <integer>1</integer>
+      <integer>2</integer>
+    </array>
+    <key>UISupportedInterfaceOrientations</key>
+    <array>
+      <string>UIInterfaceOrientationLandscapeLeft</string>
+      <string>UIInterfaceOrientationLandscapeRight</string>
+    </array>
+    <key>UISupportedInterfaceOrientations~ipad</key>
+    <array>
+      <string>UIInterfaceOrientationLandscapeLeft</string>
+      <string>UIInterfaceOrientationLandscapeRight</string>
+    </array>
+    <key>MinimumOSVersion</key>
+    <string>8.0</string>
+    <key>CFBundleDisplayName</key>
+    <string>BrainyStories</string>
+    <key>CFBundleIdentifier</key>
+    <string>com.hearatale.brainystories1</string>
+    <key>CFBundleVersion</key>
+    <string>1.0</string>
+    <key>CFBundleName</key>
+    <string>BrainyStories</string>
+    <key>UIAppFonts</key>
+    <array>
+      <string>Comic.ttf</string>
+    </array>
+    <key>UIMainStoryboardFile</key>
+    <string>LaunchScreen</string>
+    <key>UIStatusBarHidden</key>
+    <true />
+    <key>UIRequiresFullScreen</key>
+    <true />
+    <key>XSAppIconAssets</key>
+    <string>Assets.xcassets/AppIcons.appiconset</string>
+  </dict>
 </plist>
