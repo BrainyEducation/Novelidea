@@ -100,6 +100,12 @@ namespace BrainyStories
             //set the total number of prizes
             var totalNumberOfPrizes = GetTotalPrizeCount(imaginesData);
 
+            if (Device.RuntimePlatform.Equals(Device.Android))
+            {
+                BackButton.WidthRequest = 50;
+                HomeButton.WidthRequest = 50;
+            }
+
             //set the number on the top right corner of the screen
             TotalPrizeCount.Text = Environment.NewLine + totalNumberOfPrizes.ToString();
             if (totalNumberOfPrizes > 9)

@@ -34,6 +34,12 @@ namespace BrainyStories
                 prizes = RealmFile.All<Prize>();
             }
 
+            if (Device.RuntimePlatform.Equals(Device.Android))
+            {
+                BackButton.WidthRequest = 50;
+                HomeButton.WidthRequest = 50;
+            }
+
             //populate prize screen
             foreach (var prize in prizes)
             {

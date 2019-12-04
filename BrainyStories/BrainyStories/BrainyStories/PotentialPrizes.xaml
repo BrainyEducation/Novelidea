@@ -16,6 +16,7 @@
               Orientation="Horizontal"
               BackgroundColor ="#A9FFF7">
                 <ContentView
+                    x:Name="BackButton"
                     HeightRequest="50"
                     VerticalOptions="CenterAndExpand">
                     <brainystories:LoadingImage
@@ -28,6 +29,7 @@
                 </ContentView>
 
                 <ContentView
+                    x:Name="HomeButton"
                     HeightRequest="50"
                     VerticalOptions="CenterAndExpand">
                     <brainystories:LoadingImage

@@ -80,6 +80,12 @@ namespace BrainyStories
             //QuizButton.BackgroundColor = Color.Green;
             //QuizButton.IsVisible = false;
 
+            if (Device.RuntimePlatform.Equals(Device.Android))
+            {
+                BackButton.WidthRequest = 50;
+                HomeButton.WidthRequest = 50;
+            }
+
             DurationLabel.Text = "0:00";
             DurationLabel.FontFamily = Device.RuntimePlatform == Device.Android ? "Comic.ttf#Comic" : "Comic";
             DurationLabel.Margin = 20;
