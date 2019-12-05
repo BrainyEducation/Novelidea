@@ -210,11 +210,13 @@ namespace BrainyStories
             var imageButton = (CachedImage)((ContentView)sender).Content;
 
             var realmFile = Realm.GetInstance(RealmConfiguration.DefaultConfiguration);
-            var prize = realmFile.All<Prize>()
-                .Where(x => x.Name.Equals(((FileImageSource)imageButton.Source).File.ToString())).FirstOrDefault();
+            var prize = new Prize();
+            var audioString = realmFile.All<Prize>()
+                .Where(x => x.Name.Equals(((FileImageSource)imageButton.Source).File.ToString())).FirstOrDefault().Audio;
+
             //play audio to describe the prize
-            player = CrossSimpleAudioPlayer.Current;
-            player.Load(prize.Audio);
+            player = CrossSimpleAudioPlayer.CreateSimpleAudioPlayer(); //CrossSimpleAudioPlayer.Current;
+            player.Load(audioString);
             player.Volume = 1;
             player.Play();
             player.PlaybackEnded += EndAudio;
