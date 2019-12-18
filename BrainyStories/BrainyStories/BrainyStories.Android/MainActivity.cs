@@ -25,6 +25,7 @@ namespace BrainyStories.Droid
             //Sept 2019: This adds the FF Image Loading library
             FFImageLoading.Forms.Platform.CachedImageRenderer.Init(true);
             LoadApplication(new App());
+            this.Window.SetFlags(WindowManagerFlags.KeepScreenOn, WindowManagerFlags.KeepScreenOn);
         }
 
         public override void OnBackPressed()

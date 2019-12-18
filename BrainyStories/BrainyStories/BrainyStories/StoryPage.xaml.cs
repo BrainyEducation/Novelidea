@@ -84,6 +84,11 @@ namespace BrainyStories
             {
                 BackButton.WidthRequest = 50;
                 HomeButton.WidthRequest = 50;
+                StoryImage.Aspect = Aspect.AspectFit;
+            }
+            else
+            {
+                StoryImage.Aspect = Aspect.Fill;
             }
 
             DurationLabel.Text = "0:00";
@@ -91,9 +96,9 @@ namespace BrainyStories
             DurationLabel.Margin = 20;
 
             CurrentStoryPage = StoryPages.First();
+
             //story content
             StoryImage.Source = CurrentStoryPage.Image;
-            StoryImage.Aspect = Aspect.Fill;
 
             player = Plugin.SimpleAudioPlayer.CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
 
