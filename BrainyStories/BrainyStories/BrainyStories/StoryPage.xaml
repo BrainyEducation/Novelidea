@@ -7,19 +7,18 @@
              NavigationPage.HasNavigationBar="false"
              BackgroundColor="#A9FFF7">
     <ContentPage.Content>
-        <StackLayout Orientation="Vertical"
-           VerticalOptions="FillAndExpand"
+        <StackLayout Orientation="Horizontal"
+           HorizontalOptions="FillAndExpand"
            CompressedLayout.IsHeadless="True"
            x:Name="TopStack">
             <!--<Start of Navigation Bar />-->
-            <StackLayout VerticalOptions="Start"
-                HorizontalOptions="FillAndExpand"
-                Orientation="Horizontal"
-                BackgroundColor ="#A9FFF7">
+            <StackLayout HorizontalOptions="Start"
+                VerticalOptions="FillAndExpand"
+                Orientation="Vertical">
                 <ContentView
                      x:Name="BackButton"
                     HeightRequest="50"
-                    VerticalOptions="CenterAndExpand">
+                    HorizontalOptions="CenterAndExpand">
                     <brainystories:LoadingImage
                             Aspect="AspectFit"
                             Source="BackButton.png">
@@ -32,7 +31,7 @@
                 <ContentView
                     x:Name="HomeButton"
                     HeightRequest="50"
-                    VerticalOptions="CenterAndExpand">
+                    HorizontalOptions="CenterAndExpand">
                     <brainystories:LoadingImage
                             Aspect="AspectFit"
                             Source="Home.png">
@@ -43,7 +42,7 @@
                 </ContentView>
             </StackLayout>
             <Grid
-                VerticalOptions="FillAndExpand">
+                HorizontalOptions="FillAndExpand">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="8*" />
                     <RowDefinition Height="2*" />
@@ -51,8 +50,7 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
-                <!--<End of Navigation Bar />-->
-                <brainystories:LoadingImage  Grid.Column="0" Grid.Row="0" x:Name="StoryImage" />
+                <brainystories:LoadingImage Grid.Column="0" Grid.Row="0" x:Name="StoryImage" />
                 <!--Imagines Control - Slider-->
                 <StackLayout Orientation="Horizontal" Grid.Column="0" Grid.Row="1">
                     <!--Play Button-->

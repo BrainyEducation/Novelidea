@@ -90,8 +90,9 @@ namespace BrainyStories
             //only react if the user is able to select a prize
             if (StoryId != String.Empty)
             {
-                //confirm that the user wants this prize
-                if (await ShowConfirmationDialog())
+                //Dec 2019 - removing the confirmation prompt at Walter's request.
+                //Leaving this commented out in case he wants it in the future
+                if (true /*await ShowConfirmationDialog()*/)
                 {
                     var realmFile = Realm.GetInstance(RealmConfiguration.DefaultConfiguration);
                     //lookup the story in the database and add the selected prize

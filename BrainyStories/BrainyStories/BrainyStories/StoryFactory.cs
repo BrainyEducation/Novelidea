@@ -254,7 +254,7 @@ namespace BrainyStories
                         imagines.Add(imagine1);
                         realmFile.Add<Story>(imagine1);
 
-                        var endTimes = new int[] { 8, 43, 67, 86, 9999 };
+                        var endTimes = new int[] { 6, 41, 65, 84, 9999 };
 
                         GenerateStoryPages(realmFile, imagine1.StoryId, endTimes, "I1_IASW_1.jpg", "I1_IASW_2.jpg",
                             "I1_IASW_3.jpg", "I1_IASW_4.jpg", "I1_IASW_5.jpg");
@@ -301,7 +301,7 @@ namespace BrainyStories
                         imagines.Add(imagine3);
                         realmFile.Add<Story>(imagine3);
 
-                        endTimes = new int[] { 5, 34, 59, 86, 108, 9999 };
+                        endTimes = new int[] { 3, 32, 57, 84, 106, 9999 };
 
                         GenerateStoryPages(realmFile, imagine3.StoryId, endTimes, "I3_TUDW_1.jpg", "I3_TUDW_2.jpg", "I3_TUDW_3.jpg",
                             "I3_TUDW_4.jpg", "I3_TUDW_5.jpg", "I3_TUDW_6.jpg");

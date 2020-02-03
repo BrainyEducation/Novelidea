@@ -65,9 +65,11 @@
                     <ColumnDefinition Width="1*" />
                 </Grid.ColumnDefinitions>
 
-                <Label x:Name="ImaginesLabel" Grid.Row="0" Grid.ColumnSpan="5" HorizontalTextAlignment="Center"
+                <Label x:Name="ImaginesLabel"
+                       HorizontalTextAlignment="Center"
                        FontFamily="{StaticResource Comic}"
-                       Text="Imagines" FontSize="35" FontAttributes="Bold" />
+                       Text="Imagines" FontSize="35" FontAttributes="Bold"
+                       Grid.Row="0" Grid.Column="2" />
 
                 <brainystories:LoadingImage
                         Grid.Row="1"
