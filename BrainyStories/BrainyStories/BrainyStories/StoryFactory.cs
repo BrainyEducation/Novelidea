@@ -279,10 +279,10 @@ namespace BrainyStories
                         imagines.Add(imagine2);
                         realmFile.Add<Story>(imagine2);
 
-                        endTimes = new int[] { 4, 31, 55, 66, 71, 98, 9999 };
+                        endTimes = new int[] { 4, 31, 55, 66, 71, 9999 };
 
                         GenerateStoryPages(realmFile, imagine2.StoryId, endTimes, "I2_DYPYL_1.jpg", "I2_DYPYL_2.jpg", "I2_DYPYL_3.jpg",
-                            "I2_DYPYL_4.jpg", "I2_DYPYL_5.jpg", "I2_DYPYL_6.jpg", "I2_DYPYL_7.jpg");
+                            "I2_DYPYL_4.jpg", "I2_DYPYL_5.jpg", "I2_DYPYL_6.jpg");
 
                         var imagine3 = new Story()
                         {
